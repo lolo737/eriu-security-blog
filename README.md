@@ -1,4 +1,4 @@
-# security-awareness_piece
+# Plug &amp; Prey
 
 A security-awareness blog post on **BadUSB / HID-injection attacks** — written in plain language for people who aren't security engineers. Awareness and defence only; no build instructions.
 
@@ -15,7 +15,7 @@ A security-awareness blog post on **BadUSB / HID-injection attacks** — written
 
 With GitHub Pages enabled (Settings → Pages → Deploy from a branch → `main` / root), the article is live at:
 
-**https://lolo737.github.io/security-awareness_piece/**
+**https://lolo737.github.io/Plug_and_Prey/**
 
 `index.html` is the landing page (the article); `poster.html` is the poster on its own.
 
