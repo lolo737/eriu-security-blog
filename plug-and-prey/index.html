@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plug &amp; Prey — the trusted device that turns on you</title>
+<meta name="description" content="A plain-language guide to BadUSB / HID-injection attacks, for people who aren't security engineers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cy:#00dbcc; --am:#ffb81a; --rd:#f54447; --gn:#40ea99;
+    --ink:#d7e7ea; --soft:#aec3c7; --mut:#7f969b; --line:rgba(0,219,204,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(90% 40% at 50% -5%, rgba(0,219,204,.10), transparent 60%),
+      linear-gradient(180deg,#041216 0%,#02090b 100%);
+    background-attachment:fixed;
+    color:var(--ink);font-family:'Inter',system-ui,sans-serif;
+    line-height:1.72;font-size:18px;-webkit-font-smoothing:antialiased;
+    padding:0 18px 80px}
+  .wrap{max-width:720px;margin:0 auto}
+
+  header.top{border-bottom:1px solid var(--line);padding:22px 0;margin-bottom:40px;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .brand{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--cy)}
+  .brand b{color:var(--ink);font-weight:500}
+  .toplink{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;
+    color:var(--am);text-decoration:none;border:1px solid rgba(255,184,26,.5);
+    padding:6px 12px;border-radius:6px}
+  .toplink:hover{background:rgba(255,184,26,.1)}
+
+  h1.title{font-family:'Oswald',sans-serif;font-weight:700;line-height:1.02;
+    font-size:clamp(40px,8vw,66px);letter-spacing:.005em;color:#eafcfd;
+    text-transform:uppercase;margin-bottom:14px}
+  .deck{font-size:21px;color:var(--soft);line-height:1.5;max-width:620px}
+  .byline{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--mut);margin-top:22px}
+
+  figure.hero{margin:40px 0 8px}
+  figure.hero a{display:block;border:1px solid var(--line);border-radius:12px;overflow:hidden;
+    box-shadow:0 0 50px rgba(0,219,204,.10)}
+  figure.hero img{display:block;width:100%;height:auto}
+  figure.hero figcaption{font-family:'JetBrains Mono',monospace;font-size:12px;
+    color:var(--mut);margin-top:10px;text-align:center;letter-spacing:.06em}
+  figure.hero a:hover{border-color:rgba(0,219,204,.45)}
+
+  article{margin-top:46px}
+  article h2{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;
+    letter-spacing:.04em;font-size:27px;color:#eafcfd;margin:46px 0 16px;
+    padding-top:10px}
+  article h2 .num{color:var(--cy);margin-right:10px}
+  article p{margin:0 0 20px;color:var(--ink)}
+  article p.lead{font-size:20px}
+  article em{color:#eef7f8;font-style:italic}
+  article strong{color:#fff}
+  .kicker{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;
+    letter-spacing:.24em;text-transform:uppercase;color:var(--cy);
+    border:1px solid var(--line);border-radius:5px;padding:4px 10px;margin-bottom:14px}
+  ul{list-style:none;margin:0 0 22px;display:flex;flex-direction:column;gap:11px}
+  ul li{display:flex;gap:12px;color:var(--ink)}
+  ul li::before{content:"\25B8";flex:none;color:var(--am);font-weight:700}
+  ul.danger li::before{color:var(--rd)}
+  ul.defend li::before{color:var(--gn)}
+  ol.steps{list-style:none;counter-reset:s;margin:0 0 22px;display:flex;flex-direction:column;gap:12px}
+  ol.steps li{counter-increment:s;display:flex;gap:16px;align-items:baseline}
+  ol.steps li::before{content:counter(s);font-family:'Oswald',sans-serif;font-weight:700;
+    font-size:26px;color:var(--cy);flex:none;width:30px}
+  hr{border:0;border-top:1px solid var(--line);margin:40px 0}
+  .outro{color:var(--soft);font-size:16.5px;font-style:italic}
+  footer{margin-top:54px;padding-top:22px;border-top:1px solid var(--line);
+    font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.08em;
+    color:var(--mut);text-transform:uppercase;line-height:1.8}
+  a.inl{color:var(--cy)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="brand"><b>Eriu Technology</b> &nbsp;·&nbsp; Security Awareness</div>
+    <a class="toplink" href="poster.html">View the poster &rarr;</a>
+  </header>
+
+  <h1 class="title">Plug &amp; Prey</h1>
+  <p class="deck">The trusted device that turns on you — a plain-language guide to BadUSB / HID-injection attacks, for people who aren&rsquo;t security engineers.</p>
+  <div class="byline">Eriu Technology &nbsp;·&nbsp; 31 October 2026</div>
+
+  <figure class="hero">
+    <a href="poster.html"><img src="security-awareness_piece.png" alt="Plug &amp; Prey — BadUSB awareness poster"></a>
+    <figcaption>The one-page briefing. Click for the full-size poster.</figcaption>
+  </figure>
+
+  <article>
+
+    <span class="kicker">Curiosity and the car-park USB</span>
+    <p class="lead">Here&rsquo;s a thought to ruin your afternoon.</p>
+    <p>You find a USB stick on the ground outside work. No label — or worse, a label that&rsquo;s just a little too tempting. <em>Payroll. Private. Do Not Share.</em> You&rsquo;re only human. You want to know. So you carry it inside, sit down, and slot it into the machine in front of you. The work machine.</p>
+    <p>Now let&rsquo;s say you work for Bank of Ireland. Or a mortgage crowd. Or, God forbid, somewhere medical — where the thing at the far end of that network is a stranger&rsquo;s diagnosis, their test results, the worst day of their life sitting in a database.</p>
+    <p><strong>How fucked are you, exactly?</strong></p>
+    <p>Fairly. You weren&rsquo;t careless with a file, because there was no file. You didn&rsquo;t click a bad link, because there was no link. You plugged in what looked like a stick and your computer, being a trusting soul, decided it was a keyboard and let it type whatever it liked, faster than you could blink. By the time you&rsquo;ve pulled it out and told yourself you&rsquo;ll say nothing, the damage is done and there&rsquo;s nothing for the scanner to even find.</p>
+    <p>And the thing is — this isn&rsquo;t a hypothetical I dreamed up to frighten you.</p>
+    <p>One of my actual jobs, for a stretch, was walking back and forth between the various buildings of the Bundestag. The German parliament. And part of that walk, every single day, was collecting USB sticks. Off window ledges, out of toilets, down the side of chairs, in the car park. Six or seven a day, easy. Every one of them went straight in the bin. Not into a laptop to &ldquo;see who it belongs to.&rdquo; The bin.</p>
+    <p>Towards the end I started wearing a glove to pick them up. Half because I&rsquo;d a notion some of them might be dosed with something — acid, whatever your paranoid brain offers you at 7am — and half because once you&rsquo;ve done the job long enough you stop seeing a lost gadget and start seeing bait. Because that&rsquo;s what most of them were. Nobody loses six sticks a day by accident in a parliament. Somebody&rsquo;s leaving them.</p>
+    <p>So the next time you find one and feel that little itch of <em>I wonder</em> — remember that the whole attack is built on exactly that itch. The stick isn&rsquo;t lost. You&rsquo;re the one being found.</p>
+
+    <h2>The device you already trust</h2>
+    <p>Most security advice is about things you download: dodgy attachments, dodgy links, dodgy installers. So we train people not to click. Fair enough.</p>
+    <p>But there&rsquo;s a whole class of attack that never asks you to download a thing. It walks in the front door disguised as something you plug in every day — a memory stick, a mouse, a keyboard, even a charging cable — and your computer welcomes it without a word. It&rsquo;s called <strong>BadUSB</strong>, or an <strong>HID-injection attack</strong>, and this is the plain-English version of how it works and how you stop it.</p>
+
+    <h2>What it actually is</h2>
+    <p>A BadUSB device is a peripheral that lies about what it is.</p>
+    <p>You plug it in, and instead of behaving like the mouse or stick it appears to be, it quietly tells the computer: <em>&ldquo;I&rsquo;m a keyboard.&rdquo;</em> In the trade that&rsquo;s a <strong>Human Interface Device</strong>, or HID. And here&rsquo;s the catch that makes the whole thing work — machines trust keyboards completely. No install. No warning. No click. A keyboard is assumed to be a human being typing, and humans are allowed to do anything.</p>
+
+    <h2><span class="num">01</span>How the attack works</h2>
+    <ol class="steps">
+      <li>Plugged in — it looks like an ordinary stick, mouse or cable. Nothing to see.</li>
+      <li>It announces itself to the system as a keyboard.</li>
+      <li>The OS trusts it automatically — no prompt, no scan, no question asked.</li>
+      <li>It &ldquo;types&rdquo; a burst of commands far faster than any human could.</li>
+    </ol>
+    <p>In a few seconds it can open a foothold on the machine and then be pulled straight back out. There&rsquo;s no malicious file sitting on the disk afterwards — just a record of some keystrokes, if anyone even looks.</p>
+
+    <h2><span class="num">02</span>Why it&rsquo;s genuinely nasty</h2>
+    <ul class="danger">
+      <li><strong>There&rsquo;s nothing to scan.</strong> Antivirus looks for malicious files. This isn&rsquo;t a file — it&rsquo;s keystrokes. Nothing for the scanner to catch.</li>
+      <li><strong>It&rsquo;s fast, then it&rsquo;s gone.</strong> Seconds to run, then unplugged and out the door.</li>
+      <li><strong>It beats &ldquo;never download anything&rdquo; training.</strong> The whole attack needs no download, so the usual advice doesn&rsquo;t touch it.</li>
+      <li><strong>The trust is built-in.</strong> Every machine trusts its own keyboard, by default, forever. That&rsquo;s not a bug you can patch — it&rsquo;s how computers are meant to work.</li>
+    </ul>
+
+    <h2>Where it hides — the disguises</h2>
+    <p>The flashy proof-of-concept gadget is only the demo. The same trick fits inside anything you&rsquo;d plug in without thinking: a <strong>USB memory stick</strong>, a <strong>mouse</strong>, a <strong>keyboard</strong>, or a <strong>charging or data cable</strong>. If it plugs into a USB port, assume it <em>could</em> be one of these. The &ldquo;found a USB stick in the car park&rdquo; trope is a cliché precisely because it keeps working.</p>
+
+    <h2><span class="num">03</span>How you shut it down</h2>
+    <p>The good news: the defences are practical, and mostly about policy and habit rather than magic.</p>
+    <ul class="defend">
+      <li><strong>USB device control.</strong> Allow-list the devices you approve, and block new HIDs by policy. This is the big one.</li>
+      <li><strong>Lock down the ports.</strong> Cap or physically block unused USB ports on exposed or public-facing machines; port blockers are cheap.</li>
+      <li><strong>Never plug in strays.</strong> No found sticks, no &ldquo;free&rdquo; cables at a conference, no mystery dongles. Ever.</li>
+      <li><strong>Flag new keyboards.</strong> Configure endpoints to prompt for approval when a brand-new keyboard suddenly appears.</li>
+      <li><strong>Physical control, autorun off.</strong> Keep machines where people can&rsquo;t quietly plug things in, and disable autorun.</li>
+    </ul>
+
+    <hr>
+    <p class="outro">An Eriu Technology security briefing. This is an awareness piece — concept, risk and defence only. It contains no build instructions, and it&rsquo;s here so people recognise the attack and lock it out, not reproduce it.</p>
+
+  </article>
+
+  <footer>
+    Directed by human error &nbsp;·&nbsp; Starring the device you already trust<br>
+    Eriu Technology &nbsp;·&nbsp; eriu.tech
+  </footer>
+
+</div>
+</body>
+</html>
