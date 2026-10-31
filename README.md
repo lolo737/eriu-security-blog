@@ -6,12 +6,17 @@ A security-awareness blog post on **BadUSB / HID-injection attacks** — written
 
 | File | What it is |
 |------|------------|
-| `security-awareness_piece.md` | The blog post (Markdown, with front-matter). |
-| `security-awareness_piece.png` | The poster graphic, 1800×3552, embedded at the top of the post. |
-| `index.html` | A self-contained HTML version of the poster (open in any browser; no dependencies bar optional web fonts). |
+| `index.html` | The blog post as a styled web page — this is the GitHub Pages landing page. |
+| `poster.html` | The standalone poster on its own page (linked from the article). |
+| `security-awareness_piece.png` | The poster graphic, 1800×3552, used as the article's hero image. |
+| `security-awareness_piece.md` | The post in Markdown with front-matter, for dropping into any other blog/CMS. |
 
-## Use
+## Published
 
-Drop `security-awareness_piece.md` into your blog/site; it references the PNG alongside it. Or publish `index.html` directly (e.g. GitHub Pages) for the interactive poster.
+With GitHub Pages enabled (Settings → Pages → Deploy from a branch → `main` / root), the article is live at:
+
+**https://lolo737.github.io/security-awareness_piece/**
+
+`index.html` is the landing page (the article); `poster.html` is the poster on its own.
 
 — *Eriu Technology*
