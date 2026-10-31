@@ -8,6 +8,26 @@ tags: [security-awareness, badusb, hid, smb-security]
 
 ![Plug & Prey — BadUSB awareness poster](./security-awareness_piece.png)
 
+## Curiosity and the car-park USB
+
+Here's a thought to ruin your afternoon.
+
+You find a USB stick on the ground outside work. No label — or worse, a label that's just a little too tempting. *Payroll.* *Private.* *Do Not Share.* You're only human. You want to know. So you carry it inside, sit down, and slot it into the machine in front of you. The work machine.
+
+Now let's say you work for Bank of Ireland. Or a mortgage crowd. Or, God forbid, somewhere medical — where the thing at the far end of that network is a stranger's diagnosis, their test results, the worst day of their life sitting in a database.
+
+How fucked are you, exactly?
+
+Fairly. You weren't careless with a file, because there was no file. You didn't click a bad link, because there was no link. You plugged in what looked like a stick and your computer, being a trusting soul, decided it was a keyboard and let it type whatever it liked, faster than you could blink. By the time you've pulled it out and told yourself you'll say nothing, the damage is done and there's nothing for the scanner to even find.
+
+And the thing is — this isn't a hypothetical I dreamed up to frighten you.
+
+One of my actual jobs, for a stretch, was walking back and forth between the various buildings of the Bundestag. The German parliament. And part of that walk, every single day, was collecting USB sticks. Off window ledges, out of toilets, down the side of chairs, in the car park. Six or seven a day, easy. Every one of them went straight in the bin. Not into a laptop to "see who it belongs to." The bin.
+
+Towards the end I started wearing a glove to pick them up. Half because I'd a notion some of them might be dosed with something — acid, whatever your paranoid brain offers you at 7am — and half because once you've done the job long enough you stop seeing a lost gadget and start seeing bait. Because that's what most of them were. Nobody loses six sticks a day by accident in a parliament. Somebody's leaving them.
+
+So the next time you find one and feel that little itch of *I wonder* — remember that the whole attack is built on exactly that itch. The stick isn't lost. You're the one being found.
+
 ## The device you already trust
 
 Most security advice is about things you download: dodgy attachments, dodgy links, dodgy installers. So we train people not to click. Fair enough.
