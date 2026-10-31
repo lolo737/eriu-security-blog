@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Phish &amp; Chips — Eriu Technology</title><meta name="description" content="How a single convincing email hands over the keys — and how to spot it before you click."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><style>
+  :root{--cy:#00dbcc;--am:#ffb81a;--rd:#f54447;--gn:#40ea99;--ink:#d7e7ea;--soft:#aec3c7;--mut:#7f969b;--line:rgba(0,219,204,.18);}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:radial-gradient(90% 40% at 50% -5%, rgba(0,219,204,.10), transparent 60%),linear-gradient(180deg,#041216 0%,#02090b 100%);background-attachment:fixed;color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.72;font-size:18px;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:720px;margin:0 auto}
+  header.top{border-bottom:1px solid var(--line);padding:22px 0;margin-bottom:40px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .brand{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--cy)}
+  .brand b{color:var(--ink);font-weight:500}
+  .brand a{color:var(--cy);text-decoration:none}
+  .toplink{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--am);text-decoration:none;border:1px solid rgba(255,184,26,.5);padding:6px 12px;border-radius:6px}
+  .toplink:hover{background:rgba(255,184,26,.1)}
+  h1.title{font-family:'Oswald',sans-serif;font-weight:700;line-height:1.02;font-size:clamp(40px,8vw,64px);letter-spacing:.005em;color:#eafcfd;text-transform:uppercase;margin-bottom:14px}
+  .deck{font-size:21px;color:var(--soft);line-height:1.5;max-width:620px}
+  .byline{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-top:22px}
+  figure.hero{margin:40px 0 8px}
+  figure.hero a{display:block;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 0 50px rgba(0,219,204,.10)}
+  figure.hero img{display:block;width:100%;height:auto}
+  figure.hero figcaption{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mut);margin-top:10px;text-align:center;letter-spacing:.06em}
+  figure.hero a:hover{border-color:rgba(0,219,204,.45)}
+  article{margin-top:46px}
+  article h2{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:27px;color:#eafcfd;margin:46px 0 16px;padding-top:10px}
+  article h2 .num{color:var(--cy);margin-right:10px}
+  article p{margin:0 0 20px;color:var(--ink)}
+  article p.lead{font-size:20px}
+  article em{color:#eef7f8;font-style:italic}
+  article strong{color:#fff}
+  .kicker{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--cy);border:1px solid var(--line);border-radius:5px;padding:4px 10px;margin-bottom:14px}
+  ul{list-style:none;margin:0 0 22px;display:flex;flex-direction:column;gap:11px}
+  ul li{display:flex;gap:12px;color:var(--ink)}
+  ul li::before{content:"\25B8";flex:none;color:var(--am);font-weight:700}
+  ul.danger li::before{color:var(--rd)}ul.defend li::before{color:var(--gn)}
+  ol.steps{list-style:none;counter-reset:s;margin:0 0 22px;display:flex;flex-direction:column;gap:12px}
+  ol.steps li{counter-increment:s;display:flex;gap:16px;align-items:baseline}
+  ol.steps li::before{content:counter(s);font-family:'Oswald',sans-serif;font-weight:700;font-size:26px;color:var(--cy);flex:none;width:30px}
+  .callout{border:2px solid var(--rd);background:rgba(245,68,71,.10);border-radius:12px;padding:20px 24px;margin:0 0 26px}
+  .callout b{display:block;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:22px;color:#ffd4d5;margin-bottom:8px}
+  .callout p{margin:0;color:#f3d9da;font-size:17px}
+  hr{border:0;border-top:1px solid var(--line);margin:40px 0}
+  .outro{color:var(--soft);font-size:16.5px;font-style:italic}
+  footer{margin-top:54px;padding-top:22px;border-top:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase;line-height:1.8}
+</style></head><body><div class="wrap">
+<header class="top"><div class="brand"><b>Eriu Technology</b> &nbsp;·&nbsp; Security Awareness</div><a class="toplink" href="../">&larr; All briefings</a></header>
+<h1 class="title">The Phish &amp; Chips</h1><p class="deck">How a single convincing email hands over the keys — and how to spot it before you click.</p><div class="byline">Eriu Technology &nbsp;·&nbsp; 31 October 2026</div>
+<figure class="hero"><a href="poster.html"><img src="the-phish-and-chips.png" alt="The Phish &amp; Chips poster"></a><figcaption>The one-page briefing. Click for the full-size poster.</figcaption></figure>
+<article>
+<span class="kicker">Caught on a busy Tuesday</span>
+<p class="lead">It's a Tuesday, you're twelve emails deep, and one says your Microsoft password expires today. Click here to keep your account.</p><p>The page looks right. The logo's right. You type your password, it says 'done,' and you move on with your day. So does the person now reading your mailbox.</p><p>Phishing isn't about being gullible. It's about being busy, and being caught at the right moment with the right-looking email.</p>
+<h2>What it actually is</h2><p>Phishing is a con dressed as a routine message — an email, text or DM that imitates something you trust and nudges you to click a link or hand over a password. Spear-phishing is the same thing aimed at you by name, with details that make it land.</p>
+<h2><span class="num">01</span>How it works</h2><ol class="steps"><li>A message arrives looking like a service you use — IT, a bank, a courier, a colleague.</li><li>It manufactures a reason to act now: expiry, a locked account, a missed parcel.</li><li>The link leads to a copy of the real login page.</li><li>You type your details in, and they're captured.</li></ol><p>→ With your password and your live session, they read your mail, reset other accounts, and phish your contacts as you.</p>
+<h2>The usual disguises</h2><p>Watch for the shapes these take:</p><ul><li><strong>'Password expires'</strong> — The classic Microsoft/Google scare.</li><li><strong>'Parcel held'</strong> — A small 'fee' or login to release it.</li><li><strong>'Shared document'</strong> — A fake file-share wanting your login.</li><li><strong>'From the boss'</strong> — A quick favour, a gift-card run.</li></ul>
+<div class="callout"><b>When in doubt, don't click — go direct</b><p>Never log in through a link in a message. If your bank or Microsoft 'needs' you, open the app or type the address yourself. A real service will survive you arriving the normal way.</p></div>
+<h2><span class="num">02</span>Why it's dangerous</h2><ul class="danger"><li><strong>It only takes one</strong> — one click, one tired moment, one person.</li><li><strong>The pages are perfect copies.</strong> The padlock on a fake page is still a padlock.</li><li><strong>It scales.</strong> One stolen mailbox phishes everyone you know, as you.</li><li><strong>It's the front door</strong> to ransomware, invoice fraud and account takeover.</li></ul>
+<h2><span class="num">03</span>How you stop it</h2><ul class="defend"><li><strong>Check the real sender address</strong>, not just the friendly display name.</li><li><strong>Hover the link</strong> before clicking — does it go where it claims?</li><li><strong>Go direct</strong> for logins: app or typed address, never the message's link.</li><li><strong>Turn on MFA</strong> everywhere — it blunts a stolen password.</li><li><strong>Slow down on 'urgent'</strong> — urgency is the oldest trick in the book.</li></ul>
+<hr><p class="outro">An Eriu Technology security briefing. Awareness and defence only. The cure isn't being clever — it's slowing down for the two seconds it takes to check.</p>
+</article>
+<footer>Eriu Technology &nbsp;·&nbsp; eriu.tech &nbsp;·&nbsp; Security-awareness briefings<br>Awareness &amp; defence only &nbsp;·&nbsp; No build instructions</footer>
+</div></body></html>

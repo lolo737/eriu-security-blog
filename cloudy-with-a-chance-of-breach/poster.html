@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cloudy with a Chance of Breach — Eriu Security Awareness</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><style>
+  :root{--cy:#00dbcc;--am:#ffb81a;--rd:#f54447;--gn:#40ea99;--ink:#d2e6ea;--mut:#8aa0a6;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#01080a;color:var(--ink);font-family:'Inter',system-ui,sans-serif;display:flex;justify-content:center;padding:28px 14px;min-height:100vh}
+  .poster{position:relative;width:100%;max-width:900px;overflow:hidden;border:1px solid rgba(0,219,204,.25);border-radius:6px;
+    background:radial-gradient(120% 60% at 50% -8%, rgba(0,219,204,.28), transparent 60%),radial-gradient(130% 55% at 50% 108%, rgba(245,68,71,.16), transparent 60%),linear-gradient(180deg,#053037 0%,#031417 42%,#01080a 100%);
+    box-shadow:0 0 70px rgba(0,219,204,.12), inset 0 0 160px rgba(0,0,0,.8);padding:46px 40px 34px}
+  .poster::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;background:repeating-linear-gradient(180deg,rgba(0,0,0,.26) 0 1px,transparent 1px 5px);mix-blend-mode:multiply;opacity:.55}
+  .poster::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;box-shadow:inset 0 0 180px 40px rgba(0,0,0,.9)}
+  .layer{position:relative;z-index:4}
+  .classbar{border:1px solid rgba(0,219,204,.7);background:rgba(0,219,204,.08);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--cy);text-transform:uppercase;padding:9px 12px;text-align:center}
+  .hero{text-align:center;padding:34px 0 6px}
+  .title{font-family:'Oswald','Arial Narrow',Impact,sans-serif;font-weight:700;line-height:.92;font-size:clamp(52px,11vw,104px);letter-spacing:.01em;color:#eafcfd;text-shadow:-3px 0 rgba(245,68,71,.85),3px 0 rgba(0,219,204,.85),0 0 34px rgba(0,219,204,.5);text-transform:uppercase}
+  .tag{font-family:'Oswald','Arial Narrow',Impact,sans-serif;font-weight:600;color:var(--am);letter-spacing:.1em;font-size:clamp(15px,2.5vw,23px);margin-top:18px;text-transform:uppercase}
+  .sub{max-width:680px;margin:14px auto 0;color:#bcd2d6;font-size:16px;line-height:1.5}
+  .stack{display:flex;flex-direction:column;gap:22px;margin-top:30px}
+  .panel{border:1.5px solid;border-radius:14px;padding:22px 26px 24px;background:rgba(5,16,19,.72)}
+  .p-cy{border-color:rgba(0,219,204,.85)}.p-am{border-color:rgba(255,184,26,.85)}.p-rd{border-color:rgba(245,68,71,.85)}.p-gn{border-color:rgba(64,234,153,.85)}
+  .kick{font-family:'Oswald','Arial Narrow',Impact,sans-serif;font-weight:700;letter-spacing:.14em;font-size:19px;text-transform:uppercase;margin-bottom:12px}
+  .kick.cy{color:var(--cy)}.kick.am{color:var(--am)}.kick.rd{color:var(--rd)}.kick.gn{color:var(--gn)}
+  .body{font-size:16.5px;line-height:1.5;color:var(--ink)}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
+  .step{background:rgba(0,219,204,.08);border-radius:10px;padding:12px 14px 15px}
+  .step .n{font-family:'Oswald','Arial Narrow',Impact,sans-serif;font-weight:700;font-size:30px;color:var(--cy);line-height:1}
+  .step .t{font-size:13.5px;line-height:1.32;color:var(--ink);margin-top:6px}
+  .ex{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+  .e{background:rgba(255,184,26,.08);border-radius:10px;padding:14px 13px 15px}
+  .e b{display:block;font-family:'Oswald','Arial Narrow',Impact,sans-serif;font-weight:700;letter-spacing:.03em;font-size:15px;color:#ffe4a6;text-transform:uppercase;margin-bottom:6px}
+  .e span{font-size:13px;line-height:1.3;color:var(--ink)}
+  .alert{border:2px solid var(--rd);background:rgba(245,68,71,.12);border-radius:14px;padding:20px 24px;display:flex;gap:18px;align-items:flex-start}
+  .alert .bang{font-family:'Oswald','Arial Narrow',Impact,sans-serif;font-weight:700;font-size:40px;color:var(--rd);line-height:.9;flex:none}
+  .alert .atxt b{display:block;font-family:'Oswald','Arial Narrow',Impact,sans-serif;font-weight:700;letter-spacing:.06em;font-size:21px;color:#ffd4d5;text-transform:uppercase;margin-bottom:5px}
+  .alert .atxt span{font-size:15.5px;line-height:1.45;color:#f3d9da}
+  ul.hit{list-style:none;display:flex;flex-direction:column;gap:9px}
+  ul.hit li{display:flex;gap:11px;font-size:16px;line-height:1.42}
+  ul.hit li::before{content:"\25B8";font-weight:700;flex:none}
+  .rd li::before{color:var(--rd)}.gn li::before{color:var(--gn)}
+  .credits{text-align:center;margin-top:26px;color:var(--mut);font-family:'JetBrains Mono',monospace}
+  .credits .c1{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#9fb6bb}
+  .credits .c2{font-size:11px;letter-spacing:.1em;margin-top:8px;line-height:1.6;text-transform:uppercase}
+</style></head><body><div class="poster"><div class="layer">
+<div class="classbar">Security Awareness Briefing &nbsp;//&nbsp; Eriu Technology &nbsp;//&nbsp; Defensive Use Only</div>
+<div class="hero"><h1 class="title">CLOUDY, CHANCE<br>OF BREACH</h1><div class="tag">They didn't hack the cloud. They logged in as you.</div><p class="sub">Microsoft 365 and Google account takeover — and the 'approve this app' box that hands over the keys.</p></div>
+<div class="stack">
+<section class="panel p-cy"><div class="kick cy">01 / What it is</div><p class="body">Account takeover is an attacker getting into your Microsoft 365 or Google account and operating as you. A sneaky variant is malicious OAuth consent: instead of your password, you grant a dodgy app ongoing access to your mailbox and files by clicking 'Allow' — and MFA doesn't stop it.</p></section>
+<section class="panel p-cy"><div class="kick cy">02 / How it works</div><div class="steps"><div class="step"><div class="n">1</div><div class="t">They phish your login, or get you to 'approve' a malicious app.</div></div><div class="step"><div class="n">2</div><div class="t">They're in as you — mail, files, contacts, calendar.</div></div><div class="step"><div class="n">3</div><div class="t">They set a hidden forwarding rule and read quietly.</div></div><div class="step"><div class="n">4</div><div class="t">They use your account to invoice-scam your contacts and reach further in.</div></div></div><p class="body" style="color:var(--am);font-weight:600;font-size:15.5px">→ From inside your mailbox they see everything, and they're trusted by everyone you deal with.</p></section>
+<section class="panel p-am"><div class="kick am">How they get in</div><p class="body">A few well-worn routes:</p><div class="ex"><div class="e"><b>Phished password</b><span>The classic fake login page.</span></div><div class="e"><b>'Approve this app'</b><span>Malicious OAuth consent — MFA won't help.</span></div><div class="e"><b>Hidden mail rules</b><span>Auto-forwarding you never set.</span></div><div class="e"><b>Stale accounts</b><span>Dormant logins, weak or shared.</span></div></div></section>
+<section class="alert"><div class="bang">!</div><div class="atxt"><b>Read the 'Allow' box before you click it</b><span>Those 'this app wants access to your mail and files' screens are a real attack, not a formality. Don't approve apps you didn't deliberately set up, and have an admin lock down who can grant consent. Check your mailbox for forwarding rules you didn't create.</span></div></section>
+<section class="panel p-rd"><div class="kick rd">03 / Why it's dangerous</div><ul class="hit rd"><li>MFA doesn't stop OAuth consent — you handed over access willingly.</li><li>Hidden forwarding rules leak your mail silently for months.</li><li>Your account is trusted by every client and colleague.</li><li>One login guards the whole business now it's all in the cloud.</li></ul></section>
+<section class="panel p-gn"><div class="kick gn">04 / How you stop it</div><ul class="hit gn"><li>Turn on MFA for every cloud account — it stops most takeovers.</li><li>Restrict app consent to admins; review connected apps.</li><li>Check for rogue forwarding rules regularly.</li><li>Use conditional access — flag impossible logins and new locations.</li><li>Disable dormant accounts and kill shared logins.</li></ul></section>
+</div>
+<div class="credits"><div class="c1">Not hacked · Just logged in as you</div><div class="c2">An Eriu Technology security briefing &nbsp;·&nbsp; Awareness &amp; defence only</div></div>
+</div></div></body></html>

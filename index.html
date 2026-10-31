@@ -1,137 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Eriu Technology — Security Awareness</title>
 <meta name="description" content="Plain-language security-awareness briefings for Irish SMBs, from Eriu Technology. Story-led, no jargon, defence only.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --cy:#00dbcc; --am:#ffb81a; --rd:#f54447; --gn:#40ea99;
-    --ink:#d7e7ea; --soft:#aec3c7; --mut:#7f969b; --line:rgba(0,219,204,.18);
-  }
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"><style>
+  :root{--cy:#00dbcc;--am:#ffb81a;--rd:#f54447;--gn:#40ea99;--ink:#d7e7ea;--soft:#aec3c7;--mut:#7f969b;--line:rgba(0,219,204,.18);}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    background:
-      radial-gradient(90% 38% at 50% -5%, rgba(0,219,204,.12), transparent 60%),
-      linear-gradient(180deg,#041216 0%,#02090b 100%);
-    background-attachment:fixed;
-    color:var(--ink);font-family:'Inter',system-ui,sans-serif;
-    line-height:1.7;font-size:18px;-webkit-font-smoothing:antialiased;padding:0 18px 90px}
+  body{background:radial-gradient(90% 38% at 50% -5%, rgba(0,219,204,.12), transparent 60%),linear-gradient(180deg,#041216 0%,#02090b 100%);background-attachment:fixed;color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.7;font-size:18px;-webkit-font-smoothing:antialiased;padding:0 18px 90px}
   .wrap{max-width:820px;margin:0 auto}
-
-  header.top{border-bottom:1px solid var(--line);padding:22px 0;margin-bottom:54px;
-    display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-  .brand{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.22em;
-    text-transform:uppercase;color:var(--cy)}
-  .brand b{color:var(--ink);font-weight:500}
-  .brand a{color:var(--am);text-decoration:none}
-
+  header.top{border-bottom:1px solid var(--line);padding:22px 0;margin-bottom:54px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .brand{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--cy)}
+  .brand b{color:var(--ink);font-weight:500}.brand a{color:var(--am);text-decoration:none}
   .hero{margin-bottom:56px}
-  h1{font-family:'Oswald',sans-serif;font-weight:700;line-height:1.0;
-    font-size:clamp(42px,8vw,72px);text-transform:uppercase;color:#eafcfd;letter-spacing:.005em;margin-bottom:18px}
+  h1{font-family:'Oswald',sans-serif;font-weight:700;line-height:1.0;font-size:clamp(42px,8vw,72px);text-transform:uppercase;color:#eafcfd;letter-spacing:.005em;margin-bottom:18px}
   .hero p{font-size:21px;color:var(--soft);max-width:620px;line-height:1.5}
-  .hero .meta{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--mut);margin-top:22px}
-
-  .seclabel{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;
-    text-transform:uppercase;color:var(--cy);margin-bottom:22px;border-bottom:1px solid var(--line);padding-bottom:10px}
-
+  .hero .meta{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-top:22px}
+  .seclabel{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--cy);margin-bottom:22px;border-bottom:1px solid var(--line);padding-bottom:10px}
   .posts{display:flex;flex-direction:column;gap:26px}
-  .card{display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:stretch;
-    border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;
-    background:rgba(5,16,19,.55);transition:border-color .15s,transform .15s}
+  .card{display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:stretch;border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;background:rgba(5,16,19,.55);transition:border-color .15s,transform .15s}
   .card:hover{border-color:rgba(0,219,204,.5);transform:translateY(-2px)}
   .card .thumb{overflow:hidden;background:#01080a;border-right:1px solid var(--line)}
   .card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
   .card .txt{padding:22px 24px 22px 0;display:flex;flex-direction:column;justify-content:center}
-  .card h2{font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;
-    font-size:26px;color:#eafcfd;letter-spacing:.01em;margin-bottom:8px}
+  .card h2{font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:26px;color:#eafcfd;letter-spacing:.01em;margin-bottom:8px}
   .card .sub{color:var(--am);font-size:14px;font-weight:600;margin-bottom:10px}
   .card .hook{color:var(--soft);font-size:16px;line-height:1.5}
-  .card .read{color:var(--cy);font-family:'JetBrains Mono',monospace;font-size:12.5px;
-    letter-spacing:.1em;margin-top:14px;text-transform:uppercase}
-
-  .soon{margin-top:50px}
-  .soon ul{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
-  .soon li{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--mut);
-    border:1px solid var(--line);border-radius:20px;padding:6px 14px}
-
-  footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--line);
-    font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase;line-height:1.9}
-
-  @media(max-width:540px){
-    .card{grid-template-columns:1fr}
-    .card .thumb{height:150px;border-right:0;border-bottom:1px solid var(--line)}
-    .card .txt{padding:0 22px 22px}
-  }
-</style>
-</head>
-<body>
-<div class="wrap">
-
-  <header class="top">
-    <div class="brand"><b>Eriu Technology</b> &nbsp;·&nbsp; Security Awareness</div>
-    <div class="brand"><a href="https://eriu.tech">eriu.tech &rarr;</a></div>
-  </header>
-
-  <section class="hero">
-    <h1>Security, in plain English.</h1>
-    <p>Short, story-led briefings on the threats that actually hit small businesses — no jargon, no scare-selling, just what the attack is and how you lock it out. Awareness and defence only.</p>
-    <div class="meta">Eriu Technology &nbsp;·&nbsp; for Irish SMBs</div>
-  </section>
-
-  <div class="seclabel">The Briefings</div>
-  <div class="posts">
-
-    <a class="card" href="./plug-and-prey/">
-      <div class="thumb"><img src="./plug-and-prey/security-awareness_piece.png" alt="Plug &amp; Prey poster"></div>
-      <div class="txt">
-        <h2>Plug &amp; Prey</h2>
-        <div class="sub">It looks like a mouse. It types like an intruder.</div>
-        <div class="hook">The USB stick you found outside work, and why plugging it in is the whole attack. BadUSB / HID-injection, in plain English.</div>
-        <div class="read">Read the briefing &rarr;</div>
-      </div>
-    </a>
-
-    <a class="card" href="./free-wifi/">
-      <div class="thumb"><img src="./free-wifi/free_wifi_dear_price.png" alt="Free Wi-Fi, Dear Price poster"></div>
-      <div class="txt">
-        <h2>Free Wi-Fi, Dear Price</h2>
-        <div class="sub">The network with no password has no conscience.</div>
-        <div class="hook">The Faustian pact at the departure gate — evil-twin hotspots, what they can read, and why you never bank on public Wi-Fi.</div>
-        <div class="read">Read the briefing &rarr;</div>
-      </div>
-    </a>
-
-  </div>
-
-  <div class="soon">
-    <div class="seclabel" style="margin-top:0">Coming in the series</div>
-    <ul>
-      <li>Wire &amp; Deceit</li>
-      <li>The Phish &amp; Chips</li>
-      <li>Held to Ransom</li>
-      <li>Keys to the Kingdom</li>
-      <li>The Voice on the Phone</li>
-      <li>The Leaving Do</li>
-      <li>Cloudy with a Chance of Breach</li>
-      <li>Shadow IT</li>
-      <li>Patch or Perish</li>
-      <li>The Lost Laptop</li>
-      <li>The Smart Office</li>
-      <li>GDPR for the Terrified</li>
-    </ul>
-  </div>
-
-  <footer>
-    Eriu Technology &nbsp;·&nbsp; eriu.tech &nbsp;·&nbsp; Security-awareness briefings<br>
-    Awareness &amp; defence only &nbsp;·&nbsp; No build instructions
-  </footer>
-
+  .card .read{color:var(--cy);font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.1em;margin-top:14px;text-transform:uppercase}
+  footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase;line-height:1.9}
+  @media(max-width:540px){.card{grid-template-columns:1fr}.card .thumb{height:150px;border-right:0;border-bottom:1px solid var(--line)}.card .txt{padding:0 22px 22px}}
+</style></head><body><div class="wrap">
+<header class="top"><div class="brand"><b>Eriu Technology</b> &nbsp;·&nbsp; Security Awareness</div><div class="brand"><a href="https://eriu.tech">eriu.tech &rarr;</a></div></header>
+<section class="hero"><h1>Security, in plain English.</h1>
+<p>Short, story-led briefings on the threats that actually hit small businesses — no jargon, no scare-selling, just what the attack is and how you lock it out. Awareness and defence only.</p>
+<div class="meta">Eriu Technology &nbsp;·&nbsp; for Irish SMBs &nbsp;·&nbsp; 14 briefings</div></section>
+<div class="seclabel">The Briefings</div>
+<div class="posts">
+<a class="card" href="./plug-and-prey/"><div class="thumb"><img src="./plug-and-prey/security-awareness_piece.png" alt="Plug &amp; Prey poster" loading="lazy"></div><div class="txt"><h2>Plug &amp; Prey</h2><div class="sub">It looks like a mouse. It types like an intruder.</div><div class="hook">The USB stick you found outside work, and why plugging it in is the whole attack. BadUSB / HID-injection, in plain English.</div><div class="read">Read the briefing &rarr;</div></div></a>
+<a class="card" href="./free-wifi/"><div class="thumb"><img src="./free-wifi/free_wifi_dear_price.png" alt="Free Wi-Fi, Dear Price poster" loading="lazy"></div><div class="txt"><h2>Free Wi-Fi, Dear Price</h2><div class="sub">The network with no password has no conscience.</div><div class="hook">The Faustian pact at the departure gate — evil-twin hotspots, what they can read, and why you never bank on public Wi-Fi.</div><div class="read">Read the briefing &rarr;</div></div></a>
+<a class="card" href="./wire-and-deceit/"><div class="thumb"><img src="./wire-and-deceit/wire-and-deceit.png" alt="Wire &amp; Deceit poster" loading="lazy"></div><div class="txt"><h2>Wire &amp; Deceit</h2><div class="sub">The invoice was real. The bank details weren't.</div><div class="hook">How business email compromise quietly reroutes your money — and the one phone call that stops it.</div><div class="read">Read the briefing &rarr;</div></div></a>
+<a class="card" href="./the-phish-and-chips/"><div class="thumb"><img src="./the-phish-and-chips/the-phish-and-chips.png" alt="The Phish &amp; Chips poster" loading="lazy"></div><div class="txt"><h2>The Phish &amp; Chips</h2><div class="sub">One click, and the chips are down.</div><div class="hook">How a single convincing email hands over the keys — and how to spot it before you click.</div><div class="read">Read the briefing &rarr;</div></div></a>
+<a class="card" href="./held-to-ransom/"><div class="thumb"><img src="./held-to-ransom/held-to-ransom.png" alt="Held to Ransom poster" loading="lazy"></div><div class="txt"><h2>Held to Ransom</h2><div class="sub">Your files, locked. Your backup, untested.</div><div class="hook">How ransomware takes a business hostage — and why the backup you've never restored is just a prayer.</div><div class="read">Read the briefing &rarr;</div></div></a>
+<a class="card" href="./keys-to-the-kingdom/"><div class="thumb"><img src="./keys-to-the-kingdom/keys-to-the-kingdom.png" alt="Keys to the Kingdom poster" loading="lazy"></div><div class="txt"><h2>Keys to the Kingdom</h2><div class="sub">One password, every door.</div><div class="hook">Why reusing passwords hands over everything — and why MFA is the cheapest insurance you'll ever buy.</div><div class="read">Read the briefing &rarr;</div></div></a>
+<a class="card" href="./the-voice-on-the-phone/"><div class="thumb"><img src="./the-voice-on-the-phone/the-voice-on-the-phone.png" alt="The Voice on the Phone poster" loading="lazy"></div><div class="txt"><h2>The Voice on the Phone</h2><div class="sub">It sounded exactly like the boss. It wasn't.</div><div class="hook">AI voice-clones and deepfakes have given CEO fraud a human voice — here's how not to be fooled.</div><div class="read">Read the briefing &rarr;</div></div></a>
+<a class="card" href="./the-leaving-do/"><div class="thumb"><img src="./the-leaving-do/the-leaving-do.png" alt="The Leaving Do poster" loading="lazy"></div><div class="txt"><h2>The Leaving Do</h2><div class="sub">They left in March. Their logins didn't.</div><div class="hook">The accounts, keys and access that outlive an employee — and why offboarding is a security job, not just HR's.</div><div class="read">Read the briefing &rarr;</div></div></a>
+<a class="card" href="./cloudy-with-a-chance-of-breach/"><div class="thumb"><img src="./cloudy-with-a-chance-of-breach/cloudy-with-a-chance-of-breach.png" alt="Cloudy with a Chance of Breach poster" loading="lazy"></div><div class="txt"><h2>Cloudy with a Chance of Breach</h2><div class="sub">They didn't hack the cloud. They logged in as you.</div><div class="hook">Microsoft 365 and Google account takeover — and the 'approve this app' box that hands over the keys.</div><div class="read">Read the briefing &rarr;</div></div></a>
+<a class="card" href="./shadow-it/"><div class="thumb"><img src="./shadow-it/shadow-it.png" alt="Shadow IT poster" loading="lazy"></div><div class="txt"><h2>Shadow IT</h2><div class="sub">The tools you don't know you're using.</div><div class="hook">Every app a staff member signs up for holds a piece of your business — here's how to see the ones you can't.</div><div class="read">Read the briefing &rarr;</div></div></a>
+<a class="card" href="./patch-or-perish/"><div class="thumb"><img src="./patch-or-perish/patch-or-perish.png" alt="Patch or Perish poster" loading="lazy"></div><div class="txt"><h2>Patch or Perish</h2><div class="sub">The update you keep snoozing.</div><div class="hook">Why 'remind me tomorrow' leaves a door open at the back of the house — and how to stop the snooze.</div><div class="read">Read the briefing &rarr;</div></div></a>
+<a class="card" href="./the-lost-laptop/"><div class="thumb"><img src="./the-lost-laptop/the-lost-laptop.png" alt="The Lost Laptop poster" loading="lazy"></div><div class="txt"><h2>The Lost Laptop</h2><div class="sub">Nicked from the car in ninety seconds.</div><div class="hook">A lost laptop is an inconvenience if it's encrypted — and a data breach if it isn't.</div><div class="read">Read the briefing &rarr;</div></div></a>
+<a class="card" href="./the-smart-office/"><div class="thumb"><img src="./the-smart-office/the-smart-office.png" alt="The Smart Office poster" loading="lazy"></div><div class="txt"><h2>The Smart Office</h2><div class="sub">The printer has a password. It's still 'admin'.</div><div class="hook">Printers, cameras and routers are full computers on your network — and the ones nobody ever secures.</div><div class="read">Read the briefing &rarr;</div></div></a>
+<a class="card" href="./gdpr-for-the-terrified/"><div class="thumb"><img src="./gdpr-for-the-terrified/gdpr-for-the-terrified.png" alt="GDPR for the Terrified poster" loading="lazy"></div><div class="txt"><h2>GDPR for the Terrified</h2><div class="sub">The law, minus the fear and the consultants.</div><div class="hook">What data protection actually asks of a small Irish business — in plain words, without the jargon.</div><div class="read">Read the briefing &rarr;</div></div></a>
 </div>
-</body>
-</html>
+<footer>Eriu Technology &nbsp;·&nbsp; eriu.tech &nbsp;·&nbsp; Security-awareness briefings<br>Awareness &amp; defence only &nbsp;·&nbsp; No build instructions</footer>
+</div></body></html>
