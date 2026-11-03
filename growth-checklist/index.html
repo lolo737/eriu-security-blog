@@ -5,110 +5,113 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Eriu Growth Checklist</title>
-<meta name="description" content="A practical checklist for making Eriu Technology easier to find, easier to understand and easier to call.">
+<meta name="description" content="Eriu Technology's growth checklist, with worked answers and ready-to-use drafts.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cyan: #00dbcc;
-    --amber: #ffb81a;
-    --red: #f54447;
-    --green: #40ea99;
-    --ink: #d7e7ea;
-    --muted: #8aa0a6;
-    --panel: rgba(255,255,255,0.04);
-    --line: rgba(0,219,204,0.28);
+    --cyan: #00dbcc; --amber: #ffb81a; --red: #f54447; --green: #40ea99;
+    --ink: #d7e7ea; --muted: #8aa0a6; --panel: rgba(255,255,255,0.04); --line: rgba(0,219,204,0.28);
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    margin: 0;
-    color: var(--ink);
+    margin: 0; color: var(--ink);
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
-    font-size: 17px;
-    line-height: 1.6;
-    background: #02090a;
+    font-size: 17px; line-height: 1.6; background: #02090a;
     background-image: linear-gradient(180deg, #053a3c 0%, #031a1c 32%, #02090a 70%);
-    background-attachment: fixed;
-    min-height: 100vh;
+    background-attachment: fixed; min-height: 100vh;
   }
-  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px 80px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 80px; }
 
-  header { padding: 56px 0 28px; }
-  .kicker {
-    font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace;
-    font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
-    color: var(--amber); margin: 0 0 14px;
-  }
+  header { padding: 56px 0 24px; }
+  .kicker { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--amber); margin: 0 0 14px; }
   h1 {
-    font-family: 'Oswald', 'Arial Narrow', Impact, sans-serif;
-    font-weight: 700; font-size: clamp(40px, 9vw, 64px); line-height: 1.02;
-    text-transform: uppercase; letter-spacing: .01em; margin: 0 0 16px; color: #fff;
+    font-family: 'Oswald', 'Arial Narrow', Impact, sans-serif; font-weight: 700;
+    font-size: clamp(40px, 9vw, 64px); line-height: 1.02; text-transform: uppercase; letter-spacing: .01em; margin: 0 0 16px; color: #fff;
     text-shadow: -2px 0 rgba(245,68,71,.7), 2px 0 rgba(0,219,204,.7), 0 0 22px rgba(0,219,204,.35);
   }
-  .lede { font-size: 19px; color: var(--ink); margin: 0; max-width: 60ch; }
+  .lede { font-size: 19px; margin: 0; max-width: 60ch; }
 
-  .progress {
-    position: sticky; top: 0; z-index: 5;
-    background: rgba(2,9,10,.92); backdrop-filter: blur(6px);
-    border-bottom: 1px solid var(--line);
-    margin: 0 -20px; padding: 12px 20px;
-  }
-  .progress-row { display: flex; align-items: center; gap: 14px; max-width: 720px; margin: 0 auto; }
+  .brief { margin-top: 8px; border: 1.5px solid var(--amber); border-radius: 16px; background: rgba(255,184,26,.06); padding: 18px 20px; }
+  .brief .num { color: var(--amber); }
+  .brief dl { margin: 8px 0 14px; display: grid; gap: 8px 14px; grid-template-columns: 1fr; }
+  @media (min-width: 620px) { .brief dl { grid-template-columns: 130px 1fr; } }
+  .brief dt { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); padding-top: 4px; }
+  .brief dd { margin: 0; color: #fff; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  .progress { position: sticky; top: 0; z-index: 5; background: rgba(2,9,10,.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); margin: 22px -20px 0; padding: 12px 20px; }
+  .progress-row { display: flex; align-items: center; gap: 14px; max-width: 760px; margin: 0 auto; }
   .bar { flex: 1; height: 8px; background: rgba(255,255,255,.1); border-radius: 99px; overflow: hidden; }
   .fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--cyan), var(--green)); transition: width .25s ease; }
   .count { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: var(--muted); white-space: nowrap; }
 
-  nav { margin: 26px 0 8px; display: flex; flex-wrap: wrap; gap: 8px; }
-  nav a {
-    font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px;
-    color: var(--cyan); text-decoration: none; border: 1px solid var(--line);
-    border-radius: 99px; padding: 6px 14px;
-  }
+  nav { margin: 22px 0 8px; display: flex; flex-wrap: wrap; gap: 8px; }
+  nav a { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: var(--cyan); text-decoration: none; border: 1px solid var(--line); border-radius: 99px; padding: 6px 14px; }
   nav a:hover, nav a:focus-visible { background: rgba(0,219,204,.12); outline: none; }
 
   section { margin-top: 44px; scroll-margin-top: 70px; }
-  .num {
-    font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px;
-    color: var(--cyan); letter-spacing: .14em; margin: 0 0 6px;
-  }
-  h2 {
-    font-family: 'Oswald', 'Arial Narrow', Impact, sans-serif; font-weight: 700;
-    font-size: 32px; line-height: 1.1; text-transform: uppercase; margin: 0 0 10px; color: #fff;
-  }
+  .num { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: var(--cyan); letter-spacing: .14em; margin: 0 0 6px; text-transform: uppercase; }
+  h2 { font-family: 'Oswald', 'Arial Narrow', Impact, sans-serif; font-weight: 700; font-size: 32px; line-height: 1.1; text-transform: uppercase; margin: 0 0 10px; color: #fff; }
   .intro { color: var(--muted); margin: 0 0 18px; }
+  .notice { margin: 0 0 18px; border: 1.5px solid rgba(255,184,26,.55); border-radius: 14px; background: rgba(255,184,26,.07); padding: 12px 16px; font-size: 15px; }
+  .notice strong { color: var(--amber); }
 
-  ul.list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
-  .item {
-    display: flex; gap: 14px; align-items: flex-start;
-    background: var(--panel); border: 1.5px solid var(--line); border-radius: 14px;
-    padding: 14px 16px; cursor: pointer;
-  }
-  .item:hover { border-color: rgba(0,219,204,.6); }
-  .item input {
-    appearance: none; -webkit-appearance: none; flex: none;
-    width: 24px; height: 24px; margin: 2px 0 0; border-radius: 7px;
-    border: 2px solid var(--cyan); background: transparent; cursor: pointer; position: relative;
-  }
+  ul.list { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  .entry { background: var(--panel); border: 1.5px solid var(--line); border-radius: 16px; overflow: hidden; }
+  .entry.done { border-color: rgba(64,234,153,.5); }
+  .item { display: flex; gap: 14px; align-items: flex-start; padding: 14px 16px; cursor: pointer; }
+  .item:hover { background: rgba(0,219,204,.05); }
+  .item input { appearance: none; -webkit-appearance: none; flex: none; width: 24px; height: 24px; margin: 2px 0 0; border-radius: 7px; border: 2px solid var(--cyan); background: transparent; cursor: pointer; position: relative; }
   .item input:checked { background: var(--cyan); }
-  .item input:checked::after {
-    content: ''; position: absolute; left: 7px; top: 2px; width: 6px; height: 12px;
-    border: solid #02090a; border-width: 0 3px 3px 0; transform: rotate(45deg);
-  }
+  .item input:checked::after { content: ''; position: absolute; left: 7px; top: 2px; width: 6px; height: 12px; border: solid #02090a; border-width: 0 3px 3px 0; transform: rotate(45deg); }
   .item input:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+  .item .body { flex: 1; min-width: 0; }
   .item .t { font-weight: 600; color: #fff; display: block; }
   .item .d { color: var(--muted); font-size: 15px; display: block; margin-top: 2px; }
-  .item.done .t { color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(0,219,204,.6); }
+  .entry.done .item .t { color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(0,219,204,.6); }
 
-  .callout {
-    margin-top: 18px; border: 1.5px solid var(--red); border-radius: 14px;
-    background: rgba(245,68,71,.08); padding: 16px 18px;
-  }
+  .chip { flex: none; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; border-radius: 99px; padding: 3px 10px; white-space: nowrap; border: 1px solid; align-self: flex-start; }
+  .chip-done { color: var(--green); border-color: rgba(64,234,153,.6); background: rgba(64,234,153,.08); }
+  .chip-ready { color: var(--cyan); border-color: rgba(0,219,204,.55); background: rgba(0,219,204,.08); }
+  .chip-you { color: var(--amber); border-color: rgba(255,184,26,.6); background: rgba(255,184,26,.08); }
+  .chip-info { color: var(--ink); border-color: rgba(215,231,234,.4); }
+  @media (max-width: 520px) { .item { flex-wrap: wrap; } .item .body { flex: 1 1 calc(100% - 40px); } .item .chip { margin-left: 38px; order: 3; } }
+
+  .answer { border-top: 1px dashed var(--line); padding: 12px 16px 16px 54px; font-size: 16px; }
+  @media (max-width: 520px) { .answer { padding-left: 16px; } }
+  .alabel { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--green); margin-bottom: 6px; }
+  .answer p { margin: 0 0 10px; }
+  .answer ul, .answer ol { margin: 0 0 10px; padding-left: 22px; }
+  .answer li { margin: 3px 0; }
+  .answer a { color: var(--cyan); word-break: break-word; }
+  .answer code { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; background: rgba(255,255,255,.08); padding: 1px 6px; border-radius: 5px; word-break: break-all; }
+  .answer .note { color: var(--muted); font-size: 15px; border-left: 3px solid var(--amber); padding-left: 12px; }
+  .answer em { color: #fff; }
+
+  table.swap { border-collapse: collapse; width: 100%; font-size: 15px; margin: 0 0 12px; }
+  table.swap th { text-align: left; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); padding: 6px 8px; border-bottom: 1px solid var(--line); }
+  table.swap td { padding: 6px 8px; border-bottom: 1px solid rgba(255,255,255,.06); vertical-align: top; }
+
+  details.draft { margin-top: 10px; border: 1.5px solid rgba(255,184,26,.45); border-radius: 12px; background: rgba(255,184,26,.04); }
+  details.draft summary { cursor: pointer; padding: 10px 14px; font-weight: 600; color: var(--amber); list-style: none; }
+  details.draft summary::-webkit-details-marker { display: none; }
+  details.draft summary::before { content: '+ '; font-family: 'JetBrains Mono', monospace; }
+  details.draft[open] summary::before { content: '\2212  '; }
+  details.draft summary:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; border-radius: 10px; }
+  .drafthead { display: flex; justify-content: flex-end; padding: 0 14px; }
+  button.copy { font: inherit; font-size: 13px; color: #02090a; background: var(--amber); border: 0; border-radius: 99px; padding: 5px 14px; cursor: pointer; font-weight: 600; }
+  button.copy:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+  pre { margin: 8px 0 0; padding: 4px 14px 16px; white-space: pre-wrap; word-wrap: break-word; font-family: 'Inter', system-ui, sans-serif; font-size: 15px; line-height: 1.55; color: #fff; }
+
+  .callout { margin-top: 18px; border: 1.5px solid var(--red); border-radius: 14px; background: rgba(245,68,71,.08); padding: 16px 18px; }
   .callout strong { color: var(--red); font-family: 'Oswald', 'Arial Narrow', sans-serif; letter-spacing: .06em; text-transform: uppercase; }
-  .callout p { margin: 6px 0 0; }
+  .callout p { margin: 8px 0 0; font-size: 16px; }
+  .callout a { color: var(--cyan); }
 
-  .sectors { display: grid; gap: 12px; grid-template-columns: 1fr; margin-top: 6px; }
+  .sectors { display: grid; gap: 12px; grid-template-columns: 1fr; margin-top: 16px; }
   @media (min-width: 620px) { .sectors { grid-template-columns: 1fr 1fr; } }
   .sector { border: 1.5px solid rgba(255,184,26,.5); border-radius: 14px; padding: 16px 18px; background: rgba(255,184,26,.05); }
   .sector h3 { margin: 0 0 6px; font-family: 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; color: var(--amber); font-size: 20px; }
@@ -119,16 +122,27 @@
   .ref { border: 1.5px solid var(--line); border-radius: 14px; padding: 16px 18px; background: var(--panel); }
   .ref a { color: var(--cyan); font-weight: 600; word-break: break-word; }
   .ref a:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
-  .ref p { margin: 6px 0 0; color: var(--ink); font-size: 16px; }
+  .ref p { margin: 6px 0 0; font-size: 16px; }
   .tag { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: var(--green); text-transform: uppercase; letter-spacing: .1em; }
 
   footer { margin-top: 56px; border-top: 1px solid var(--line); padding-top: 20px; color: var(--muted); font-size: 14px; }
-  button.reset {
-    font: inherit; font-size: 14px; color: var(--ink); background: transparent;
-    border: 1px solid var(--line); border-radius: 99px; padding: 8px 16px; cursor: pointer; margin-top: 10px;
-  }
-  button.reset:hover, button.reset:focus-visible { border-color: var(--red); color: #fff; outline: none; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+  button.reset { font: inherit; font-size: 14px; color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 99px; padding: 8px 16px; cursor: pointer; }
+  button.reset:hover, button.reset:focus-visible { border-color: var(--cyan); color: #fff; outline: none; }
+  #reset:hover { border-color: var(--red); }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .fill { transition: none; } }
+
+  @media print {
+    body { background: #fff; color: #111; font-size: 12pt; }
+    .progress, nav, .actions, button.copy, .legend { display: none !important; }
+    h1, h2, .item .t, .brief dd, pre, .answer em { color: #000; text-shadow: none; }
+    .entry, .brief, .callout, .sector, .ref, details.draft, .notice { border-color: #999; background: none; break-inside: avoid; }
+    .item .d, .intro, .alabel, .tag, .kicker, .num { color: #444; }
+    .answer a, .ref a, .callout a { color: #0a5; }
+    .chip { color: #333; border-color: #999; background: none; }
+    section { margin-top: 24px; }
+  }
+
 </style>
 </head>
 <body>
@@ -137,8 +151,19 @@
   <header>
     <p class="kicker">Eriu Technology &middot; Working notes</p>
     <h1>Growth<br>Checklist</h1>
-    <p class="lede">Say what you fix. Make it easy to call. Turn up where local business owners are already looking. Tick things off as you go; your progress is saved in this browser.</p>
+    <p class="lede">Say what you fix. Make it easy to call. Turn up where local business owners are already looking. Each item has a worked answer or a draft you can use. Tick things off as you go; your progress is saved in this browser.</p>
   </header>
+
+  <div class="brief">
+    <p class="num">The short version</p>
+    <dl>
+      <dt>The problem</dt><dd>Small organisations rely on IT nobody has time to look after, so the owner ends up being the IT department.</dd>
+      <dt>What I offer</dt><dd>Eriu looks after your IT and security for one fixed monthly price, so it stops being something you have to think about.</dd>
+      <dt>Who for first</dt><dd>Construction SMEs (the invoice-redirect fraud hook) and fee-paying schools (through the Chamber and introductions).</dd>
+      <dt>Next three moves</dt><dd>1. Put the new first screen and phone number on the website. 2. Claim the Google Business Profile. 3. Publish LinkedIn post 2 and decide on Chamber membership.</dd>
+    </dl>
+    <div class="legend"><span class="chip chip-done">Done</span><span class="chip chip-ready">Answer or draft ready</span><span class="chip chip-you">Needs you</span><span class="chip chip-info">Advice</span></div>
+  </div>
 
   <div class="progress" role="status" aria-live="polite">
     <div class="progress-row">
@@ -152,144 +177,305 @@
     <a href="#website">2 &middot; Website</a>
     <a href="#found">3 &middot; Be found</a>
     <a href="#email">4 &middot; Email</a>
-    <a href="#refs">5 &middot; Examples</a>
+    <a href="#refs">5 &middot; Sources</a>
   </nav>
 
-  <!-- 1 -->
-  <section id="message">
-    <p class="num">01</p>
-    <h2>Start with the problem</h2>
-    <p class="intro">Do this before touching the website or writing a single email. Everything else follows from it.</p>
-    <ul class="list">
-      <li><label class="item"><input type="checkbox" data-id="m1"><span><span class="t">What problem am I solving for the business owner?</span><span class="d">One sentence, in their words, not mine.</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="m2"><span><span class="t">Pain reliever or gain creator?</span><span class="d">Do I take a headache away, or give them something they didn't have?</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="m3"><span><span class="t">What is it really about for them?</span><span class="d">Time saved, security, or peace of mind. The "what's in it for me" test.</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="m4"><span><span class="t">Write the value proposition</span><span class="d">One line. Working idea: managed IT, so the problem is solved and they're not distracted by it.</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="m5"><span><span class="t">Choose the sectors to focus on</span><span class="d">Two to start with, below.</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="m6"><span><span class="t">Look at competitors' websites</span><span class="d">Note what's clear, what's jargon, and what makes you trust them or not.</span></span></label></li>
-    </ul>
+  <section id="message"><p class="num">01</p><h2>Start with the problem</h2><p class="intro">Do this before touching the website or writing a single email. Everything else follows from it. These are my answers, based on what you've told me about Eriu. Read them, change anything that doesn't sound like you, then tick.</p><ul class="list"><li class="entry" id="i-m1">
+<label class="item"><input type="checkbox" data-id="m1"><span class="body"><span class="t">What problem am I solving for the business owner?</span><span class="d">One sentence, in their words, not mine.</span></span><span class="chip chip-ready">Answered</span></label>
+<div class="answer"><div class="alabel">Answer</div><p><strong>In their words:</strong> &ldquo;I just want the computers to work, and I don't want to be the one who gets the call when they don't.&rdquo;</p>
+<p><strong>The real problem underneath:</strong> small organisations rely on IT that nobody has time to look after properly. Things go quietly wrong (backups that don't restore, staff with access they shouldn't have, a scam email that gets clicked) and the owner or bursar ends up being the IT department at nine at night.</p></div></li><li class="entry" id="i-m2">
+<label class="item"><input type="checkbox" data-id="m2"><span class="body"><span class="t">Pain reliever or gain creator?</span><span class="d">Do I take a headache away, or give them something they didn&#x27;t have?</span></span><span class="chip chip-ready">Answered</span></label>
+<div class="answer"><div class="alabel">Answer</div><p><strong>Pain reliever first.</strong> Owners buy IT support to make a specific headache stop: outages, scams, lost files, being locked out. That's the door they come through.</p>
+<p>The gain comes second and is worth saying in one line: a fixed monthly cost and the feeling that someone competent is watching. Lead with the pain, finish with the gain.</p></div></li><li class="entry" id="i-m3">
+<label class="item"><input type="checkbox" data-id="m3"><span class="body"><span class="t">What is it really about for them?</span><span class="d">Time saved, security, or peace of mind. The &quot;what&#x27;s in it for me&quot; test.</span></span><span class="chip chip-ready">Answered</span></label>
+<div class="answer"><div class="alabel">Answer</div><p><strong>Peace of mind, then time. Security is how you deliver it, not what you sell.</strong></p>
+<ul><li><strong>Peace of mind:</strong> &ldquo;Someone is looking after this.&rdquo; This is the buying reason.</li>
+<li><strong>Time:</strong> fewer interruptions, fewer evenings spent on IT.</li>
+<li><strong>Security:</strong> the reason it matters now. Mention it, but don't lead with fear, as owners switch off from scare stories.</li></ul></div></li><li class="entry" id="i-m4">
+<label class="item"><input type="checkbox" data-id="m4"><span class="body"><span class="t">Write the value proposition</span><span class="d">One line. Working idea: managed IT, so the problem is solved and they&#x27;re not distracted by it.</span></span><span class="chip chip-ready">Answered</span></label>
+<div class="answer"><div class="alabel">Answer</div><p><strong>My pick:</strong> &ldquo;Eriu looks after your IT and security for one fixed monthly price, so it stops being something you have to think about.&rdquo;</p>
+<p>Two shorter options for the top of the website:</p>
+<ul><li>&ldquo;IT that just works. Security you don't have to think about.&rdquo;</li>
+<li>&ldquo;Your IT, looked after properly, by someone who knows your setup.&rdquo;</li></ul>
+<p class="note">The last one is true because you're one person. Say it as a strength: one person who knows your setup and picks up the phone.</p><details class="draft"><summary>Value proposition, ready to paste</summary><div class="drafthead"><button type="button" class="copy" data-target="m4-d0">Copy</button></div><pre id="m4-d0">Eriu looks after your IT and security for one fixed monthly price, so it stops being something you have to think about.</pre></details></div></li><li class="entry" id="i-m5">
+<label class="item"><input type="checkbox" data-id="m5"><span class="body"><span class="t">Choose the sectors to focus on</span><span class="d">Two to start with, below.</span></span><span class="chip chip-ready">Answered</span></label>
+<div class="answer"><div class="alabel">Answer</div><p><strong>Keep both, but run them differently.</strong> This is my judgement, not a fact, so overrule it if Noreen sees it otherwise.</p>
+<ul><li><strong>Construction SMEs:</strong> lots of them, short decisions, one owner who can say yes. The clearest hook is invoice-redirection fraud (see the post and email drafts below). Start outreach here.</li>
+<li><strong>Fee-paying schools:</strong> fewer of them, slower decisions, but long contracts and a bursar who values predictable costs. Reach them through the Chamber and introductions rather than cold email.</li></ul>
+<p class="note">Don't say you specialise in schools or building firms on the website until you have a first client in each. &ldquo;We work with schools and building firms&rdquo; is honest now; &ldquo;trusted by&rdquo; isn't.</p></div></li><li class="entry" id="i-m6">
+<label class="item"><input type="checkbox" data-id="m6"><span class="body"><span class="t">Look at competitors&#x27; websites</span><span class="d">Note what&#x27;s clear, what&#x27;s jargon, and what makes you trust them or not.</span></span><span class="chip chip-ready">First pass done</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>I read the three sites Noreen pointed you to. Look at them yourself too; this is a head start, not a replacement.</p>
+<ul>
+<li><strong>futurerange.ie:</strong> headline is &ldquo;We Know IT&rdquo;, which is confident but vague, and &ldquo;Managed Intelligence Provider&rdquo; is jargon. Phone number only appears near the bottom. Good: a low-pressure &ldquo;book a 30 minute consultation&rdquo; offer, named client testimonials, ISO 27001 badge.</li>
+<li><strong>everythingit.ie/about-us:</strong> builds trust in the right order: who we are, what we do, how we work. Plain tone, a real team photo, the phone number repeated, and a short &ldquo;what to expect&rdquo; list.</li>
+<li><strong>it.ie/it-support-tipperary:</strong> the place name is in the title, the H1 and the headings; a &ldquo;we understand your frustrations&rdquo; section; a four-step onboarding; schools among the named testimonials.</li>
+</ul>
+<p><strong>What to copy:</strong> a place name in the main heading; a short &ldquo;what happens next&rdquo; in four steps; your phone number at the top; a low-pressure first call.</p>
+<p><strong>What to avoid:</strong> abstract slogans, jargon job titles, and a phone number buried at the bottom.</p>
+<p class="note">You don't have testimonials or certifications yet, and shouldn't pretend to. Your trust signals are your background, the blog and the airport report.</p></div></li></ul><div class="sectors">
+  <div class="sector"><h3>Fee-paying schools</h3><ul><li>Better security</li><li>Predictable costs</li><li>Fewer distractions</li></ul></div>
+  <div class="sector"><h3>Construction SMEs</h3><ul><li>Invoice-redirect fraud is the clear hook</li><li>Many suppliers and subcontractors to keep track of</li><li>One owner who can decide quickly</li></ul></div>
+</div></section><section id="website"><p class="num">02</p><h2>The website</h2><p class="intro">A visitor should understand what you do, trust you, and know what to do next, all within a few seconds.</p><div class="notice"><strong>Honest limit:</strong> my environment couldn't open eriu.tech, so I haven't audited the live site. Everything below is copy ready to paste in, not a review of what's there now. Send me the site's source or give the go-ahead and I'll make the edits for you.</div><ul class="list"><li class="entry" id="i-w1">
+<label class="item"><input type="checkbox" data-id="w1"><span class="body"><span class="t">Make the value obvious and drop the tech language</span><span class="d">Plain words a busy owner understands. It should also feel reliable.</span></span><span class="chip chip-ready">Copy ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><p><strong>First screen of the homepage:</strong></p>
+<p><em>Heading:</em> IT that just works. Security you don't have to think about.<br>
+<em>Under it:</em> Eriu looks after IT and cyber security for small organisations in Fingal and north Dublin, for one fixed monthly price.<br>
+<em>Button:</em> Book a free 20-minute call</p>
+<p><strong>Swap the jargon:</strong></p>
+<table class="swap"><tr><th>Instead of</th><th>Say</th></tr>
+<tr><td>Managed services</td><td>We look after your IT</td></tr>
+<tr><td>Endpoint protection</td><td>Protection on every laptop and phone</td></tr>
+<tr><td>MFA</td><td>A second check when you log in</td></tr>
+<tr><td>Backup and disaster recovery</td><td>Your files can be restored if something goes wrong</td></tr>
+<tr><td>Patching</td><td>Keeping everything up to date</td></tr>
+<tr><td>Phishing</td><td>Scam emails</td></tr></table>
+<p class="note">&ldquo;Fingal and north Dublin&rdquo; is my guess at your area. Change it to wherever you really want to work.</p><details class="draft"><summary>Homepage first screen</summary><div class="drafthead"><button type="button" class="copy" data-target="w1-d0">Copy</button></div><pre id="w1-d0">IT that just works. Security you don&#x27;t have to think about.
 
-    <div class="sectors">
-      <div class="sector">
-        <h3>Fee-paying schools</h3>
-        <ul>
-          <li>Better security</li>
-          <li>Predictable costs</li>
-          <li>Fewer distractions</li>
-        </ul>
-      </div>
-      <div class="sector">
-        <h3>Construction SMEs</h3>
-        <ul>
-          <li>Same question: what problem are they actually having?</li>
-          <li>Work out the answer before writing to anyone.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+Eriu looks after IT and cyber security for small organisations in Fingal and north Dublin, for one fixed monthly price.
 
-  <!-- 2 -->
-  <section id="website">
-    <p class="num">02</p>
-    <h2>The website</h2>
-    <p class="intro">A visitor should understand what you do, trust you, and know what to do next, all within a few seconds.</p>
-    <ul class="list">
-      <li><label class="item"><input type="checkbox" data-id="w1"><span><span class="t">Make the value obvious and drop the tech language</span><span class="d">Plain words a busy owner understands. It should also feel reliable.</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="w2"><span><span class="t">Add a clear call to action</span><span class="d">Every page should tell the visitor what to do next.</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="w3"><span><span class="t">Put your phone number where it can be seen</span><span class="d">Top of the page, and again at the bottom.</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="w4"><span><span class="t">Set up a proper email footer</span><span class="d">Name, phone, website and LinkedIn on every email you send.</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="w5"><span><span class="t">Tell your story</span><span class="d">Make the Meet Niall section personal and approachable.</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="w6"><span><span class="t">Show you're an expert in your field</span><span class="d">Your security background, the awareness posts and the airport report all count.</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="w7"><span><span class="t">Add your LinkedIn profile to the Meet Niall section</span><span class="d">A simple credibility boost, and it makes the personal connection.</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="w8"><span><span class="t">Use images from your airside days</span><span class="d">Only ones that are yours to use. Check before publishing anything taken at work.</span></span></label></li>
-    </ul>
-  </section>
+[ Book a free 20-minute call ]    Or call +353 89 423 0610</pre></details></div></li><li class="entry" id="i-w2">
+<label class="item"><input type="checkbox" data-id="w2"><span class="body"><span class="t">Add a clear call to action</span><span class="d">Every page should tell the visitor what to do next.</span></span><span class="chip chip-ready">Copy ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><p><strong>One main action, one backup.</strong></p>
+<ul><li><strong>Main:</strong> &ldquo;Book a free 20-minute call&rdquo; (same wording on every page; don't mix with &ldquo;Get in touch&rdquo; and &ldquo;Let's work together&rdquo;).</li>
+<li><strong>Backup:</strong> &ldquo;Call Niall on +353 89 423 0610&rdquo;.</li></ul>
+<p>Add a short &ldquo;what happens next&rdquo; under the button, because it lowers the fear of a sales pitch:</p>
+<ol><li>We have a 20-minute call. No pressure.</li><li>I look at how your IT is set up today.</li><li>You get a plain-English summary and a fixed price.</li><li>If you'd like to go ahead, I look after the rest.</li></ol></div></li><li class="entry" id="i-w3">
+<label class="item"><input type="checkbox" data-id="w3"><span class="body"><span class="t">Put your phone number where it can be seen</span><span class="d">Top of the page, and again at the bottom.</span></span><span class="chip chip-ready">Copy ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>Put it in three places: the top-right of every page as a tap-to-call link, the hero button area, and the footer. On phones, add a small fixed &ldquo;Call&rdquo; button at the bottom of the screen.</p>
+<p>Link it so it dials with one tap. The code is <code>&lt;a href="tel:+353894230610"&gt;+353 89 423 0610&lt;/a&gt;</code>.</p>
+<p class="note">Check this is the number you want public. It's your mobile, so decide whether you want a separate business line later.</p></div></li><li class="entry" id="i-w4">
+<label class="item"><input type="checkbox" data-id="w4"><span class="body"><span class="t">Set up a proper email footer</span><span class="d">Name, phone, website and LinkedIn on every email you send.</span></span><span class="chip chip-ready">Footer ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>Footer ready to paste into Zoho Mail's signature settings. Irish companies must show certain details on business emails (typically the company name, registration number and registered office), so I've left a gap for the address. Check the exact list with your accountant.</p><details class="draft"><summary>Email footer (plain text)</summary><div class="drafthead"><button type="button" class="copy" data-target="w4-d0">Copy</button></div><pre id="w4-d0">Niall O&#x27;Hara
+Eriu Technology Ltd | IT and cyber security for small organisations
+Tel: +353 89 423 0610
+Email: hello@eriu.tech
+Web: eriu.tech
+LinkedIn: linkedin.com/in/niallx
 
-  <!-- 3 -->
-  <section id="found">
-    <p class="num">03</p>
-    <h2>Be found</h2>
-    <p class="intro">Local business owners look in a handful of places. Be in all of them, and keep the details identical everywhere.</p>
-    <ul class="list">
-      <li><label class="item"><input type="checkbox" data-id="f1"><span><span class="t">Optimise your LinkedIn profile</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="f2"><span><span class="t">Set up the LinkedIn business page</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="f3"><span><span class="t">Write five LinkedIn posts</span><span class="d">The airport report was the first. Four to go.</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="f4"><span><span class="t">Claim and complete the Google Business Profile</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="f5"><span><span class="t">Show up in local searches</span><span class="d">What does a school bursar type when their IT lets them down? Make sure you appear for that.</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="f6"><span><span class="t">Join the Chamber of Commerce</span><span class="d">Fingal Chamber is the local one.</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="f7"><span><span class="t">Set up a Facebook page</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="f8"><span><span class="t">Trusted Pros listing</span><span class="d">Confirm exactly which directory this means before signing up.</span></span></label></li>
-    </ul>
-  </section>
+Eriu Technology Limited. Registered in Ireland, company no. 817401.
+Registered office: [add your registered office address]</pre></details></div></li><li class="entry" id="i-w5">
+<label class="item"><input type="checkbox" data-id="w5"><span class="body"><span class="t">Tell your story</span><span class="d">Make the Meet Niall section personal and approachable.</span></span><span class="chip chip-ready">Draft ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>Written from what you've told me. Add one detail only you'd know, such as the first thing you fixed or a story from the airport, because that's what makes people remember you.</p><details class="draft"><summary>Meet Niall</summary><div class="drafthead"><button type="button" class="copy" data-target="w5-d0">Copy</button></div><pre id="w5-d0">Hi, I&#x27;m Niall.
 
-  <!-- 4 -->
-  <section id="email">
-    <p class="num">04</p>
-    <h2>Targeted email</h2>
-    <p class="intro">Small and specific beats big and vague. One sector, one problem, one thing to do next.</p>
-    <ul class="list">
-      <li><label class="item"><input type="checkbox" data-id="e1"><span><span class="t">Pick one sector per email</span><span class="d">Schools or construction, never both in the same message.</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="e2"><span><span class="t">Lead with their problem, not your services</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="e3"><span><span class="t">One clear call to action</span><span class="d">A call, a reply or a short meeting. Pick one.</span></span></label></li>
-      <li><label class="item"><input type="checkbox" data-id="e4"><span><span class="t">Phone number and LinkedIn link in the footer</span></span></label></li>
-    </ul>
-    <div class="callout">
-      <strong>Watch out</strong>
-      <p>Cold email to businesses has to comply with Irish and EU rules on marketing messages and data protection. Check the rules before building a list.</p>
-    </div>
-  </section>
+I&#x27;ve spent years looking after IT where nothing is allowed to go wrong: IT security at the German Bundestag, then IT support at Berlin Brandenburg Airport. In those places, a calm, uneventful day is the whole point.
 
-  <!-- 5 -->
+After years in Berlin I moved home to Skerries and set up Eriu Technology to do the same job for smaller organisations closer to home. (Ériu is an old name for Ireland.)
+
+What I took from those years is that serious problems are usually small things nobody had time to look at. So that&#x27;s what I do: I look at the small things first.
+
+You get one person who knows your setup, explains things in plain English, and picks up the phone. And you pay one fixed monthly price.
+
+[ Book a free 20-minute call ]     [ Connect with me on LinkedIn ]</pre></details></div></li><li class="entry" id="i-w6">
+<label class="item"><input type="checkbox" data-id="w6"><span class="body"><span class="t">Show you&#x27;re an expert in your field</span><span class="d">Your security background, the awareness posts and the airport report all count.</span></span><span class="chip chip-ready">Draft ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>You can't show clients or certifications you don't have, but you do have proof. Put it in a short strip under the hero:</p>
+<ul><li><strong>Where I've worked:</strong> IT security, German Bundestag. IT support, Berlin Brandenburg Airport.</li>
+<li><strong>What I publish:</strong> the Eriu security-awareness series (<em>Plug &amp; Prey</em>, <em>Free Wi-Fi, Dear Price</em>).</li>
+<li><strong>A worked example:</strong> the Airport Cyber Security Report, Illustrative Edition.</li></ul>
+<p>Then a &ldquo;Latest from the blog&rdquo; section with two or three posts, so the site never looks stale. A free one-page guide such as &ldquo;Five things a school bursar should check this week&rdquo; would give visitors a reason to leave their email (with consent boxes done properly).</p><details class="draft"><summary>Trust strip</summary><div class="drafthead"><button type="button" class="copy" data-target="w6-d0">Copy</button></div><pre id="w6-d0">Built on real experience
+
+- IT security at the German Bundestag
+- IT support at Berlin Brandenburg Airport
+- The Eriu security-awareness series, written in plain English
+- A published airport cyber security report</pre></details></div></li><li class="entry" id="i-w7">
+<label class="item"><input type="checkbox" data-id="w7"><span class="body"><span class="t">Add your LinkedIn profile to the Meet Niall section</span><span class="d">A simple credibility boost, and it makes the personal connection.</span></span><span class="chip chip-ready">Snippet ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>Use your profile at <a href="https://www.linkedin.com/in/niallx/" target="_blank" rel="noopener noreferrer">linkedin.com/in/niallx</a> (from Noreen's notes). Make it a button next to your photo, set to open in a new tab.</p><details class="draft"><summary>Button HTML</summary><div class="drafthead"><button type="button" class="copy" data-target="w7-d0">Copy</button></div><pre id="w7-d0">&lt;a class=&quot;button&quot; href=&quot;https://www.linkedin.com/in/niallx/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Connect with me on LinkedIn&lt;/a&gt;</pre></details></div></li><li class="entry" id="i-w8">
+<label class="item"><input type="checkbox" data-id="w8"><span class="body"><span class="t">Use images from your airside days</span><span class="d">Only ones that are yours to use. Check before publishing anything taken at work.</span></span><span class="chip chip-info">Advice</span></label>
+<div class="answer"><div class="alabel">Answer</div><p><strong>My advice: don't use photos taken at BER or the Bundestag.</strong> They belong in a grey area (employer property, security-sensitive locations, other people in shot), and for a security consultant, publishing the wrong image would be a bad look.</p>
+<p>Safer ways to get the same &ldquo;I've worked somewhere serious&rdquo; effect:</p>
+<ul><li>The hand-drawn airport turnaround scene I made for the airport report. It's original and yours.</li>
+<li>Your own photos: your workspace, tools, Skerries, you at a Chamber event.</li>
+<li>Words rather than pictures: &ldquo;IT support at Berlin Brandenburg Airport&rdquo; carries the credibility by itself.</li></ul></div></li></ul></section><section id="found"><p class="num">03</p><h2>Be found</h2><p class="intro">Local business owners look in a handful of places. Be in all of them, and keep the details identical everywhere.</p><div class="notice"><strong>What I can't do for you:</strong> posting, claiming Google and Facebook pages, and joining the Chamber all need your own accounts and logins. Everything is drafted so each is a copy-and-paste job. Say the word and I'll post to LinkedIn through your signed-in browser, one at a time, with your approval before each.</div><ul class="list"><li class="entry" id="i-f1">
+<label class="item"><input type="checkbox" data-id="f1"><span class="body"><span class="t">Optimise your LinkedIn profile</span></span><span class="chip chip-ready">Draft ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>Your address is already clean (<code>/in/niallx/</code>). Do these in order:</p>
+<ol><li>Replace the headline and About text with the drafts below.</li><li>Under Experience, add Eriu Technology as a current role.</li><li>Add the airport report and the blog to the Featured section.</li><li>Use the airport illustration as your banner.</li></ol>
+<p class="note">If you're still job hunting, set &ldquo;Open to work&rdquo; to recruiters only, so it doesn't undercut the consultancy message to everyone else.</p><details class="draft"><summary>Headline</summary><div class="drafthead"><button type="button" class="copy" data-target="f1-d0">Copy</button></div><pre id="f1-d0">IT and cyber security for small organisations in Fingal | Founder, Eriu Technology | Previously IT security, German Bundestag</pre></details><details class="draft"><summary>About</summary><div class="drafthead"><button type="button" class="copy" data-target="f1-d1">Copy</button></div><pre id="f1-d1">I look after IT and cyber security for small organisations in Fingal and north Dublin, so you don&#x27;t have to.
+
+Before Eriu, I worked in IT security at the German Bundestag and in IT support at Berlin Brandenburg Airport: places where a quiet, uneventful IT day is the goal. I moved home to Skerries and set up Eriu Technology to bring the same discipline to schools, building firms and other small teams.
+
+What that looks like: one person who knows your setup, plain-English advice, and one fixed monthly price.
+
+I also write the Eriu security-awareness series: short, readable pieces on the scams and slip-ups that actually catch people out.
+
+If IT is a source of low-level dread, let&#x27;s talk: hello@eriu.tech or +353 89 423 0610.</pre></details></div></li><li class="entry" id="i-f2">
+<label class="item"><input type="checkbox" data-id="f2"><span class="body"><span class="t">Set up the LinkedIn business page</span></span><span class="chip chip-ready">Draft ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>Create it from your own profile (Work menu, then Create a Company Page). Name: <strong>Eriu Technology</strong>. Industry: IT Services and IT Consulting. Size: 1 employee. Location: Skerries. Website: eriu.tech.</p><details class="draft"><summary>Tagline</summary><div class="drafthead"><button type="button" class="copy" data-target="f2-d0">Copy</button></div><pre id="f2-d0">IT and cyber security for small organisations in Fingal and north Dublin.</pre></details><details class="draft"><summary>About</summary><div class="drafthead"><button type="button" class="copy" data-target="f2-d1">Copy</button></div><pre id="f2-d1">Eriu Technology looks after IT and cyber security for small organisations in Fingal and north Dublin, including schools and building firms.
+
+We keep your computers, email and files running, protect them from scams and ransomware, and fix things quickly when they go wrong, for one fixed monthly price. You deal with one person who knows your setup and explains things in plain English.
+
+Based in Skerries, Co. Dublin. Book a free 20-minute call at eriu.tech.</pre></details></div></li><li class="entry" id="i-f3a">
+<label class="item"><input type="checkbox" data-id="f3a"><span class="body"><span class="t">Post 1: the airport report</span><span class="d">Done. Please leave the live post as it is.</span></span><span class="chip chip-done">Done</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>Live on your profile, linking to the GitHub repo. Nothing to do.</p></div></li><li class="entry" id="i-f3b">
+<label class="item"><input type="checkbox" data-id="f3b"><span class="body"><span class="t">Posts 2 to 5: publish the four drafts</span><span class="d">One a week. Tuesday to Thursday mornings are usually best for business posts.</span></span><span class="chip chip-ready">4 drafts ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>All four are written and ready. They're in the order I'd publish them. Where a post uses a figure, the source is named; check it again before you post.</p>
+<ul><li><strong>Post 2, Free Wi-Fi:</strong> broad, shareable, links to your blog.</li><li><strong>Post 3, invoice-redirect fraud:</strong> aimed at construction.</li><li><strong>Post 4, three questions for a school bursar:</strong> aimed at schools.</li><li><strong>Post 5, why I started Eriu:</strong> your story, once people have seen you a few times.</li></ul>
+<p class="note">Edit the voice if any line isn't how you'd say it. Posts that sound like you do better than polished ones.</p><details class="draft"><summary>Post 2: Free Wi-Fi</summary><div class="drafthead"><button type="button" class="copy" data-target="f3b-d0">Copy</button></div><pre id="f3b-d0">Free Wi-Fi isn&#x27;t free. It&#x27;s just paid for differently.
+
+Sit in any café or airport lounge and your phone offers you a dozen networks. Anyone with a laptop can broadcast one called &quot;Airport_Free_WiFi&quot; and watch what people do next. In 2024 Australian police charged a man over exactly that: fake Wi-Fi networks at airports that harvested people&#x27;s logins.
+
+Three habits that cost nothing:
+1. Treat public Wi-Fi as a stranger&#x27;s network, because it is.
+2. Don&#x27;t log in to anything important on it without a VPN.
+3. If a login page appears out of nowhere asking for your email and password, close it.
+
+I&#x27;ve written this up in plain English as part of the Eriu security series: https://lolo737.github.io/eriu-security-blog/
+
+#CyberSecurity #SmallBusiness #Ireland</pre></details><details class="draft"><summary>Post 3: Invoice redirection (construction)</summary><div class="drafthead"><button type="button" class="copy" data-target="f3b-d1">Copy</button></div><pre id="f3b-d1">A supplier emails to say their bank details have changed. You update them. Three weeks later they ask why you haven&#x27;t paid.
+
+That&#x27;s invoice-redirection fraud, and it&#x27;s the main email scam in the figures. FraudSMART, run by BPFI, reported that Irish SMEs lost almost €10 million to email-related scams in 2023, about €12,000 each time on average, and most cases were this exact trick.
+
+The fix isn&#x27;t clever software. It&#x27;s a rule: any change of bank details gets confirmed by phone, on a number you already had, before any money moves. Add a second person approving payments over a set amount, and two-step login on the email account that receives invoices.
+
+Building firms deal with a lot of suppliers and subcontractors, which is exactly why this scam lands. If you&#x27;d like a one-page checklist for your office, message me and I&#x27;ll send it over.
+
+#Construction #FraudAwareness #Ireland</pre></details><details class="draft"><summary>Post 4: Three questions for a school bursar</summary><div class="drafthead"><button type="button" class="copy" data-target="f3b-d2">Copy</button></div><pre id="f3b-d2">Three questions every school bursar should be able to answer about their IT, without phoning anyone:
+
+1. If a teacher deleted last Tuesday&#x27;s shared folder today, who can get it back, and how long would it take?
+2. Who has administrator access to your systems, and would you know if that list changed?
+3. When a member of staff leaves, how quickly does their access disappear?
+
+If the honest answer to any of them is &quot;I&#x27;m not sure&quot;, that&#x27;s not a failing. It&#x27;s a to-do. Schools hold sensitive information about children and families, and run on tight budgets and term-time deadlines, so predictable and boring is the goal.
+
+I look after IT and security for small organisations in north Dublin. If you&#x27;d like a no-pressure look at those three answers, send me a message.
+
+#Schools #DataProtection #Ireland</pre></details><details class="draft"><summary>Post 5: Why I started Eriu</summary><div class="drafthead"><button type="button" class="copy" data-target="f3b-d3">Copy</button></div><pre id="f3b-d3">A bit of background on why I keep posting about Wi-Fi and scams.
+
+I spent years in IT security at the German Bundestag, then IT support at Berlin Brandenburg Airport. In both places, a calm, uneventful IT day was the whole point. After years in Berlin I moved home to Skerries and, in 2026, set up Eriu Technology. (Ériu is an old name for Ireland.)
+
+What I took from those places: serious problems are usually small, ignored things nobody had time for. So my job is to look at the small things first, in plain English, for one fixed monthly price.
+
+If you run a school, a building firm or any small team and you&#x27;d like IT to be one less thing to think about, I&#x27;d be glad to hear from you: hello@eriu.tech</pre></details></div></li><li class="entry" id="i-f4">
+<label class="item"><input type="checkbox" data-id="f4"><span class="body"><span class="t">Claim and complete the Google Business Profile</span></span><span class="chip chip-you">Needs you to verify</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>Only you can claim and verify this (Google sends a code or asks for a short video). Set it up as a <strong>service-area business</strong> and hide your home address. Your registered office is your home, so you don't want it on a map.</p>
+<ul><li><strong>Name:</strong> Eriu Technology (exactly as it appears on the website; no extra keywords).</li>
+<li><strong>Category:</strong> choose from Google's list. &ldquo;Computer support and services&rdquo; or &ldquo;Managed service provider&rdquo; as primary, &ldquo;Computer security service&rdquo; as secondary.</li>
+<li><strong>Service area:</strong> Skerries, Rush, Lusk, Balbriggan, Swords, Malahide, Portmarnock, Howth, Fingal.</li>
+<li><strong>Hours:</strong> only what you will really answer.</li>
+<li><strong>Reviews:</strong> ask your first real clients. Never post your own.</li></ul><details class="draft"><summary>Business description (under 750 characters)</summary><div class="drafthead"><button type="button" class="copy" data-target="f4-d0">Copy</button></div><pre id="f4-d0">Eriu Technology looks after IT and cyber security for small organisations in Fingal and north Dublin, including schools and building firms. We keep your computers, email and files running, protect them from scams and ransomware, and fix things quickly when they go wrong, for one fixed monthly price. You deal with one person who knows your setup and explains things in plain English. Based in Skerries, covering Fingal, Swords, Malahide, Balbriggan and the wider north Dublin area. Call or book a free 20-minute chat.</pre></details><details class="draft"><summary>Services to list</summary><div class="drafthead"><button type="button" class="copy" data-target="f4-d1">Copy</button></div><pre id="f4-d1">Managed IT support
+Cyber security and scam protection
+Microsoft 365 set-up and support
+Backup and recovery
+Staff security awareness sessions
+New-starter and leaver set-up</pre></details></div></li><li class="entry" id="i-f5">
+<label class="item"><input type="checkbox" data-id="f5"><span class="body"><span class="t">Show up in local searches</span><span class="d">What does a school bursar type when their IT lets them down? Make sure you appear for that.</span></span><span class="chip chip-you">Searches to run</span></label>
+<div class="answer"><div class="alabel">Answer</div><p><strong>What they'd type:</strong></p>
+<ul><li>IT support for schools Dublin</li><li>IT support Fingal</li><li>managed IT services north Dublin</li><li>IT support Skerries / Swords / Balbriggan</li><li>IT support for construction companies Dublin</li><li>cyber security small business Dublin</li></ul>
+<p><strong>What I saw:</strong> a search for managed IT in Skerries and Fingal returned mostly national Irish IT firms, not anyone obviously based locally. That suggests an open lane for a genuinely local page, but my tool can't see Google's local map results, so run these yourself in a private window from Skerries and note who appears.</p>
+<p><strong>How to appear:</strong> build the pages the IT.ie Tipperary example uses, one each for &ldquo;IT support Fingal&rdquo;, &ldquo;IT support for schools&rdquo; and &ldquo;IT support for construction&rdquo;. Put the place name in the title, the main heading and the first paragraph, and keep your name, address (or service area) and phone identical on the website, Google, LinkedIn and the Chamber directory.</p></div></li><li class="entry" id="i-f6a">
+<label class="item"><input type="checkbox" data-id="f6a"><span class="body"><span class="t">Get in touch with Fingal Chamber</span><span class="d">You&#x27;ve done this.</span></span><span class="chip chip-done">Done</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>Done, as you've told me.</p></div></li><li class="entry" id="i-f6b">
+<label class="item"><input type="checkbox" data-id="f6b"><span class="body"><span class="t">Decide on membership and join</span><span class="d">Fingal Chamber is the local one.</span></span><span class="chip chip-you">Needs your decision</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>From the Chamber's plans page:</p>
+<ul><li><strong>Bronze, €410 a year:</strong> for businesses with under 10 employees and under €1m turnover. That's you. The page doesn't say if VAT is included, so ask.</li>
+<li><strong>Includes:</strong> a directory profile, monthly B2B networking, posting your news and offers, the members' newsletter and app, reduced-rate Skillnet training.</li>
+<li><strong>Apply:</strong> through the &ldquo;Become a Bronze member&rdquo; link on fingalchamber.ie/plans-pricing, or ask the team if you're unsure which tier.</li></ul>
+<p><strong>Coming up:</strong> the Fingal Business Awards gala is on 13 November 2026 at the Crowne Plaza, Dublin Airport. Worth asking if a networking event is sooner.</p>
+<p class="note">The Chamber is where you meet bursars and building-firm owners in person, so I'd treat it as your best route into both target sectors.</p></div></li><li class="entry" id="i-f7">
+<label class="item"><input type="checkbox" data-id="f7"><span class="body"><span class="t">Set up a Facebook page</span></span><span class="chip chip-ready">Draft ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>Less important than LinkedIn and Google for business customers, but local trades and school communities do use Facebook, and it's another place that looks legitimate in a search. Category: &ldquo;Information Technology Company&rdquo;. Add a &ldquo;Call now&rdquo; button. Keep the details identical to Google.</p><details class="draft"><summary>Short intro (under 255 characters)</summary><div class="drafthead"><button type="button" class="copy" data-target="f7-d0">Copy</button></div><pre id="f7-d0">IT and cyber security for small organisations in Fingal and north Dublin. One fixed monthly price, one person who knows your setup. Call +353 89 423 0610.</pre></details><details class="draft"><summary>About</summary><div class="drafthead"><button type="button" class="copy" data-target="f7-d1">Copy</button></div><pre id="f7-d1">Eriu Technology looks after IT and cyber security for small organisations in Fingal and north Dublin, including schools and building firms.
+
+We keep your computers, email and files running, protect them from scams, and fix things quickly when they go wrong. One fixed monthly price. One person who knows your setup.
+
+Based in Skerries. Book a free 20-minute call at eriu.tech or ring +353 89 423 0610.</pre></details></div></li><li class="entry" id="i-f8">
+<label class="item"><input type="checkbox" data-id="f8"><span class="body"><span class="t">Trusted Pros listing</span><span class="d">Confirm exactly which directory this means before signing up.</span></span><span class="chip chip-you">Needs Noreen</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>I couldn't work out which directory this is. My searches found home-trades marketplaces (TrustedPeople.ie, OnlineTradesmen.ie), none of which looks right for managed IT. I'd rather not guess and have you sign up somewhere useless. Ask Noreen for the link.</p><details class="draft"><summary>Message to Noreen</summary><div class="drafthead"><button type="button" class="copy" data-target="f8-d0">Copy</button></div><pre id="f8-d0">Hi Noreen, thanks again for the notes. One quick question: in my list I&#x27;ve got &quot;Trusted Pros&quot;. Which directory did you mean? If you&#x27;ve a link, that&#x27;d be great. Niall</pre></details></div></li></ul></section><section id="email"><p class="num">04</p><h2>Targeted email</h2><p class="intro">Small and specific beats big and vague. One sector, one problem, one thing to do next.</p><ul class="list"><li class="entry" id="i-e1">
+<label class="item"><input type="checkbox" data-id="e1"><span class="body"><span class="t">Pick one sector per email</span><span class="d">Schools or construction, never both in the same message.</span></span><span class="chip chip-ready">Answered</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>Two emails, one per sector, drafted below. Send the construction one first (see the sector answer above).</p></div></li><li class="entry" id="i-e2">
+<label class="item"><input type="checkbox" data-id="e2"><span class="body"><span class="t">Lead with their problem, not your services</span></span><span class="chip chip-ready">Examples ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>Both drafts open with their problem: a supplier changing bank details for builders, and the data and budget worries of a school. Your services get a single sentence near the end.</p><details class="draft"><summary>Email 1: Construction</summary><div class="drafthead"><button type="button" class="copy" data-target="e2-d0">Copy</button></div><pre id="e2-d0">Subject: Invoice-redirect fraud: does your office have a rule for it?
+
+Hi [Name],
+
+I&#x27;m Niall, an IT and cyber security consultant based in Skerries.
+
+A quick one for [Company]. The main email scam hitting Irish small businesses is a supplier &quot;changing their bank details&quot;. FraudSMART reported that SMEs lost almost €10 million to email scams in 2023, most of it this trick. One rule stops most of it: confirm any bank-detail change by phone, on a number you already had.
+
+I look after IT and security for small firms at one fixed monthly price: email set up properly, backups that work, and staff who know what a dodgy email looks like.
+
+Would a 20-minute call be worth your while? Reply here or ring me on +353 89 423 0610.
+
+If this isn&#x27;t relevant, just say and I won&#x27;t contact you again.
+
+Niall O&#x27;Hara
+Eriu Technology Ltd | IT and cyber security for small organisations
+Tel: +353 89 423 0610
+Email: hello@eriu.tech
+Web: eriu.tech
+LinkedIn: linkedin.com/in/niallx
+
+Eriu Technology Limited. Registered in Ireland, company no. 817401.
+Registered office: [add your registered office address]</pre></details><details class="draft"><summary>Email 2: Fee-paying schools</summary><div class="drafthead"><button type="button" class="copy" data-target="e2-d1">Copy</button></div><pre id="e2-d1">Subject: A quick question about [School]&#x27;s IT
+
+Dear [Name],
+
+I&#x27;m Niall O&#x27;Hara, an IT and cyber security consultant based in Skerries.
+
+Schools hold a lot of sensitive information about pupils and families, and the people responsible for it are usually also running everything else. I&#x27;d like to find out whether the IT side is covered without it eating into your time.
+
+I look after IT and security for small organisations at one fixed monthly price: one person who knows your setup, plain-English advice, and no surprises in the budget.
+
+Would a 20-minute call suit, to see whether I could be useful? Reply here or ring me on +353 89 423 0610.
+
+If this isn&#x27;t relevant, just say and I won&#x27;t contact you again.
+
+Niall O&#x27;Hara
+Eriu Technology Ltd | IT and cyber security for small organisations
+Tel: +353 89 423 0610
+Email: hello@eriu.tech
+Web: eriu.tech
+LinkedIn: linkedin.com/in/niallx
+
+Eriu Technology Limited. Registered in Ireland, company no. 817401.
+Registered office: [add your registered office address]</pre></details></div></li><li class="entry" id="i-e3">
+<label class="item"><input type="checkbox" data-id="e3"><span class="body"><span class="t">One clear call to action</span><span class="d">A call, a reply or a short meeting. Pick one.</span></span><span class="chip chip-ready">Answered</span></label>
+<div class="answer"><div class="alabel">Answer</div><p><strong>A 20-minute call.</strong> It's the same ask as the website button, so everything points the same way. Offer the phone number as the backup, not as a second request.</p></div></li><li class="entry" id="i-e4">
+<label class="item"><input type="checkbox" data-id="e4"><span class="body"><span class="t">Phone number and LinkedIn link in the footer</span></span><span class="chip chip-ready">Footer ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>It's in the footer I drafted in the website section, which is also attached to both emails above.</p><details class="draft"><summary>Email footer (plain text)</summary><div class="drafthead"><button type="button" class="copy" data-target="e4-d0">Copy</button></div><pre id="e4-d0">Niall O&#x27;Hara
+Eriu Technology Ltd | IT and cyber security for small organisations
+Tel: +353 89 423 0610
+Email: hello@eriu.tech
+Web: eriu.tech
+LinkedIn: linkedin.com/in/niallx
+
+Eriu Technology Limited. Registered in Ireland, company no. 817401.
+Registered office: [add your registered office address]</pre></details></div></li></ul><div class="callout">
+  <strong>Watch out: the rules on cold email</strong>
+  <p>Marketing by email in Ireland is covered by GDPR and the ePrivacy Regulations (S.I. 336 of 2011). The Data Protection Commission's guidance says when consent is needed, what the exception for existing customers allows, and how people can object. I couldn't confirm from the DPC page how business addresses are treated, and I'm not a lawyer, so check before you build a list.</p>
+  <p><strong>The safe way to start:</strong> email people who've asked to hear from you or you've met (for example at Chamber networking), use LinkedIn messages and phone calls for first contact, keep the list small, record where each address came from, and put who you are and an easy opt-out in every email.</p>
+  <p><a href="https://www.dataprotection.ie/dpc-guidance/faq-consent-electronic-direct-marketing" target="_blank" rel="noopener noreferrer">DPC: consent for electronic direct marketing (FAQ)</a></p>
+</div></section>
+
   <section id="refs">
     <p class="num">05</p>
-    <h2>Examples worth studying</h2>
-    <p class="intro">Neither of the first two is perfect. Borrow the ideas, not the wording.</p>
-    <div class="refs">
-      <div class="ref">
-        <span class="tag">Simple messaging</span><br>
-        <a href="https://futurerange.ie/" target="_blank" rel="noopener noreferrer">futurerange.ie</a>
-        <p>Look at how the homepage keeps its message short and clear.</p>
-      </div>
-      <div class="ref">
-        <span class="tag">Trust and warmth</span><br>
-        <a href="https://everythingit.ie/about-us/" target="_blank" rel="noopener noreferrer">everythingit.ie/about-us</a>
-        <p>Builds trust, spells out the benefits to customers, and feels personal and approachable for small business owners.</p>
-      </div>
-      <div class="ref">
-        <span class="tag">Local IT support page</span><br>
-        <a href="https://it.ie/it-support-tipperary/" target="_blank" rel="noopener noreferrer">it.ie/it-support-tipperary</a>
-        <p>A model for a page aimed at one area. Worth studying for local searches.</p>
-      </div>
-      <div class="ref">
-        <span class="tag">Local network</span><br>
-        <a href="https://fingalchamber.ie/" target="_blank" rel="noopener noreferrer">fingalchamber.ie</a>
-        <p>The Chamber of Commerce to join.</p>
-      </div>
-    </div>
+    <h2>Examples and sources</h2>
+    <p class="intro">Borrow the ideas, not the wording. The last two are where the figures in the posts and emails come from.</p>
+    <div class="refs"><div class="ref"><span class="tag">Simple messaging</span><br><a href="https://futurerange.ie/" target="_blank" rel="noopener noreferrer">futurerange.ie</a><p>Look at how the homepage keeps its message short and clear. Note the 30-minute consultation offer. Avoid the vague headline.</p></div><div class="ref"><span class="tag">Trust and warmth</span><br><a href="https://everythingit.ie/about-us/" target="_blank" rel="noopener noreferrer">everythingit.ie/about-us</a><p>Builds trust, spells out the benefits to customers, and feels personal and approachable for small business owners.</p></div><div class="ref"><span class="tag">Local IT support page</span><br><a href="https://it.ie/it-support-tipperary/" target="_blank" rel="noopener noreferrer">it.ie/it-support-tipperary</a><p>A model for a page aimed at one area: place name in the title and heading, a pain-points section, a four-step process.</p></div><div class="ref"><span class="tag">Local network</span><br><a href="https://fingalchamber.ie/" target="_blank" rel="noopener noreferrer">fingalchamber.ie</a><p>The Chamber of Commerce to join. Membership plans are at /plans-pricing.</p></div><div class="ref"><span class="tag">Source for the fraud figures</span><br><a href="https://www.rte.ie/news/business/2024/0712/1459392-smes-lost-10m-through-email-related-scams-last-year" target="_blank" rel="noopener noreferrer">RTÉ: SMEs lost almost €10m to email scams</a><p>The FraudSMART (BPFI) figures used in the construction post and email.</p></div><div class="ref"><span class="tag">Practical guidance</span><br><a href="https://ncsc.gov.ie/pdfs/NCSC_BEC_Guidance.pdf" target="_blank" rel="noopener noreferrer">NCSC: business email compromise guidance</a><p>Ireland&#x27;s National Cyber Security Centre on stopping invoice-redirect fraud. Good source for the one-page checklist.</p></div></div>
   </section>
 
   <footer>
-    <div>Ticks are saved in this browser only, so they won't appear on another device.</div>
-    <button class="reset" id="reset" type="button">Clear all ticks</button>
+    <div>Ticks are saved in this browser only, so they won't appear on another device. &ldquo;Done&rdquo; items start ticked: the Chamber contact and LinkedIn post 1.</div>
+    <div class="actions">
+      <button class="reset" id="print" type="button">Print or save as PDF</button>
+      <button class="reset" id="reset" type="button">Reset ticks</button>
+    </div>
   </footer>
 </div>
 
 <script>
 (function () {
-  var KEY = 'eriu-growth-checklist-v1';
+  var KEY = 'eriu-growth-checklist-v2';
+  var DEFAULTS = { f3a: true, f6a: true };   // done already: LinkedIn post 1, Chamber contacted
   var boxes = Array.prototype.slice.call(document.querySelectorAll('input[type="checkbox"][data-id]'));
-  var saved = {};
-  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { saved = {}; }
+  var saved = null;
+  try { var raw = localStorage.getItem(KEY); if (raw) saved = JSON.parse(raw); } catch (e) { saved = null; }
+  if (!saved || typeof saved !== 'object') { saved = JSON.parse(JSON.stringify(DEFAULTS)); }
 
-  function persist() {
-    try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) { /* private mode, ignore */ }
-  }
+  function persist() { try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) { /* private mode */ } }
   function paint() {
     var done = 0;
     boxes.forEach(function (b) {
       if (b.checked) done++;
-      var label = b.closest('.item');
-      if (label) label.classList.toggle('done', b.checked);
+      var entry = b.closest('.entry');
+      if (entry) entry.classList.toggle('done', b.checked);
     });
     document.getElementById('fill').style.width = (boxes.length ? (done / boxes.length * 100) : 0) + '%';
     document.getElementById('count').textContent = done + ' of ' + boxes.length + ' done';
@@ -299,21 +485,45 @@
     b.checked = !!saved[b.dataset.id];
     b.addEventListener('change', function () {
       if (b.checked) { saved[b.dataset.id] = true; } else { delete saved[b.dataset.id]; }
-      persist();
-      paint();
+      persist(); paint();
     });
   });
 
   document.getElementById('reset').addEventListener('click', function () {
-    if (!window.confirm('Clear all ticks?')) { return; }
-    saved = {};
-    boxes.forEach(function (b) { b.checked = false; });
-    persist();
-    paint();
+    if (!window.confirm('Reset all ticks? The two items already done will stay ticked.')) { return; }
+    saved = JSON.parse(JSON.stringify(DEFAULTS));
+    boxes.forEach(function (b) { b.checked = !!saved[b.dataset.id]; });
+    persist(); paint();
   });
+
+  // copy buttons
+  document.addEventListener('click', function (ev) {
+    var btn = ev.target.closest ? ev.target.closest('button.copy') : null;
+    if (!btn) return;
+    var pre = document.getElementById(btn.getAttribute('data-target'));
+    if (!pre) return;
+    var text = pre.textContent;
+    function ok() { var o = btn.textContent; btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); }
+    function fallback() {
+      var ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); ok(); } catch (e) { btn.textContent = 'Select and copy'; }
+      document.body.removeChild(ta);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(ok, fallback); } else { fallback(); }
+  });
+
+  // print: open every draft first, restore afterwards
+  var wasOpen = [];
+  function openAll() { wasOpen = []; Array.prototype.forEach.call(document.querySelectorAll('details.draft'), function (d) { wasOpen.push(d.open); d.open = true; }); }
+  function restore() { Array.prototype.forEach.call(document.querySelectorAll('details.draft'), function (d, i) { d.open = !!wasOpen[i]; }); }
+  window.addEventListener('beforeprint', openAll);
+  window.addEventListener('afterprint', restore);
+  document.getElementById('print').addEventListener('click', function () { window.print(); });
 
   paint();
 })();
+
 </script>
 </body>
 </html>
