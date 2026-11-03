@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en-IE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Eriu Growth Checklist</title>
+<meta name="description" content="A practical checklist for making Eriu Technology easier to find, easier to understand and easier to call.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cyan: #00dbcc;
+    --amber: #ffb81a;
+    --red: #f54447;
+    --green: #40ea99;
+    --ink: #d7e7ea;
+    --muted: #8aa0a6;
+    --panel: rgba(255,255,255,0.04);
+    --line: rgba(0,219,204,0.28);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    background: #02090a;
+    background-image: linear-gradient(180deg, #053a3c 0%, #031a1c 32%, #02090a 70%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px 80px; }
+
+  header { padding: 56px 0 28px; }
+  .kicker {
+    font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+    font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--amber); margin: 0 0 14px;
+  }
+  h1 {
+    font-family: 'Oswald', 'Arial Narrow', Impact, sans-serif;
+    font-weight: 700; font-size: clamp(40px, 9vw, 64px); line-height: 1.02;
+    text-transform: uppercase; letter-spacing: .01em; margin: 0 0 16px; color: #fff;
+    text-shadow: -2px 0 rgba(245,68,71,.7), 2px 0 rgba(0,219,204,.7), 0 0 22px rgba(0,219,204,.35);
+  }
+  .lede { font-size: 19px; color: var(--ink); margin: 0; max-width: 60ch; }
+
+  .progress {
+    position: sticky; top: 0; z-index: 5;
+    background: rgba(2,9,10,.92); backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+    margin: 0 -20px; padding: 12px 20px;
+  }
+  .progress-row { display: flex; align-items: center; gap: 14px; max-width: 720px; margin: 0 auto; }
+  .bar { flex: 1; height: 8px; background: rgba(255,255,255,.1); border-radius: 99px; overflow: hidden; }
+  .fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--cyan), var(--green)); transition: width .25s ease; }
+  .count { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: var(--muted); white-space: nowrap; }
+
+  nav { margin: 26px 0 8px; display: flex; flex-wrap: wrap; gap: 8px; }
+  nav a {
+    font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px;
+    color: var(--cyan); text-decoration: none; border: 1px solid var(--line);
+    border-radius: 99px; padding: 6px 14px;
+  }
+  nav a:hover, nav a:focus-visible { background: rgba(0,219,204,.12); outline: none; }
+
+  section { margin-top: 44px; scroll-margin-top: 70px; }
+  .num {
+    font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px;
+    color: var(--cyan); letter-spacing: .14em; margin: 0 0 6px;
+  }
+  h2 {
+    font-family: 'Oswald', 'Arial Narrow', Impact, sans-serif; font-weight: 700;
+    font-size: 32px; line-height: 1.1; text-transform: uppercase; margin: 0 0 10px; color: #fff;
+  }
+  .intro { color: var(--muted); margin: 0 0 18px; }
+
+  ul.list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  .item {
+    display: flex; gap: 14px; align-items: flex-start;
+    background: var(--panel); border: 1.5px solid var(--line); border-radius: 14px;
+    padding: 14px 16px; cursor: pointer;
+  }
+  .item:hover { border-color: rgba(0,219,204,.6); }
+  .item input {
+    appearance: none; -webkit-appearance: none; flex: none;
+    width: 24px; height: 24px; margin: 2px 0 0; border-radius: 7px;
+    border: 2px solid var(--cyan); background: transparent; cursor: pointer; position: relative;
+  }
+  .item input:checked { background: var(--cyan); }
+  .item input:checked::after {
+    content: ''; position: absolute; left: 7px; top: 2px; width: 6px; height: 12px;
+    border: solid #02090a; border-width: 0 3px 3px 0; transform: rotate(45deg);
+  }
+  .item input:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+  .item .t { font-weight: 600; color: #fff; display: block; }
+  .item .d { color: var(--muted); font-size: 15px; display: block; margin-top: 2px; }
+  .item.done .t { color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(0,219,204,.6); }
+
+  .callout {
+    margin-top: 18px; border: 1.5px solid var(--red); border-radius: 14px;
+    background: rgba(245,68,71,.08); padding: 16px 18px;
+  }
+  .callout strong { color: var(--red); font-family: 'Oswald', 'Arial Narrow', sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+  .callout p { margin: 6px 0 0; }
+
+  .sectors { display: grid; gap: 12px; grid-template-columns: 1fr; margin-top: 6px; }
+  @media (min-width: 620px) { .sectors { grid-template-columns: 1fr 1fr; } }
+  .sector { border: 1.5px solid rgba(255,184,26,.5); border-radius: 14px; padding: 16px 18px; background: rgba(255,184,26,.05); }
+  .sector h3 { margin: 0 0 6px; font-family: 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; color: var(--amber); font-size: 20px; }
+  .sector ul { margin: 0; padding-left: 18px; }
+  .sector li { margin: 3px 0; }
+
+  .refs { display: grid; gap: 12px; }
+  .ref { border: 1.5px solid var(--line); border-radius: 14px; padding: 16px 18px; background: var(--panel); }
+  .ref a { color: var(--cyan); font-weight: 600; word-break: break-word; }
+  .ref a:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
+  .ref p { margin: 6px 0 0; color: var(--ink); font-size: 16px; }
+  .tag { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: var(--green); text-transform: uppercase; letter-spacing: .1em; }
+
+  footer { margin-top: 56px; border-top: 1px solid var(--line); padding-top: 20px; color: var(--muted); font-size: 14px; }
+  button.reset {
+    font: inherit; font-size: 14px; color: var(--ink); background: transparent;
+    border: 1px solid var(--line); border-radius: 99px; padding: 8px 16px; cursor: pointer; margin-top: 10px;
+  }
+  button.reset:hover, button.reset:focus-visible { border-color: var(--red); color: #fff; outline: none; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .fill { transition: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="kicker">Eriu Technology &middot; Working notes</p>
+    <h1>Growth<br>Checklist</h1>
+    <p class="lede">Say what you fix. Make it easy to call. Turn up where local business owners are already looking. Tick things off as you go; your progress is saved in this browser.</p>
+  </header>
+
+  <div class="progress" role="status" aria-live="polite">
+    <div class="progress-row">
+      <div class="bar" aria-hidden="true"><div class="fill" id="fill"></div></div>
+      <div class="count" id="count">0 of 0 done</div>
+    </div>
+  </div>
+
+  <nav aria-label="Sections">
+    <a href="#message">1 &middot; Message</a>
+    <a href="#website">2 &middot; Website</a>
+    <a href="#found">3 &middot; Be found</a>
+    <a href="#email">4 &middot; Email</a>
+    <a href="#refs">5 &middot; Examples</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="message">
+    <p class="num">01</p>
+    <h2>Start with the problem</h2>
+    <p class="intro">Do this before touching the website or writing a single email. Everything else follows from it.</p>
+    <ul class="list">
+      <li><label class="item"><input type="checkbox" data-id="m1"><span><span class="t">What problem am I solving for the business owner?</span><span class="d">One sentence, in their words, not mine.</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="m2"><span><span class="t">Pain reliever or gain creator?</span><span class="d">Do I take a headache away, or give them something they didn't have?</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="m3"><span><span class="t">What is it really about for them?</span><span class="d">Time saved, security, or peace of mind. The "what's in it for me" test.</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="m4"><span><span class="t">Write the value proposition</span><span class="d">One line. Working idea: managed IT, so the problem is solved and they're not distracted by it.</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="m5"><span><span class="t">Choose the sectors to focus on</span><span class="d">Two to start with, below.</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="m6"><span><span class="t">Look at competitors' websites</span><span class="d">Note what's clear, what's jargon, and what makes you trust them or not.</span></span></label></li>
+    </ul>
+
+    <div class="sectors">
+      <div class="sector">
+        <h3>Fee-paying schools</h3>
+        <ul>
+          <li>Better security</li>
+          <li>Predictable costs</li>
+          <li>Fewer distractions</li>
+        </ul>
+      </div>
+      <div class="sector">
+        <h3>Construction SMEs</h3>
+        <ul>
+          <li>Same question: what problem are they actually having?</li>
+          <li>Work out the answer before writing to anyone.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="website">
+    <p class="num">02</p>
+    <h2>The website</h2>
+    <p class="intro">A visitor should understand what you do, trust you, and know what to do next, all within a few seconds.</p>
+    <ul class="list">
+      <li><label class="item"><input type="checkbox" data-id="w1"><span><span class="t">Make the value obvious and drop the tech language</span><span class="d">Plain words a busy owner understands. It should also feel reliable.</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="w2"><span><span class="t">Add a clear call to action</span><span class="d">Every page should tell the visitor what to do next.</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="w3"><span><span class="t">Put your phone number where it can be seen</span><span class="d">Top of the page, and again at the bottom.</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="w4"><span><span class="t">Set up a proper email footer</span><span class="d">Name, phone, website and LinkedIn on every email you send.</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="w5"><span><span class="t">Tell your story</span><span class="d">Make the Meet Niall section personal and approachable.</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="w6"><span><span class="t">Show you're an expert in your field</span><span class="d">Your security background, the awareness posts and the airport report all count.</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="w7"><span><span class="t">Add your LinkedIn profile to the Meet Niall section</span><span class="d">A simple credibility boost, and it makes the personal connection.</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="w8"><span><span class="t">Use images from your airside days</span><span class="d">Only ones that are yours to use. Check before publishing anything taken at work.</span></span></label></li>
+    </ul>
+  </section>
+
+  <!-- 3 -->
+  <section id="found">
+    <p class="num">03</p>
+    <h2>Be found</h2>
+    <p class="intro">Local business owners look in a handful of places. Be in all of them, and keep the details identical everywhere.</p>
+    <ul class="list">
+      <li><label class="item"><input type="checkbox" data-id="f1"><span><span class="t">Optimise your LinkedIn profile</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="f2"><span><span class="t">Set up the LinkedIn business page</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="f3"><span><span class="t">Write five LinkedIn posts</span><span class="d">The airport report was the first. Four to go.</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="f4"><span><span class="t">Claim and complete the Google Business Profile</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="f5"><span><span class="t">Show up in local searches</span><span class="d">What does a school bursar type when their IT lets them down? Make sure you appear for that.</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="f6"><span><span class="t">Join the Chamber of Commerce</span><span class="d">Fingal Chamber is the local one.</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="f7"><span><span class="t">Set up a Facebook page</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="f8"><span><span class="t">Trusted Pros listing</span><span class="d">Confirm exactly which directory this means before signing up.</span></span></label></li>
+    </ul>
+  </section>
+
+  <!-- 4 -->
+  <section id="email">
+    <p class="num">04</p>
+    <h2>Targeted email</h2>
+    <p class="intro">Small and specific beats big and vague. One sector, one problem, one thing to do next.</p>
+    <ul class="list">
+      <li><label class="item"><input type="checkbox" data-id="e1"><span><span class="t">Pick one sector per email</span><span class="d">Schools or construction, never both in the same message.</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="e2"><span><span class="t">Lead with their problem, not your services</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="e3"><span><span class="t">One clear call to action</span><span class="d">A call, a reply or a short meeting. Pick one.</span></span></label></li>
+      <li><label class="item"><input type="checkbox" data-id="e4"><span><span class="t">Phone number and LinkedIn link in the footer</span></span></label></li>
+    </ul>
+    <div class="callout">
+      <strong>Watch out</strong>
+      <p>Cold email to businesses has to comply with Irish and EU rules on marketing messages and data protection. Check the rules before building a list.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="refs">
+    <p class="num">05</p>
+    <h2>Examples worth studying</h2>
+    <p class="intro">Neither of the first two is perfect. Borrow the ideas, not the wording.</p>
+    <div class="refs">
+      <div class="ref">
+        <span class="tag">Simple messaging</span><br>
+        <a href="https://futurerange.ie/" target="_blank" rel="noopener noreferrer">futurerange.ie</a>
+        <p>Look at how the homepage keeps its message short and clear.</p>
+      </div>
+      <div class="ref">
+        <span class="tag">Trust and warmth</span><br>
+        <a href="https://everythingit.ie/about-us/" target="_blank" rel="noopener noreferrer">everythingit.ie/about-us</a>
+        <p>Builds trust, spells out the benefits to customers, and feels personal and approachable for small business owners.</p>
+      </div>
+      <div class="ref">
+        <span class="tag">Local IT support page</span><br>
+        <a href="https://it.ie/it-support-tipperary/" target="_blank" rel="noopener noreferrer">it.ie/it-support-tipperary</a>
+        <p>A model for a page aimed at one area. Worth studying for local searches.</p>
+      </div>
+      <div class="ref">
+        <span class="tag">Local network</span><br>
+        <a href="https://fingalchamber.ie/" target="_blank" rel="noopener noreferrer">fingalchamber.ie</a>
+        <p>The Chamber of Commerce to join.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>Ticks are saved in this browser only, so they won't appear on another device.</div>
+    <button class="reset" id="reset" type="button">Clear all ticks</button>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var KEY = 'eriu-growth-checklist-v1';
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('input[type="checkbox"][data-id]'));
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { saved = {}; }
+
+  function persist() {
+    try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) { /* private mode, ignore */ }
+  }
+  function paint() {
+    var done = 0;
+    boxes.forEach(function (b) {
+      if (b.checked) done++;
+      var label = b.closest('.item');
+      if (label) label.classList.toggle('done', b.checked);
+    });
+    document.getElementById('fill').style.width = (boxes.length ? (done / boxes.length * 100) : 0) + '%';
+    document.getElementById('count').textContent = done + ' of ' + boxes.length + ' done';
+  }
+
+  boxes.forEach(function (b) {
+    b.checked = !!saved[b.dataset.id];
+    b.addEventListener('change', function () {
+      if (b.checked) { saved[b.dataset.id] = true; } else { delete saved[b.dataset.id]; }
+      persist();
+      paint();
+    });
+  });
+
+  document.getElementById('reset').addEventListener('click', function () {
+    if (!window.confirm('Clear all ticks?')) { return; }
+    saved = {};
+    boxes.forEach(function (b) { b.checked = false; });
+    persist();
+    paint();
+  });
+
+  paint();
+})();
+</script>
+</body>
+</html>
