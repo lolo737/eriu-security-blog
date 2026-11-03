@@ -162,7 +162,7 @@
       <dt>Who for first</dt><dd>Construction SMEs (the invoice-redirect fraud hook) and fee-paying schools (through the Chamber and introductions).</dd>
       <dt>Next three moves</dt><dd>1. Put the new first screen and phone number on the website. 2. Claim the Google Business Profile. 3. Publish LinkedIn post 2 and decide on Chamber membership.</dd>
       <dt>Every Tuesday</dt><dd>08:30: a LinkedIn post from the blog series, starting 10 Nov. Fourteen are drafted.</dd>
-      <dt>Tomorrow, 4 Nov</dt><dd>Add eriu.tech to Google (Search Console).</dd>
+      <dt>Done, 3 Nov</dt><dd>eriu.tech is in Google Search Console, with the sitemap submitted.</dd>
     </dl>
     <div class="legend"><span class="chip chip-done">Done</span><span class="chip chip-ready">Answer or draft ready</span><span class="chip chip-you">Needs you</span><span class="chip chip-info">Advice</span></div>
   </div>
@@ -466,16 +466,9 @@ Microsoft 365 set-up and support
 Backup and recovery
 Staff security awareness sessions
 New-starter and leaver set-up</pre></details></div></li><li class="entry" id="i-g1">
-<label class="item"><input type="checkbox" data-id="g1"><span class="body"><span class="t">Add eriu.tech to Google (Search Console)</span><span class="d">Planned for tomorrow, 4 November 2026.</span></span><span class="chip chip-you">Meta tag needed</span></label>
-<div class="answer"><div class="alabel">Answer</div><p><strong>Where it stands (3 November):</strong> eriu.tech is added in your Search Console as a URL-prefix property (<code>https://eriu.tech/</code>). It isn't verified yet. Google wants this line inside the <code>&lt;head&gt;</code> of the homepage on Netlify, which you're adding yourself:</p>
-<p><code>&lt;meta name="google-site-verification" content="xR4RRXHi4-0kA13G3SBzr9-fhLzhCBW7sebUzaK6ctI" /&gt;</code></p>
-<p>Deploy it, then tell me and I'll press Verify, submit the sitemap and request indexing. Not ticked, because it isn't done. Steps:</p>
-<ol><li>Add the meta tag above to the <code>&lt;head&gt;</code> of the homepage on Netlify and deploy. (Done by you.)</li>
-<li>Press Verify in Search Console (<a href="https://search.google.com/search-console" target="_blank" rel="noopener noreferrer">search.google.com/search-console</a>). I can do this once the tag is live.</li>
-<li>Submit a sitemap (for example <code>https://eriu.tech/sitemap.xml</code>). I couldn't reach the site's sitemap or robots.txt from here, so check whether they exist. If there's no sitemap yet, tell me and I'll generate one, including the German version.</li>
-<li>Use URL Inspection on the homepage and your main pages, then press &ldquo;Request indexing&rdquo;.</li>
-<li>Check the site itself has no <code>noindex</code> tag. This checklist and the blog deliberately do, but eriu.tech must not.</li></ol>
-<p class="note">Indexing can take days, so don't worry if it doesn't show up straight away. Do the Google Business Profile in the same sitting, since both feed local search.</p></div></li><li class="entry" id="i-f5">
+<label class="item"><input type="checkbox" data-id="g1"><span class="body"><span class="t">Add eriu.tech to Google (Search Console)</span><span class="d">Done 3 November 2026.</span></span><span class="chip chip-done">Done 3 Nov</span></label>
+<div class="answer"><div class="alabel">Answer</div><p><strong>Done on 3 November 2026.</strong> eriu.tech is verified in Google Search Console (<code>https://eriu.tech/</code>, verified with the HTML file <code>google0306269e97c0ee87.html</code>). The sitemap <code>https://eriu.tech/sitemap.xml</code> is submitted. Google read it successfully and found 21 pages, English and German. The homepage was already showing as indexed.</p>
+<p class="note">Keep the verification file on the site, or Google will drop the verification. It lives in the <code>live-site</code> branch of the <code>eriu-tech-site</code> repo, which Netlify now deploys from GitHub. New pages take days to appear in search. Do the Google Business Profile next, since both feed local search.</p></div></li><li class="entry" id="i-f5">
 <label class="item"><input type="checkbox" data-id="f5"><span class="body"><span class="t">Show up in local searches</span><span class="d">What does a school bursar type when their IT lets them down? Make sure you appear for that.</span></span><span class="chip chip-you">Searches to run</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>What they'd type:</strong></p>
 <ul><li>IT support for schools Dublin</li><li>IT support Fingal</li><li>managed IT services north Dublin</li><li>IT support Skerries / Swords / Balbriggan</li><li>IT support for construction companies Dublin</li><li>cyber security small business Dublin</li></ul>
@@ -624,7 +617,7 @@ Registered office: 20 The Golflinks Road, Skerries, Co. Dublin, K34 E652</pre></
   </section>
 
   <footer>
-    <div>Ticks are saved in this browser only, so they won't appear on another device. &ldquo;Done&rdquo; items start ticked: the Chamber contact, the live blog posts, LinkedIn post 1 and the Medium article.</div>
+    <div>Ticks are saved in this browser only, so they won't appear on another device. &ldquo;Done&rdquo; items start ticked: the Chamber contact, the live blog posts, LinkedIn post 1, the Medium article and Search Console.</div>
     <div class="actions">
       <button class="reset" id="print" type="button">Print or save as PDF</button>
       <button class="reset" id="reset" type="button">Reset ticks</button>
@@ -635,7 +628,7 @@ Registered office: 20 The Golflinks Road, Skerries, Co. Dublin, K34 E652</pre></
 <script>
 (function () {
   var KEY = 'eriu-growth-checklist-v2';
-  var DEFAULTS = { f3a: true, f6a: true, f3p: true, f9: true };   // done already: LinkedIn post 1, Chamber contacted, blog posts live
+  var DEFAULTS = { f3a: true, f6a: true, f3p: true, f9: true, g1: true };   // done already: LinkedIn post 1, Chamber contacted, blog posts live
   var boxes = Array.prototype.slice.call(document.querySelectorAll('input[type="checkbox"][data-id]'));
   var saved = null;
   try { var raw = localStorage.getItem(KEY); if (raw) saved = JSON.parse(raw); } catch (e) { saved = null; }
