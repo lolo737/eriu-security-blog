@@ -1,0 +1,57 @@
+<svg width="3040" height="1520" viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg">
+<defs></defs><g transform="translate(196 262)" fill="#e3b04b"><rect x="-4" y="-4" width="8" height="8"/><rect x="-4" y="-4" width="8" height="8" transform="rotate(45)"/></g><g transform="translate(168 276)" fill="#e3b04b"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g><g transform="translate(142 268)" fill="#e3b04b"><rect x="-2.4" y="-2.4" width="4.8" height="4.8"/><rect x="-2.4" y="-2.4" width="4.8" height="4.8" transform="rotate(45)"/></g><g transform="translate(120 284)" fill="#e3b04b"><rect x="-2" y="-2" width="4" height="4"/><rect x="-2" y="-2" width="4" height="4" transform="rotate(45)"/></g><g transform="translate(205 230)" fill="#e3b04b"><rect x="-2.4" y="-2.4" width="4.8" height="4.8"/><rect x="-2.4" y="-2.4" width="4.8" height="4.8" transform="rotate(45)"/></g><g transform="translate(96 262)" fill="#e3b04b"><rect x="-1.8" y="-1.8" width="3.6" height="3.6"/><rect x="-1.8" y="-1.8" width="3.6" height="3.6" transform="rotate(45)"/></g>
+<line x1="236.0" y1="238.0" x2="226" y2="240.0" stroke="#e3b04b" stroke-width="1.8" stroke-linecap="round"/><line x1="235.9" y1="241.2" x2="226" y2="243.4" stroke="#e3b04b" stroke-width="1.8" stroke-linecap="round"/><line x1="235.8" y1="244.4" x2="226" y2="246.8" stroke="#e3b04b" stroke-width="1.8" stroke-linecap="round"/><line x1="235.7" y1="247.6" x2="226" y2="250.2" stroke="#e3b04b" stroke-width="1.8" stroke-linecap="round"/><line x1="235.6" y1="250.8" x2="226" y2="253.6" stroke="#e3b04b" stroke-width="1.8" stroke-linecap="round"/><line x1="235.5" y1="254.0" x2="226" y2="257.0" stroke="#e3b04b" stroke-width="1.8" stroke-linecap="round"/><line x1="235.4" y1="257.2" x2="226" y2="260.4" stroke="#e3b04b" stroke-width="1.8" stroke-linecap="round"/><line x1="235.3" y1="260.4" x2="226" y2="263.8" stroke="#e3b04b" stroke-width="1.8" stroke-linecap="round"/><line x1="235.2" y1="263.6" x2="226" y2="267.2" stroke="#e3b04b" stroke-width="1.8" stroke-linecap="round"/><line x1="534.0" y1="238.0" x2="545" y2="240.0" stroke="#e3b04b" stroke-width="1.8" stroke-linecap="round"/><line x1="533.9" y1="241.1" x2="545" y2="243.3" stroke="#e3b04b" stroke-width="1.8" stroke-linecap="round"/><line x1="533.8" y1="244.2" x2="545" y2="246.6" stroke="#e3b04b" stroke-width="1.8" stroke-linecap="round"/><line x1="533.7" y1="247.3" x2="545" y2="249.9" stroke="#e3b04b" stroke-width="1.8" stroke-linecap="round"/><line x1="533.6" y1="250.4" x2="545" y2="253.2" stroke="#e3b04b" stroke-width="1.8" stroke-linecap="round"/><line x1="533.5" y1="253.5" x2="545" y2="256.5" stroke="#e3b04b" stroke-width="1.8" stroke-linecap="round"/><line x1="533.4" y1="256.6" x2="545" y2="259.8" stroke="#e3b04b" stroke-width="1.8" stroke-linecap="round"/><line x1="533.3" y1="259.7" x2="545" y2="263.1" stroke="#e3b04b" stroke-width="1.8" stroke-linecap="round"/><line x1="533.2" y1="262.8" x2="545" y2="266.4" stroke="#e3b04b" stroke-width="1.8" stroke-linecap="round"/>
+
+<g transform="rotate(-5 385 245)">
+ <path d="M236 236 Q385 214 534 236 L520 268 Q385 288 250 268 Z" fill="#a3262e" stroke="#e3b04b" stroke-width="3"/>
+ <path d="M254 242 Q385 224 516 242 L506 261 Q385 277 264 261 Z" fill="none" stroke="#f3e6c4" stroke-width="1.6" stroke-dasharray="4 3"/>
+ <g fill="#e3b04b"><path d="M385 238 l14 12 l-14 12 l-14 -12z"/><path d="M330 242 l8 7 l-8 7 l-8 -7z"/><path d="M440 242 l8 7 l-8 7 l-8 -7z"/></g>
+ 
+ 
+</g>
+<g transform="rotate(-5 385 245)"><g transform="translate(385 246) scale(.34) translate(-200 -366)">
+  <!-- antenna -->
+  <line x1="200" y1="62" x2="200" y2="40" stroke="#444" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="200" cy="34" r="9" fill="#e4572e" stroke="#444" stroke-width="3"/>
+  <!-- ears -->
+  <rect x="104" y="118" width="22" height="48" rx="6" fill="#b9b9b9" stroke="#444" stroke-width="4"/>
+  <rect x="274" y="118" width="22" height="48" rx="6" fill="#b9b9b9" stroke="#444" stroke-width="4"/>
+  <!-- head -->
+  <rect x="122" y="62" width="156" height="116" rx="18" fill="#d9d9d9" stroke="#444" stroke-width="5"/>
+  <!-- eyes -->
+  <circle cx="165" cy="108" r="19" fill="#fff" stroke="#444" stroke-width="4"/>
+  <circle cx="235" cy="108" r="19" fill="#fff" stroke="#444" stroke-width="4"/>
+  <circle cx="168" cy="110" r="8" fill="#222"/>
+  <circle cx="238" cy="110" r="8" fill="#222"/>
+  <!-- mouth grille -->
+  <rect x="160" y="142" width="80" height="24" rx="5" fill="#333" stroke="#444" stroke-width="3"/>
+  <line x1="172" y1="146" x2="172" y2="162" stroke="#d9d9d9" stroke-width="4"/>
+  <line x1="186" y1="146" x2="186" y2="162" stroke="#d9d9d9" stroke-width="4"/>
+  <line x1="200" y1="146" x2="200" y2="162" stroke="#d9d9d9" stroke-width="4"/>
+  <line x1="214" y1="146" x2="214" y2="162" stroke="#d9d9d9" stroke-width="4"/>
+  <line x1="228" y1="146" x2="228" y2="162" stroke="#d9d9d9" stroke-width="4"/>
+  <!-- neck -->
+  <rect x="184" y="178" width="32" height="14" fill="#8a8a8a" stroke="#444" stroke-width="3"/>
+  <!-- arms -->
+  <path d="M110 214 L84 214 L84 262" fill="none" stroke="#8a8a8a" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M290 214 L316 214 L316 262" fill="none" stroke="#8a8a8a" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="84" cy="270" r="13" fill="#e4572e" stroke="#444" stroke-width="3"/>
+  <circle cx="316" cy="270" r="13" fill="#e4572e" stroke="#444" stroke-width="3"/>
+  <!-- body -->
+  <rect x="114" y="190" width="172" height="118" rx="12" fill="#e4572e" stroke="#444" stroke-width="5"/>
+  <!-- chest panel -->
+  <rect x="146" y="212" width="108" height="56" rx="8" fill="#f2e6c9" stroke="#444" stroke-width="4"/>
+  <circle cx="176" cy="240" r="11" fill="#2a9d8f" stroke="#444" stroke-width="3"/>
+  <circle cx="206" cy="240" r="11" fill="#f4b942" stroke="#444" stroke-width="3"/>
+  <rect x="226" y="230" width="16" height="20" rx="3" fill="#444"/>
+  <!-- rivets -->
+  <circle cx="126" cy="202" r="3.5" fill="#444"/><circle cx="274" cy="202" r="3.5" fill="#444"/>
+  <circle cx="126" cy="296" r="3.5" fill="#444"/><circle cx="274" cy="296" r="3.5" fill="#444"/>
+  <!-- legs and feet -->
+  <rect x="148" y="308" width="28" height="42" fill="#8a8a8a" stroke="#444" stroke-width="4"/>
+  <rect x="224" y="308" width="28" height="42" fill="#8a8a8a" stroke="#444" stroke-width="4"/>
+  <rect x="134" y="346" width="56" height="20" rx="8" fill="#444"/>
+  <rect x="210" y="346" width="56" height="20" rx="8" fill="#444"/>
+
+</g></g>
+</svg>
