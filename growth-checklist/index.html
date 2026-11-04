@@ -134,7 +134,7 @@
 
   @media print {
     body { background: #fff; color: #111; font-size: 12pt; }
-    .progress, nav, .actions, button.copy, .legend { display: none !important; }
+    .progress, nav, .actions, button.copy, .legend, .ticker { display: none !important; }
     h1, h2, .item .t, .brief dd, pre, .answer em { color: #000; text-shadow: none; }
     .entry, .brief, .callout, .sector, .ref, details.draft, .notice { border-color: #999; background: none; break-inside: avoid; }
     .item .d, .intro, .alabel, .tag, .kicker, .num { color: #444; }
@@ -143,9 +143,29 @@
     section { margin-top: 24px; }
   }
 
+  /* floating progress ticker */
+  .ticker { position: fixed; z-index: 6; left: 20px; top: 50%; transform: translateY(-50%); width: 132px; padding: 16px 14px 14px; border: 1px solid var(--line); border-radius: 14px; background: rgba(2,9,10,.9); backdrop-filter: blur(6px); text-align: center; box-shadow: 0 0 24px rgba(0,219,204,.12); }
+  .ticker .t-num { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 56px; line-height: 1; color: var(--cyan); letter-spacing: .01em; transition: transform .25s ease; }
+  .ticker .t-num.bump { transform: scale(1.18); }
+  .ticker .t-of { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: var(--muted); margin-top: 6px; text-transform: uppercase; letter-spacing: .08em; }
+  .ticker .t-bar { height: 5px; border-radius: 99px; background: rgba(255,255,255,.08); margin: 12px 0; overflow: hidden; }
+  .ticker .t-fill { height: 100%; width: 0; background: var(--cyan); transition: width .3s ease; }
+  .ticker button { font: inherit; font-size: 12px; color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 99px; padding: 6px 12px; cursor: pointer; }
+  .ticker button:hover, .ticker button:focus-visible { border-color: var(--cyan); color: #fff; outline: none; }
+  @media (max-width: 1099px) { .ticker { top: auto; bottom: 14px; left: 14px; transform: none; width: auto; display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 99px; }
+    .ticker .t-num { font-size: 26px; } .ticker .t-of { margin: 0; font-size: 11px; } .ticker .t-bar { display: none; } .ticker button { padding: 5px 10px; } }
+  @media (prefers-reduced-motion: reduce) { .ticker .t-num, .ticker .t-fill { transition: none; } }
+
 </style>
 </head>
 <body>
+<aside class="ticker" id="ticker" aria-label="Progress">
+  <div class="t-num" id="t-num">0</div>
+  <div class="t-of" id="t-of">of 0 done</div>
+  <div class="t-bar" aria-hidden="true"><div class="t-fill" id="t-fill"></div></div>
+  <button type="button" id="share">Share progress</button>
+</aside>
+
 <div class="wrap">
 
   <header>
@@ -456,7 +476,7 @@ What I took from those places: serious problems are usually small, ignored thing
 
 If you run a school, a building firm or any small team and you&#x27;d like IT to be one less thing to think about, I&#x27;d be glad to hear from you: hello@eriu.tech</pre></details></div></li><li class="entry" id="i-f4">
 <label class="item"><input type="checkbox" data-id="f4"><span class="body"><span class="t">Claim and complete the Google Business Profile</span><span class="d">Created 3 November 2026. Waiting on verification.</span></span><span class="chip chip-you">Needs you to verify</span></label>
-<div class="answer"><div class="alabel">Answer</div><p><strong>Started on 3 November 2026:</strong> the profile exists in Google Business Profile Manager as <strong>Eriu Technology</strong>, set up as a service-area business with eight areas around Fingal, your phone number and the website. It isn't live yet: Google wants to verify it, which only you can do (a postcard code to your address, or a short video). When the code arrives, enter it in Business Profile Manager. Until then it won't show in local searches.</p>
+<div class="answer"><div class="alabel">Answer</div><p><strong>Started on 3 November 2026:</strong> the profile exists in Google Business Profile Manager as <strong>Eriu Technology</strong>, set up as a service-area business with eight areas around Fingal, your phone number and the website. It isn't live yet: Google wants to verify it, and for this profile it offers only <strong>video verification</strong> (no postcard). I entered your Skerries address; the next step is one continuous video recording that shows (1) the surrounding street or neighbours, (2) &ldquo;Eriu Technology&rdquo; printed on a business card, invoice or laptop sticker, and (3) your work equipment, to show you run the business. Only you can record it. Google usually answers within a few days. Until then it won't show in local searches.</p>
 <p>Only you can claim and verify this (Google sends a code or asks for a short video). Set it up as a <strong>service-area business</strong> and hide your home address. Your registered office is your home, so you don't want it on a map.</p>
 <ul><li><strong>Name:</strong> Eriu Technology (exactly as it appears on the website; no extra keywords).</li>
 <li><strong>Category:</strong> choose from Google's list. &ldquo;Computer support and services&rdquo; or &ldquo;Managed service provider&rdquo; as primary, &ldquo;Computer security service&rdquo; as secondary.</li>
@@ -631,7 +651,7 @@ Registered office: 20 The Golflinks Road, Skerries, Co. Dublin, K34 E652</pre></
   </section>
 
   <footer>
-    <div>Ticks are saved in this browser only, so they won't appear on another device. &ldquo;Done&rdquo; items start ticked: the Chamber contact, the live blog posts, LinkedIn post 1, the Medium article and Search Console.</div>
+    <div>Ticks are saved in this browser. To show someone else where you are, press &ldquo;Share progress&rdquo; for a link that carries your ticks. &ldquo;Done&rdquo; items start ticked: the Chamber contact, the live blog posts, LinkedIn post 1, the Medium article and Search Console.</div>
     <div class="actions">
       <button class="reset" id="print" type="button">Print or save as PDF</button>
       <button class="reset" id="reset" type="button">Reset ticks</button>
@@ -647,6 +667,9 @@ Registered office: 20 The Golflinks Road, Skerries, Co. Dublin, K34 E652</pre></
   var saved = null;
   try { var raw = localStorage.getItem(KEY); if (raw) saved = JSON.parse(raw); } catch (e) { saved = null; }
   if (!saved || typeof saved !== 'object') { saved = JSON.parse(JSON.stringify(DEFAULTS)); }
+  // a shared link (#p=id,id,...) shows the sender's ticks
+  var shared = (location.hash.match(/^#p=([\w,]*)$/) || [])[1];
+  if (shared !== undefined) { saved = {}; shared.split(',').forEach(function (id) { if (id) saved[id] = true; }); }
 
   function persist() { try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) { /* private mode */ } }
   function paint() {
@@ -658,6 +681,10 @@ Registered office: 20 The Golflinks Road, Skerries, Co. Dublin, K34 E652</pre></
     });
     document.getElementById('fill').style.width = (boxes.length ? (done / boxes.length * 100) : 0) + '%';
     document.getElementById('count').textContent = done + ' of ' + boxes.length + ' done';
+    var tn = document.getElementById('t-num');
+    if (tn.textContent !== String(done)) { tn.textContent = done; tn.classList.add('bump'); setTimeout(function () { tn.classList.remove('bump'); }, 250); }
+    document.getElementById('t-of').textContent = 'of ' + boxes.length + ' done';
+    document.getElementById('t-fill').style.width = (boxes.length ? (done / boxes.length * 100) : 0) + '%';
   }
 
   boxes.forEach(function (b) {
@@ -699,6 +726,15 @@ Registered office: 20 The Golflinks Road, Skerries, Co. Dublin, K34 E652</pre></
   window.addEventListener('beforeprint', openAll);
   window.addEventListener('afterprint', restore);
   document.getElementById('print').addEventListener('click', function () { window.print(); });
+
+  document.getElementById('share').addEventListener('click', function () {
+    var ids = boxes.filter(function (b) { return b.checked; }).map(function (b) { return b.dataset.id; });
+    var url = location.href.split('#')[0] + '#p=' + ids.join(',');
+    var btn = this, label = btn.textContent;
+    function ok() { btn.textContent = 'Link copied'; setTimeout(function () { btn.textContent = label; }, 1800); }
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(url).then(ok, function () { window.prompt('Copy this link:', url); }); }
+    else { window.prompt('Copy this link:', url); }
+  });
 
   paint();
 })();
