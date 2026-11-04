@@ -156,6 +156,17 @@
     .ticker .t-num { font-size: 26px; } .ticker .t-of { margin: 0; font-size: 11px; } .ticker .t-bar { display: none; } .ticker button { padding: 5px 10px; } }
   @media (prefers-reduced-motion: reduce) { .ticker .t-num, .ticker .t-fill { transition: none; } }
 
+  .item input:disabled { opacity: 1; cursor: default; }
+  .item { cursor: default; }
+  .ticker .t-sub { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: var(--ink); line-height: 1.4; }
+  .ticker .t-sub span { color: var(--cyan); font-weight: 600; }
+  .finished { margin: 8px 0 28px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 14px; background: rgba(0,219,204,.04); }
+  .finished ul { list-style: none; margin: 8px 0 0; padding: 0; columns: 2 320px; column-gap: 28px; }
+  .finished li { break-inside: avoid; display: flex; justify-content: space-between; gap: 12px; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.06); font-size: 15px; }
+  .finished li a { color: #fff; text-decoration: none; } .finished li a:hover { color: var(--cyan); }
+  .finished li span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+  @media print { .finished li { border-color: #ccc; } }
+
 </style>
 </head>
 <body>
@@ -163,7 +174,7 @@
   <div class="t-num" id="t-num">0</div>
   <div class="t-of" id="t-of">of 0 done</div>
   <div class="t-bar" aria-hidden="true"><div class="t-fill" id="t-fill"></div></div>
-  <button type="button" id="share">Share progress</button>
+  <div class="t-sub"><span id="t-fin">13</span> finished and live</div>
 </aside>
 
 <div class="wrap">
@@ -171,7 +182,7 @@
   <header>
     <p class="kicker">Eriu Technology &middot; Working notes</p>
     <h1>Growth<br>Checklist</h1>
-    <p class="lede">Say what you fix. Make it easy to call. Turn up where local business owners are already looking. Each item has a worked answer or a draft you can use. Tick things off as you go; your progress is saved in this browser.</p>
+    <p class="lede">Say what you fix. Make it easy to call. Turn up where local business owners are already looking. Each item has a worked answer or a draft you can use. The ticks show what has been worked through, and the label on each line says exactly where it stands.</p>
   </header>
 
   <div class="brief">
@@ -180,12 +191,17 @@
       <dt>The problem</dt><dd>Small organisations rely on IT nobody has time to look after, so the owner ends up being the IT department.</dd>
       <dt>What I offer</dt><dd>Eriu looks after your IT and security for one fixed monthly price, so it stops being something you have to think about.</dd>
       <dt>Who for first</dt><dd>Construction SMEs (the invoice-redirect fraud hook) and fee-paying schools (through the Chamber and introductions).</dd>
-      <dt>Next three moves</dt><dd>1. Put the new first screen and phone number on the website. 2. Claim the Google Business Profile. 3. Publish LinkedIn post 2 and decide on Chamber membership.</dd>
+      <dt>Next three moves</dt><dd>1. Record the Google verification video. 2. Create the Instagram account @eriutechnology. 3. Decide on Chamber membership and send the Trusted Pros email.</dd>
       <dt>Every Tuesday</dt><dd>08:30: a LinkedIn post from the blog series, starting 10 Nov. Fourteen are drafted.</dd>
-      <dt>Done, 3 Nov</dt><dd>eriu.tech is in Google Search Console, with the sitemap submitted.</dd>
+      <dt>Done, 3&ndash;4 Nov</dt><dd>New homepage and lower prices live on eriu.tech. Three local pages live (Fingal, schools, construction). LinkedIn profile and company page, Facebook page, Medium article with 14 more scheduled, Search Console, and Google asked to index the new pages.</dd>
     </dl>
     <div class="legend"><span class="chip chip-done">Done</span><span class="chip chip-ready">Answer or draft ready</span><span class="chip chip-you">Needs you</span><span class="chip chip-info">Advice</span></div>
   </div>
+
+  <section class="finished" id="finished">
+    <p class="num">What is finished and live</p>
+    <ul><li><a href="#i-w1">Make the value obvious and drop the tech language</a><span>Live 4 Nov</span></li><li><a href="#i-w2">Add a clear call to action</a><span>Live 4 Nov</span></li><li><a href="#i-w3">Put your phone number where it can be seen</a><span>Live 4 Nov</span></li><li><a href="#i-w5">Tell your story</a><span>Live 4 Nov</span></li><li><a href="#i-w7">Add your LinkedIn profile to the Meet Niall section</a><span>Live 4 Nov</span></li><li><a href="#i-f1">Optimise your LinkedIn profile</a><span>Done 3 Nov</span></li><li><a href="#i-f2">Set up the LinkedIn business page</a><span>Done 3 Nov</span></li><li><a href="#i-f3p">Eriu security blog posts are live</a><span>Done</span></li><li><a href="#i-f3a">Post 1: the airport report</a><span>Done</span></li><li><a href="#i-g1">Add eriu.tech to Google (Search Console)</a><span>Done 3 Nov</span></li><li><a href="#i-f6a">Get in touch with Fingal Chamber</a><span>Done</span></li><li><a href="#i-f7">Set up a Facebook page</a><span>Done 3 Nov</span></li><li><a href="#i-f9">Publish an IT article on Medium</a><span>1 live, 14 scheduled</span></li></ul>
+  </section>
 
   <div class="progress" role="status" aria-live="polite">
     <div class="progress-row">
@@ -203,29 +219,29 @@
   </nav>
 
   <section id="message"><p class="num">01</p><h2>Start with the problem</h2><p class="intro">Do this before touching the website or writing a single email. Everything else follows from it. These are my answers, based on what you've told me about Eriu. Read them, change anything that doesn't sound like you, then tick.</p><ul class="list"><li class="entry" id="i-m1">
-<label class="item"><input type="checkbox" data-id="m1"><span class="body"><span class="t">What problem am I solving for the business owner?</span><span class="d">One sentence, in their words, not mine.</span></span><span class="chip chip-ready">Answered</span></label>
+<label class="item"><input type="checkbox" data-id="m1" checked disabled><span class="body"><span class="t">What problem am I solving for the business owner?</span><span class="d">One sentence, in their words, not mine.</span></span><span class="chip chip-ready">Answered</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>In their words:</strong> &ldquo;I just want the computers to work, and I don't want to be the one who gets the call when they don't.&rdquo;</p>
 <p><strong>The real problem underneath:</strong> small organisations rely on IT that nobody has time to look after properly. Things go quietly wrong (backups that don't restore, staff with access they shouldn't have, a scam email that gets clicked) and the owner or bursar ends up being the IT department at nine at night.</p></div></li><li class="entry" id="i-m2">
-<label class="item"><input type="checkbox" data-id="m2"><span class="body"><span class="t">Pain reliever or gain creator?</span><span class="d">Do I take a headache away, or give them something they didn&#x27;t have?</span></span><span class="chip chip-ready">Answered</span></label>
+<label class="item"><input type="checkbox" data-id="m2" checked disabled><span class="body"><span class="t">Pain reliever or gain creator?</span><span class="d">Do I take a headache away, or give them something they didn&#x27;t have?</span></span><span class="chip chip-ready">Answered</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>Pain reliever first.</strong> Owners buy IT support to make a specific headache stop: outages, scams, lost files, being locked out. That's the door they come through.</p>
 <p>The gain comes second and is worth saying in one line: a fixed monthly cost and the feeling that someone competent is watching. Lead with the pain, finish with the gain.</p></div></li><li class="entry" id="i-m3">
-<label class="item"><input type="checkbox" data-id="m3"><span class="body"><span class="t">What is it really about for them?</span><span class="d">Time saved, security, or peace of mind. The &quot;what&#x27;s in it for me&quot; test.</span></span><span class="chip chip-ready">Answered</span></label>
+<label class="item"><input type="checkbox" data-id="m3" checked disabled><span class="body"><span class="t">What is it really about for them?</span><span class="d">Time saved, security, or peace of mind. The &quot;what&#x27;s in it for me&quot; test.</span></span><span class="chip chip-ready">Answered</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>Peace of mind, then time. Security is how you deliver it, not what you sell.</strong></p>
 <ul><li><strong>Peace of mind:</strong> &ldquo;Someone is looking after this.&rdquo; This is the buying reason.</li>
 <li><strong>Time:</strong> fewer interruptions, fewer evenings spent on IT.</li>
 <li><strong>Security:</strong> the reason it matters now. Mention it, but don't lead with fear, as owners switch off from scare stories.</li></ul></div></li><li class="entry" id="i-m4">
-<label class="item"><input type="checkbox" data-id="m4"><span class="body"><span class="t">Write the value proposition</span><span class="d">One line. Working idea: managed IT, so the problem is solved and they&#x27;re not distracted by it.</span></span><span class="chip chip-ready">Answered</span></label>
+<label class="item"><input type="checkbox" data-id="m4" checked disabled><span class="body"><span class="t">Write the value proposition</span><span class="d">One line. Working idea: managed IT, so the problem is solved and they&#x27;re not distracted by it.</span></span><span class="chip chip-ready">Answered</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>My pick:</strong> &ldquo;Eriu looks after your IT and security for one fixed monthly price, so it stops being something you have to think about.&rdquo;</p>
 <p>Two shorter options for the top of the website:</p>
 <ul><li>&ldquo;IT that just works. Security you don't have to think about.&rdquo;</li>
 <li>&ldquo;Your IT, looked after properly, by someone who knows your setup.&rdquo;</li></ul>
 <p class="note">The last one is true because you're one person. Say it as a strength: one person who knows your setup and picks up the phone.</p><details class="draft"><summary>Value proposition, ready to paste</summary><div class="drafthead"><button type="button" class="copy" data-target="m4-d0">Copy</button></div><pre id="m4-d0">Eriu looks after your IT and security for one fixed monthly price, so it stops being something you have to think about.</pre></details></div></li><li class="entry" id="i-m5">
-<label class="item"><input type="checkbox" data-id="m5"><span class="body"><span class="t">Choose the sectors to focus on</span><span class="d">Two to start with, below.</span></span><span class="chip chip-ready">Answered</span></label>
+<label class="item"><input type="checkbox" data-id="m5" checked disabled><span class="body"><span class="t">Choose the sectors to focus on</span><span class="d">Two to start with, below.</span></span><span class="chip chip-ready">Answered</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>Keep both, but run them differently.</strong> This is my judgement, not a fact, so overrule it if Noreen sees it otherwise.</p>
 <ul><li><strong>Construction SMEs:</strong> lots of them, short decisions, one owner who can say yes. The clearest hook is invoice-redirection fraud (see the post and email drafts below). Start outreach here.</li>
 <li><strong>Fee-paying schools:</strong> fewer of them, slower decisions, but long contracts and a bursar who values predictable costs. Reach them through the Chamber and introductions rather than cold email.</li></ul>
 <p class="note">Don't say you specialise in schools or building firms on the website until you have a first client in each. &ldquo;We work with schools and building firms&rdquo; is honest now; &ldquo;trusted by&rdquo; isn't.</p></div></li><li class="entry" id="i-m6">
-<label class="item"><input type="checkbox" data-id="m6"><span class="body"><span class="t">Look at competitors&#x27; websites</span><span class="d">Note what&#x27;s clear, what&#x27;s jargon, and what makes you trust them or not.</span></span><span class="chip chip-ready">First pass done</span></label>
+<label class="item"><input type="checkbox" data-id="m6" disabled><span class="body"><span class="t">Look at competitors&#x27; websites</span><span class="d">Note what&#x27;s clear, what&#x27;s jargon, and what makes you trust them or not.</span></span><span class="chip chip-ready">First pass done</span></label>
 <div class="answer"><div class="alabel">Answer</div><p>I read the three sites Noreen pointed you to. Look at them yourself too; this is a head start, not a replacement.</p>
 <ul>
 <li><strong>futurerange.ie:</strong> headline is &ldquo;We Know IT&rdquo;, which is confident but vague, and &ldquo;Managed Intelligence Provider&rdquo; is jargon. Phone number only appears near the bottom. Good: a low-pressure &ldquo;book a 30 minute consultation&rdquo; offer, named client testimonials, ISO 27001 badge.</li>
@@ -238,7 +254,7 @@
   <div class="sector"><h3>Fee-paying schools</h3><ul><li>Better security</li><li>Predictable costs</li><li>Fewer distractions</li></ul></div>
   <div class="sector"><h3>Construction SMEs</h3><ul><li>Invoice-redirect fraud is the clear hook</li><li>Many suppliers and subcontractors to keep track of</li><li>One owner who can decide quickly</li></ul></div>
 </div></section><section id="website"><p class="num">02</p><h2>The website</h2><p class="intro">A visitor should understand what you do, trust you, and know what to do next, all within a few seconds.</p><div class="notice"><strong>Update 4 November 2026:</strong> I rewrote the homepage (plain first screen, one call to action, phone at the top and on mobile, Meet Niall with your LinkedIn, a trust strip) and lowered the prices. It went live on eriu.tech the same morning. <strong>Audited:</strong> I read the live eriu.tech homepage text on 3 November 2026, so these answers say what is there now and what to change. I read it through a text fetch, so I haven&rsquo;t seen the design, and I couldn&rsquo;t reach robots.txt or a sitemap. Send me the site&rsquo;s files or give the go-ahead and I&rsquo;ll make the edits for you.</div><ul class="list"><li class="entry" id="i-w1">
-<label class="item"><input type="checkbox" data-id="w1" data-done="1"><span class="body"><span class="t">Make the value obvious and drop the tech language</span><span class="d">Plain words a busy owner understands. It should also feel reliable.</span></span><span class="chip chip-done">Live 4 Nov</span></label>
+<label class="item"><input type="checkbox" data-id="w1" data-done="1" checked disabled><span class="body"><span class="t">Make the value obvious and drop the tech language</span><span class="d">Plain words a busy owner understands. It should also feel reliable.</span></span><span class="chip chip-done">Live 4 Nov</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>What's there now</strong> (live homepage text, read on 3 November 2026): the first screen says &ldquo;Dublin, <em>since</em> the airside days.&rdquo; and calls Ériu a &ldquo;Skerries IT systems house&rdquo; offering &ldquo;managed support, cybersecurity and critical-infrastructure engineering&rdquo;. Further down you'll meet KRITIS, SCADA, OT, NIS2 and Conditional Access.</p>
 <p><strong>The problem:</strong> a school bursar or a builder won't know what &ldquo;airside days&rdquo; or KRITIS means, and &ldquo;critical-infrastructure engineering&rdquo; isn't what they're shopping for. The credentials are strong, but they're in the wrong place. They should be the proof under the headline, not the headline.</p>
 <p><strong>Replace the first screen with:</strong></p>
@@ -262,7 +278,7 @@
 Eriu looks after IT and cyber security for small organisations in Fingal and north Dublin, for one fixed monthly price.
 
 [ Book a free 30-minute call ]    Or call +353 89 423 0610</pre></details></div></li><li class="entry" id="i-w2">
-<label class="item"><input type="checkbox" data-id="w2" data-done="1"><span class="body"><span class="t">Add a clear call to action</span><span class="d">Every page should tell the visitor what to do next.</span></span><span class="chip chip-done">Live 4 Nov</span></label>
+<label class="item"><input type="checkbox" data-id="w2" data-done="1" checked disabled><span class="body"><span class="t">Add a clear call to action</span><span class="d">Every page should tell the visitor what to do next.</span></span><span class="chip chip-done">Live 4 Nov</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>What's there now:</strong> a good main button, &ldquo;Book a free consultation&rdquo;, and a free 30-minute call as the offer. That's the right idea. The trouble is the competing buttons around it: &ldquo;See services&rdquo;, &ldquo;Open contact form&rdquo;, &ldquo;Remote access&rdquo; and &ldquo;TeamViewer&rdquo;.</p>
 <p><strong>Fix:</strong> one main action, one backup.</p>
 <ul><li><strong>Main:</strong> &ldquo;Book a free 30-minute call&rdquo;, worded the same on every page.</li>
@@ -270,11 +286,11 @@ Eriu looks after IT and cyber security for small organisations in Fingal and nor
 <li><strong>Existing clients:</strong> move &ldquo;Remote access&rdquo; and TeamViewer into the footer under &ldquo;Existing clients&rdquo;, so prospects aren't offered a download.</li></ul>
 <p>Add a short &ldquo;what happens next&rdquo; under the button, because it lowers the fear of a sales pitch:</p>
 <ol><li>We have a 30-minute call. No pressure.</li><li>I look at how your IT is set up today.</li><li>You get a plain-English summary and a fixed price.</li><li>If you'd like to go ahead, I look after the rest.</li></ol></div></li><li class="entry" id="i-w3">
-<label class="item"><input type="checkbox" data-id="w3" data-done="1"><span class="body"><span class="t">Put your phone number where it can be seen</span><span class="d">Top of the page, and again at the bottom.</span></span><span class="chip chip-done">Live 4 Nov</span></label>
+<label class="item"><input type="checkbox" data-id="w3" data-done="1" checked disabled><span class="body"><span class="t">Put your phone number where it can be seen</span><span class="d">Top of the page, and again at the bottom.</span></span><span class="chip chip-done">Live 4 Nov</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>What's there now:</strong> your phone and email appear in the contact section and the footer, but not at the top. Good, you have two of three places.</p>
 <p><strong>Add the third:</strong> the top-right of every page as a tap-to-call link, and a small fixed &ldquo;Call&rdquo; button at the bottom of phone screens. The code is <code>&lt;a href="tel:+353894230610"&gt;+353 89 423 0610&lt;/a&gt;</code>.</p>
 <p class="note">Your site also lists hours of Mon to Fri, 09:00 to 18:00. Keep that next to the number so people know when you'll answer.</p></div></li><li class="entry" id="i-w4">
-<label class="item"><input type="checkbox" data-id="w4"><span class="body"><span class="t">Set up a proper email footer</span><span class="d">Name, phone, website and LinkedIn on every email you send.</span></span><span class="chip chip-ready">Footer ready</span></label>
+<label class="item"><input type="checkbox" data-id="w4" checked disabled><span class="body"><span class="t">Set up a proper email footer</span><span class="d">Name, phone, website and LinkedIn on every email you send.</span></span><span class="chip chip-ready">Footer ready</span></label>
 <div class="answer"><div class="alabel">Answer</div><p>Footer ready to paste into Zoho Mail's signature settings. It includes your registered office address as shown in your website footer, which Irish companies are generally expected to show on business emails. Check the exact list with your accountant.</p>
 <p><strong>One thing to fix:</strong> the website footer says &ldquo;Ériu Ltd&rdquo; and &ldquo;Eriu Limited&rdquo;, but the registered name is <strong>Eriu Technology Limited</strong>. Use the full registered name in the footer and emails, and make the site match, so the name is the same everywhere (the Google, LinkedIn and Chamber listings too).</p><details class="draft"><summary>Email footer (plain text)</summary><div class="drafthead"><button type="button" class="copy" data-target="w4-d0">Copy</button></div><pre id="w4-d0">Niall O&#x27;Hara
 Eriu Technology Ltd | IT and cyber security for small organisations
@@ -285,7 +301,7 @@ LinkedIn: linkedin.com/in/niallx
 
 Eriu Technology Limited. Registered in Ireland, company no. 817401.
 Registered office: 20 The Golflinks Road, Skerries, Co. Dublin, K34 E652</pre></details></div></li><li class="entry" id="i-w5">
-<label class="item"><input type="checkbox" data-id="w5" data-done="1"><span class="body"><span class="t">Tell your story</span><span class="d">Make the Meet Niall section personal and approachable.</span></span><span class="chip chip-done">Live 4 Nov</span></label>
+<label class="item"><input type="checkbox" data-id="w5" data-done="1" checked disabled><span class="body"><span class="t">Tell your story</span><span class="d">Make the Meet Niall section personal and approachable.</span></span><span class="chip chip-done">Live 4 Nov</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>What's there now:</strong> no Meet Niall section and no named bio. The &ldquo;Background&rdquo; timeline (Bundestag, BER, Ériu) carries the facts but not the person. Add this above the timeline. I wrote it from what you've told me; add one detail only you'd know, such as the first thing you ever fixed or a story from the airport, because that's what people remember.</p><details class="draft"><summary>Meet Niall</summary><div class="drafthead"><button type="button" class="copy" data-target="w5-d0">Copy</button></div><pre id="w5-d0">Hi, I&#x27;m Niall.
 
 I&#x27;ve spent years looking after IT where nothing is allowed to go wrong: IT security at the German Bundestag, then IT support at Berlin Brandenburg Airport. In those places, a calm, uneventful day is the whole point.
@@ -297,7 +313,7 @@ What I took from those years is that serious problems are usually small things n
 You get one person who knows your setup, explains things in plain English, and picks up the phone. And you pay one fixed monthly price.
 
 [ Book a free 30-minute call ]     [ Connect with me on LinkedIn ]</pre></details></div></li><li class="entry" id="i-w6">
-<label class="item"><input type="checkbox" data-id="w6"><span class="body"><span class="t">Show you&#x27;re an expert in your field</span><span class="d">Your security background, the awareness posts and the airport report all count.</span></span><span class="chip chip-ready">Audited, draft ready</span></label>
+<label class="item"><input type="checkbox" data-id="w6" checked disabled><span class="body"><span class="t">Show you&#x27;re an expert in your field</span><span class="d">Your security background, the awareness posts and the airport report all count.</span></span><span class="chip chip-ready">Audited, draft ready</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>What's there now:</strong> the Background timeline is your strongest proof, plus CompTIA A+ and ITIL Foundation. What's missing: any link to the 14 security briefings or the airport report, and any testimonial (you don't have clients yet, so don't invent one).</p>
 <p><strong>Add:</strong> a short trust strip under the first screen, then a &ldquo;Latest briefings&rdquo; section with three posts that link to the blog. It also stops the site looking static. A free one-page guide such as &ldquo;Five things a school bursar should check this week&rdquo; would give visitors a reason to leave their email (with consent boxes done properly).</p>
 <p class="note">One to double-check: the labels &ldquo;ISO 27001 aligned&rdquo; and &ldquo;NIS2 ready&rdquo; read like certifications. A careful bursar may ask what they mean, so be ready to explain exactly what you've done, or reword to describe the practices (&ldquo;works to ISO 27001 practices&rdquo;).</p><details class="draft"><summary>Trust strip</summary><div class="drafthead"><button type="button" class="copy" data-target="w6-d0">Copy</button></div><pre id="w6-d0">Built on real experience
@@ -307,15 +323,15 @@ You get one person who knows your setup, explains things in plain English, and p
 - CompTIA A+ and ITIL Foundation
 - The Eriu security series: 14 plain-English briefings
 - A published airport cyber security report</pre></details></div></li><li class="entry" id="i-w7">
-<label class="item"><input type="checkbox" data-id="w7" data-done="1"><span class="body"><span class="t">Add your LinkedIn profile to the Meet Niall section</span><span class="d">A simple credibility boost, and it makes the personal connection.</span></span><span class="chip chip-done">Live 4 Nov</span></label>
+<label class="item"><input type="checkbox" data-id="w7" data-done="1" checked disabled><span class="body"><span class="t">Add your LinkedIn profile to the Meet Niall section</span><span class="d">A simple credibility boost, and it makes the personal connection.</span></span><span class="chip chip-done">Live 4 Nov</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>Confirmed missing:</strong> there's no LinkedIn link anywhere on the homepage. Use your profile at <a href="https://www.linkedin.com/in/niallx/" target="_blank" rel="noopener noreferrer">linkedin.com/in/niallx</a>. Make it a button next to your photo, opening in a new tab, and add it to the footer too.</p><details class="draft"><summary>Button HTML</summary><div class="drafthead"><button type="button" class="copy" data-target="w7-d0">Copy</button></div><pre id="w7-d0">&lt;a class=&quot;button&quot; href=&quot;https://www.linkedin.com/in/niallx/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Connect with me on LinkedIn&lt;/a&gt;</pre></details></div></li><li class="entry" id="i-w8">
-<label class="item"><input type="checkbox" data-id="w8"><span class="body"><span class="t">Use images from your airside days</span><span class="d">Only ones that are yours to use. Check before publishing anything taken at work.</span></span><span class="chip chip-info">Advice</span></label>
+<label class="item"><input type="checkbox" data-id="w8" disabled><span class="body"><span class="t">Use images from your airside days</span><span class="d">Only ones that are yours to use. Check before publishing anything taken at work.</span></span><span class="chip chip-info">Advice</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>My advice: don't use photos taken at BER or the Bundestag.</strong> They belong in a grey area (employer property, security-sensitive locations, other people in shot), and for a security consultant, publishing the wrong image would be a bad look.</p>
 <p>Safer ways to get the same &ldquo;I've worked somewhere serious&rdquo; effect:</p>
 <ul><li>The hand-drawn airport turnaround scene I made for the airport report. It's original and yours.</li>
 <li>Your own photos: your workspace, tools, Skerries, you at a Chamber event.</li>
 <li>Words rather than pictures. &ldquo;IT support at Berlin Brandenburg Airport&rdquo; carries the credibility by itself.</li></ul></div></li></ul></section><section id="found"><p class="num">03</p><h2>Be found</h2><p class="intro">Local business owners look in a handful of places. Be in all of them, and keep the details identical everywhere.</p><div class="notice"><strong>What I can't do for you:</strong> posting, claiming Google and Facebook pages, and joining the Chamber all need your own accounts and logins. Everything is drafted so each is a copy-and-paste job. Say the word and I'll post to LinkedIn through your signed-in browser, one at a time, with your approval before each.</div><ul class="list"><li class="entry" id="i-f1">
-<label class="item"><input type="checkbox" data-id="f1" data-done="1"><span class="body"><span class="t">Optimise your LinkedIn profile</span><span class="d">Done 3 November 2026.</span></span><span class="chip chip-done">Done 3 Nov</span></label>
+<label class="item"><input type="checkbox" data-id="f1" data-done="1" checked disabled><span class="body"><span class="t">Optimise your LinkedIn profile</span><span class="d">Done 3 November 2026.</span></span><span class="chip chip-done">Done 3 Nov</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>Done on 3 November 2026:</strong> the headline and About text below are live on your profile, with the location set to Skerries and a skills line added. Still worth doing yourself when you have a minute: add the blog to the Featured section.</p>
 <p class="note">If you're still job hunting, set &ldquo;Open to work&rdquo; to recruiters only, so it doesn't undercut the consultancy message to everyone else.</p><details class="draft"><summary>Headline</summary><div class="drafthead"><button type="button" class="copy" data-target="f1-d0">Copy</button></div><pre id="f1-d0">IT and cyber security for small organisations in Fingal | Founder, Eriu Technology | Previously IT security, German Bundestag</pre></details><details class="draft"><summary>About</summary><div class="drafthead"><button type="button" class="copy" data-target="f1-d1">Copy</button></div><pre id="f1-d1">I look after IT and cyber security for small organisations in Fingal and north Dublin, so you don&#x27;t have to.
 
@@ -326,18 +342,18 @@ What that looks like: one person who knows your setup, plain-English advice, and
 I also write the Eriu security-awareness series: short, readable pieces on the scams and slip-ups that actually catch people out.
 
 If IT is a source of low-level dread, let&#x27;s talk: hello@eriu.tech or +353 89 423 0610.</pre></details></div></li><li class="entry" id="i-f2">
-<label class="item"><input type="checkbox" data-id="f2" data-done="1"><span class="body"><span class="t">Set up the LinkedIn business page</span><span class="d">Done 3 November 2026.</span></span><span class="chip chip-done">Done 3 Nov</span></label>
+<label class="item"><input type="checkbox" data-id="f2" data-done="1" checked disabled><span class="body"><span class="t">Set up the LinkedIn business page</span><span class="d">Done 3 November 2026.</span></span><span class="chip chip-done">Done 3 Nov</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>Done on 3 November 2026:</strong> the page is at <a href="https://www.linkedin.com/company/eriu-technology-ltd/" target="_blank" rel="noopener noreferrer">linkedin.com/company/eriu-technology-ltd</a>, with the tagline, About text, website, a stock sea banner and Wurzel the tin robot as the logo.</p><details class="draft"><summary>Tagline</summary><div class="drafthead"><button type="button" class="copy" data-target="f2-d0">Copy</button></div><pre id="f2-d0">IT and cyber security for small organisations in Fingal and north Dublin.</pre></details><details class="draft"><summary>About</summary><div class="drafthead"><button type="button" class="copy" data-target="f2-d1">Copy</button></div><pre id="f2-d1">Eriu Technology looks after IT and cyber security for small organisations in Fingal and north Dublin, including schools and building firms.
 
 We keep your computers, email and files running, protect them from scams and ransomware, and fix things quickly when they go wrong, for one fixed monthly price. You deal with one person who knows your setup and explains things in plain English.
 
 Based in Skerries, Co. Dublin. Book a free 30-minute call at eriu.tech.</pre></details></div></li><li class="entry" id="i-f3p">
-<label class="item"><input type="checkbox" data-id="f3p" data-done="1"><span class="body"><span class="t">Eriu security blog posts are live</span><span class="d">The material the LinkedIn posts point to.</span></span><span class="chip chip-done">Done</span></label>
+<label class="item"><input type="checkbox" data-id="f3p" data-done="1" checked disabled><span class="body"><span class="t">Eriu security blog posts are live</span><span class="d">The material the LinkedIn posts point to.</span></span><span class="chip chip-done">Done</span></label>
 <div class="answer"><div class="alabel">Answer</div><p>The blog is live at <a href="https://lolo737.github.io/eriu-security-blog/" target="_blank" rel="noopener noreferrer">lolo737.github.io/eriu-security-blog</a>, including <em>Free Wi-Fi, Dear Price</em>. These are the content behind LinkedIn posts 2 to 5, so post 2 now links straight to it.</p>
 <p class="note">Honest note for Noreen: a blog post isn't a LinkedIn post. It counts once it's shared on LinkedIn, so the five posts are still the count. But you're not starting from nothing, because the writing exists.</p></div></li><li class="entry" id="i-f3a">
-<label class="item"><input type="checkbox" data-id="f3a" data-done="1"><span class="body"><span class="t">Post 1: the airport report</span><span class="d">Done. Please leave the live post as it is.</span></span><span class="chip chip-done">Done</span></label>
+<label class="item"><input type="checkbox" data-id="f3a" data-done="1" checked disabled><span class="body"><span class="t">Post 1: the airport report</span><span class="d">Done. Please leave the live post as it is.</span></span><span class="chip chip-done">Done</span></label>
 <div class="answer"><div class="alabel">Answer</div><p>Live on your profile, linking to the GitHub repo. Nothing to do.</p></div></li><li class="entry" id="i-f3b">
-<label class="item"><input type="checkbox" data-id="f3b"><span class="body"><span class="t">Publish one briefing a Tuesday: 14 LinkedIn posts</span><span class="d">One per Tuesday at 08:30, from 10 November 2026 to 9 February 2027.</span></span><span class="chip chip-ready">Page 12 of 14, profile 11 of 14 scheduled</span></label>
+<label class="item"><input type="checkbox" data-id="f3b" checked disabled><span class="body"><span class="t">Publish one briefing a Tuesday: 14 LinkedIn posts</span><span class="d">One per Tuesday at 08:30, from 10 November 2026 to 9 February 2027.</span></span><span class="chip chip-ready">Page 12 of 14, profile 11 of 14 scheduled</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>Scheduled on 3 November 2026:</strong> the first 12 briefings are queued on the Eriu Technology company page, and the first 11 on your own profile, every Tuesday at 08:30 from 10 November. They show under the clock icon in the LinkedIn composer, where you can edit or delete them.</p>
 <p><strong>Still to schedule:</strong> LinkedIn only lets you schedule about three months ahead. So company-page posts 13 and 14 (2 and 9 February) and profile posts 12 to 14 (26 January, 2 and 9 February) go in once those dates are inside the window, from about 10 November. The drafts are below.</p>
 <p>Each of the 14 briefings on the blog gets its own LinkedIn post, written from the briefing itself and linking to it. LinkedIn has a built-in scheduler: write the post, press the clock icon, pick the date and time.</p>
@@ -457,7 +473,7 @@ For an ordinary small business it&#x27;s mostly common sense written down. Know 
 Do those four and you&#x27;re most of the way there. The plain-English version: https://lolo737.github.io/eriu-security-blog/gdpr-for-the-terrified/
 
 #GDPR #DataProtection #Ireland</pre></details></div></li><li class="entry" id="i-f3c">
-<label class="item"><input type="checkbox" data-id="f3c"><span class="body"><span class="t">Two extra posts (optional)</span><span class="d">Written for the two target sectors. Use them between the Tuesday ones.</span></span><span class="chip chip-ready">2 drafts ready</span></label>
+<label class="item"><input type="checkbox" data-id="f3c" checked disabled><span class="body"><span class="t">Two extra posts (optional)</span><span class="d">Written for the two target sectors. Use them between the Tuesday ones.</span></span><span class="chip chip-ready">2 drafts ready</span></label>
 <div class="answer"><div class="alabel">Answer</div><p>A schools post and a &ldquo;why I started Eriu&rdquo; post. They aren't tied to a briefing, so they make good Thursday posts, or a stand-in for the Christmas-week slots.</p><details class="draft"><summary>Three questions for a school bursar</summary><div class="drafthead"><button type="button" class="copy" data-target="f3c-d0">Copy</button></div><pre id="f3c-d0">Three questions every school bursar should be able to answer about their IT, without phoning anyone:
 
 1. If a teacher deleted last Tuesday&#x27;s shared folder today, who can get it back, and how long would it take?
@@ -475,7 +491,7 @@ I spent years in IT security at the German Bundestag, then IT support at Berlin 
 What I took from those places: serious problems are usually small, ignored things nobody had time for. So my job is to look at the small things first, in plain English, for one fixed monthly price.
 
 If you run a school, a building firm or any small team and you&#x27;d like IT to be one less thing to think about, I&#x27;d be glad to hear from you: hello@eriu.tech</pre></details></div></li><li class="entry" id="i-f4">
-<label class="item"><input type="checkbox" data-id="f4"><span class="body"><span class="t">Claim and complete the Google Business Profile</span><span class="d">Created 3 November 2026. Waiting on verification.</span></span><span class="chip chip-you">Needs you to verify</span></label>
+<label class="item"><input type="checkbox" data-id="f4" checked disabled><span class="body"><span class="t">Claim and complete the Google Business Profile</span><span class="d">Created 3 November 2026. Waiting on verification.</span></span><span class="chip chip-you">Needs you to verify</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>Started on 3 November 2026:</strong> the profile exists in Google Business Profile Manager as <strong>Eriu Technology</strong>, set up as a service-area business with eight areas around Fingal, your phone number and the website. It isn't live yet: Google wants to verify it, and for this profile it offers only <strong>video verification</strong> (no postcard). I entered your Skerries address; the next step is one continuous video recording that shows (1) the surrounding street or neighbours, (2) &ldquo;Eriu Technology&rdquo; printed on a business card, invoice or laptop sticker, and (3) your work equipment, to show you run the business. Only you can record it. Google usually answers within a few days. Until then it won't show in local searches.</p>
 <p>Only you can claim and verify this (Google sends a code or asks for a short video). Set it up as a <strong>service-area business</strong> and hide your home address. Your registered office is your home, so you don't want it on a map.</p>
 <ul><li><strong>Name:</strong> Eriu Technology (exactly as it appears on the website; no extra keywords).</li>
@@ -488,33 +504,33 @@ Microsoft 365 set-up and support
 Backup and recovery
 Staff security awareness sessions
 New-starter and leaver set-up</pre></details></div></li><li class="entry" id="i-g1">
-<label class="item"><input type="checkbox" data-id="g1" data-done="1"><span class="body"><span class="t">Add eriu.tech to Google (Search Console)</span><span class="d">Done 3 November 2026.</span></span><span class="chip chip-done">Done 3 Nov</span></label>
+<label class="item"><input type="checkbox" data-id="g1" data-done="1" checked disabled><span class="body"><span class="t">Add eriu.tech to Google (Search Console)</span><span class="d">Done 3 November 2026.</span></span><span class="chip chip-done">Done 3 Nov</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>Done on 3 November 2026.</strong> eriu.tech is verified in Google Search Console (<code>https://eriu.tech/</code>, verified with the HTML file <code>google0306269e97c0ee87.html</code>). The sitemap <code>https://eriu.tech/sitemap.xml</code> is submitted. Google read it successfully and found 21 pages, English and German. The homepage was already showing as indexed.</p>
 <p class="note">Keep the verification file on the site, or Google will drop the verification. It lives in the <code>live-site</code> branch of the <code>eriu-tech-site</code> repo, which Netlify now deploys from GitHub. New pages take days to appear in search. Do the Google Business Profile next, since both feed local search.</p></div></li><li class="entry" id="i-f5">
-<label class="item"><input type="checkbox" data-id="f5"><span class="body"><span class="t">Show up in local searches</span><span class="d">What does a school bursar type when their IT lets them down? Make sure you appear for that.</span></span><span class="chip chip-you">Pages live, searches to run</span></label>
+<label class="item"><input type="checkbox" data-id="f5" checked disabled><span class="body"><span class="t">Show up in local searches</span><span class="d">What does a school bursar type when their IT lets them down? Make sure you appear for that.</span></span><span class="chip chip-you">Pages live, searches to run</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>Update 4 November 2026:</strong> the three pages are live on eriu.tech (IT support Fingal, schools, construction) and in the sitemap. I asked Google to index them and the new homepage in Search Console on 4 November (queued, usually a few days). Still to do: your searches and the Golden Pages listing.</p>
 <p><strong>What they'd type:</strong></p>
 <ul><li>IT support for schools Dublin</li><li>IT support Fingal</li><li>managed IT services north Dublin</li><li>IT support Skerries / Swords / Balbriggan</li><li>IT support for construction companies Dublin</li><li>cyber security small business Dublin</li></ul>
 <p><strong>What I saw (3 November 2026):</strong> a search for managed IT in Skerries and Fingal returned mostly national Irish IT firms, not anyone obviously based locally. That suggests an open lane for a genuinely local page, but my tool can't see Google's local map results, so run these yourself in a private window from Skerries and note who appears.</p>
 <p><strong>One extra step:</strong> also get a free listing on the Golden Pages directory, with the same name, phone and service area as Google.</p>
 <p><strong>How to appear:</strong> build the pages the IT.ie Tipperary example uses, one each for &ldquo;IT support Fingal&rdquo;, &ldquo;IT support for schools&rdquo; and &ldquo;IT support for construction&rdquo;. Put the place name in the title, the main heading and the first paragraph, and keep your name, address (or service area) and phone identical on the website, Google, LinkedIn and the Chamber directory.</p></div></li><li class="entry" id="i-f6a">
-<label class="item"><input type="checkbox" data-id="f6a" data-done="1"><span class="body"><span class="t">Get in touch with Fingal Chamber</span><span class="d">You&#x27;ve done this.</span></span><span class="chip chip-done">Done</span></label>
+<label class="item"><input type="checkbox" data-id="f6a" data-done="1" checked disabled><span class="body"><span class="t">Get in touch with Fingal Chamber</span><span class="d">You&#x27;ve done this.</span></span><span class="chip chip-done">Done</span></label>
 <div class="answer"><div class="alabel">Answer</div><p>Done, as you've told me.</p></div></li><li class="entry" id="i-f6b">
-<label class="item"><input type="checkbox" data-id="f6b"><span class="body"><span class="t">Decide on membership and join</span><span class="d">Fingal Chamber is the local one.</span></span><span class="chip chip-you">Needs your decision</span></label>
+<label class="item"><input type="checkbox" data-id="f6b" disabled><span class="body"><span class="t">Decide on membership and join</span><span class="d">Fingal Chamber is the local one.</span></span><span class="chip chip-you">Needs your decision</span></label>
 <div class="answer"><div class="alabel">Answer</div><p>From the Chamber's plans page:</p>
 <ul><li><strong>Bronze, €410 a year:</strong> for businesses with under 10 employees and under €1m turnover. That's you. The page doesn't say if VAT is included, so ask.</li>
 <li><strong>Includes:</strong> a directory profile, monthly B2B networking, posting your news and offers, the members' newsletter and app, reduced-rate Skillnet training.</li>
 <li><strong>Apply:</strong> through the &ldquo;Become a Bronze member&rdquo; link on fingalchamber.ie/plans-pricing, or ask the team if you're unsure which tier.</li></ul>
 <p><strong>Coming up:</strong> the Fingal Business Awards gala is on 13 November 2026 at the Crowne Plaza, Dublin Airport. Worth asking if a networking event is sooner.</p>
 <p class="note">The Chamber is where you meet bursars and building-firm owners in person, so I'd treat it as your best route into both target sectors.</p></div></li><li class="entry" id="i-f7">
-<label class="item"><input type="checkbox" data-id="f7" data-done="1"><span class="body"><span class="t">Set up a Facebook page</span><span class="d">Done 3 November 2026.</span></span><span class="chip chip-done">Done 3 Nov</span></label>
+<label class="item"><input type="checkbox" data-id="f7" data-done="1" checked disabled><span class="body"><span class="t">Set up a Facebook page</span><span class="d">Done 3 November 2026.</span></span><span class="chip chip-done">Done 3 Nov</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>Done on 3 November 2026:</strong> the old Venture Travel page is now <strong>Eriu Technology Ltd</strong>, with Wurzel as the icon and a new cover. You signed in and I filled in the page through your browser. Facebook locks the name for 60 days after a change. The Instagram account is still called Venture Travel; the rename is on hold, and you'll create @eriutechnology yourself.</p>
 <p>Less important than LinkedIn and Google for business customers, but local trades and school communities do use Facebook, and it's another place that looks legitimate in a search. Category: &ldquo;Information Technology Company&rdquo;. Add a &ldquo;Call now&rdquo; button. Keep the details identical to Google.</p><details class="draft"><summary>Short intro (under 255 characters)</summary><div class="drafthead"><button type="button" class="copy" data-target="f7-d0">Copy</button></div><pre id="f7-d0">IT and cyber security for small organisations in Fingal and north Dublin. One fixed monthly price, one person who knows your setup. Call +353 89 423 0610.</pre></details><details class="draft"><summary>About</summary><div class="drafthead"><button type="button" class="copy" data-target="f7-d1">Copy</button></div><pre id="f7-d1">Eriu Technology looks after IT and cyber security for small organisations in Fingal and north Dublin, including schools and building firms.
 
 We keep your computers, email and files running, protect them from scams, and fix things quickly when they go wrong. One fixed monthly price. One person who knows your setup.
 
 Based in Skerries. Book a free 30-minute call at eriu.tech or ring +353 89 423 0610.</pre></details></div></li><li class="entry" id="i-f8">
-<label class="item"><input type="checkbox" data-id="f8"><span class="body"><span class="t">Trusted Pros listing</span><span class="d">Draft email to Noreen is in your Gmail drafts. Add her address and send.</span></span><span class="chip chip-you">Needs you to send</span></label>
+<label class="item"><input type="checkbox" data-id="f8" disabled><span class="body"><span class="t">Trusted Pros listing</span><span class="d">Draft email to Noreen is in your Gmail drafts. Add her address and send.</span></span><span class="chip chip-you">Needs you to send</span></label>
 <div class="answer"><div class="alabel">Answer</div><p>Your explanation of who Trusted Pros are (solicitors, quantity surveyors, electricians and the like in Skerries, Balbriggan, Donabate and Swords; not doctors or vets; people who need IT help but don't want to pay for someone full-time) is written into a draft in your Gmail. It has no recipient because I couldn't find Noreen's address anywhere in your mail. Add it and send.</p>
 <p>Earlier note: I couldn't work out which directory this is. My searches found home-trades marketplaces (TrustedPeople.ie, OnlineTradesmen.ie), none of which looks right for managed IT. I'd rather not guess and have you sign up somewhere useless. Ask Noreen for the link.</p><details class="draft"><summary>Message to Noreen (also in your Gmail drafts)</summary><div class="drafthead"><button type="button" class="copy" data-target="f8-d0">Copy</button></div><pre id="f8-d0">Hi Noreen,
 
@@ -526,7 +542,7 @@ Is that who you meant? And is &quot;Trusted Pros&quot; a particular directory or
 
 Thanks,
 Niall</pre></details></div></li><li class="entry" id="i-f9">
-<label class="item"><input type="checkbox" data-id="f9" data-done="1"><span class="body"><span class="t">Publish an IT article on Medium</span><span class="d">A plain-English article for small organisations.</span></span><span class="chip chip-done">1 live, 14 scheduled</span></label>
+<label class="item"><input type="checkbox" data-id="f9" data-done="1" checked disabled><span class="body"><span class="t">Publish an IT article on Medium</span><span class="d">A plain-English article for small organisations.</span></span><span class="chip chip-done">1 live, 14 scheduled</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>All 14 security briefings are also on Medium, one a day.</strong> They're scheduled for 09:00 (GMT) from Wednesday 4 November to Tuesday 17 November 2026, and each links back to the original on the Eriu blog. The links below work as soon as each goes live. Until then they open as drafts only you can see.</p><table class="swap"><tr><th>Goes live (09:00)</th><th>Medium article</th></tr><tr><td>Wed 4 Nov</td><td><a href="https://medium.com/@niallohara73/7ced16eb8cb1" target="_blank" rel="noopener noreferrer">Plug &amp; Prey</a></td></tr><tr><td>Thu 5 Nov</td><td><a href="https://medium.com/@niallohara73/79b37e57c64d" target="_blank" rel="noopener noreferrer">Free Wi-Fi, Dear Price</a></td></tr><tr><td>Fri 6 Nov</td><td><a href="https://medium.com/@niallohara73/5a8845afec86" target="_blank" rel="noopener noreferrer">Wire &amp; Deceit</a></td></tr><tr><td>Sat 7 Nov</td><td><a href="https://medium.com/@niallohara73/8e7e8c4b70e1" target="_blank" rel="noopener noreferrer">The Phish &amp; Chips</a></td></tr><tr><td>Sun 8 Nov</td><td><a href="https://medium.com/@niallohara73/f42985a22013" target="_blank" rel="noopener noreferrer">Held to Ransom</a></td></tr><tr><td>Mon 9 Nov</td><td><a href="https://medium.com/@niallohara73/146120150852" target="_blank" rel="noopener noreferrer">Keys to the Kingdom</a></td></tr><tr><td>Tue 10 Nov</td><td><a href="https://medium.com/@niallohara73/860794bd1904" target="_blank" rel="noopener noreferrer">The Voice on the Phone</a></td></tr><tr><td>Wed 11 Nov</td><td><a href="https://medium.com/@niallohara73/4153e18c7262" target="_blank" rel="noopener noreferrer">The Leaving Do</a></td></tr><tr><td>Thu 12 Nov</td><td><a href="https://medium.com/@niallohara73/ae10c3fff2d0" target="_blank" rel="noopener noreferrer">Cloudy with a Chance of Breach</a></td></tr><tr><td>Fri 13 Nov</td><td><a href="https://medium.com/@niallohara73/c7eea6539695" target="_blank" rel="noopener noreferrer">Shadow IT</a></td></tr><tr><td>Sat 14 Nov</td><td><a href="https://medium.com/@niallohara73/47ab45de08c0" target="_blank" rel="noopener noreferrer">Patch or Perish</a></td></tr><tr><td>Sun 15 Nov</td><td><a href="https://medium.com/@niallohara73/4edd32907e6c" target="_blank" rel="noopener noreferrer">The Lost Laptop</a></td></tr><tr><td>Mon 16 Nov</td><td><a href="https://medium.com/@niallohara73/942ba1b667ed" target="_blank" rel="noopener noreferrer">The Smart Office</a></td></tr><tr><td>Tue 17 Nov</td><td><a href="https://medium.com/@niallohara73/bfa2b09b8882" target="_blank" rel="noopener noreferrer">GDPR for the Terrified</a></td></tr></table><p class="note">The imported text is the blog version word for word, so it carries the &ldquo;Originally published&rdquo; line and the same wording. Read a couple on Medium after they go live and soften anything you'd rather not have there.</p>
 <p><strong>Already live (3 November 2026):</strong> <a href="https://medium.com/@niallohara73/nobody-wants-to-be-the-it-department-c35d7203168e" target="_blank" rel="noopener noreferrer">Nobody Wants to Be the IT Department</a>, on your Medium profile (@niallohara73).</p>
 <p>An article for Medium about IT itself, rather than one scam: what a small organisation should expect from its IT, with five questions to test it and three things to do this week. It's written in your voice and ends with a gentle invitation, not a sales pitch. Suggested tags are below.</p><details class="draft"><summary>Title, subtitle and tags</summary><div class="drafthead"><button type="button" class="copy" data-target="f9-d0">Copy</button></div><pre id="f9-d0">Nobody Wants to Be the IT Department
@@ -578,9 +594,9 @@ Most of what catches small organisations isn&#x27;t sophisticated. The big one i
 I run Eriu Technology, a small IT and cyber security consultancy in Skerries, Co. Dublin. I also write a series of plain-English security briefings at lolo737.github.io/eriu-security-blog, one on each of the scams and slip-ups that actually catch people out.
 
 If you&#x27;d like a no-pressure look at those five questions for your own place, say hello: hello@eriu.tech.</pre></details></div></li></ul></section><section id="email"><p class="num">04</p><h2>Targeted email</h2><p class="intro">Small and specific beats big and vague. One sector, one problem, one thing to do next.</p><ul class="list"><li class="entry" id="i-e1">
-<label class="item"><input type="checkbox" data-id="e1"><span class="body"><span class="t">Pick one sector per email</span><span class="d">Schools or construction, never both in the same message.</span></span><span class="chip chip-ready">Answered</span></label>
+<label class="item"><input type="checkbox" data-id="e1" disabled><span class="body"><span class="t">Pick one sector per email</span><span class="d">Schools or construction, never both in the same message.</span></span><span class="chip chip-ready">Answered</span></label>
 <div class="answer"><div class="alabel">Answer</div><p>Two emails, one per sector, drafted below. Send the construction one first (see the sector answer above).</p></div></li><li class="entry" id="i-e2">
-<label class="item"><input type="checkbox" data-id="e2"><span class="body"><span class="t">Lead with their problem, not your services</span></span><span class="chip chip-ready">Examples ready</span></label>
+<label class="item"><input type="checkbox" data-id="e2" checked disabled><span class="body"><span class="t">Lead with their problem, not your services</span></span><span class="chip chip-ready">Examples ready</span></label>
 <div class="answer"><div class="alabel">Answer</div><p>Both drafts open with their problem: a supplier changing bank details for builders, and the data and budget worries of a school. Your services get a single sentence near the end.</p><details class="draft"><summary>Email 1: Construction</summary><div class="drafthead"><button type="button" class="copy" data-target="e2-d0">Copy</button></div><pre id="e2-d0">Subject: Invoice-redirect fraud: does your office have a rule for it?
 
 Hi [Name],
@@ -626,9 +642,9 @@ LinkedIn: linkedin.com/in/niallx
 
 Eriu Technology Limited. Registered in Ireland, company no. 817401.
 Registered office: 20 The Golflinks Road, Skerries, Co. Dublin, K34 E652</pre></details></div></li><li class="entry" id="i-e3">
-<label class="item"><input type="checkbox" data-id="e3"><span class="body"><span class="t">One clear call to action</span><span class="d">A call, a reply or a short meeting. Pick one.</span></span><span class="chip chip-ready">Answered</span></label>
+<label class="item"><input type="checkbox" data-id="e3" disabled><span class="body"><span class="t">One clear call to action</span><span class="d">A call, a reply or a short meeting. Pick one.</span></span><span class="chip chip-ready">Answered</span></label>
 <div class="answer"><div class="alabel">Answer</div><p><strong>A 30-minute call.</strong> It's the same ask as the website button, so everything points the same way. Offer the phone number as the backup, not as a second request.</p></div></li><li class="entry" id="i-e4">
-<label class="item"><input type="checkbox" data-id="e4"><span class="body"><span class="t">Phone number and LinkedIn link in the footer</span></span><span class="chip chip-ready">Footer ready</span></label>
+<label class="item"><input type="checkbox" data-id="e4" checked disabled><span class="body"><span class="t">Phone number and LinkedIn link in the footer</span></span><span class="chip chip-ready">Footer ready</span></label>
 <div class="answer"><div class="alabel">Answer</div><p>It's in the footer I drafted in the website section, which is also attached to both emails above.</p><details class="draft"><summary>Email footer (plain text)</summary><div class="drafthead"><button type="button" class="copy" data-target="e4-d0">Copy</button></div><pre id="e4-d0">Niall O&#x27;Hara
 Eriu Technology Ltd | IT and cyber security for small organisations
 Tel: +353 89 423 0610
@@ -652,28 +668,16 @@ Registered office: 20 The Golflinks Road, Skerries, Co. Dublin, K34 E652</pre></
   </section>
 
   <footer>
-    <div>Ticks are saved in this browser. To show someone else where you are, press &ldquo;Share progress&rdquo; for a link that carries your ticks. &ldquo;Done&rdquo; items start ticked: the Chamber contact, the live blog posts, LinkedIn post 1, the Medium article and Search Console.</div>
+    <div>This page is the record. The ticks are set in the page itself, so everyone who opens this link sees the same progress. The label on each line (Done, Draft ready, Needs you) says where it really stands.</div>
     <div class="actions">
       <button class="reset" id="print" type="button">Print or save as PDF</button>
-      <button class="reset" id="reset" type="button">Reset ticks</button>
     </div>
   </footer>
 </div>
 
 <script>
 (function () {
-  var KEY = 'eriu-growth-checklist-v3';
-  var DEFAULTS = {};   // what visitors see on the plain link: every item marked Done in the page itself
   var boxes = Array.prototype.slice.call(document.querySelectorAll('input[type="checkbox"][data-id]'));
-  boxes.forEach(function (b) { if (b.hasAttribute('data-done')) DEFAULTS[b.dataset.id] = true; });
-  var saved = null;
-  try { var raw = localStorage.getItem(KEY); if (raw) saved = JSON.parse(raw); } catch (e) { saved = null; }
-  if (!saved || typeof saved !== 'object') { saved = JSON.parse(JSON.stringify(DEFAULTS)); }
-  // a shared link (#p=id,id,...) shows the sender's ticks
-  var shared = (location.hash.match(/^#p=([\w,]*)$/) || [])[1];
-  if (shared !== undefined) { saved = {}; shared.split(',').forEach(function (id) { if (id) saved[id] = true; }); }
-
-  function persist() { try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) { /* private mode */ } }
   function paint() {
     var done = 0;
     boxes.forEach(function (b) {
@@ -682,27 +686,12 @@ Registered office: 20 The Golflinks Road, Skerries, Co. Dublin, K34 E652</pre></
       if (entry) entry.classList.toggle('done', b.checked);
     });
     document.getElementById('fill').style.width = (boxes.length ? (done / boxes.length * 100) : 0) + '%';
-    document.getElementById('count').textContent = done + ' of ' + boxes.length + ' done';
+    document.getElementById('count').textContent = done + ' of ' + boxes.length + ' worked through';
     var tn = document.getElementById('t-num');
     if (tn.textContent !== String(done)) { tn.textContent = done; tn.classList.add('bump'); setTimeout(function () { tn.classList.remove('bump'); }, 250); }
-    document.getElementById('t-of').textContent = 'of ' + boxes.length + ' done';
+    document.getElementById('t-of').textContent = 'of ' + boxes.length + ' worked through';
     document.getElementById('t-fill').style.width = (boxes.length ? (done / boxes.length * 100) : 0) + '%';
   }
-
-  boxes.forEach(function (b) {
-    b.checked = !!saved[b.dataset.id];
-    b.addEventListener('change', function () {
-      if (b.checked) { saved[b.dataset.id] = true; } else { delete saved[b.dataset.id]; }
-      persist(); paint();
-    });
-  });
-
-  document.getElementById('reset').addEventListener('click', function () {
-    if (!window.confirm('Reset all ticks? The items already done will stay ticked.')) { return; }
-    saved = JSON.parse(JSON.stringify(DEFAULTS));
-    boxes.forEach(function (b) { b.checked = !!saved[b.dataset.id]; });
-    persist(); paint();
-  });
 
   // copy buttons
   document.addEventListener('click', function (ev) {
@@ -728,15 +717,6 @@ Registered office: 20 The Golflinks Road, Skerries, Co. Dublin, K34 E652</pre></
   window.addEventListener('beforeprint', openAll);
   window.addEventListener('afterprint', restore);
   document.getElementById('print').addEventListener('click', function () { window.print(); });
-
-  document.getElementById('share').addEventListener('click', function () {
-    var ids = boxes.filter(function (b) { return b.checked; }).map(function (b) { return b.dataset.id; });
-    var url = location.href.split('#')[0] + '#p=' + ids.join(',');
-    var btn = this, label = btn.textContent;
-    function ok() { btn.textContent = 'Link copied'; setTimeout(function () { btn.textContent = label; }, 1800); }
-    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(url).then(ok, function () { window.prompt('Copy this link:', url); }); }
-    else { window.prompt('Copy this link:', url); }
-  });
 
   paint();
 })();
