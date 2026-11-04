@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en-IE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Fax You Up! Growth Checklist</title>
+<meta name="description" content="Growth checklist for Fax You Up!, with worked answers and ready-to-use drafts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cyan: #00dbcc; --amber: #ffb81a; --red: #f54447; --green: #40ea99;
+    --ink: #d7e7ea; --muted: #8aa0a6; --panel: rgba(255,255,255,0.04); --line: rgba(0,219,204,0.28);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; color: var(--ink);
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+    font-size: 17px; line-height: 1.6; background: #02090a;
+    background-image: linear-gradient(180deg, #053a3c 0%, #031a1c 32%, #02090a 70%);
+    background-attachment: fixed; min-height: 100vh;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 80px; }
+
+  header { padding: 56px 0 24px; }
+  .kicker { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--amber); margin: 0 0 14px; }
+  h1 {
+    font-family: 'Oswald', 'Arial Narrow', Impact, sans-serif; font-weight: 700;
+    font-size: clamp(40px, 9vw, 64px); line-height: 1.02; text-transform: uppercase; letter-spacing: .01em; margin: 0 0 16px; color: #fff;
+    text-shadow: -2px 0 rgba(245,68,71,.7), 2px 0 rgba(0,219,204,.7), 0 0 22px rgba(0,219,204,.35);
+  }
+  .lede { font-size: 19px; margin: 0; max-width: 60ch; }
+
+  .brief { margin-top: 8px; border: 1.5px solid var(--amber); border-radius: 16px; background: rgba(255,184,26,.06); padding: 18px 20px; }
+  .brief .num { color: var(--amber); }
+  .brief dl { margin: 8px 0 14px; display: grid; gap: 8px 14px; grid-template-columns: 1fr; }
+  @media (min-width: 620px) { .brief dl { grid-template-columns: 130px 1fr; } }
+  .brief dt { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); padding-top: 4px; }
+  .brief dd { margin: 0; color: #fff; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  .progress { position: sticky; top: 0; z-index: 5; background: rgba(2,9,10,.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); margin: 22px -20px 0; padding: 12px 20px; }
+  .progress-row { display: flex; align-items: center; gap: 14px; max-width: 760px; margin: 0 auto; }
+  .bar { flex: 1; height: 8px; background: rgba(255,255,255,.1); border-radius: 99px; overflow: hidden; }
+  .fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--cyan), var(--green)); transition: width .25s ease; }
+  .count { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: var(--muted); white-space: nowrap; }
+
+  nav { margin: 22px 0 8px; display: flex; flex-wrap: wrap; gap: 8px; }
+  nav a { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: var(--cyan); text-decoration: none; border: 1px solid var(--line); border-radius: 99px; padding: 6px 14px; }
+  nav a:hover, nav a:focus-visible { background: rgba(0,219,204,.12); outline: none; }
+
+  section { margin-top: 44px; scroll-margin-top: 70px; }
+  .num { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: var(--cyan); letter-spacing: .14em; margin: 0 0 6px; text-transform: uppercase; }
+  h2 { font-family: 'Oswald', 'Arial Narrow', Impact, sans-serif; font-weight: 700; font-size: 32px; line-height: 1.1; text-transform: uppercase; margin: 0 0 10px; color: #fff; }
+  .intro { color: var(--muted); margin: 0 0 18px; }
+  .notice { margin: 0 0 18px; border: 1.5px solid rgba(255,184,26,.55); border-radius: 14px; background: rgba(255,184,26,.07); padding: 12px 16px; font-size: 15px; }
+  .notice strong { color: var(--amber); }
+
+  ul.list { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  .entry { background: var(--panel); border: 1.5px solid var(--line); border-radius: 16px; overflow: hidden; }
+  .entry.done { border-color: rgba(64,234,153,.5); }
+  .item { display: flex; gap: 14px; align-items: flex-start; padding: 14px 16px; cursor: pointer; }
+  .item:hover { background: rgba(0,219,204,.05); }
+  .item input { appearance: none; -webkit-appearance: none; flex: none; width: 24px; height: 24px; margin: 2px 0 0; border-radius: 7px; border: 2px solid var(--cyan); background: transparent; cursor: pointer; position: relative; }
+  .item input:checked { background: var(--cyan); }
+  .item input:checked::after { content: ''; position: absolute; left: 7px; top: 2px; width: 6px; height: 12px; border: solid #02090a; border-width: 0 3px 3px 0; transform: rotate(45deg); }
+  .item input:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+  .item .body { flex: 1; min-width: 0; }
+  .item .t { font-weight: 600; color: #fff; display: block; }
+  .item .d { color: var(--muted); font-size: 15px; display: block; margin-top: 2px; }
+  .entry.done .item .t { color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(0,219,204,.6); }
+
+  .chip { flex: none; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; border-radius: 99px; padding: 3px 10px; white-space: nowrap; border: 1px solid; align-self: flex-start; }
+  .chip-done { color: var(--green); border-color: rgba(64,234,153,.6); background: rgba(64,234,153,.08); }
+  .chip-ready { color: var(--cyan); border-color: rgba(0,219,204,.55); background: rgba(0,219,204,.08); }
+  .chip-you { color: var(--amber); border-color: rgba(255,184,26,.6); background: rgba(255,184,26,.08); }
+  .chip-info { color: var(--ink); border-color: rgba(215,231,234,.4); }
+  @media (max-width: 520px) { .item { flex-wrap: wrap; } .item .body { flex: 1 1 calc(100% - 40px); } .item .chip { margin-left: 38px; order: 3; } }
+
+  .answer { border-top: 1px dashed var(--line); padding: 12px 16px 16px 54px; font-size: 16px; }
+  @media (max-width: 520px) { .answer { padding-left: 16px; } }
+  .alabel { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--green); margin-bottom: 6px; }
+  .answer p { margin: 0 0 10px; }
+  .answer ul, .answer ol { margin: 0 0 10px; padding-left: 22px; }
+  .answer li { margin: 3px 0; }
+  .answer a { color: var(--cyan); word-break: break-word; }
+  .answer code { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; background: rgba(255,255,255,.08); padding: 1px 6px; border-radius: 5px; word-break: break-all; }
+  .answer .note { color: var(--muted); font-size: 15px; border-left: 3px solid var(--amber); padding-left: 12px; }
+  .answer em { color: #fff; }
+
+  table.swap { border-collapse: collapse; width: 100%; font-size: 15px; margin: 0 0 12px; }
+  table.swap th { text-align: left; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); padding: 6px 8px; border-bottom: 1px solid var(--line); }
+  table.swap td { padding: 6px 8px; border-bottom: 1px solid rgba(255,255,255,.06); vertical-align: top; }
+
+  details.draft { margin-top: 10px; border: 1.5px solid rgba(255,184,26,.45); border-radius: 12px; background: rgba(255,184,26,.04); }
+  details.draft summary { cursor: pointer; padding: 10px 14px; font-weight: 600; color: var(--amber); list-style: none; }
+  details.draft summary::-webkit-details-marker { display: none; }
+  details.draft summary::before { content: '+ '; font-family: 'JetBrains Mono', monospace; }
+  details.draft[open] summary::before { content: '\2212  '; }
+  details.draft summary:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; border-radius: 10px; }
+  .drafthead { display: flex; justify-content: flex-end; padding: 0 14px; }
+  button.copy { font: inherit; font-size: 13px; color: #02090a; background: var(--amber); border: 0; border-radius: 99px; padding: 5px 14px; cursor: pointer; font-weight: 600; }
+  button.copy:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+  pre { margin: 8px 0 0; padding: 4px 14px 16px; white-space: pre-wrap; word-wrap: break-word; font-family: 'Inter', system-ui, sans-serif; font-size: 15px; line-height: 1.55; color: #fff; }
+
+  .callout { margin-top: 18px; border: 1.5px solid var(--red); border-radius: 14px; background: rgba(245,68,71,.08); padding: 16px 18px; }
+  .callout strong { color: var(--red); font-family: 'Oswald', 'Arial Narrow', sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+  .callout p { margin: 8px 0 0; font-size: 16px; }
+  .callout a { color: var(--cyan); }
+
+  .sectors { display: grid; gap: 12px; grid-template-columns: 1fr; margin-top: 16px; }
+  @media (min-width: 620px) { .sectors { grid-template-columns: 1fr 1fr; } }
+  .sector { border: 1.5px solid rgba(255,184,26,.5); border-radius: 14px; padding: 16px 18px; background: rgba(255,184,26,.05); }
+  .sector h3 { margin: 0 0 6px; font-family: 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; color: var(--amber); font-size: 20px; }
+  .sector ul { margin: 0; padding-left: 18px; }
+  .sector li { margin: 3px 0; }
+
+  .refs { display: grid; gap: 12px; }
+  .ref { border: 1.5px solid var(--line); border-radius: 14px; padding: 16px 18px; background: var(--panel); }
+  .ref a { color: var(--cyan); font-weight: 600; word-break: break-word; }
+  .ref a:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
+  .ref p { margin: 6px 0 0; font-size: 16px; }
+  .tag { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: var(--green); text-transform: uppercase; letter-spacing: .1em; }
+
+  footer { margin-top: 56px; border-top: 1px solid var(--line); padding-top: 20px; color: var(--muted); font-size: 14px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+  button.reset { font: inherit; font-size: 14px; color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 99px; padding: 8px 16px; cursor: pointer; }
+  button.reset:hover, button.reset:focus-visible { border-color: var(--cyan); color: #fff; outline: none; }
+  #reset:hover { border-color: var(--red); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .fill { transition: none; } }
+
+  @media print {
+    body { background: #fff; color: #111; font-size: 12pt; }
+    .progress, nav, .actions, button.copy, .legend, .ticker { display: none !important; }
+    h1, h2, .item .t, .brief dd, pre, .answer em { color: #000; text-shadow: none; }
+    .entry, .brief, .callout, .sector, .ref, details.draft, .notice { border-color: #999; background: none; break-inside: avoid; }
+    .item .d, .intro, .alabel, .tag, .kicker, .num { color: #444; }
+    .answer a, .ref a, .callout a { color: #0a5; }
+    .chip { color: #333; border-color: #999; background: none; }
+    section { margin-top: 24px; }
+  }
+
+  /* floating progress ticker */
+  .ticker { position: fixed; z-index: 6; left: 20px; top: 50%; transform: translateY(-50%); width: 132px; padding: 16px 14px 14px; border: 1px solid var(--line); border-radius: 14px; background: rgba(2,9,10,.9); backdrop-filter: blur(6px); text-align: center; box-shadow: 0 0 24px rgba(0,219,204,.12); }
+  .ticker .t-num { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 56px; line-height: 1; color: var(--cyan); letter-spacing: .01em; transition: transform .25s ease; }
+  .ticker .t-num.bump { transform: scale(1.18); }
+  .ticker .t-of { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: var(--muted); margin-top: 6px; text-transform: uppercase; letter-spacing: .08em; }
+  .ticker .t-bar { height: 5px; border-radius: 99px; background: rgba(255,255,255,.08); margin: 12px 0; overflow: hidden; }
+  .ticker .t-fill { height: 100%; width: 0; background: var(--cyan); transition: width .3s ease; }
+  .ticker button { font: inherit; font-size: 12px; color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 99px; padding: 6px 12px; cursor: pointer; }
+  .ticker button:hover, .ticker button:focus-visible { border-color: var(--cyan); color: #fff; outline: none; }
+  @media (max-width: 1099px) { .ticker { top: auto; bottom: 14px; left: 14px; transform: none; width: auto; display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 99px; }
+    .ticker .t-num { font-size: 26px; } .ticker .t-of { margin: 0; font-size: 11px; } .ticker .t-bar { display: none; } .ticker button { padding: 5px 10px; } }
+  @media (prefers-reduced-motion: reduce) { .ticker .t-num, .ticker .t-fill { transition: none; } }
+
+  .item input:disabled { opacity: 1; cursor: default; }
+  .item { cursor: default; }
+  .ticker .t-sub { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: var(--ink); line-height: 1.4; }
+  .ticker .t-sub span { color: var(--cyan); font-weight: 600; }
+  .finished { margin: 8px 0 28px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 14px; background: rgba(0,219,204,.04); }
+  .finished ul { list-style: none; margin: 8px 0 0; padding: 0; columns: 2 320px; column-gap: 28px; }
+  .finished li { break-inside: avoid; display: flex; justify-content: space-between; gap: 12px; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.06); font-size: 15px; }
+  .finished li a { color: #fff; text-decoration: none; } .finished li a:hover { color: var(--cyan); }
+  .finished li span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+  @media print { .finished li { border-color: #ccc; } }
+
+</style>
+</head>
+<body>
+<aside class="ticker" id="ticker" aria-label="Progress">
+  <div class="t-num" id="t-num">0</div>
+  <div class="t-of" id="t-of">of 0 done</div>
+  <div class="t-bar" aria-hidden="true"><div class="t-fill" id="t-fill"></div></div>
+  <div class="t-sub"><span id="t-fin">1</span> finished and live</div>
+</aside>
+
+<div class="wrap">
+
+  <header>
+    <p class="kicker">Fax You Up! &middot; Working notes</p>
+    <h1>Fax You Up!<br>Growth list</h1>
+    <p class="lede">Make it easy to find, easy to trust and easy to pay. Get Fax You Up! in front of the people who are stuck with an office that only takes a fax. Each item has a worked answer or a draft you can use, and the label on each line says where it really stands.</p>
+  </header>
+
+  <div class="brief">
+    <p class="num">The short version</p>
+    <dl>
+      <dt>The problem</dt><dd>An office I have to deal with only takes a fax, and I don&rsquo;t own a fax machine, or want a subscription to send one.</dd>
+      <dt>What it is</dt><dd>One fax, &euro;1, nothing renews. Send from a phone or laptop, get a delivery report. Optional &euro;24.99 monthly plan.</dd>
+      <dt>Who for first</dt><dd>English-speaking expats in Berlin and Germany, then people in Ireland and the UK faxing Germany. German-language search comes next.</dd>
+      <dt>Next three moves</dt><dd>1. Buy a proper domain and drop the netlify.app address. 2. Create the Instagram and Facebook pages. 3. Build the German pages and one page per reason people fax.</dd>
+      <dt>Done</dt><dd>The service is live and taking payment.</dd>
+    </dl>
+    <div class="legend"><span class="chip chip-done">Done</span><span class="chip chip-ready">Answer or draft ready</span><span class="chip chip-you">Needs you</span><span class="chip chip-info">Advice</span></div>
+  </div>
+
+  <section class="finished" id="finished">
+    <p class="num">What is finished and live</p>
+    <ul><li><a href="#i-p0">The service works and takes payment</a><span>Live</span></li></ul>
+  </section>
+
+  <div class="progress" role="status" aria-live="polite">
+    <div class="progress-row">
+      <div class="bar" aria-hidden="true"><div class="fill" id="fill"></div></div>
+      <div class="count" id="count">0 of 0 done</div>
+    </div>
+  </div>
+
+  <nav aria-label="Sections">
+    <a href="#message">1 &middot; Message</a>
+    <a href="#website">2 &middot; Website</a>
+    <a href="#found">3 &middot; Be found</a>
+    <a href="#domain">4 &middot; Domain</a>
+    <a href="#refs">5 &middot; Sources</a>
+  </nav>
+
+  <section id="message"><p class="num">01</p><h2>Start with the problem</h2><p class="intro">Nobody wakes up wanting to send a fax. They have an office that will only take one. Say that, and say it plainly.</p><div class="notice"><strong>What I used:</strong> I read the live faxyouup.netlify.app page on 4 November 2026 (headline, offer, pricing, FAQ, page titles) and a few German and expat sources, listed at the end. I haven&rsquo;t seen the design, and I can&rsquo;t see your Stripe, Telnyx or traffic numbers.</div><ul class="list"><li class="entry done" id="i-p0">
+<label class="item"><input type="checkbox" data-id="p0" checked disabled><span class="body"><span class="t">The service works and takes payment</span><span class="d">Live at faxyouup.netlify.app, version 1.4 of 25 October 2026.</span></span><span class="chip chip-done">Live</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>Stripe is live, the &euro;1 single fax is the main product, and the &euro;24.99 monthly plan is optional. This list is about getting people to it.</p></div></li><li class="entry" id="i-m1">
+<label class="item"><input type="checkbox" data-id="m1" disabled><span class="body"><span class="t">Who is stuck, and with what?</span><span class="d">One sentence, in their words.</span></span><span class="chip chip-ready">Answered</span></label>
+<div class="answer"><div class="alabel">Answer</div><p><strong>Working answer:</strong> &ldquo;An office I have to deal with only accepts a fax, and I don&rsquo;t own a fax machine.&rdquo;</p>
+<p>Who that is, in order of how easy they are to reach:</p>
+<ul><li><strong>English speakers in Berlin and Germany</strong> dealing with the Finanzamt, the Ausl&auml;nderbeh&ouml;rde, health insurers, landlords and doctors. One expat blog says immigration lawyers advise faxing a German public office because the transmission report proves what pages were sent, which a registered letter doesn&rsquo;t.</li>
+<li><strong>Irish and UK people and small firms sending to Germany</strong> (your guide pages already cover Ireland and Germany).</li>
+<li><strong>Germans</strong> who fax once a year and don&rsquo;t want a subscription. Bitkom found 82% of German companies still use fax (2023), so the other end of the line still exists.</li></ul></div></li><li class="entry" id="i-m2">
+<label class="item"><input type="checkbox" data-id="m2" disabled><span class="body"><span class="t">Pain reliever or gain creator?</span><span class="d">Does it take a headache away, or give them something new?</span></span><span class="chip chip-ready">Answered</span></label>
+<div class="answer"><div class="alabel">Answer</div><p><strong>Pain reliever.</strong> The headache is two things: finding a way to fax at all, and the fear of a &ldquo;&euro;1 trial&rdquo; that quietly turns into a monthly charge. Your page already hits the second one with its comparison table. Lead with the first one in the headline, because that&rsquo;s what people type into Google.</p></div></li><li class="entry" id="i-m3">
+<label class="item"><input type="checkbox" data-id="m3" disabled><span class="body"><span class="t">Write the one-line pitch</span><span class="d">One line, for the top of the site and the Instagram bio.</span></span><span class="chip chip-ready">Draft ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>Three options to choose from. They are all honest about the company, which is Irish, not Berlin-based.</p><details class="draft"><summary>Pitch options</summary><div class="drafthead"><button type="button" class="copy" data-target="m3-d0">Copy</button></div><pre id="m3-d0">1. Send a fax online. One fax, one euro, nothing renews.
+2. The fax your Finanzamt asked for, sent from your phone. No machine, no subscription.
+3. Fax from a Berlin number, pay once, get a receipt page by page.
+
+For German pages:
+Fax online senden: einmal 1 Euro, ohne Abo, mit Sendebericht.</pre></details></div></li><li class="entry" id="i-m4">
+<label class="item"><input type="checkbox" data-id="m4" disabled><span class="body"><span class="t">Pick the first two audiences</span><span class="d">Start narrow. Two is plenty.</span></span><span class="chip chip-ready">Answered</span></label>
+<div class="answer"><div class="alabel">Answer</div><p><strong>My pick:</strong></p>
+<ol><li><strong>English-speaking expats in Berlin.</strong> You know this crowd, they ask in English, they search in English, and they are already complaining about German paperwork in Facebook groups and Reddit.</li>
+<li><strong>People in Ireland and the UK faxing Germany or the EU</strong> (solicitors&rsquo; clients, anyone with German tax or insurance history).</li></ol>
+<p>German-language search comes next, once the German pages exist (item w2). It has the most volume but the most competition.</p></div></li><li class="entry" id="i-m5">
+<label class="item"><input type="checkbox" data-id="m5" disabled><span class="body"><span class="t">Look at the competitors</span><span class="d">Note what&#x27;s clear, what&#x27;s jargon, and what makes you trust them or not.</span></span><span class="chip chip-ready">First pass done</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>A German comparison article (netzwelt.de) lists AllToFax.de, MyFax, eFax and Fax.to. Quoted prices there: Fax.to about 20 cents plus &euro;3.99 for a one-time send; eFax &euro;0.70&ndash;0.75 a page plus monthly costs; MyFax about &euro;0.065 a page plus monthly costs. I don&rsquo;t know how recent those figures are, so check each site before you quote them anywhere.</p>
+<p>Also seen: SofortFax, Simple-Fax, Fax.Plus (the one the expat blog used). What they teach: the article says to watch for subscription traps and hidden fees. That is the same gap your &euro;1, no-account offer fills.</p>
+<p class="note">Spend 30 minutes on each of the top three: price for a 5-page fax, what the price page hides, and the reviews. Don&rsquo;t name them in ads.</p></div></li></ul></section><section id="website"><p class="num">02</p><h2>The website</h2><p class="intro">A stranger from a search should understand the offer, trust it with a document, and pay, all within a minute, on an iPhone.</p><div class="notice"><strong>Read on 4 November 2026:</strong> the English page has a clear headline (&ldquo;One fax. &euro;1. Done.&rdquo;), a good title and description, a canonical URL, social-card tags and guides for Ireland and Germany. I saw no German-language pages. I couldn&rsquo;t test it on a phone from here.</div><ul class="list"><li class="entry" id="i-w1">
+<label class="item"><input type="checkbox" data-id="w1" disabled><span class="body"><span class="t">Title and headline for what people type</span><span class="d">Words from the search box, not from the brand.</span></span><span class="chip chip-ready">Mostly there</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>The current title (&ldquo;Send a Fax Online for &euro;1 &middot; No Subscription &middot; Fax You Up!&rdquo;) is already good. Keep it. Check that every other page has its own title with the question it answers, for example &ldquo;How to fax the Finanzamt from your phone&rdquo; rather than &ldquo;Guide&rdquo;.</p></div></li><li class="entry" id="i-w2">
+<label class="item"><input type="checkbox" data-id="w2" disabled><span class="body"><span class="t">German pages</span><span class="d">You already planned this for V3. Pull it forward.</span></span><span class="chip chip-you">Needs building</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>Home, price, FAQ, send page and the legal pages, in German, on their own addresses (for example /de/). Link the two versions to each other with hreflang tags so Google shows the right one.</p>
+<p>Use the pitch line from m3. Have a German speaker check the wording, not just a translation tool: a document sent to a tax office is a high-trust moment.</p></div></li><li class="entry" id="i-w3">
+<label class="item"><input type="checkbox" data-id="w3" disabled><span class="body"><span class="t">One page for each reason people fax</span><span class="d">This is what actually gets you found.</span></span><span class="chip chip-ready">Page list ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>One plain page per situation, each answering a real question in the person&rsquo;s words:</p>
+<ul><li>How to fax the Finanzamt (and why it counts as proof)</li><li>How to fax the Ausl&auml;nderbeh&ouml;rde or LEA Berlin</li><li>How to fax a Krankenkasse or insurer</li><li>How to fax a doctor&rsquo;s surgery or Jobcenter</li><li>How to fax a court or solicitor in Germany</li><li>How to send a fax from Ireland to Germany (you have this)</li></ul>
+<p>Same shape every time: who needs this, the fax number format (+49 and the leading zero), what to attach, what the receipt proves, a Send button. Don&rsquo;t promise any office will accept a fax; say &ldquo;check with the office&rdquo;.</p></div></li><li class="entry" id="i-w4">
+<label class="item"><input type="checkbox" data-id="w4" disabled><span class="body"><span class="t">Impressum, privacy and company details</span><span class="d">Required for Germany, and it builds trust.</span></span><span class="chip chip-you">Check this</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>A service aimed at people in Germany normally needs an <strong>Impressum</strong> (provider name, address, contact, company number, and a VAT number once you have one) and a privacy page in German. Your footer already shows Eriu Limited and an email address. I&rsquo;m not a lawyer, so ask your accountant or a quick legal check to confirm what applies.</p>
+<p>One fix to make: the company is <strong>Eriu Technology Limited</strong>. The site says &ldquo;Eriu Limited&rdquo;.</p></div></li><li class="entry" id="i-w5">
+<label class="item"><input type="checkbox" data-id="w5" disabled><span class="body"><span class="t">Say why it&#x27;s safe to upload a document</span><span class="d">People send tax and medical papers.</span></span><span class="chip chip-ready">Copy ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>Add a short, honest block near the upload button: how long files are kept, who can see them, that no card is stored, and that you give them a receipt page. Only write what is true of your system today.</p><details class="draft"><summary>Trust block (edit to match what you do)</summary><div class="drafthead"><button type="button" class="copy" data-target="w5-d0">Copy</button></div><pre id="w5-d0">Your document is sent once, to the number you entered.
+We don&#x27;t store your card. We keep the fax and the delivery report for the time shown in our privacy page, and you can ask us to delete them.
+You get a delivery report for the fax, and a free resend if it fails.</pre></details></div></li><li class="entry" id="i-w6">
+<label class="item"><input type="checkbox" data-id="w6" disabled><span class="body"><span class="t">Test it on a phone, start to finish</span><span class="d">Most people will arrive on an iPhone.</span></span><span class="chip chip-you">Needs you</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>On your own iPhone, from a search result: land, enter a number, upload a photo, pay, get the receipt. Time it. If anything takes more than a minute or looks wrong, that is where customers leave.</p></div></li></ul></section><section id="found"><p class="num">03</p><h2>Be found</h2><p class="intro">Search brings people who need it today. Instagram and Facebook bring the people who hear about it from someone else. You want both, and Facebook groups are probably the quickest start.</p><ul class="list"><li class="entry" id="i-f1">
+<label class="item"><input type="checkbox" data-id="f1" disabled><span class="body"><span class="t">Tell Google and Bing the site exists</span><span class="d">Search Console, plus Bing Webmaster Tools.</span></span><span class="chip chip-you">Do after the domain</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>Do this on the <em>new</em> domain (section 04), not on the netlify.app address, so you only do it once. Submit the sitemap, then ask for indexing of the home page and the guides. It&rsquo;s the same steps as Eriu.</p></div></li><li class="entry" id="i-f2">
+<label class="item"><input type="checkbox" data-id="f2" disabled><span class="body"><span class="t">The searches to win</span><span class="d">Write them down and check where you appear.</span></span><span class="chip chip-ready">List ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><p><strong>English:</strong> send a fax online &middot; fax online no subscription &middot; send fax from phone &middot; fax finanzamt from abroad &middot; how to send a fax to germany from ireland &middot; online fax one time</p>
+<p><strong>German:</strong> fax online senden &middot; fax senden ohne abo &middot; fax vom handy senden &middot; fax ans finanzamt senden &middot; einzelnes fax online verschicken</p>
+<p>Each one gets one page. Check them in a private window and note who is above you.</p></div></li><li class="entry" id="i-f3">
+<label class="item"><input type="checkbox" data-id="f3" disabled><span class="body"><span class="t">Instagram account for Fax You Up!</span><span class="d">Create it yourself; I won&#x27;t sign in or create accounts.</span></span><span class="chip chip-you">Needs you</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>Handle: <strong>@faxyouup</strong>. Check it&rsquo;s free first; if not, try @faxyouup.app or @faxyouup.de. I can&rsquo;t check Instagram from here.</p>
+<p>Make it a business account, put the link in the bio, and keep the look of the site. The jokes are the product on Instagram: bureaucracy, faxes, the German office that still wants one.</p><details class="draft"><summary>Bio</summary><div class="drafthead"><button type="button" class="copy" data-target="f3-d0">Copy</button></div><pre id="f3-d0">Fax online. €1. No subscription.
+For the offices that still want a fax.
+Fax from a Berlin number. 🇩🇪🇮🇪
+⬇️ Send one</pre></details><details class="draft"><summary>First 9 posts</summary><div class="drafthead"><button type="button" class="copy" data-target="f3-d1">Copy</button></div><pre id="f3-d1">1. &#x27;A fax, in 2026?&#x27; Yes. Here&#x27;s who still wants one.
+2. Why a fax counts as proof (the page-by-page report).
+3. What a €1 trial really costs you (the subscription trap).
+4. How to fax the Finanzamt from your phone, in 3 steps.
+5. The number format: +49, drop the leading 0.
+6. &#x27;Things Germany will only accept by fax&#x27; (meme).
+7. Real fax, real receipt: what the report looks like.
+8. Irish edition: faxing Germany from Skerries/Dublin.
+9. Your questions: reply with the office you need to fax.</pre></details><details class="draft"><summary>Reel ideas</summary><div class="drafthead"><button type="button" class="copy" data-target="f3-d2">Copy</button></div><pre id="f3-d2">A: 15 seconds, phone only: photo of a form, enter a number, pay €1, &#x27;sent&#x27;.
+B: Cartoon fax machine with a Berlin accent, one joke per reel.
+C: &#x27;POV: the Finanzamt wants it by fax.&#x27;</pre></details></div></li><li class="entry" id="i-f4">
+<label class="item"><input type="checkbox" data-id="f4" disabled><span class="body"><span class="t">Facebook page and expat groups</span><span class="d">The page is the shop window, the groups are the street.</span></span><span class="chip chip-you">Needs you</span></label>
+<div class="answer"><div class="alabel">Answer</div><p><strong>Page:</strong> create &ldquo;Fax You Up!&rdquo; (category: Internet Service or Business Service). Add the link and the short intro below.</p>
+<p><strong>Groups:</strong> join the English-speaking Berlin and Germany expat groups. Read each group&rsquo;s rules first; most ban adverts. The way in is to <em>answer questions</em> (&ldquo;how do I send a fax to the Ausl&auml;nderbeh&ouml;rde?&rdquo;) with a genuinely helpful reply and say you run the service when you mention it. Never post the same message in lots of groups.</p><details class="draft"><summary>Page intro</summary><div class="drafthead"><button type="button" class="copy" data-target="f4-d0">Copy</button></div><pre id="f4-d0">Send a fax online from your phone or laptop. €1 for up to 3 pages, nothing renews, no account needed. For the tax offices, insurers, doctors and authorities that still want a fax.</pre></details><details class="draft"><summary>Helpful reply for a group (adapt each time)</summary><div class="drafthead"><button type="button" class="copy" data-target="f4-d1">Copy</button></div><pre id="f4-d1">Yes, a lot of German offices still prefer a fax, and the fax report gives you proof of exactly which pages went. You don&#x27;t need a machine: there are online services. Full disclosure, I run one (Fax You Up!, €1 for a one-off fax, no subscription), but check the price and terms of any service before you upload anything. Happy to answer questions on the number format.</pre></details></div></li><li class="entry" id="i-f5">
+<label class="item"><input type="checkbox" data-id="f5" disabled><span class="body"><span class="t">Reddit and forums</span><span class="d">Answer questions, don&#x27;t advertise.</span></span><span class="chip chip-info">Advice</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>r/germany, r/berlin, r/ireland and expat forums have regular &ldquo;how do I send a fax?&rdquo; threads. Most communities ban promotion and will remove a self-promoting post or ban the account. Read the rules, help first, and say you run the service if you mention it. It&rsquo;s slow, but those answers rank in Google for years.</p></div></li><li class="entry" id="i-f6">
+<label class="item"><input type="checkbox" data-id="f6" disabled><span class="body"><span class="t">Directories and review sites</span><span class="d">Places people look when comparing.</span></span><span class="chip chip-ready">List ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>AlternativeTo (it already lists fax services like SofortFax), Trustpilot (competitors have profiles), and the Irish and German startup directories. A Trustpilot or Google profile only helps if the reviews are real.</p>
+<p class="note"><strong>Rule:</strong> ask real customers for a review in the &ldquo;delivered&rdquo; email, one line, no incentives for a good score. Never write your own. It breaks the platforms&rsquo; rules and it&rsquo;s the fastest way to lose trust.</p><details class="draft"><summary>One line for the success email</summary><div class="drafthead"><button type="button" class="copy" data-target="f6-d0">Copy</button></div><pre id="f6-d0">Fax delivered. If that saved you a trip to the post office, a quick review would help the next person find us: [link]</pre></details></div></li><li class="entry" id="i-f7">
+<label class="item"><input type="checkbox" data-id="f7" disabled><span class="body"><span class="t">A story for the press and blogs</span><span class="d">The angle already exists.</span></span><span class="chip chip-ready">Angle ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>&ldquo;Germany still runs on fax, and expats are stuck with it.&rdquo; Bitkom found 82% of German companies still use fax (2023), and a lot of the country&rsquo;s authorities still list a fax number. Pitch it to expat sites such as IamExpat and The Local Germany, and to Irish-in-Germany communities, with a short, useful explainer: what a fax report proves, and how to send one without a machine.</p></div></li><li class="entry" id="i-f8">
+<label class="item"><input type="checkbox" data-id="f8" disabled><span class="body"><span class="t">A small paid test (optional)</span><span class="d">Only once the German pages and the domain exist.</span></span><span class="chip chip-info">Advice</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>A small Google Ads test on the exact searches in f2, with a daily cap you can live with and the number of faxes sold as the measure. Don&rsquo;t start until you know a visit turns into a sale at least sometimes; ads on a page that doesn&rsquo;t convert just burn money.</p></div></li></ul></section><section id="domain"><p class="num">04</p><h2>Drop the netlify.app address</h2><p class="intro">A name ending in netlify.app looks temporary, can&rsquo;t be moved, and is hard to remember. A real domain fixes all three, and it needs doing before you build search presence.</p><ul class="list"><li class="entry" id="i-d1">
+<label class="item"><input type="checkbox" data-id="d1" disabled><span class="body"><span class="t">Choose the name</span><span class="d">Short, spellable on the phone, easy to say out loud.</span></span><span class="chip chip-ready">Options ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>Try in this order: <strong>faxyouup.com</strong> (the main one), then <strong>faxyouup.de</strong> (for the German pages) and <strong>faxyouup.ie</strong> if the .com is gone. Buy the .com and .de if you can: one runs the site, the other redirects. I can&rsquo;t see availability from here, so check at your registrar. Some country domains have local requirements, so read the registrar&rsquo;s note on .de and .ie before you pay.</p></div></li><li class="entry" id="i-d2">
+<label class="item"><input type="checkbox" data-id="d2" disabled><span class="body"><span class="t">Buy it</span><span class="d">Your card, your account.</span></span><span class="chip chip-you">Needs you</span></label>
+<div class="answer"><div class="alabel">Answer</div><p>I won&rsquo;t buy domains or enter payment details. Register it in the company&rsquo;s name (Eriu Technology Limited) so it belongs to the business, and turn on auto-renew and two-step login on the registrar account. Keep the registrar login separate from the site&rsquo;s.</p></div></li><li class="entry" id="i-d3">
+<label class="item"><input type="checkbox" data-id="d3" disabled><span class="body"><span class="t">Connect it to Netlify</span><span class="d">Domain settings in the Netlify dashboard.</span></span><span class="chip chip-ready">Steps ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><ol><li>In Netlify, open the site, then Domain management, then add a custom domain.</li>
+<li>Either point the registrar&rsquo;s name servers to Netlify, or add the records Netlify shows you.</li>
+<li>Wait for the free HTTPS certificate. Make the <em>www</em> and bare versions go to one of them.</li>
+<li>Set the new address as the primary domain, so the old netlify.app address redirects.</li></ol>
+<p>The site is deployed by dropping in a zip, so every address inside the pages (canonical tag, social tags, sitemap) needs updating in the files before the next drop. Tell me and I&rsquo;ll prepare it.</p></div></li><li class="entry" id="i-d4">
+<label class="item"><input type="checkbox" data-id="d4" disabled><span class="body"><span class="t">Update everything that points at the old address</span><span class="d">Missing one makes a broken link or a payment error.</span></span><span class="chip chip-ready">Checklist ready</span></label>
+<div class="answer"><div class="alabel">Answer</div><ul><li>Canonical URL, social-card tags, sitemap, robots file</li><li>Stripe: the checkout success and cancel addresses, and the branding page</li><li>PayPal return addresses, if used</li><li>Telnyx webhooks, if they use the site address</li><li>A real mailbox on the new domain (hello@) and update the contact email</li><li>Search Console and Bing: add the new site, then use their address-change option if offered</li><li>Instagram bio, Facebook page, any directory listing</li></ul>
+<p>Do a test fax with a real payment after the switch, end to end.</p></div></li></ul></section>
+
+  <section id="refs">
+    <p class="num">05</p>
+    <h2>Sources</h2>
+    <p class="intro">Where the facts above came from. Check dates and prices before you quote them.</p>
+    <div class="refs"><div class="ref"><span class="tag">Competitor comparison</span><br><a href="https://www.netzwelt.de/online-faxdienste/fax-online-versenden-anbieter-vergleich.html" target="_blank" rel="noopener noreferrer">netzwelt.de: Fax online versenden, Anbieter im Vergleich</a><p>The prices and the &#x27;watch for subscription traps&#x27; advice. Check the date and current prices.</p></div><div class="ref"><span class="tag">Bitkom survey</span><br><a href="https://www.iamexpat.de/expat-info/germany-news/82-percent-german-companies-still-use-fax-survey-reveals" target="_blank" rel="noopener noreferrer">IamExpat: 82 percent of German companies still use fax</a><p>Bitkom survey, published 2023.</p></div><div class="ref"><span class="tag">Why expats fax</span><br><a href="https://redtapetranslation.com/faxhack/" target="_blank" rel="noopener noreferrer">Red Tape Translation: the fax hack</a><p>Why a fax transmission report helps as proof with German offices.</p></div><div class="ref"><span class="tag">Guide</span><br><a href="https://arbeitnow.com/blog/send-a-fax-in-germany" target="_blank" rel="noopener noreferrer">Arbeitnow: send a fax in Germany</a><p>An example of the kind of guide page that ranks for this.</p></div><div class="ref"><span class="tag">Directory</span><br><a href="https://alternativeto.net/software/sofortfax/about/" target="_blank" rel="noopener noreferrer">AlternativeTo: SofortFax</a><p>Where fax services are compared. Worth a listing for Fax You Up!.</p></div><div class="ref"><span class="tag">Your site</span><br><a href="https://faxyouup.netlify.app/" target="_blank" rel="noopener noreferrer">faxyouup.netlify.app</a><p>What I read: offer, FAQ, comparison table, guides, title and description.</p></div></div>
+  </section>
+
+  <footer>
+    <div>This page is the record. The ticks are set in the page itself, so everyone who opens this link sees the same progress. The label on each line (Done, Draft ready, Needs you) says where it really stands.</div>
+    <div class="actions">
+      <button class="reset" id="print" type="button">Print or save as PDF</button>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('input[type="checkbox"][data-id]'));
+  function paint() {
+    var done = 0;
+    boxes.forEach(function (b) {
+      if (b.checked) done++;
+      var entry = b.closest('.entry');
+      if (entry) entry.classList.toggle('done', b.checked);
+    });
+    document.getElementById('fill').style.width = (boxes.length ? (done / boxes.length * 100) : 0) + '%';
+    document.getElementById('count').textContent = done + ' of ' + boxes.length + ' worked through';
+    var tn = document.getElementById('t-num');
+    if (tn.textContent !== String(done)) { tn.textContent = done; tn.classList.add('bump'); setTimeout(function () { tn.classList.remove('bump'); }, 250); }
+    document.getElementById('t-of').textContent = 'of ' + boxes.length + ' worked through';
+    document.getElementById('t-fill').style.width = (boxes.length ? (done / boxes.length * 100) : 0) + '%';
+  }
+
+  // copy buttons
+  document.addEventListener('click', function (ev) {
+    var btn = ev.target.closest ? ev.target.closest('button.copy') : null;
+    if (!btn) return;
+    var pre = document.getElementById(btn.getAttribute('data-target'));
+    if (!pre) return;
+    var text = pre.textContent;
+    function ok() { var o = btn.textContent; btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); }
+    function fallback() {
+      var ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); ok(); } catch (e) { btn.textContent = 'Select and copy'; }
+      document.body.removeChild(ta);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(ok, fallback); } else { fallback(); }
+  });
+
+  // print: open every draft first, restore afterwards
+  var wasOpen = [];
+  function openAll() { wasOpen = []; Array.prototype.forEach.call(document.querySelectorAll('details.draft'), function (d) { wasOpen.push(d.open); d.open = true; }); }
+  function restore() { Array.prototype.forEach.call(document.querySelectorAll('details.draft'), function (d, i) { d.open = !!wasOpen[i]; }); }
+  window.addEventListener('beforeprint', openAll);
+  window.addEventListener('afterprint', restore);
+  document.getElementById('print').addEventListener('click', function () { window.print(); });
+
+  paint();
+})();
+
+</script>
+</body>
+</html>
