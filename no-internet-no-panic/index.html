@@ -255,11 +255,11 @@ ping www.microsoft.com</code></pre>
       <div class="lab-turn"><strong>Your turn</strong><p>What command tests whether <code>10.24.18.1</code> is responding?</p><p class="lab-hint">Tip: send a small ICMP echo request to the gateway. Then try <code>1.1.1.1</code> to test external IP reachability.</p></div>
     </section>
     <section class="lab-card" data-lab="tracert">
-      <span class="lab-tag">03 · Route tracing</span><h3><code>tracert</code></h3>
-      <p>The gateway replies, but the remote service is still unreachable. Find out how far packets travel and where the route stops responding.</p>
+      <span class="lab-tag">03 · VPN route</span><h3><code>tracert</code></h3>
+      <p>The VPN client says connected, but an internal application is unreachable. Trace the route to see whether traffic is entering the expected VPN path.</p>
       <div class="lab-screen" aria-live="polite">PS C:\IT&gt; Ready when you are.</div>
       <div class="lab-actions"><button class="lab-btn" type="button" data-demo>▶ Watch demo</button><button class="lab-btn secondary" type="button" data-turn>Your turn</button></div>
-      <div class="lab-turn"><strong>Your turn</strong><p>Which Windows command traces the route to <code>1.1.1.1</code>?</p><p class="lab-hint">Tip: it is short for trace route. On Windows, the command is <code>tracert</code>.</p></div>
+      <div class="lab-turn"><strong>Your turn</strong><p>Which Windows command traces the route to the internal app at <code>10.80.4.20</code>?</p><p class="lab-hint">Tip: it is short for trace route. On Windows, use <code>tracert 10.80.4.20</code> and compare the hops with the expected VPN path.</p></div>
     </section>
     <section class="lab-card" data-lab="nslookup">
       <span class="lab-tag">04 · Name resolution</span><h3><code>nslookup</code></h3>
@@ -392,12 +392,12 @@ document.querySelectorAll('h1.title,article h2').forEach(function(h){h.setAttrib
    ['dim','Gateway reachable. External IP not responding. Investigate upstream routing/firewall.']
   ],
   tracert:[
-   ['cmd','PS C:\\IT> tracert 1.1.1.1'],
-   ['dim','Tracing route to 1.1.1.1 over a maximum of 30 hops'],
+   ['cmd','PS C:\\IT> tracert 10.80.4.20'],
+   ['dim','Tracing route to internal-app.hotel.example [10.80.4.20]'],
    ['ok','  1    <1 ms    <1 ms    <1 ms    10.24.18.1'],
-   ['ok','  2     4 ms     5 ms     4 ms    172.20.0.1'],
-   ['err','  3     *        *        *       Request timed out.'],
-   ['dim','Trace stops replying after hop 2. Check upstream path; a silent hop alone is not proof of failure.']
+   ['err','  2     *        *        *       Request timed out.'],
+   ['dim','Expected VPN route is missing from the path. Check VPN routes and split-tunnel policy.'],
+   ['dim','A silent hop alone is not proof of failure; compare with the expected route.']
   ],
   nslookup:[
    ['cmd','PS C:\\IT> nslookup www.microsoft.com'],
