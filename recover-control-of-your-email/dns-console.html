@@ -18,11 +18,39 @@ h1{font:700 clamp(36px,7vw,58px)/1.05 Oswald,sans-serif;text-transform:uppercase
 .legend{display:flex;gap:15px;flex-wrap:wrap;color:var(--mut);font:11px 'JetBrains Mono',monospace;margin:15px 0}.legend span:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;background:var(--cy)}.legend span:nth-child(2):before{background:var(--am)}.legend span:nth-child(3):before{background:var(--gn)}
 .explain{margin-top:22px;color:var(--soft);font-size:14px}.explain strong{color:#fff}footer{margin-top:42px;border-top:1px solid var(--line);padding-top:18px;color:var(--mut);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
 @media(max-width:760px){.app{grid-template-columns:1fr}.side{border-right:0;border-bottom:1px solid var(--line);padding:14px}.sidebrand{margin-bottom:10px}.nav{flex-direction:row;flex-wrap:wrap}.sidefoot{display:none}.main{padding:20px 14px}.metrics{grid-template-columns:1fr}.tablewrap{overflow-x:auto}.records{min-width:650px}.tip{width:220px;left:0;transform:translate(0,6px)}.hot:hover .tip,.hot:focus .tip{transform:translate(0,0)}}
+
+/* Split-colour kinetic heading treatment, echoing the security briefing. */
+h1,.main h2,.toolbar h3,.zone h3,.sidebrand,.tip b{ text-shadow:1.5px 0 rgba(75,159,232,.58),-1.5px 0 rgba(242,169,0,.48); animation:headingGlitch 7s infinite steps(1,end); }
+@keyframes headingGlitch{0%,91%,94%,100%{text-shadow:1.5px 0 rgba(75,159,232,.58),-1.5px 0 rgba(242,169,0,.48)}92%{text-shadow:3px 0 rgba(75,159,232,.78),-2px 0 rgba(242,169,0,.68)}93%{text-shadow:-2px 0 rgba(75,159,232,.68),2px 0 rgba(242,169,0,.68)}}
+.record-actions{display:flex;gap:8px;flex-wrap:wrap}
+.action{border:1px solid rgba(75,159,232,.65);background:#102329;color:#d7e7ea;border-radius:6px;padding:8px 12px;font:12px 'JetBrains Mono',monospace;cursor:pointer}
+.action.primary{background:#17466a;color:#fff;border-color:#4b9fe8}
+.action:hover,.action:focus-visible{outline:2px solid #f2a900;outline-offset:2px}
+.records th:last-child,.records td:last-child{white-space:nowrap;width:1%}
+.row-actions{display:flex;gap:6px}
+.row-actions button{font:11px 'JetBrains Mono',monospace;padding:5px 7px;border:1px solid #42606b;border-radius:4px;background:#102329;color:#d7e7ea;cursor:pointer}
+.row-actions button.delete{border-color:#a64a4a;color:#ffb8b8}
+.editor-backdrop{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.78);display:none;align-items:center;justify-content:center;padding:18px}
+.editor-backdrop.open{display:flex}
+.editor{width:min(560px,100%);max-height:90vh;overflow:auto;background:#081a1f;border:1px solid #4b9fe8;border-radius:12px;padding:22px;box-shadow:0 25px 90px #000}
+.editor h2{font:600 26px Oswald;color:#f1ffff;text-transform:uppercase;margin:0 0 6px;text-shadow:1.5px 0 rgba(75,159,232,.58),-1.5px 0 rgba(242,169,0,.48)}
+.editor p{font-size:12px;color:#aec3c7;margin:0 0 16px}
+.editor-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.editor label{display:block;color:#aec3c7;font:11px 'JetBrains Mono',monospace;text-transform:uppercase}
+.editor input,.editor select{display:block;width:100%;margin-top:6px;background:#02090b;color:#eafcfd;border:1px solid #36545e;border-radius:5px;padding:10px;font:13px 'JetBrains Mono',monospace}
+.editor .wide{grid-column:1/-1}
+.editor-buttons{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
+.editor-buttons button{border:1px solid #4b9fe8;background:#102329;color:#fff;border-radius:6px;padding:9px 13px;font:12px 'JetBrains Mono',monospace;cursor:pointer}
+.editor-buttons .save{background:#17466a}
+.editor-note{color:#f2c96f!important;margin-top:12px!important}
+@media(max-width:520px){.editor-grid{grid-template-columns:1fr}.editor .wide{grid-column:auto}}
+@media(prefers-reduced-motion:reduce){h1,.main h2,.toolbar h3,.zone h3,.sidebrand,.tip b{animation:none}}
+
 </style></head><body><div class="wrap">
 <header><div class="brand"><b>Eriu Technology</b> &nbsp;·&nbsp; Interactive Lab</div><a class="back" href="./index.html">&larr; Back to the report</a></header>
 <h1>A fictional DNS control panel</h1><p class="intro">This is a fictional Namecheap-style DNS dashboard for the TelePerfection training scenario. Hover over, or keyboard-focus, the dotted labels and values to get a plain-English explanation of what each part does.</p>
 <div class="notice"><strong>Training environment only.</strong> The domain <span class="mono">teleperfection.example</span> is fictional, the IP addresses are documentation examples, and this is not connected to Namecheap or any real DNS provider. This is an independent training mock-up inspired by Namecheap's general blue-and-orange visual language; it is not affiliated with or connected to Namecheap. There is no login or live configuration.</div>
-<div class="browser"><div class="browserbar"><div class="dots"><i></i><i></i><i></i></div><div class="address">https://ap.www.namecheap.com/domains/domaincontrolpanel/teleperfection.example</div><span class="mocktag">SIMULATION</span></div>
+<div class="browser"><div class="browserbar"><div class="dots"><i></i><i></i><i></i></div><div class="address">namecheap-inspired.demo / domains / teleperfection.example</div><span class="mocktag">SIMULATION</span></div>
 <div class="app"><aside class="side"><div class="sidebrand"><span style="color:#f2a900">Name</span><span style="color:#4b9fe8">cheap</span></div><nav class="nav">
 <a href="#overview" class="active"><span class="hot" tabindex="0">Overview<span class="tip left"><b>Overview</b>A summary of the selected domain, its DNS zone and basic health information. A DNS zone is the collection of records published for a domain.</span></span></a>
 <a href="#records"><span class="hot" tabindex="0">DNS Records<span class="tip left"><b>DNS records</b>The individual instructions published for a domain: where its website lives, which servers receive its email, and other service details.</span></span></a>
@@ -31,13 +59,13 @@ h1{font:700 clamp(36px,7vw,58px)/1.05 Oswald,sans-serif;text-transform:uppercase
 </nav><div class="sidefoot">ACCOUNT: LAB-ADMIN<br>ROLE: DNS MANAGER<br>ENVIRONMENT: DEMO ONLY</div></aside>
 <main class="main" id="overview"><div class="topline"><div><div class="eyebrow">Zone management / Overview</div><h2><span class="hot" tabindex="0">TelePerfection<span class="tip"><b>Zone name</b>The domain whose DNS records are being managed. This training example uses the reserved .example namespace, not a real company domain.</span></span></h2></div><div class="domain"><span class="hot" tabindex="0">teleperfection.example<span class="tip"><b>Domain</b>A human-readable internet name. The .example ending is reserved for documentation and examples, so this fictional domain cannot be used as a normal public business domain.</span></span></div></div>
 <div class="metrics"><div class="metric"><small><span class="hot" tabindex="0">Zone status<span class="tip"><b>Zone status</b>Whether this provider has the zone configured and enabled. It does not prove that every record is correct or that email delivery works.</span></span></small><strong>ACTIVE</strong><em>Illustrative demo state</em></div><div class="metric"><small><span class="hot" tabindex="0">Nameservers<span class="tip"><b>Nameservers (NS)</b>The authoritative DNS servers that publish the domain's records. The domain registrar delegates DNS authority to these servers.</span></span></small><strong>2 / 2</strong><em>Illustrative only</em></div><div class="metric"><small><span class="hot" tabindex="0">Last change<span class="tip"><b>Last change</b>The timestamp of the most recent edit in this mock dashboard. In a real environment, compare it with the provider audit log and the change ticket.</span></span></small><strong>09:42 UTC</strong><em>13 Nov 2026 · sample</em></div></div>
-<section id="records"><div class="toolbar"><h3>DNS records</h3><span class="fakebtn"><span class="hot" tabindex="0">+ Add record<span class="tip"><b>Add record</b>A real dashboard would open a form to publish a new DNS record. Changes can affect websites, email and authentication, so they should be reviewed and approved before saving.</span></span></span></div>
+<section id="records"><div class="toolbar"><h3>DNS records</h3><div class="record-actions"><button class="action primary" id="addRecord" type="button">+ Add record</button><button class="action" id="resetRecords" type="button">Reset demo</button></div></div>
 <div class="tablewrap"><table class="records"><thead><tr>
 <th><span class="hot" tabindex="0">Type<span class="tip"><b>Record type</b>Defines what kind of information this row publishes, such as an address, mail destination or text value.</span></span></th>
 <th><span class="hot" tabindex="0">Name / Host<span class="tip"><b>Name / Host</b>The label the record applies to. An @ symbol commonly means the zone apex — the domain itself — though provider interfaces vary.</span></span></th>
 <th><span class="hot" tabindex="0">Value / Target<span class="tip"><b>Value / Target</b>The destination or data stored in the record. For an MX record it is a mail server hostname; for a TXT record it is text used by services such as SPF.</span></span></th>
 <th><span class="hot" tabindex="0">TTL<span class="tip"><b>TTL — Time to Live</b>How long a DNS resolver may cache this answer, usually measured in seconds. A shorter TTL can make planned changes propagate from caches sooner, but does not make every update instant.</span></span></th>
-<th><span class="hot" tabindex="0">Status<span class="tip"><b>Status</b>A simplified display label for this demo. A green status here is not a full external validation of DNS or mail delivery.</span></span></th>
+<th><span class="hot" tabindex="0">Status<span class="tip"><b>Status</b>A simplified display label for this demo. A green status here is not a full external validation of DNS or mail delivery.</span></span></th><th>Actions</th>
 </tr></thead><tbody>
 <tr><td><span class="hot type" tabindex="0">MX<span class="tip"><b>MX — Mail Exchange</b>Tells other mail systems which host accepts email for this domain. The priority number determines preference when multiple MX hosts exist.</span></span></td><td><span class="hot" tabindex="0">@<span class="tip"><b>@ (zone apex)</b>Usually means the root of the domain itself, here teleperfection.example.</span></span></td><td><span class="hot" tabindex="0">10 mail.teleperfection.example<span class="tip"><b>MX target and priority</b>The number 10 is the preference value; lower numbers are preferred. The target must resolve to an address record. This is illustrative, not a working mail host.</span></span></td><td><span class="hot ttl" tabindex="0">3600<span class="tip"><b>3600 seconds</b>One hour. Resolvers may cache this record for up to the TTL, subject to their own behaviour.</span></span></td><td><span class="hot status" tabindex="0">DEMO<span class="tip"><b>Demo status</b>This label is not a DNS test. In real operations, query authoritative and public resolvers and test mail delivery separately.</span></span></td></tr>
 <tr><td><span class="hot type" tabindex="0">A<span class="tip"><b>A record</b>Maps a hostname to an IPv4 address. The address below is from a documentation-only range and will not route to a real mail server.</span></span></td><td><span class="hot" tabindex="0">mail<span class="tip"><b>Host label</b>Combined with the zone name, this creates mail.teleperfection.example.</span></span></td><td><span class="hot" tabindex="0">192.0.2.25<span class="tip"><b>IPv4 address</b>A documentation-only example address (TEST-NET-1). It is deliberately not a real server address.</span></span></td><td><span class="hot ttl" tabindex="0">3600<span class="tip"><b>TTL</b>Cache lifetime in seconds. DNS caches may retain the answer until it expires.</span></span></td><td><span class="hot status" tabindex="0">DEMO<span class="tip"><b>Demo status</b>Shown only to make the screen look like a provider dashboard.</span></span></td></tr>
@@ -49,5 +77,86 @@ h1{font:700 clamp(36px,7vw,58px)/1.05 Oswald,sans-serif;text-transform:uppercase
 <section id="activity" class="zone"><h3><span class="hot" tabindex="0">Activity log<span class="tip"><b>Audit trail</b>A production dashboard should retain who changed a record, the before-and-after values, time, source and approval reference.</span></span></h3><p><code>13 Nov 2026 09:42 UTC</code> — demo zone opened by LAB-ADMIN. No records changed. <span class="hot" tabindex="0">What should be logged?<span class="tip"><b>Good change records</b>Capture the ticket or approval, operator identity, exact record diff, timestamp, and validation performed after the change.</span></span></p></section>
 <p class="explain"><strong>How to use this mock-up:</strong> hover over the dotted labels and values. On a keyboard, press Tab until a dotted item is focused. On touch screens, tap-and-hold may reveal the browser's native title only where supported; use the report text for the full explanations.</p>
 </main></div></div>
+
+<div class="editor-backdrop" id="editorBackdrop" role="dialog" aria-modal="true" aria-labelledby="editorTitle">
+ <form class="editor" id="recordForm">
+  <h2 id="editorTitle">Add DNS record</h2>
+  <p>Changes are saved only in this browser's demo copy. Nothing is sent to Namecheap or published to DNS.</p>
+  <div class="editor-grid">
+   <label>Type<select id="recordType" required><option>A</option><option>AAAA</option><option>CNAME</option><option>MX</option><option>TXT</option><option>NS</option><option>SRV</option></select></label>
+   <label>Host / Name<input id="recordHost" maxlength="120" required placeholder="@ or mail"></label>
+   <label class="wide">Value / Target<input id="recordValue" maxlength="500" required placeholder="Enter the record value"></label>
+   <label>TTL (seconds)<input id="recordTtl" type="number" min="60" max="86400" step="1" value="3600" required></label>
+   <label>Status<select id="recordStatus"><option>DEMO</option><option>EXAMPLE</option><option>PLACEHOLDER</option></select></label>
+  </div>
+  <p class="editor-note">Use documentation-only values in this training scenario. Do not enter real production DNS settings.</p>
+  <div class="editor-buttons"><button type="button" id="cancelEdit">Cancel</button><button type="submit" class="save">Save record</button></div>
+ </form>
+</div>
+
 <footer>Eriu Technology · Fictional training interface · No real DNS provider, account or domain connected</footer>
-</div></body></html>
+</div>
+<script>
+(function(){
+ const tbody=document.querySelector('.records tbody');
+ const backdrop=document.getElementById('editorBackdrop');
+ const form=document.getElementById('recordForm');
+ const fields={type:document.getElementById('recordType'),host:document.getElementById('recordHost'),value:document.getElementById('recordValue'),ttl:document.getElementById('recordTtl'),status:document.getElementById('recordStatus')};
+ const storageKey='eriu-namecheap-demo-records-v1';
+ let records=[];
+ let editing=-1;
+ function initialRecords(){
+  return Array.from(tbody.querySelectorAll('tr')).map(tr=>{
+   const cells=Array.from(tr.children);
+   return {type:cells[0].querySelector('.hot')?.childNodes[0]?.textContent.trim()||cells[0].textContent.trim(),
+    host:cells[1].querySelector('.hot')?.childNodes[0]?.textContent.trim()||cells[1].textContent.trim(),
+    value:cells[2].querySelector('.hot')?.childNodes[0]?.textContent.trim()||cells[2].textContent.trim(),
+    ttl:cells[3].textContent.trim(),status:cells[4].textContent.trim()};
+  });
+ }
+ function safeLoad(){
+  try{const saved=JSON.parse(localStorage.getItem(storageKey));if(Array.isArray(saved))return saved;}catch(e){}
+  return null;
+ }
+ function save(){try{localStorage.setItem(storageKey,JSON.stringify(records));}catch(e){/* Session still works if storage is blocked. */}}
+ function cell(value,cls){const td=document.createElement('td');if(cls)td.className=cls;td.textContent=value;return td;}
+ function render(){
+  tbody.replaceChildren();
+  records.forEach((r,i)=>{
+   const tr=document.createElement('tr');
+   tr.append(cell(r.type,'type'),cell(r.host),cell(r.value),cell(String(r.ttl),'ttl'),cell(r.status,r.status==='DEMO'?'status': 'status warn'));
+   const actions=document.createElement('td'),wrap=document.createElement('div');wrap.className='row-actions';
+   const edit=document.createElement('button');edit.type='button';edit.textContent='Edit';edit.setAttribute('aria-label','Edit '+r.type+' record '+r.host);edit.addEventListener('click',()=>openEditor(i));
+   const del=document.createElement('button');del.type='button';del.className='delete';del.textContent='Delete';del.setAttribute('aria-label','Delete '+r.type+' record '+r.host);del.addEventListener('click',()=>{if(confirm('Delete this record from the local demo?')){records.splice(i,1);save();render();}});
+   wrap.append(edit,del);actions.append(wrap);tr.append(actions);tbody.append(tr);
+  });
+ }
+ function openEditor(index){
+  editing=index;
+  document.getElementById('editorTitle').textContent=index<0?'Add DNS record':'Edit DNS record';
+  const r=index<0?{type:'A',host:'',value:'',ttl:3600,status:'DEMO'}:records[index];
+  Object.keys(fields).forEach(k=>fields[k].value=r[k]??'');
+  backdrop.classList.add('open');fields.host.focus();
+ }
+ function closeEditor(){backdrop.classList.remove('open');form.reset();editing=-1;}
+ document.getElementById('addRecord').addEventListener('click',()=>openEditor(-1));
+ document.getElementById('resetRecords').addEventListener('click',()=>{
+  if(confirm('Reset the DNS table to the original fictional training records?')){records=initial;save();render();}
+ });
+ document.getElementById('cancelEdit').addEventListener('click',closeEditor);
+ backdrop.addEventListener('click',e=>{if(e.target===backdrop)closeEditor();});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&backdrop.classList.contains('open'))closeEditor();});
+ form.addEventListener('submit',e=>{
+  e.preventDefault();
+  const r={type:fields.type.value,host:fields.host.value.trim(),value:fields.value.value.trim(),ttl:Number(fields.ttl.value),status:fields.status.value};
+  if(!r.host||!r.value||!Number.isInteger(r.ttl)||r.ttl<60||r.ttl>86400){alert('Enter a host, value and TTL between 60 and 86400 seconds.');return;}
+  if(editing<0)records.push(r);else records[editing]=r;
+  save();render();closeEditor();
+ });
+ const initial=initialRecords();
+ records=safeLoad()||initial.map(r=>({...r}));
+ render();
+})();
+</script>
+
+</body></html>
