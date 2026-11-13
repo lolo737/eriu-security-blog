@@ -19,6 +19,6 @@ A practical Eriu Technology case study about diagnosing email failure, understan
 
 The ThinkCentre M920q Tiny (Core i7-8700T, 16GB RAM, 512GB SSD) is a suitable learning and portfolio machine. It is not a single-server production design for 105 employees. Use a controlled test domain; do not change live company DNS or route real mail without explicit authorisation and a proper resilience plan.
 
-See the [full illustrated report](index.html) and the [interactive fictional Namecheap-style DNS dashboard](dns-console.html), with hover explanations for the records and controls.
+See the [full illustrated report](index.html), including two ThinkCentre illustrations, and the [interactive fictional Namecheap-style DNS dashboard](dns-console.html). The dashboard lets you edit, add and delete records, check the training configuration, reveal a handwritten answer note, and restore the correct demo records. All changes stay in your browser; nothing is sent to Namecheap or published to DNS.
 
 ![Fictional Namecheap-style DNS management dashboard](dns-console-preview.svg)
