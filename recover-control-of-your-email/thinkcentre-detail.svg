@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
+<title id="title">ThinkCentre Tiny front panel detail</title>
+<desc id="desc">Close-up illustration of the Lenovo ThinkCentre M920q Tiny front panel showing its power button, USB ports, audio jacks and ventilation grille.</desc>
+<defs><linearGradient id="case" x2="0" y2="1"><stop stop-color="#303b41"/><stop offset="1" stop-color="#080e12"/></linearGradient><pattern id="holes" width="17" height="17" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="2" fill="#728087" opacity=".65"/></pattern></defs>
+<rect width="1200" height="480" rx="24" fill="#061418"/>
+<ellipse cx="600" cy="385" rx="480" ry="28" fill="#000" opacity=".5"/>
+<rect x="115" y="95" width="970" height="245" rx="22" fill="url(#case)" stroke="#647078" stroke-width="4"/>
+<rect x="145" y="120" width="910" height="190" rx="12" fill="url(#holes)" opacity=".45"/>
+<circle cx="205" cy="220" r="28" fill="#080e12" stroke="#89969b" stroke-width="5"/><circle cx="205" cy="220" r="9" fill="#4b9fe8"/>
+<rect x="282" y="198" width="105" height="34" rx="5" fill="#05090c" stroke="#849197" stroke-width="3"/>
+<rect x="412" y="198" width="105" height="34" rx="5" fill="#05090c" stroke="#849197" stroke-width="3"/>
+<rect x="555" y="198" width="55" height="34" rx="5" fill="#05090c" stroke="#849197" stroke-width="3"/>
+<circle cx="680" cy="215" r="12" fill="#05090c" stroke="#849197" stroke-width="3"/><circle cx="727" cy="215" r="12" fill="#05090c" stroke="#849197" stroke-width="3"/>
+<g transform="translate(875 180)"><rect width="120" height="43" rx="4" fill="#d91f26"/><text x="60" y="30" text-anchor="middle" font-family="Arial" font-size="27" font-weight="700" fill="#fff">Lenovo</text></g>
+<text x="600" y="420" text-anchor="middle" fill="#aec3c7" font-family="Arial" font-size="22" letter-spacing="4">FRONT PANEL · PORTS · VENTILATION · POWER</text>
+</svg>
