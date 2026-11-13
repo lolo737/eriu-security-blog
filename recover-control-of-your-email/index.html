@@ -226,7 +226,12 @@ document.querySelectorAll('h1.title, article h2').forEach(function(heading){
   const terminal=document.getElementById('outlook-terminal');
   if(!terminal || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const lines=Array.from(terminal.querySelectorAll('.term-line'));
-  lines.forEach((line,index)=>{line.style.animationDelay=(index*520)+'ms';});
+  let elapsed=700;
+  lines.forEach(line=>{
+    line.style.animationDuration='420ms';
+    line.style.animationDelay=elapsed+'ms';
+    elapsed += line.querySelector('.cmd') ? 1850 : (line.classList.contains('good') || line.classList.contains('warn') ? 1400 : 1150);
+  });
 })();
 </script>
 
