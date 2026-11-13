@@ -19,6 +19,17 @@ table{width:100%;border-collapse:collapse;margin:0 0 24px;font-size:15px}th,td{t
 hr{border:0;border-top:1px solid var(--line);margin:40px 0}.outro{color:var(--soft);font-size:16.5px;font-style:italic}footer{margin-top:54px;padding-top:22px;border-top:1px solid var(--line);font-size:11.5px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase;line-height:1.8}
 @media(max-width:540px){body{font-size:17px}.callout,.warning{padding:17px}}
 
+/* ELECTRIC GLITCH — visual-only: heading boxes, spacing and document flow stay untouched */
+h1.title,article h2{position:relative;isolation:isolate;text-shadow:0 0 7px rgba(0,219,204,.42),0 0 22px rgba(0,219,204,.18);animation:heading-current 3.8s infinite steps(1,end)}
+h1.title::before,article h2::before,h1.title::after,article h2::after{content:attr(data-glitch);position:absolute;inset:0;pointer-events:none;overflow:hidden;white-space:inherit}
+h1.title::before,article h2::before{color:#00f6ff;text-shadow:2px 0 #00f6ff,-2px 0 #ff2bd6;clip-path:inset(0 0 68% 0);transform:translateX(-2px);opacity:.78;animation:glitch-slice-a 2.7s infinite steps(1,end)}
+h1.title::after,article h2::after{color:#ff36c9;text-shadow:2px 0 #ff36c9,-2px 0 #00eaff;clip-path:inset(72% 0 0 0);transform:translateX(2px);opacity:.72;animation:glitch-slice-b 3.1s infinite steps(1,end)}
+@keyframes heading-current{0%,88%,91%,94%,100%{text-shadow:0 0 7px rgba(0,219,204,.42),0 0 22px rgba(0,219,204,.18)}89%{text-shadow:3px 0 #00f6ff,-3px 0 #ff2bd6,0 0 18px #00eaff}90%{text-shadow:-2px 0 #00f6ff,2px 0 #ff2bd6,0 0 25px #ff2bd6}92%{text-shadow:0 0 5px #00f6ff,0 0 30px #00f6ff,0 0 42px rgba(255,43,214,.55)}}
+@keyframes glitch-slice-a{0%,82%,86%,100%{clip-path:inset(0 0 68% 0);transform:translateX(-2px);opacity:.68}83%{clip-path:inset(18% 0 55% 0);transform:translateX(7px);opacity:1}84%{clip-path:inset(4% 0 76% 0);transform:translateX(-6px);opacity:.95}85%{clip-path:inset(35% 0 42% 0);transform:translateX(3px);opacity:.8}}
+@keyframes glitch-slice-b{0%,73%,77%,100%{clip-path:inset(72% 0 0 0);transform:translateX(2px);opacity:.62}74%{clip-path:inset(61% 0 22% 0);transform:translateX(-8px);opacity:1}75%{clip-path:inset(83% 0 5% 0);transform:translateX(6px);opacity:.9}76%{clip-path:inset(48% 0 38% 0);transform:translateX(-3px);opacity:.8}}
+@media(prefers-reduced-motion:reduce){h1.title,article h2,h1.title::before,article h2::before,h1.title::after,article h2::after{animation:none}}
+
+
 
 </style></head><body><div class="wrap">
 <header class="top"><div class="brand"><b>Eriu Technology</b> &nbsp;·&nbsp; Security Awareness</div><a class="toplink" href="../">&larr; All briefings</a></header>
@@ -151,5 +162,10 @@ sudo ufw status verbose</code></pre>
 <p>And if the little Lenovo proves anything, it's that an old office PC can still have a useful second life. Just don't make it responsible for everyone's payslips.</p>
 <hr><p class="outro">An Eriu Technology practical case study. The company and scenario are illustrative. This lab is for learning and testing only; it is not a recommendation to replace a production mail service without a formal design, security review and business-continuity plan.</p>
 </article>
+<script>
+document.querySelectorAll('h1.title, article h2').forEach(function(heading){
+  heading.setAttribute('data-glitch', heading.textContent.trim());
+});
+</script>
 <footer>Eriu Technology &nbsp;·&nbsp; eriu.tech &nbsp;·&nbsp; Security-awareness briefings<br>Awareness &amp; defence only &nbsp;·&nbsp; Lab build, not production guidance</footer>
 </div></body></html>
