@@ -77,6 +77,24 @@ h1.title::after,article h2::after{color:#ff36c9;text-shadow:2px 0 #ff36c9,-2px 0
 <p><strong>A note on the AI services:</strong> the documented OpenAI and Anthropic incidents concerned their Microsoft 365 connectors, not proof that ChatGPT or Claude's core models had gone completely offline. Claude's own status page listed its API and Claude Code as operational while Microsoft-dependent features were affected. Gemini belongs in the wider outage picture, but its timing and cause should not be conflated with Microsoft's incident.</p>
 <p>So this is not simply a story about an email client having a bad day. It is a story about how much of modern work now depends on a small number of interconnected platforms — and what happens when one of the foundations gives way.</p>
 
+
+<p>You have worked through the usual checks. Nothing changes. You would raise a support ticket, except the ticketing system is tied to the same email account that has just packed its bags and gone home.</p>
+<p>So you do what any sensible person does. You make a coffee and have a chat with the IT guy. He's frustrated too. He's checked what he can check, but the problem appears to sit somewhere beyond his bit of the fence. He can't fix a service he doesn't control.</p>
+<p>And that's the question. What happens when the service your entire company depends on stops working, and you have no practical control over it?</p>
+<p>For this exercise, let's call the company <strong>TelePerfection</strong>. It's fictional, but the problem is familiar enough: around 105 people, a few shared departmental addresses, some staff with more than one mailbox, and a business that expects email to be there when it needs it.</p>
+<p>Now, somewhere in the office, underneath a desk and behind a collection of cables, sits a Lenovo ThinkCentre Tiny. Nobody knows who owns it. Nobody particularly likes it. It is, in every meaningful sense, the red-haired stepchild of computers: a former paperweight with an unexpectedly useful second act.</p>
+<p>Today, we're giving it a job.</p>
+<figure class="diagram"><img src="https://www.lppcms.com/drupallibs/jp001productcatalog/images/seriesphoto.php?l6id=1254" alt="Lenovo ThinkCentre M920q Tiny product photograph"><figcaption>The red-haired stepchild's former paperweight, now promoted to lab duty: a refurbished ThinkCentre M920q Tiny, Core i7-8700T, 16GB RAM and 512GB SSD.</figcaption></figure>
+<figure class="diagram"><img src="thinkcentre-detail.svg" alt="Close-up of the ThinkCentre Tiny front panel, ports and ventilation"><figcaption>Up close: the power button, front USB ports, audio connections and ventilation. A tiny box, not a tiny job.</figcaption></figure>
+<h2><span class="num">01</span>First, find out what actually broke</h2>
+<p>Before replacing anything, establish where the failure lives. “Outlook is down” describes what users see. It does not identify the cause.</p>
+<table><thead><tr><th>CHECK</th><th>WHAT TO LOOK FOR</th></tr></thead><tbody>
+<tr><td>One computer?</td><td>Check another device and the Outlook web app. That helps separate a local client problem from a wider service issue.</td></tr>
+<tr><td>One user or everyone?</td><td>Compare affected and unaffected accounts, including shared mailboxes and aliases.</td></tr>
+<tr><td>Can the tenant be reached?</td><td>Check the Microsoft 365 service-health dashboard and the organisation's admin notices.</td></tr>
+<tr><td>Can mail be delivered?</td><td>Use message trace and mail-flow diagnostics where authorised. Record timestamps and error messages.</td></tr>
+<tr><td>Name resolution or connectivity?</td><td>Check Domain Name System (DNS) records and network reachability before changing settings.</td></tr>
+</tbody></table>
 <figure class="trouble-terminal" aria-label="Animated fictional Windows PowerShell troubleshooting session">
   <div class="term-bar"><span class="term-dot" aria-hidden="true"></span>POWERSHELL — OUTLOOK DIAGNOSTICS</div>
   <div class="term-screen" id="outlook-terminal" aria-live="off">
@@ -95,23 +113,6 @@ h1.title::after,article h2::after{color:#ff36c9;text-shadow:2px 0 #ff36c9,-2px 0
   </div>
 </figure>
 <p class="trouble-caption"><strong>WHAT YOU'VE CHECKED:</strong> Outlook Safe Mode rules out some add-ins and profile-level problems. Ping checks basic reachability; DNS lookup checks name resolution; the TCP 443 test checks HTTPS connectivity; and the final request tests the Outlook web endpoint. The local network and DNS are responding, but the service still isn't. This is a staged illustration, not a live diagnostic — the displayed results are fictional.</p>
-<p>You have worked through the usual checks. Nothing changes. You would raise a support ticket, except the ticketing system is tied to the same email account that has just packed its bags and gone home.</p>
-<p>So you do what any sensible person does. You make a coffee and have a chat with the IT guy. He's frustrated too. He's checked what he can check, but the problem appears to sit somewhere beyond his bit of the fence. He can't fix a service he doesn't control.</p>
-<p>And that's the question. What happens when the service your entire company depends on stops working, and you have no practical control over it?</p>
-<p>For this exercise, let's call the company <strong>TelePerfection</strong>. It's fictional, but the problem is familiar enough: around 105 people, a few shared departmental addresses, some staff with more than one mailbox, and a business that expects email to be there when it needs it.</p>
-<p>Now, somewhere in the office, underneath a desk and behind a collection of cables, sits a Lenovo ThinkCentre Tiny. Nobody knows who owns it. Nobody particularly likes it. It is, in every meaningful sense, the red-haired stepchild of computers: a former paperweight with an unexpectedly useful second act.</p>
-<p>Today, we're giving it a job.</p>
-<figure class="diagram"><img src="https://www.lppcms.com/drupallibs/jp001productcatalog/images/seriesphoto.php?l6id=1254" alt="Lenovo ThinkCentre M920q Tiny product photograph"><figcaption>The red-haired stepchild's former paperweight, now promoted to lab duty: a refurbished ThinkCentre M920q Tiny, Core i7-8700T, 16GB RAM and 512GB SSD.</figcaption></figure>
-<figure class="diagram"><img src="thinkcentre-detail.svg" alt="Close-up of the ThinkCentre Tiny front panel, ports and ventilation"><figcaption>Up close: the power button, front USB ports, audio connections and ventilation. A tiny box, not a tiny job.</figcaption></figure>
-<h2><span class="num">01</span>First, find out what actually broke</h2>
-<p>Before replacing anything, establish where the failure lives. “Outlook is down” describes what users see. It does not identify the cause.</p>
-<table><thead><tr><th>CHECK</th><th>WHAT TO LOOK FOR</th></tr></thead><tbody>
-<tr><td>One computer?</td><td>Check another device and the Outlook web app. That helps separate a local client problem from a wider service issue.</td></tr>
-<tr><td>One user or everyone?</td><td>Compare affected and unaffected accounts, including shared mailboxes and aliases.</td></tr>
-<tr><td>Can the tenant be reached?</td><td>Check the Microsoft 365 service-health dashboard and the organisation's admin notices.</td></tr>
-<tr><td>Can mail be delivered?</td><td>Use message trace and mail-flow diagnostics where authorised. Record timestamps and error messages.</td></tr>
-<tr><td>Name resolution or connectivity?</td><td>Check Domain Name System (DNS) records and network reachability before changing settings.</td></tr>
-</tbody></table>
 <p>It could be a Microsoft service incident. It could also be a tenant configuration problem, expired credentials, a DNS mistake, a network outage, a bad client update or a security control doing exactly what it was configured to do. We don't blame Microsoft just because Outlook is the messenger. That's how you end up fixing the wrong thing.</p>
 <div class="callout"><b>Don't change live mail routing in a panic</b><p>Keep evidence: exact errors, times, affected users, service-health notices and message-trace results. Don't change production DNS or redirect company mail to a home-built server as an improvised workaround.</p></div>
 <h2><span class="num">02</span>Who actually owns your email?</h2>
