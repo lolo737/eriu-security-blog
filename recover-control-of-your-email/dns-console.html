@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Namecheap DNS Control Panel — Interactive Fictional Walkthrough | Eriu Technology</title>
 <meta name="description" content="A fictional DNS management dashboard with hover explanations for every important field. No real DNS changes are made.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--cy:#4b9fe8;--am:#f2a900;--rd:#f54447;--gn:#40ea99;--ink:#d7e7ea;--soft:#aec3c7;--mut:#7f969b;--line:rgba(75,159,232,.2);--panel:#081a1f}
 *{box-sizing:border-box}body{margin:0;padding:0 18px 70px;background:radial-gradient(80% 35% at 50% 0,rgba(75,159,232,.12),transparent 65%),#02090b;color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif}.wrap{max-width:1080px;margin:auto}
@@ -46,6 +46,28 @@ h1,.main h2,.toolbar h3,.zone h3,.sidebrand,.tip b{ text-shadow:1.5px 0 rgba(75,
 @media(max-width:520px){.editor-grid{grid-template-columns:1fr}.editor .wide{grid-column:auto}}
 @media(prefers-reduced-motion:reduce){h1,.main h2,.toolbar h3,.zone h3,.sidebrand,.tip b{animation:none}}
 
+
+.challenge{margin:18px 0 20px;padding:17px 18px;border:1px solid rgba(75,159,232,.42);border-radius:10px;background:linear-gradient(135deg,rgba(75,159,232,.10),rgba(242,169,0,.045))}
+.challenge-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.challenge h3{font:600 21px Oswald,sans-serif;text-transform:uppercase;color:#f1ffff;margin:0 0 5px}
+.challenge p{font-size:13px;color:#aec3c7;margin:0 0 12px}
+.challenge-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.challenge-result{font:12px 'JetBrains Mono',monospace;color:#f2c96f;margin-top:12px;min-height:18px}
+.challenge-result.good{color:#65e6a5}
+.postit{display:none;position:relative;max-width:430px;margin:19px 8px 4px auto;padding:18px 20px 16px;background:#fff0a8;color:#42351b;box-shadow:2px 7px 17px rgba(0,0,0,.38);transform:rotate(-1.2deg);font:600 21px/1.15 'Caveat',cursive}
+.postit.show{display:block;animation:noteDrop .28s ease-out}
+.postit:before{content:"";position:absolute;top:-9px;left:44%;width:78px;height:18px;background:rgba(255,255,255,.48);transform:rotate(-2deg)}
+@keyframes noteDrop{from{opacity:0;transform:translateY(-12px) rotate(2deg)}to{opacity:1;transform:translateY(0) rotate(-1.2deg)}}
+.postit strong{font-size:25px;color:#302514}
+.postit a{display:inline-block;color:#174f87;text-decoration:underline;text-decoration-thickness:2px;font-weight:700;font-size:27px;margin-left:4px}
+.postit .answer-details{margin-top:12px;padding-top:10px;border-top:1px dashed rgba(66,53,27,.45);font-size:18px;line-height:1.25}
+.postit .answer-details p{font:600 17px/1.25 'Caveat',cursive;color:#42351b;margin:0 0 7px}
+.postit .answer-details code{font:12px/1.4 'JetBrains Mono',monospace;display:block;overflow-wrap:anywhere;color:#302514;background:rgba(255,255,255,.35);padding:4px 6px;margin:3px 0 7px}
+.postit .apply-answer{margin-top:8px;border:1px solid #6b5525;background:#f7df7e;color:#302514;border-radius:4px;padding:6px 10px;font:600 16px 'Caveat',cursive;cursor:pointer}
+.postit .apply-answer:hover,.postit .apply-answer:focus-visible{outline:2px solid #174f87;outline-offset:2px}
+.answer-details[hidden]{display:none}
+@media(prefers-reduced-motion:reduce){.postit.show{animation:none}}
+
 </style></head><body><div class="wrap">
 <header><div class="brand"><b>Eriu Technology</b> &nbsp;·&nbsp; Interactive Lab</div><a class="back" href="./index.html">&larr; Back to the report</a></header>
 <h1>A fictional DNS control panel</h1><p class="intro">This is a fictional Namecheap-style DNS dashboard for the TelePerfection training scenario. Hover over, or keyboard-focus, the dotted labels and values to get a plain-English explanation of what each part does.</p>
@@ -60,6 +82,30 @@ h1,.main h2,.toolbar h3,.zone h3,.sidebrand,.tip b{ text-shadow:1.5px 0 rgba(75,
 <main class="main" id="overview"><div class="topline"><div><div class="eyebrow">Zone management / Overview</div><h2><span class="hot" tabindex="0">TelePerfection<span class="tip"><b>Zone name</b>The domain whose DNS records are being managed. This training example uses the reserved .example namespace, not a real company domain.</span></span></h2></div><div class="domain"><span class="hot" tabindex="0">teleperfection.example<span class="tip"><b>Domain</b>A human-readable internet name. The .example ending is reserved for documentation and examples, so this fictional domain cannot be used as a normal public business domain.</span></span></div></div>
 <div class="metrics"><div class="metric"><small><span class="hot" tabindex="0">Zone status<span class="tip"><b>Zone status</b>Whether this provider has the zone configured and enabled. It does not prove that every record is correct or that email delivery works.</span></span></small><strong>ACTIVE</strong><em>Illustrative demo state</em></div><div class="metric"><small><span class="hot" tabindex="0">Nameservers<span class="tip"><b>Nameservers (NS)</b>The authoritative DNS servers that publish the domain's records. The domain registrar delegates DNS authority to these servers.</span></span></small><strong>2 / 2</strong><em>Illustrative only</em></div><div class="metric"><small><span class="hot" tabindex="0">Last change<span class="tip"><b>Last change</b>The timestamp of the most recent edit in this mock dashboard. In a real environment, compare it with the provider audit log and the change ticket.</span></span></small><strong>09:42 UTC</strong><em>13 Nov 2026 · sample</em></div></div>
 <section id="records"><div class="toolbar"><h3>DNS records</h3><div class="record-actions"><button class="action primary" id="addRecord" type="button">+ Add record</button><button class="action" id="resetRecords" type="button">Reset demo</button></div></div>
+<div class="challenge" aria-labelledby="challengeTitle">
+ <div class="challenge-head">
+  <div><h3 id="challengeTitle">The five-record recovery challenge</h3>
+   <p>Make the zone consistent: mail must point to a resolvable host, SPF must authorise the lab sender, and DMARC must publish the requested policy. Edit, add or delete records, then check your work.</p>
+  </div>
+  <div class="challenge-controls"><button class="action primary" id="checkRecords" type="button">Check my DNS</button></div>
+ </div>
+ <div class="challenge-result" id="challengeResult" role="status" aria-live="polite">The starting zone contains deliberate mistakes. Nothing here is published to the internet.</div>
+ <aside class="postit" id="answerNote" aria-label="Handwritten recovery note">
+  <strong>Hmm. That's not quite right.</strong><br>
+  Before you make the mail disappear entirely, here's a little hint:
+  <a href="#answerDetails" id="answerLink">answer</a>
+  <div class="answer-details" id="answerDetails" hidden>
+   <p>These are the five correct records for this fictional exercise:</p>
+   <p><b>MX · @</b><code>10 mail.teleperfection.example</code></p>
+   <p><b>A · mail</b><code>192.0.2.25</code></p>
+   <p><b>TXT · @ (SPF)</b><code>v=spf1 ip4:192.0.2.25 -all</code></p>
+   <p><b>TXT · _dmarc</b><code>v=DMARC1; p=quarantine; rua=mailto:dmarc@teleperfection.example</code></p>
+   <p><b>CNAME · www</b><code>teleperfection.example</code></p>
+   <p>Use TTL <b>3600</b> for each record. The IP is documentation-only; this is not a live mail setup.</p>
+   <button type="button" class="apply-answer" id="applyAnswer">Put the right records back</button>
+  </div>
+ </aside>
+</div>
 <div class="tablewrap"><table class="records"><thead><tr>
 <th><span class="hot" tabindex="0">Type<span class="tip"><b>Record type</b>Defines what kind of information this row publishes, such as an address, mail destination or text value.</span></span></th>
 <th><span class="hot" tabindex="0">Name / Host<span class="tip"><b>Name / Host</b>The label the record applies to. An @ symbol commonly means the zone apex — the domain itself — though provider interfaces vary.</span></span></th>
@@ -141,7 +187,7 @@ h1,.main h2,.toolbar h3,.zone h3,.sidebrand,.tip b{ text-shadow:1.5px 0 rgba(75,
  function closeEditor(){backdrop.classList.remove('open');form.reset();editing=-1;}
  document.getElementById('addRecord').addEventListener('click',()=>openEditor(-1));
  document.getElementById('resetRecords').addEventListener('click',()=>{
-  if(confirm('Reset the DNS table to the original fictional training records?')){records=initial;save();render();}
+  if(confirm('Reset the DNS table to the original deliberately incomplete training records?')){records=initial.map(r=>({...r}));save();render();hideAnswer();challengeResult.textContent='The starting zone has been restored. Find and fix the deliberate mistakes.';challengeResult.classList.remove('good');}
  });
  document.getElementById('cancelEdit').addEventListener('click',closeEditor);
  backdrop.addEventListener('click',e=>{if(e.target===backdrop)closeEditor();});
@@ -152,6 +198,34 @@ h1,.main h2,.toolbar h3,.zone h3,.sidebrand,.tip b{ text-shadow:1.5px 0 rgba(75,
   if(!r.host||!r.value||!Number.isInteger(r.ttl)||r.ttl<60||r.ttl>86400){alert('Enter a host, value and TTL between 60 and 86400 seconds.');return;}
   if(editing<0)records.push(r);else records[editing]=r;
   save();render();closeEditor();
+ });
+ const answerNote=document.getElementById('answerNote');
+ const answerDetails=document.getElementById('answerDetails');
+ const challengeResult=document.getElementById('challengeResult');
+ function correctRecords(){
+  return [
+   {type:'MX',host:'@',value:'10 mail.teleperfection.example',ttl:'3600',status:'DEMO'},
+   {type:'A',host:'mail',value:'192.0.2.25',ttl:'3600',status:'DEMO'},
+   {type:'TXT',host:'@',value:'v=spf1 ip4:192.0.2.25 -all',ttl:'3600',status:'DEMO'},
+   {type:'TXT',host:'_dmarc',value:'v=DMARC1; p=quarantine; rua=mailto:dmarc@teleperfection.example',ttl:'3600',status:'DEMO'},
+   {type:'CNAME',host:'www',value:'teleperfection.example',ttl:'3600',status:'DEMO'}
+  ];
+ }
+ function hideAnswer(){answerNote.classList.remove('show');answerDetails.hidden=true;}
+ document.getElementById('checkRecords').addEventListener('click',()=>{
+  const expected=correctRecords();
+  const ok=records.length===expected.length&&expected.every(e=>records.some(r=>
+   String(r.type).toUpperCase()===e.type&&String(r.host).toLowerCase()===e.host.toLowerCase()&&
+   String(r.value).trim()===e.value&&String(r.ttl)===e.ttl));
+  if(ok){
+   hideAnswer();challengeResult.textContent='That’s it. The five records agree with the training brief. In a real environment, you would still verify authoritative DNS, external resolution and actual mail flow.';challengeResult.classList.add('good');
+  }else{
+   challengeResult.textContent='Not yet. One or more records are missing, incomplete or pointing to the wrong place. The little note has something for you.';challengeResult.classList.remove('good');answerNote.classList.add('show');
+  }
+ });
+ document.getElementById('answerLink').addEventListener('click',e=>{e.preventDefault();answerDetails.hidden=false;});
+ document.getElementById('applyAnswer').addEventListener('click',()=>{
+  records=correctRecords();save();render();hideAnswer();challengeResult.textContent='Correct records restored in this browser’s demo copy. Nothing has been published to DNS.';challengeResult.classList.add('good');
  });
  const initial=initialRecords();
  records=safeLoad()||initial.map(r=>({...r}));
