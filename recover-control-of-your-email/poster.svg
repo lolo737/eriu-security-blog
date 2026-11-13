@@ -3,34 +3,34 @@
 <rect width="1200" height="1500" fill="url(#bg)"/><ellipse cx="600" cy="0" rx="700" ry="500" fill="url(#glow)"/>
 <g font-family="Arial,sans-serif"><text x="90" y="100" fill="#00dbcc" font-size="26" letter-spacing="7">ERIU TECHNOLOGY / SECURITY AWARENESS</text><text x="90" y="245" fill="#eafcfd" font-size="106" font-weight="900">RECOVER</text><text x="90" y="355" fill="#eafcfd" font-size="106" font-weight="900">CONTROL OF</text><text x="90" y="465" fill="#eafcfd" font-size="106" font-weight="900">YOUR EMAIL</text><text x="94" y="535" fill="#aec3c7" font-size="34">Outlook is down. What happens next?</text>
 <rect x="90" y="620" width="1020" height="330" rx="24" fill="#07171b" stroke="#00dbcc" stroke-opacity=".5" stroke-width="3"/>
-<!-- ThinkCentre M920q Tiny: compact 1-litre chassis shown in three-quarter perspective.
-     Front, top and right side are separate planes; ports and badge follow the front-face angle. -->
+<!-- ThinkCentre M920q Tiny: orthographic/axonometric three-plane view.
+     The front face is a true rectangle: horizontal top and bottom, vertical sides. -->
 <g stroke-linejoin="round">
-  <!-- Top plane -->
-  <path d="M130 760 L215 688 L440 658 L355 730 Z" fill="#26343a" stroke="#89979c" stroke-width="3"/>
-  <path d="M148 754 L222 697 L420 670" fill="none" stroke="#53636a" stroke-width="2" opacity=".8"/>
+  <!-- Top plane: parallel edges, no perspective convergence -->
+  <path d="M130 730 L215 658 L440 658 L355 730 Z" fill="#26343a" stroke="#89979c" stroke-width="3"/>
+  <path d="M148 724 L225 665 L420 665" fill="none" stroke="#53636a" stroke-width="2" opacity=".8"/>
   <!-- Right side plane -->
   <path d="M355 730 L440 658 L440 758 L355 830 Z" fill="#111c21" stroke="#89979c" stroke-width="3"/>
-  <!-- Side ventilation, aligned to the receding side plane -->
   <g fill="none" stroke="#53636a" stroke-width="3" opacity=".9">
     <path d="M382 735 L423 700 M382 748 L423 713 M382 761 L423 726 M382 774 L423 739 M382 787 L423 752"/>
   </g>
-  <!-- Front face -->
-  <path d="M130 760 L355 730 L355 830 L130 860 Z" fill="#18252b" stroke="#aebdc1" stroke-width="3"/>
-  <path d="M145 773 L340 747 L340 796 L145 822 Z" fill="#202e34" opacity=".9"/>
-  <!-- Subtle front ventilation dots, following the face perspective -->
+  <!-- Front face: rectangular, level and square to the page -->
+  <rect x="130" y="730" width="225" height="100" fill="#18252b" stroke="#aebdc1" stroke-width="3"/>
+  <rect x="145" y="744" width="195" height="54" fill="#202e34" opacity=".9"/>
+  <!-- Ventilation dots in straight, level rows -->
   <g fill="#718188" opacity=".48">
-    <circle cx="160" cy="780" r="2"/><circle cx="174" cy="778" r="2"/><circle cx="188" cy="776" r="2"/><circle cx="202" cy="774" r="2"/><circle cx="216" cy="772" r="2"/><circle cx="230" cy="770" r="2"/><circle cx="244" cy="768" r="2"/><circle cx="258" cy="766" r="2"/><circle cx="272" cy="764" r="2"/><circle cx="286" cy="762" r="2"/><circle cx="300" cy="760" r="2"/><circle cx="314" cy="758" r="2"/>
+    <circle cx="160" cy="754" r="2"/><circle cx="176" cy="754" r="2"/><circle cx="192" cy="754" r="2"/><circle cx="208" cy="754" r="2"/><circle cx="224" cy="754" r="2"/><circle cx="240" cy="754" r="2"/><circle cx="256" cy="754" r="2"/><circle cx="272" cy="754" r="2"/><circle cx="288" cy="754" r="2"/><circle cx="304" cy="754" r="2"/><circle cx="320" cy="754" r="2"/>
+      <circle cx="160" cy="770" r="2"/><circle cx="176" cy="770" r="2"/><circle cx="192" cy="770" r="2"/><circle cx="208" cy="770" r="2"/><circle cx="224" cy="770" r="2"/><circle cx="240" cy="770" r="2"/><circle cx="256" cy="770" r="2"/><circle cx="272" cy="770" r="2"/><circle cx="288" cy="770" r="2"/><circle cx="304" cy="770" r="2"/><circle cx="320" cy="770" r="2"/>
   </g>
-  <!-- Power button and front I/O: each detail sits on the same sloping front plane -->
-  <circle cx="158" cy="837" r="8" fill="#0b1418" stroke="#9aa9ae" stroke-width="2"/>
-  <circle cx="158" cy="837" r="3" fill="#4b9fe8"/>
-  <path d="M187 824 L214 820 L214 830 L187 834 Z" fill="#05090c" stroke="#829198" stroke-width="1.5"/>
-  <path d="M226 819 L253 815 L253 825 L226 829 Z" fill="#05090c" stroke="#829198" stroke-width="1.5"/>
-  <path d="M265 814 L286 811 L286 821 L265 824 Z" fill="#05090c" stroke="#829198" stroke-width="1.5"/>
-  <!-- Lenovo badge follows the same front-face angle -->
-  <path d="M299 753 L339 748 L339 768 L299 773 Z" fill="#d91f26"/>
-  <text x="319" y="765" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle" transform="rotate(-7 319 765)">Lenovo</text>
+  <!-- Power button and front I/O, aligned horizontally -->
+  <circle cx="158" cy="812" r="8" fill="#0b1418" stroke="#9aa9ae" stroke-width="2"/>
+  <circle cx="158" cy="812" r="3" fill="#4b9fe8"/>
+  <rect x="187" y="806" width="27" height="10" rx="2" fill="#05090c" stroke="#829198" stroke-width="1.5"/>
+  <rect x="226" y="806" width="27" height="10" rx="2" fill="#05090c" stroke="#829198" stroke-width="1.5"/>
+  <rect x="265" y="806" width="21" height="10" rx="2" fill="#05090c" stroke="#829198" stroke-width="1.5"/>
+  <!-- Lenovo badge is level with the front face -->
+  <rect x="298" y="776" width="42" height="19" rx="1" fill="#d91f26"/>
+  <text x="319" y="790" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">Lenovo</text>
 </g>
 <text x="285" y="895" fill="#aec3c7" font-size="23" text-anchor="middle" letter-spacing="2">THINKCENTRE M920q TINY</text>
 <path d="M390 765H475" stroke="#ffb81a" stroke-width="5"/><path d="M460 748L480 765L460 782" fill="none" stroke="#ffb81a" stroke-width="5"/>
