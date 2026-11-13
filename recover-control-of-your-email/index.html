@@ -78,12 +78,25 @@ hr{border:0;border-top:1px solid var(--line);margin:40px 0}.outro{color:var(--so
 <figure class="diagram"><a href="dns-console.html"><img src="dns-console-preview.svg" alt="Preview of the fictional Namecheap-style control panel for teleperfection.example"></a><figcaption>Fictional Namecheap-style DNS dashboard. An interactive version is embedded in the blog — have a play with it.</figcaption></figure>
 <div class="callout"><b>Nothing here is connected to the internet</b><p>The .example domain and 192.0.2.25 address are reserved for documentation. The SPF and DMARC entries are deliberately incomplete placeholders. This is an independent teaching mock-up, not affiliated with or connected to Namecheap, not a live DNS login, and not a configuration to copy.</p></div>
 <h2><span class="num">07</span>Prove who sent the message</h2>
-<p>Receiving servers need ways to judge whether a message claiming to come from your domain is legitimate. Three DNS-based controls are central:</p>
-<ul><li><strong><a href="https://en.wikipedia.org/wiki/Sender_Policy_Framework">SPF (Sender Policy Framework)</a></strong> — publishes which servers are authorised to send mail for a domain.</li><li><strong><a href="https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail">DKIM (DomainKeys Identified Mail)</a></strong> — adds a cryptographic signature that receiving systems can verify.</li><li><strong><a href="https://en.wikipedia.org/wiki/DMARC">DMARC (Domain-based Message Authentication, Reporting and Conformance)</a></strong> — checks alignment with the visible From domain and tells receivers how to handle failures, while enabling reports.</li></ul>
-<p>DMARC should normally begin in monitoring mode, <span class="mono">p=none</span>, while legitimate senders are identified and alignment is checked. Only move towards quarantine or reject when the evidence says it is safe. Publishing a strict policy before accounting for every legitimate sender can break perfectly valid business mail.</p>
+<p>Three DNS-based controls help receiving servers check whether a message claiming to come from your domain is legitimate.</p>
+<table><thead><tr><th>CONTROL</th><th>WHAT IT DOES</th></tr></thead><tbody>
+<tr><td><a href="https://en.wikipedia.org/wiki/Sender_Policy_Framework">SPF</a></td><td>Sender Policy Framework. Publishes which servers are authorised to send mail for a domain.</td></tr>
+<tr><td><a href="https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail">DKIM</a></td><td>DomainKeys Identified Mail. Adds a cryptographic signature that receiving systems can verify.</td></tr>
+<tr><td><a href="https://en.wikipedia.org/wiki/DMARC">DMARC</a></td><td>Domain-based Message Authentication, Reporting and Conformance. Checks alignment with the visible From domain and tells receivers how to handle failures, while enabling reports.</td></tr>
+<tr><td>DMARC rollout</td><td>Begin in monitoring mode, <span class="mono">p=none</span>, while legitimate senders are identified and alignment is checked. Move to quarantine or reject only when the evidence says it is safe; a strict policy introduced too early can block legitimate business mail.</td></tr>
+</tbody></table>
 <h2><span class="num">08</span>Spam, certificates and the unglamorous bits</h2>
-<p>Rspamd can inspect messages and apply spam scores. TLS certificates protect connections between mail clients and the server, and between mail servers where supported. Neither is a magic force field. They are controls that need correct configuration, updates and monitoring.</p>
-<ul class="defend"><li><strong>Use strong authentication</strong> and separate administrator access from ordinary mail accounts.</li><li><strong>Keep the operating system and mail software patched.</strong></li><li><strong>Restrict exposed services</strong> with a firewall; don't publish admin interfaces to the internet.</li><li><strong>Back up mailboxes and configuration</strong> to a separate location, and test restoring them.</li><li><strong>Monitor queues, disk space, certificates and service health.</strong></li><li><strong>Write down recovery steps</strong> so the fix doesn't live only in one person's head.</li></ul>
+<p>These are the day-to-day controls that keep a mail service safer and more dependable.</p>
+<table><thead><tr><th>CONTROL</th><th>JOB IN THE LAB</th></tr></thead><tbody>
+<tr><td>Rspamd</td><td>Inspects messages and applies spam scores to help identify unwanted mail.</td></tr>
+<tr><td>TLS certificates</td><td>Protect connections between mail clients and the server, and between mail servers where supported.</td></tr>
+<tr><td>Authentication</td><td>Use strong sign-in controls and keep administrator access separate from ordinary mail accounts.</td></tr>
+<tr><td>Updates</td><td>Keep Ubuntu Server and the mail software patched.</td></tr>
+<tr><td>Firewall</td><td>Restrict exposed services. Never publish administration interfaces directly to the internet.</td></tr>
+<tr><td>Backups</td><td>Copy mailboxes and configuration to a separate location, then test that they can be restored.</td></tr>
+<tr><td>Monitoring</td><td>Watch mail queues, disk space, certificates and service health.</td></tr>
+<tr><td>Recovery notes</td><td>Document recovery steps so the fix does not live only in one person's head.</td></tr>
+</tbody></table>
 <div class="warning"><b>A 105-person business is not a weekend server project</b><p>This ThinkCentre is for a controlled demonstration and portfolio lab. It is not a responsible single point of failure for 105 employees. Production email needs resilience, redundant connectivity and power, monitored storage, tested off-site backups, security operations, patching, incident response and a documented recovery plan.</p></div>
 <h2><span class="num">09</span>What success looks like</h2>
 <p>We don't call the project finished because the services start. We test it.</p>
