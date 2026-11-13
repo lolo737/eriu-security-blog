@@ -57,15 +57,40 @@ hr{border:0;border-top:1px solid var(--line);margin:40px 0}.outro{color:var(--so
 <p>With Microsoft 365, Microsoft operates the hosted service, but your organisation still controls important parts of the tenant, identity, domain configuration, user lifecycle and recovery arrangements. “It's in the cloud” doesn't mean “someone else has every responsibility”.</p>
 <h2><span class="num">03</span>The little server we're building</h2>
 <p>The ThinkCentre M920q Tiny is a sensible lab box: an Intel Core i7-8700T processor, 16GB of memory and a 512GB solid-state drive. It is small, relatively modest in power use, and more than capable of running a handful of test mailboxes and the supporting services.</p>
-<p>We'll install <strong>Ubuntu Server</strong> and build a traditional mail stack. The aim is to understand the moving parts, test delivery and synchronisation, and document what operating your own mail service actually involves.</p>
-<table><thead><tr><th>Component</th><th>Job in the lab</th></tr></thead><tbody>
+<p>Before installing mail software, we need a clean, secure Linux base. The first job is not Postfix. It is getting Ubuntu installed, patched, reachable over the network and recoverable if something goes wrong.</p>
+<table><thead><tr><th>STEP</th><th>WHAT TO DO</th></tr></thead><tbody>
+<tr><td>1. Prepare the machine</td><td>Connect a monitor, keyboard and wired Ethernet. Download the current Ubuntu Server LTS installer from Ubuntu's official website and write it to a USB stick using a trusted imaging tool. Back up anything important first: the installation will erase the target drive.</td></tr>
+<tr><td>2. Install Ubuntu Server</td><td>Boot from the USB in UEFI mode. Select the 512GB SSD as the installation target, use the guided storage layout for this single-disk lab, create a named administrator account and give the machine a clear hostname such as <span class="mono">mail-lab</span>. Enable OpenSSH when the installer offers it. Keep the server installation minimal; we do not need a desktop environment.</td></tr>
+<tr><td>3. Give it a predictable address</td><td>Initially let the router provide an address using DHCP. Then create a DHCP reservation in the router so the same private LAN address is always assigned to this machine. This is usually simpler and less error-prone than configuring a static address in two places. Record the address and the router's gateway and DNS settings.</td></tr>
+<tr><td>4. Update the operating system</td><td>Log in locally or over SSH and install all available security and package updates. Reboot if the kernel or core system packages require it, then check that the machine comes back online.</td></tr>
+<tr><td>5. Secure remote administration</td><td>Create an SSH key on the administrator's own computer, install the public key on the server and test key-based login in a second terminal before changing SSH settings. Once confirmed, disable password-based SSH login. Do not disable the only working route into the machine.</td></tr>
+<tr><td>6. Configure the firewall</td><td>Allow SSH from the trusted local network before enabling the firewall. Keep inbound access closed by default; open mail ports only when the relevant service is installed and there is a specific test that requires them. Do not expose this lab directly to the public internet.</td></tr>
+<tr><td>7. Check time and automatic security updates</td><td>Confirm that time synchronisation is active and configure unattended security updates. Accurate time matters for logs, TLS certificates and authentication; updates reduce the time the server spends exposed to known vulnerabilities.</td></tr>
+<tr><td>8. Record and back up the base system</td><td>Document the hostname, private IP address, Ubuntu release, disk layout, administrator access method and installed packages. Back up configuration and keep a copy somewhere other than the ThinkCentre itself.</td></tr>
+</tbody></table>
+<p>On a fresh installation, the initial maintenance commands are deliberately simple:</p>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#071b20;border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:0 0 22px;color:#bce9e5;font:13px/1.8 'JetBrains Mono',monospace"><code>sudo apt update
+sudo apt full-upgrade
+sudo apt install openssh-server ufw unattended-upgrades
+sudo hostnamectl set-hostname mail-lab
+hostnamectl
+timedatectl status</code></pre>
+<p>Before enabling UFW, allow the SSH connection you actually use. For example, if administration is restricted to your local network, adjust the subnet below to match your own LAN:</p>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#071b20;border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:0 0 22px;color:#bce9e5;font:13px/1.8 'JetBrains Mono',monospace"><code>sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow from 192.168.1.0/24 to any port 22 proto tcp
+sudo ufw enable
+sudo ufw status verbose</code></pre>
+<p><strong>Important:</strong> <span class="mono">192.168.1.0/24</span> is an example only. Replace it with the actual subnet on your network. If you enable the firewall before allowing your SSH source, you can lock yourself out. Keep a local keyboard and screen available until remote access has been tested.</p>
+<p>At this point we have a patched Ubuntu Server with predictable local networking and restricted administration. We still have not exposed SMTP or IMAP to the internet. That comes later, after the mail services, DNS, certificates and security controls have been configured and tested.</p>
+<table><thead><tr><th>COMPONENT</th><th>JOB IN THE LAB</th></tr></thead><tbody>
 <tr><td>Ubuntu Server</td><td>The Linux operating system underneath the services.</td></tr>
 <tr><td>Postfix</td><td>The Mail Transfer Agent (MTA): accepts and routes outgoing and incoming SMTP mail.</td></tr>
 <tr><td>Dovecot</td><td>Provides IMAP access to stored mailboxes and handles mailbox authentication.</td></tr>
 <tr><td>Rspamd</td><td>Scores messages for spam and other unwanted mail.</td></tr>
 <tr><td>TLS</td><td>Transport Layer Security encrypts connections between clients and services.</td></tr>
 <tr><td>Backups and monitoring</td><td>Help us detect failures and recover data and configuration.</td></tr></tbody></table>
-<figure class="diagram"><img src="mail-flow.svg" alt="Diagram showing email clients connecting to Dovecot and Postfix, with DNS and spam filtering"><figcaption>A simplified view of the lab: Postfix handles mail transfer; Dovecot gives users synchronised mailbox access.</figcaption></figure>
+<figure class="diagram"><img src="mail-flow.svg" alt="Diagram showing mail clients, Postfix, internet mail servers and Dovecot arranged around a clockwise oval mail-flow loop"><figcaption>A simplified view of the lab: Postfix handles mail transfer; Dovecot gives users synchronised mailbox access.</figcaption></figure>
 <h2><span class="num">04</span>Why IMAP, not POP3?</h2>
 <p>For this project, users need to see the same mailbox from a desktop, laptop and phone. That's what <a href="https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol">IMAP (Internet Message Access Protocol)</a> is designed for: messages remain on the server and clients synchronise folders, read status and message changes.</p>
 <p><a href="https://en.wikipedia.org/wiki/Post_Office_Protocol">POP3 (Post Office Protocol version 3)</a> is a simpler retrieval protocol, traditionally associated with downloading messages to a client. It can be configured to leave copies on the server, but it isn't the synchronised multi-device mailbox model we're aiming for.</p>
