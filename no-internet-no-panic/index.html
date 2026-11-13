@@ -138,9 +138,16 @@ footer{margin-top:54px;padding-top:22px;border-top:1px solid var(--line);font-si
   <div class="term-screen" tabindex="0" aria-label="Selectable animated troubleshooting terminal output"><pre id="terminal-output">IT-SUPPORT-07 PS&gt; <span class="muted">Waiting for diagnostics…</span><span class="cursor"></span></pre></div>
   <div class="term-foot"><strong>TRAINING SIMULATION</strong> · Output is fictional and illustrative. Commands are real; the displayed results are not from a live network.</div>
 </div>
-<p>First, <span class="mono">ipconfig /all</span> confirms the workstation has a normal private address, subnet mask, gateway and DNS server. No self-assigned 169.254 address. That's a good start.</p>
-<p>Next, ping the gateway. Replies come back. Ping an external IP address. Replies come back there too. So the machine can reach the local network and get packets out to the internet by IP address.</p>
-<p>Then comes the useful bit. DNS lookups time out. A request for <span class="mono">www.microsoft.com</span> gets nowhere. The network connection is working; name resolution isn't.</p>
+<p>I start with the workstation's full network configuration, then test the gateway, an external IP address, DNS and the VPN status. These are the commands I'm using:</p>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#071b20;border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:0 0 22px;color:#bce9e5;font:12px/1.9 'JetBrains Mono',monospace"><code>ipconfig /all
+ping 10.24.18.1
+ping 1.1.1.1
+nslookup www.microsoft.com
+Test-NetConnection 1.1.1.1 -Port 443
+Get-VpnConnection</code></pre>
+<p><span class="mono">ipconfig /all</span> confirms the workstation has a normal private address, subnet mask, gateway and DNS server. No self-assigned 169.254 address. That's a good start.</p>
+<p>The gateway responds. An external IP address responds too, so the machine can reach the local network and get packets out to the internet by IP address.</p>
+<p>Then comes the useful bit. The DNS lookup times out. A request for <span class="mono">www.microsoft.com</span> gets nowhere. The network connection is working; name resolution isn't.</p>
 <div class="status-grid">
  <div class="status good"><b>Ethernet</b><span>LINK UP</span></div>
  <div class="status good"><b>Gateway</b><span>REACHABLE</span></div>
