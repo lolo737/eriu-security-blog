@@ -268,13 +268,11 @@ document.querySelectorAll('h1.title,article h2').forEach(function(h){h.setAttrib
   span.className=step.kind;
   output.appendChild(span);
   let i=0;
+  const speed=step.kind==='prompt'?30:11;
   function tick(){
    if(!active)return;
-   if(i<step.text.length){span.textContent+=step.text.charAt(i++);screen.scrollTop=screen.scrollHeight;timer=setTimeout(tick,reduce?0:24)}
-   else{span.textContent+='\n';timer=setTimeout(done,step.wait)}
-  }
-  if(step.kind==='out'||step.kind==='good'||step.kind==='bad'||step.kind==='warn'||step.kind==='muted'){
-    if(step.kind!=='prompt'){span.textContent=step.text+'\n';timer=setTimeout(done,step.wait);return}
+   if(i<step.text.length){span.textContent+=step.text.charAt(i++);screen.scrollTop=screen.scrollHeight;timer=setTimeout(tick,reduce?0:speed)}
+   else{span.textContent+='\\n';timer=setTimeout(done,step.wait)}
   }
   tick();
  }
