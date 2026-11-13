@@ -35,14 +35,11 @@
 
 <!-- Direction markers sit at the points where the oval disappears behind each box. -->
 <g fill="#f33df2" stroke="#ffd2ff" stroke-width="1.4" stroke-linejoin="round">
-  <!-- Into Postfix from Mail Clients -->
-  <path d="M445 151 L418 137 L422 166 Z"/>
-  <!-- Into Internet from Postfix -->
-  <path d="M840 250 L826 222 L809 245 Z"/>
-  <!-- Into Dovecot from Internet -->
-  <path d="M665 469 L692 483 L688 454 Z"/>
-  <!-- Into Mail Clients from Dovecot -->
-  <path d="M260 360 L274 388 L291 365 Z"/>
+  <!-- Arrowheads follow the tangent of the oval: right, down, left, up. -->
+  <path d="M445 151 L421 138 L421 164 Z"/>
+  <path d="M840 250 L827 226 L853 226 Z"/>
+  <path d="M665 469 L689 456 L689 482 Z"/>
+  <path d="M260 360 L273 336 L247 336 Z"/>
 </g>
 
 <rect x="390" y="590" width="320" height="60" rx="10" fill="#0b2025" stroke="#426168"/>
