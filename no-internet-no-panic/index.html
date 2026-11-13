@@ -84,6 +84,30 @@ hr{border:0;border-top:1px solid var(--line);margin:40px 0}
 footer{margin-top:54px;padding-top:22px;border-top:1px solid var(--line);font-size:11px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase;line-height:1.8}
 @media(max-width:620px){body{font-size:16px}.nodes{grid-template-columns:repeat(2,minmax(0,1fr))}.status-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.network{padding:13px}.term-screen{padding:14px;font-size:11px}}
 @media(prefers-reduced-motion:reduce){h1.title,article h2,h1.title:before,article h2:before,h1.title:after,article h2:after,.path span,.term-screen .cursor{animation:none}}
+
+/* Remember-the-command practice lab */
+.command-lab{margin:42px 0 28px;padding:22px;border:1px solid rgba(0,219,204,.38);border-radius:16px;background:linear-gradient(145deg,rgba(0,219,204,.07),rgba(4,18,22,.88));}
+.command-lab h2{margin-top:0}
+.lab-intro{color:var(--soft);margin:0 0 20px}
+.lab-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.lab-card{border:1px solid var(--line);border-radius:12px;background:rgba(2,9,11,.78);padding:16px;min-width:0}
+.lab-card h3{font:600 22px Oswald;text-transform:uppercase;color:#eafcfd;margin:0 0 5px}
+.lab-card .lab-tag{font:10px 'JetBrains Mono',monospace;letter-spacing:.12em;color:var(--cy);text-transform:uppercase}
+.lab-card p{font-size:14px;line-height:1.6;color:var(--soft);margin:9px 0 12px}
+.lab-screen{min-height:112px;max-height:170px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;border:1px solid rgba(0,219,204,.17);border-radius:8px;background:#010709;padding:12px;color:#b9d5d7;font:11px/1.75 'JetBrains Mono',monospace;user-select:text}
+.lab-screen .cmd{color:var(--cy)}.lab-screen .ok{color:var(--gn)}.lab-screen .err{color:#ff777a}.lab-screen .dim{color:var(--mut)}
+.lab-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px}
+.lab-btn{border:1px solid rgba(0,219,204,.48);border-radius:7px;background:rgba(0,219,204,.1);color:#d9ffff;padding:8px 11px;font:600 10px 'JetBrains Mono',monospace;cursor:pointer}
+.lab-btn:hover,.lab-btn:focus-visible{outline:2px solid var(--cy);outline-offset:2px;background:rgba(0,219,204,.2)}
+.lab-btn.secondary{border-color:rgba(255,184,26,.45);color:#ffe4a6;background:rgba(255,184,26,.06)}
+.lab-turn{display:none;margin-top:13px;padding-top:12px;border-top:1px solid var(--line)}
+.lab-turn.visible{display:block}
+.lab-turn strong{display:block;color:var(--cy);font:600 17px Oswald;text-transform:uppercase;letter-spacing:.06em}
+.lab-turn p{margin:5px 0 9px}
+.lab-hint{display:none;color:#ffe4a6!important}
+.lab-hint.visible{display:block}
+@media(max-width:620px){.lab-grid{grid-template-columns:1fr}.command-lab{padding:15px}}
+
 </style>
 </head>
 <body>
@@ -210,6 +234,44 @@ ping www.microsoft.com</code></pre>
 <hr>
 <p class="eyebrow">STAR case study · Situation · Task · Action · Result</p>
 <p style="color:var(--mut);font-size:14px">The Four Seasons Hotel scenario is fictional. All hostnames, IP addresses, diagnostic output and incident details are illustrative. The private IP ranges shown are documentation examples, not actual airport or hotel network details.</p>
+
+<section class="command-lab" aria-labelledby="command-lab-title">
+  <span class="kicker">After-hours practice · Your turn</span>
+  <h2 id="command-lab-title">Four commands. Four different problems.</h2>
+  <p class="lab-intro">Watch each tiny terminal demo first. Then take the keyboard. Each scenario is different: a bad IP configuration, a broken path, a DNS failure or a VPN that never came up. The point is to remember which command helps you ask the next useful question.</p>
+  <div class="lab-grid">
+    <section class="lab-card" data-lab="ipconfig">
+      <span class="lab-tag">01 · Configuration</span><h3><code>ipconfig</code></h3>
+      <p>The workstation says it is connected, but it has no usable network address. Start by inspecting its configuration.</p>
+      <div class="lab-screen" aria-live="polite">PS C:\IT&gt; Ready when you are.</div>
+      <div class="lab-actions"><button class="lab-btn" type="button" data-demo>▶ Watch demo</button><button class="lab-btn secondary" type="button" data-turn>Your turn</button></div>
+      <div class="lab-turn"><strong>Your turn</strong><p>Which command shows the IP address, subnet mask, default gateway and DNS servers?</p><p class="lab-hint">Tip: the command starts with <code>ipconfig</code>. Add the switch that displays the full configuration.</p></div>
+    </section>
+    <section class="lab-card" data-lab="ping">
+      <span class="lab-tag">02 · Reachability</span><h3><code>ping</code></h3>
+      <p>The computer has an address, but users cannot reach anything. Test the gateway first, then an external IP address.</p>
+      <div class="lab-screen" aria-live="polite">PS C:\IT&gt; Ready when you are.</div>
+      <div class="lab-actions"><button class="lab-btn" type="button" data-demo>▶ Watch demo</button><button class="lab-btn secondary" type="button" data-turn>Your turn</button></div>
+      <div class="lab-turn"><strong>Your turn</strong><p>What command tests whether <code>10.24.18.1</code> is responding?</p><p class="lab-hint">Tip: send a small ICMP echo request to the gateway. Then try <code>1.1.1.1</code> to test external IP reachability.</p></div>
+    </section>
+    <section class="lab-card" data-lab="tracert">
+      <span class="lab-tag">03 · Route tracing</span><h3><code>tracert</code></h3>
+      <p>The gateway replies, but the remote service is still unreachable. Find out how far packets travel and where the route stops responding.</p>
+      <div class="lab-screen" aria-live="polite">PS C:\IT&gt; Ready when you are.</div>
+      <div class="lab-actions"><button class="lab-btn" type="button" data-demo>▶ Watch demo</button><button class="lab-btn secondary" type="button" data-turn>Your turn</button></div>
+      <div class="lab-turn"><strong>Your turn</strong><p>Which Windows command traces the route to <code>1.1.1.1</code>?</p><p class="lab-hint">Tip: it is short for trace route. On Windows, the command is <code>tracert</code>.</p></div>
+    </section>
+    <section class="lab-card" data-lab="nslookup">
+      <span class="lab-tag">04 · Name resolution</span><h3><code>nslookup</code></h3>
+      <p>You can ping an external IP, but <code>www.microsoft.com</code> will not load. The connection may be fine; DNS may not be.</p>
+      <div class="lab-screen" aria-live="polite">PS C:\IT&gt; Ready when you are.</div>
+      <div class="lab-actions"><button class="lab-btn" type="button" data-demo>▶ Watch demo</button><button class="lab-btn secondary" type="button" data-turn>Your turn</button></div>
+      <div class="lab-turn"><strong>Your turn</strong><p>Which command asks DNS to resolve <code>www.microsoft.com</code>?</p><p class="lab-hint">Tip: the command combines “name” and “lookup”. Try <code>nslookup www.microsoft.com</code>.</p></div>
+    </section>
+  </div>
+  <p class="net-note">TRAINING NOTE · These are illustrative outputs, not live network tests. Asterisks in a trace can mean a router does not reply to probes; they do not automatically prove the route is broken.</p>
+</section>
+
 </article>
 <footer>Eriu Technology &nbsp;·&nbsp; eriu.tech &nbsp;·&nbsp; IT service management<br>Fictional scenario · Practical troubleshooting · Training simulation</footer>
 </div>
@@ -307,6 +369,70 @@ document.querySelectorAll('h1.title,article h2').forEach(function(h){h.setAttrib
  }
  run.addEventListener('click',start);reset.addEventListener('click',resetAll);
 })();
+
+/* Small, repeatable command demos and hint reveals */
+(function(){
+ const demos={
+  ipconfig:[
+   ['cmd','PS C:\\IT> ipconfig /all'],
+   ['dim','Windows IP Configuration'],
+   ['ok','IPv4 Address . . . . . . . : 169.254.44.18'],
+   ['err','Default Gateway . . . . . :'],
+   ['dim','No DHCP lease and no default gateway.'],
+   ['ok','Clue: check VLAN, DHCP scope and physical link.']
+  ],
+  ping:[
+   ['cmd','PS C:\\IT> ping 10.24.18.1'],
+   ['ok','Reply from 10.24.18.1: bytes=32 time<1ms TTL=64'],
+   ['ok','Reply from 10.24.18.1: bytes=32 time<1ms TTL=64'],
+   ['ok','Packets: Sent = 2, Received = 2, Lost = 0 (0% loss)'],
+   ['cmd','PS C:\\IT> ping 1.1.1.1'],
+   ['err','Request timed out.'],
+   ['err','Packets: Sent = 1, Received = 0, Lost = 1 (100% loss)'],
+   ['dim','Gateway reachable. External IP not responding. Investigate upstream routing/firewall.']
+  ],
+  tracert:[
+   ['cmd','PS C:\\IT> tracert 1.1.1.1'],
+   ['dim','Tracing route to 1.1.1.1 over a maximum of 30 hops'],
+   ['ok','  1    <1 ms    <1 ms    <1 ms    10.24.18.1'],
+   ['ok','  2     4 ms     5 ms     4 ms    172.20.0.1'],
+   ['err','  3     *        *        *       Request timed out.'],
+   ['dim','Trace stops replying after hop 2. Check upstream path; a silent hop alone is not proof of failure.']
+  ],
+  nslookup:[
+   ['cmd','PS C:\\IT> nslookup www.microsoft.com'],
+   ['dim','Server:  dns-old.hotel.example'],
+   ['dim','Address: 10.24.0.53'],
+   ['err','DNS request timed out.'],
+   ['dim','But ping 1.1.1.1 works.'],
+   ['ok','Clue: investigate DNS server settings and resolver reachability.']
+  ]
+ };
+ document.querySelectorAll('.lab-card').forEach(function(card){
+  const screen=card.querySelector('.lab-screen');
+  const turn=card.querySelector('.lab-turn');
+  const hint=card.querySelector('.lab-hint');
+  let timer=null,runId=0;
+  card.querySelector('[data-demo]').addEventListener('click',function(){
+   runId++;const thisRun=runId;if(timer)clearTimeout(timer);
+   screen.textContent='';turn.classList.remove('visible');hint.classList.remove('visible');
+   const lines=demos[card.dataset.lab];let i=0;
+   function show(){
+    if(thisRun!==runId||i>=lines.length)return;
+    const line=lines[i++];const span=document.createElement('span');span.className=line[0];span.textContent=line[1]+'\n';screen.appendChild(span);screen.scrollTop=screen.scrollHeight;
+    timer=setTimeout(show,520);
+   }
+   show();
+  });
+  card.querySelector('[data-turn]').addEventListener('click',function(){
+   turn.classList.add('visible');hint.classList.remove('visible');
+  });
+  const hintButton=document.createElement('button');hintButton.type='button';hintButton.className='lab-btn secondary';hintButton.textContent='Need a tip?';
+  hintButton.addEventListener('click',function(){hint.classList.toggle('visible')});
+  turn.appendChild(hintButton);
+ });
+})();
+
 </script>
 </body>
 </html>
