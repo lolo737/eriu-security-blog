@@ -1,54 +1,63 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 570" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 680" role="img" aria-labelledby="t d">
 <title id="t">Simplified mail server architecture</title>
-<desc id="d">A broad, broken oval loop of crayon-like arrows connects mail clients, Postfix, the internet and Dovecot.</desc>
-<rect width="1100" height="570" rx="18" fill="#061418"/>
+<desc id="d">Mail clients, Postfix, internet mail servers and Dovecot sit at four points around a large oval. Crayon-like curved arrows with clear arrowheads run clockwise between them.</desc>
+<rect width="1100" height="680" rx="18" fill="#061418"/>
+<text x="550" y="52" font-family="Arial,sans-serif" font-size="25" fill="#00dbcc" letter-spacing="4" text-anchor="middle">A SMALL MAIL-SERVER LAB</text>
+
+<!-- Circular layout: each service occupies one point of the oval. -->
 <g font-family="Arial,sans-serif" text-anchor="middle">
-<text x="550" y="55" font-size="25" fill="#00dbcc" letter-spacing="4">A SMALL MAIL-SERVER LAB</text>
-<rect x="50" y="190" width="210" height="150" rx="16" fill="#102b31" stroke="#00dbcc" stroke-width="3"/>
-<text x="155" y="245" font-size="27" fill="#eafcfd" font-weight="bold">MAIL CLIENTS</text><text x="155" y="285" font-size="19" fill="#aec3c7">Desktop · Phone</text>
-<rect x="445" y="120" width="220" height="125" rx="16" fill="#102b31" stroke="#ffb81a" stroke-width="3"/>
-<text x="555" y="170" font-size="29" fill="#eafcfd" font-weight="bold">POSTFIX</text><text x="555" y="207" font-size="19" fill="#aec3c7">SMTP transfer</text>
-<rect x="445" y="315" width="220" height="125" rx="16" fill="#102b31" stroke="#00dbcc" stroke-width="3"/>
-<text x="555" y="365" font-size="29" fill="#eafcfd" font-weight="bold">DOVECOT</text><text x="555" y="402" font-size="19" fill="#aec3c7">IMAP access</text>
-<rect x="840" y="190" width="210" height="150" rx="16" fill="#102b31" stroke="#40ea99" stroke-width="3"/>
-<text x="945" y="245" font-size="27" fill="#eafcfd" font-weight="bold">INTERNET</text><text x="945" y="285" font-size="19" fill="#aec3c7">Other mail servers</text>
+  <rect x="50" y="230" width="210" height="150" rx="16" fill="#102b31" stroke="#00dbcc" stroke-width="3"/>
+  <text x="155" y="285" font-size="27" fill="#eafcfd" font-weight="bold">MAIL CLIENTS</text>
+  <text x="155" y="325" font-size="19" fill="#aec3c7">Desktop · Phone</text>
+
+  <rect x="445" y="90" width="220" height="125" rx="16" fill="#102b31" stroke="#ffb81a" stroke-width="3"/>
+  <text x="555" y="140" font-size="29" fill="#eafcfd" font-weight="bold">POSTFIX</text>
+  <text x="555" y="177" font-size="19" fill="#aec3c7">SMTP transfer</text>
+
+  <rect x="840" y="230" width="210" height="150" rx="16" fill="#102b31" stroke="#40ea99" stroke-width="3"/>
+  <text x="945" y="285" font-size="27" fill="#eafcfd" font-weight="bold">INTERNET</text>
+  <text x="945" y="325" font-size="19" fill="#aec3c7">Other mail servers</text>
+
+  <rect x="445" y="425" width="220" height="125" rx="16" fill="#102b31" stroke="#00dbcc" stroke-width="3"/>
+  <text x="555" y="475" font-size="29" fill="#eafcfd" font-weight="bold">DOVECOT</text>
+  <text x="555" y="512" font-size="19" fill="#aec3c7">IMAP access</text>
 </g>
 
-<!-- Four broad arcs form a much more oval route. The gaps are intentional. -->
+<!-- Four separate sweeping arcs make one unmistakable oval route. -->
 <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-<!-- Clients -> Postfix: high, sweeping upper-left arc -->
-<path d="M258 205 C292 105 365 65 445 145" stroke="#00dbcc" stroke-width="12" opacity=".18"/>
-<path d="M260 202 C300 104 370 72 445 145" stroke="#00dbcc" stroke-width="6"/>
-<path d="M263 207 C303 110 373 77 441 149" stroke="#c3fff8" stroke-width="2" opacity=".55"/>
-<!-- Postfix -> Internet: broad upper-right arc -->
-<path d="M665 145 C755 65 830 105 842 215" stroke="#ffb81a" stroke-width="12" opacity=".18"/>
-<path d="M665 141 C754 72 824 111 840 215" stroke="#ffb81a" stroke-width="6"/>
-<path d="M669 148 C756 78 828 116 836 211" stroke="#fff0c4" stroke-width="2" opacity=".55"/>
-<!-- Internet -> Dovecot: broad lower-right arc -->
-<path d="M842 315 C830 465 754 505 665 410" stroke="#40ea99" stroke-width="12" opacity=".18"/>
-<path d="M840 315 C824 459 754 495 665 410" stroke="#40ea99" stroke-width="6"/>
-<path d="M836 319 C820 454 750 490 669 406" stroke="#d1ffe3" stroke-width="2" opacity=".55"/>
-<!-- Dovecot -> Clients: low, sweeping lower-left arc -->
-<path d="M445 410 C365 505 292 465 258 315" stroke="#00dbcc" stroke-width="12" opacity=".18"/>
-<path d="M445 410 C370 495 300 458 260 315" stroke="#00dbcc" stroke-width="6"/>
-<path d="M441 406 C366 490 297 454 264 319" stroke="#c3fff8" stroke-width="2" opacity=".55"/>
+  <!-- Clients to Postfix -->
+  <path d="M260 250 C302 145 365 116 445 150" stroke="#f33df2" stroke-width="13" opacity=".18"/>
+  <path d="M260 250 C302 145 365 116 445 150" stroke="#f33df2" stroke-width="7"/>
+  <path d="M263 253 C306 151 369 122 442 154" stroke="#ffd2ff" stroke-width="2" opacity=".65"/>
+
+  <!-- Postfix to Internet -->
+  <path d="M665 150 C745 116 808 145 840 250" stroke="#f33df2" stroke-width="13" opacity=".18"/>
+  <path d="M665 150 C745 116 808 145 840 250" stroke="#f33df2" stroke-width="7"/>
+  <path d="M668 154 C748 122 810 151 836 253" stroke="#ffd2ff" stroke-width="2" opacity=".65"/>
+
+  <!-- Internet to Dovecot -->
+  <path d="M840 360 C808 465 745 494 665 470" stroke="#f33df2" stroke-width="13" opacity=".18"/>
+  <path d="M840 360 C808 465 745 494 665 470" stroke="#f33df2" stroke-width="7"/>
+  <path d="M836 363 C805 462 742 490 668 466" stroke="#ffd2ff" stroke-width="2" opacity=".65"/>
+
+  <!-- Dovecot to Clients -->
+  <path d="M445 470 C365 494 302 465 260 360" stroke="#f33df2" stroke-width="13" opacity=".18"/>
+  <path d="M445 470 C365 494 302 465 260 360" stroke="#f33df2" stroke-width="7"/>
+  <path d="M442 466 C369 490 306 462 263 357" stroke="#ffd2ff" stroke-width="2" opacity=".65"/>
 </g>
 
-<!-- Big, unmistakable hand-drawn arrow points at each end of the oval arcs. -->
-<g stroke-linecap="round" stroke-linejoin="round" fill="none">
-<path d="M445 145 L414 128 L426 162 Z" stroke="#00dbcc" stroke-width="7"/>
-<path d="M445 145 L418 132 L429 157" stroke="#d5fff9" stroke-width="2.2" opacity=".8"/>
-<path d="M840 215 L816 186 L810 218 Z" stroke="#ffb81a" stroke-width="7"/>
-<path d="M840 215 L820 191 L815 214" stroke="#fff0c4" stroke-width="2.2" opacity=".8"/>
-<path d="M665 410 L696 429 L684 395 Z" stroke="#40ea99" stroke-width="7"/>
-<path d="M665 410 L692 425 L681 400" stroke="#d1ffe3" stroke-width="2.2" opacity=".8"/>
-<path d="M260 315 L286 344 L294 311 Z" stroke="#00dbcc" stroke-width="7"/>
-<path d="M260 315 L282 339 L290 315" stroke="#d5fff9" stroke-width="2.2" opacity=".8"/>
+<!-- Filled, slightly irregular arrowheads: the points sit at the receiving end of each arc. -->
+<g stroke="#f33df2" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+  <path d="M445 150 L414 132 L422 166 Z" fill="#f33df2"/>
+  <path d="M840 250 L812 228 L807 261 Z" fill="#f33df2"/>
+  <path d="M665 470 L696 486 L689 452 Z" fill="#f33df2"/>
+  <path d="M260 360 L287 382 L294 348 Z" fill="#f33df2"/>
 </g>
-<!-- Small rough wax marks reinforce the crayon texture without obscuring the route. -->
-<g stroke-linecap="round" fill="none" opacity=".55">
-<path d="M277 155 l-7 11 m18 -19 l-4 10 M392 104 l7 5 M700 111 l9 -6 M822 162 l-2 10 M823 371 l8 8 M724 468 l-8 5 M385 467 l-8 7 M276 370 l-7 -9" stroke="#eafcfd" stroke-width="3"/>
+<!-- Short wax-pencil flicks give the lines a hand-drawn edge. -->
+<g fill="none" stroke="#ffd2ff" stroke-width="2.5" stroke-linecap="round" opacity=".65">
+  <path d="M284 191 l-7 12 M305 161 l-3 9 M393 128 l8 4 M710 131 l8 -4 M812 184 l-1 9 M824 407 l7 5 M777 468 l-8 5 M697 482 l-5 -5 M284 408 l-7 -8"/>
 </g>
-<rect x="390" y="475" width="320" height="60" rx="10" fill="#0b2025" stroke="#426168"/>
-<text x="550" y="513" font-family="Arial,sans-serif" font-size="20" text-anchor="middle" fill="#aec3c7">Rspamd · TLS · DNS · Backups</text>
+
+<rect x="390" y="590" width="320" height="60" rx="10" fill="#0b2025" stroke="#426168"/>
+<text x="550" y="628" font-family="Arial,sans-serif" font-size="20" text-anchor="middle" fill="#aec3c7">Rspamd · TLS · DNS · Backups</text>
 </svg>
