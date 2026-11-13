@@ -34,12 +34,14 @@
 </g>
 
 <!-- Direction markers sit at the points where the oval disappears behind each box. -->
-<g fill="#f33df2" stroke="#ffd2ff" stroke-width="1.4" stroke-linejoin="round">
-  <!-- Arrowheads follow the tangent of the oval: right, down, left, up. -->
-  <path d="M445 151 L421 138 L421 164 Z"/>
-  <path d="M840 250 L827 226 L853 226 Z"/>
-  <path d="M665 469 L689 456 L689 482 Z"/>
-  <path d="M260 360 L273 336 L247 336 Z"/>
+<!-- Open chevrons centred precisely on the oval's centreline.
+     Each tip sits on the path; the two arms are symmetric about its tangent,
+     so the back of each chevron is perpendicular to the direction of travel. -->
+<g fill="none" stroke="#f33df2" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M418.7 168.6 L443.7 143.8 L411.7 129.2"/>
+  <path d="M809.7 233 L840.7 249.6 L845.2 214.7"/>
+  <path d="M690.7 449.1 L666.1 474.4 L698.4 488.4"/>
+  <path d="M285.1 380.8 L255.3 362 L248.3 396.5"/>
 </g>
 
 <rect x="390" y="590" width="320" height="60" rx="10" fill="#0b2025" stroke="#426168"/>
