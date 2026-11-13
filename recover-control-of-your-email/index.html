@@ -98,11 +98,11 @@ h1.title::after,article h2::after{color:#ff36c9;text-shadow:2px 0 #ff36c9,-2px 0
 <figure class="trouble-terminal" aria-label="Animated fictional macOS Terminal troubleshooting session">
   <div class="term-bar"><span class="term-dot" aria-hidden="true"></span><span>TERMINAL — zsh — 80 × 24</span></div>
   <div class="term-screen" id="outlook-terminal" aria-live="off">
-    <span class="term-line"><span class="prompt">niall@macbook ~ % </span><span class="cmd">ssh missy@missys-mac.local</span></span>
-    <span class="term-line output">missy@missys-mac.local's password: ********</span>
+    <span class="term-line"><span class="prompt">niall@macbook ~ % </span><span class="cmd">ssh missy@missys-dell.local</span></span>
+    <span class="term-line output">missy@missys-dell.local's password: ********</span>
     <span class="term-line good">Last login: Fri Nov 13 09:14:02 on ttys001</span>
-    <span class="term-line output">missy@missys-mac ~ % connected to Missy's Mac</span>
-    <span class="term-line"><span class="prompt">missy@missys-mac ~ % </span><span class="cmd">ifconfig en0</span></span>
+    <span class="term-line output">missy@missys-dell ~ % connected to Missy's Dell</span>
+    <span class="term-line"><span class="prompt">missy@missys-dell ~ % </span><span class="cmd">ifconfig en0</span></span>
     <span class="term-line output">en0: flags=8863&lt;UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST&gt;</span>
     <span class="term-line output">inet 192.168.1.42  netmask 0xffffff00  broadcast 192.168.1.255</span>
     <span class="term-line good">Interface is up. Mac has a local network address.</span>
@@ -121,7 +121,7 @@ h1.title::after,article h2::after{color:#ff36c9;text-shadow:2px 0 #ff36c9,-2px 0
     <span class="term-line"><span class="prompt">niall@macbook ~ % </span><span class="term-cursor" aria-hidden="true"></span></span>
   </div>
 </figure>
-<p class="trouble-caption"><strong>REMOTE CHECKS — MISSY'S MAC:</strong> The SSH command logs into Missy's computer so you can run the diagnostics from her workstation rather than guessing from your own. The password prompt and login banner are staged for illustration.  <code>ifconfig</code> shows the Mac's network interface and local IP address — the macOS equivalent of checking <code>ipconfig</code> on Windows. <code>ping</code> checks whether the host responds; <code>dig</code> checks DNS; <code>nc</code> tests whether the HTTPS port is reachable. Finally, <code>curl</code> gets an HTTP response from the service. In this staged example, the network path is open but Outlook returns a 503 Service Unavailable response. The request reaches the service; the service cannot fulfil it. These are illustrative results, not live diagnostics.</p>
+<p class="trouble-caption"><strong>REMOTE CHECKS — MISSY'S MAC:</strong> The SSH command logs into Missy's Dell so you can run the diagnostics from her workstation rather than guessing from your own. The password prompt and login banner are staged for illustration.  <code>ifconfig</code> shows the Mac's network interface and local IP address — the macOS equivalent of checking <code>ipconfig</code> on Windows. <code>ping</code> checks whether the host responds; <code>dig</code> checks DNS; <code>nc</code> tests whether the HTTPS port is reachable. Finally, <code>curl</code> gets an HTTP response from the service. In this staged example, the network path is open but Outlook returns a 503 Service Unavailable response. The request reaches the service; the service cannot fulfil it. These are illustrative results, not live diagnostics.</p>
 <p>It could be a Microsoft service incident. It could also be a tenant configuration problem, expired credentials, a DNS mistake, a network outage, a bad client update or a security control doing exactly what it was configured to do. We don't blame Microsoft just because Outlook is the messenger. That's how you end up fixing the wrong thing.</p>
 <div class="callout"><b>Don't change live mail routing in a panic</b><p>Keep evidence: exact errors, times, affected users, service-health notices and message-trace results. Don't change production DNS or redirect company mail to a home-built server as an improvised workaround.</p></div>
 <h2><span class="num">02</span>Who actually owns your email?</h2>
