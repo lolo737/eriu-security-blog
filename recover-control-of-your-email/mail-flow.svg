@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 570" role="img" aria-labelledby="t d">
 <title id="t">Simplified mail server architecture</title>
-<desc id="d">A deliberately broken oval mail-flow loop, drawn with rough crayon-like curved arrows, connects mail clients, Postfix, the internet and Dovecot.</desc>
+<desc id="d">A broad, broken oval loop of crayon-like arrows connects mail clients, Postfix, the internet and Dovecot.</desc>
 <rect width="1100" height="570" rx="18" fill="#061418"/>
 <g font-family="Arial,sans-serif" text-anchor="middle">
 <text x="550" y="55" font-size="25" fill="#00dbcc" letter-spacing="4">A SMALL MAIL-SERVER LAB</text>
@@ -14,36 +14,40 @@
 <text x="945" y="245" font-size="27" fill="#eafcfd" font-weight="bold">INTERNET</text><text x="945" y="285" font-size="19" fill="#aec3c7">Other mail servers</text>
 </g>
 
-<!-- The loop is intentionally open at each corner: these are separate routes, not one solid oval. -->
+<!-- Four broad arcs form a much more oval route. The gaps are intentional. -->
 <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-<!-- Clients to Postfix -->
-<path d="M263 211 C310 139 374 111 443 157" stroke="#00dbcc" stroke-width="8" opacity=".20"/>
-<path d="M260 216 C315 143 375 117 443 160" stroke="#00dbcc" stroke-width="4.8"/>
-<path d="M262 220 C315 147 380 121 440 164" stroke="#b5fff5" stroke-width="1.8" opacity=".55"/>
-<path d="M443 160 l-19 -10 m19 10 l-17 12" stroke="#00dbcc" stroke-width="5.5"/>
-<path d="M443 160 l-16 -8 m16 8 l-15 10" stroke="#b5fff5" stroke-width="1.8" opacity=".7"/>
-<!-- Postfix to Internet -->
-<path d="M667 157 C727 108 791 124 837 213" stroke="#ffb81a" stroke-width="8" opacity=".20"/>
-<path d="M666 153 C729 111 792 130 838 216" stroke="#ffb81a" stroke-width="4.8"/>
-<path d="M668 160 C731 116 789 135 834 218" stroke="#ffe5a0" stroke-width="1.8" opacity=".55"/>
-<path d="M838 216 l-18 -12 m18 12 l-17 8" stroke="#ffb81a" stroke-width="5.5"/>
-<path d="M838 216 l-15 -10 m15 10 l-14 7" stroke="#ffe5a0" stroke-width="1.8" opacity=".7"/>
-<!-- Internet to Dovecot -->
-<path d="M838 316 C796 420 731 459 667 402" stroke="#40ea99" stroke-width="8" opacity=".20"/>
-<path d="M840 311 C795 416 729 453 667 399" stroke="#40ea99" stroke-width="4.8"/>
-<path d="M835 313 C791 414 727 448 670 395" stroke="#c3ffdc" stroke-width="1.8" opacity=".55"/>
-<path d="M667 399 l18 -10 m-18 10 l17 12" stroke="#40ea99" stroke-width="5.5"/>
-<path d="M667 399 l15 -8 m-15 8 l14 10" stroke="#c3ffdc" stroke-width="1.8" opacity=".7"/>
-<!-- Dovecot to Clients -->
-<path d="M443 402 C376 466 311 447 262 316" stroke="#00dbcc" stroke-width="8" opacity=".20"/>
-<path d="M444 398 C375 460 308 440 260 313" stroke="#00dbcc" stroke-width="4.8"/>
-<path d="M440 395 C373 456 305 435 264 310" stroke="#b5fff5" stroke-width="1.8" opacity=".55"/>
-<path d="M260 313 l16 15 m-16 -15 l20 -4" stroke="#00dbcc" stroke-width="5.5"/>
-<path d="M260 313 l14 13 m-14 -13 l17 -3" stroke="#b5fff5" stroke-width="1.8" opacity=".7"/>
+<!-- Clients -> Postfix: high, sweeping upper-left arc -->
+<path d="M258 205 C292 105 365 65 445 145" stroke="#00dbcc" stroke-width="12" opacity=".18"/>
+<path d="M260 202 C300 104 370 72 445 145" stroke="#00dbcc" stroke-width="6"/>
+<path d="M263 207 C303 110 373 77 441 149" stroke="#c3fff8" stroke-width="2" opacity=".55"/>
+<!-- Postfix -> Internet: broad upper-right arc -->
+<path d="M665 145 C755 65 830 105 842 215" stroke="#ffb81a" stroke-width="12" opacity=".18"/>
+<path d="M665 141 C754 72 824 111 840 215" stroke="#ffb81a" stroke-width="6"/>
+<path d="M669 148 C756 78 828 116 836 211" stroke="#fff0c4" stroke-width="2" opacity=".55"/>
+<!-- Internet -> Dovecot: broad lower-right arc -->
+<path d="M842 315 C830 465 754 505 665 410" stroke="#40ea99" stroke-width="12" opacity=".18"/>
+<path d="M840 315 C824 459 754 495 665 410" stroke="#40ea99" stroke-width="6"/>
+<path d="M836 319 C820 454 750 490 669 406" stroke="#d1ffe3" stroke-width="2" opacity=".55"/>
+<!-- Dovecot -> Clients: low, sweeping lower-left arc -->
+<path d="M445 410 C365 505 292 465 258 315" stroke="#00dbcc" stroke-width="12" opacity=".18"/>
+<path d="M445 410 C370 495 300 458 260 315" stroke="#00dbcc" stroke-width="6"/>
+<path d="M441 406 C366 490 297 454 264 319" stroke="#c3fff8" stroke-width="2" opacity=".55"/>
 </g>
-<!-- Chalky/crayon endpoint marks make the direction and intended breaks unmistakable. -->
-<g stroke-linecap="round" fill="none">
-<path d="M270 205 l-5 7 m10 -3 l-4 7 M433 149 l5 4 M676 148 l6 -4 M830 325 l6 4 M674 411 l-5 5 M435 410 l-5 4 M270 323 l-5 -5" stroke="#eafcfd" stroke-width="3" opacity=".45"/>
+
+<!-- Big, unmistakable hand-drawn arrow points at each end of the oval arcs. -->
+<g stroke-linecap="round" stroke-linejoin="round" fill="none">
+<path d="M445 145 L414 128 L426 162 Z" stroke="#00dbcc" stroke-width="7"/>
+<path d="M445 145 L418 132 L429 157" stroke="#d5fff9" stroke-width="2.2" opacity=".8"/>
+<path d="M840 215 L816 186 L810 218 Z" stroke="#ffb81a" stroke-width="7"/>
+<path d="M840 215 L820 191 L815 214" stroke="#fff0c4" stroke-width="2.2" opacity=".8"/>
+<path d="M665 410 L696 429 L684 395 Z" stroke="#40ea99" stroke-width="7"/>
+<path d="M665 410 L692 425 L681 400" stroke="#d1ffe3" stroke-width="2.2" opacity=".8"/>
+<path d="M260 315 L286 344 L294 311 Z" stroke="#00dbcc" stroke-width="7"/>
+<path d="M260 315 L282 339 L290 315" stroke="#d5fff9" stroke-width="2.2" opacity=".8"/>
+</g>
+<!-- Small rough wax marks reinforce the crayon texture without obscuring the route. -->
+<g stroke-linecap="round" fill="none" opacity=".55">
+<path d="M277 155 l-7 11 m18 -19 l-4 10 M392 104 l7 5 M700 111 l9 -6 M822 162 l-2 10 M823 371 l8 8 M724 468 l-8 5 M385 467 l-8 7 M276 370 l-7 -9" stroke="#eafcfd" stroke-width="3"/>
 </g>
 <rect x="390" y="475" width="320" height="60" rx="10" fill="#0b2025" stroke="#426168"/>
 <text x="550" y="513" font-family="Arial,sans-serif" font-size="20" text-anchor="middle" fill="#aec3c7">Rspamd · TLS · DNS · Backups</text>
