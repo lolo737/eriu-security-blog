@@ -1,1 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-labelledby="t"><title id="t">Tiny office desktop computer illustration</title><defs><linearGradient id="case" x2="0" y2="1"><stop stop-color="#34464a"/><stop offset="1" stop-color="#101b1e"/></linearGradient></defs><rect width="1000" height="480" rx="20" fill="#061418"/><ellipse cx="500" cy="390" rx="360" ry="30" fill="#00dbcc" opacity=".08"/><rect x="230" y="100" width="540" height="270" rx="24" fill="url(#case)" stroke="#6f8589" stroke-width="4"/><rect x="265" y="135" width="470" height="200" rx="12" fill="#0a1518" stroke="#263c41" stroke-width="3"/><circle cx="680" cy="300" r="11" fill="#00dbcc"/><circle cx="640" cy="300" r="5" fill="#ffb81a"/><rect x="310" y="175" width="150" height="95" rx="8" fill="#10262c" stroke="#00dbcc" stroke-width="2"/><text x="385" y="215" text-anchor="middle" font-family="Arial" font-size="20" fill="#00dbcc">LENOVO</text><text x="385" y="245" text-anchor="middle" font-family="Arial" font-size="17" fill="#aec3c7">THINKCENTRE</text><text x="500" y="430" text-anchor="middle" font-family="Arial" font-size="24" letter-spacing="4" fill="#aec3c7">SMALL BOX. SECOND CAREER.</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+<title id="title">Lenovo ThinkCentre M920q Tiny mini PC</title>
+<desc id="desc">A detailed illustration of a small black Lenovo ThinkCentre Tiny desktop computer, shown from the front at a three-quarter angle, with ventilation, front USB ports and its red Lenovo badge.</desc>
+<defs>
+ <linearGradient id="top" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#424b50"/><stop offset=".48" stop-color="#20292e"/><stop offset="1" stop-color="#11191d"/></linearGradient>
+ <linearGradient id="front" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#252e33"/><stop offset="1" stop-color="#080e12"/></linearGradient>
+ <linearGradient id="side" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1c252a"/><stop offset="1" stop-color="#080e11"/></linearGradient>
+ <linearGradient id="desk" x2="0" y2="1"><stop stop-color="#1b3035"/><stop offset="1" stop-color="#081317"/></linearGradient>
+ <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feGaussianBlur stdDeviation="19"/></filter>
+ <pattern id="vents" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="1.7" fill="#657177" opacity=".65"/></pattern>
+</defs>
+<rect width="1200" height="650" rx="24" fill="#061418"/>
+<ellipse cx="600" cy="515" rx="420" ry="65" fill="#000" opacity=".65" filter="url(#shadow)"/>
+<path d="M90 530H1110" stroke="#4b9fe8" stroke-opacity=".2" stroke-width="2"/>
+<path d="M170 540L1030 540L1090 585L110 585Z" fill="url(#desk)" opacity=".9"/>
+<!-- chassis top -->
+<path d="M260 185L830 115Q856 111 880 126L1030 215L454 312Z" fill="url(#top)" stroke="#59656b" stroke-width="3"/>
+<path d="M830 115L1030 215L1030 414L830 330Z" fill="url(#side)" stroke="#46535a" stroke-width="3"/>
+<!-- front face -->
+<path d="M260 185L830 115L830 330L260 402Z" fill="url(#front)" stroke="#647078" stroke-width="3"/>
+<path d="M285 211L804 148L804 304L285 369Z" fill="url(#vents)" opacity=".55"/>
+<!-- front panel trim -->
+<path d="M285 211L804 148" stroke="#879197" stroke-opacity=".28" stroke-width="2"/>
+<path d="M285 369L804 304" stroke="#000" stroke-opacity=".65" stroke-width="4"/>
+<!-- power and port details -->
+<ellipse cx="335" cy="302" rx="15" ry="13" fill="#0a1114" stroke="#7d8b91" stroke-width="3"/>
+<circle cx="335" cy="302" r="5" fill="#4b9fe8"/>
+<rect x="380" y="283" width="48" height="15" rx="3" transform="rotate(-7 380 283)" fill="#050a0d" stroke="#718087" stroke-width="2"/>
+<rect x="442" y="275" width="48" height="15" rx="3" transform="rotate(-7 442 275)" fill="#050a0d" stroke="#718087" stroke-width="2"/>
+<rect x="508" y="265" width="31" height="17" rx="3" transform="rotate(-7 508 265)" fill="#050a0d" stroke="#718087" stroke-width="2"/>
+<circle cx="574" cy="267" r="5" fill="#aeb8bd"/>
+<circle cx="603" cy="263" r="5" fill="#aeb8bd"/>
+<!-- Lenovo badge -->
+<g transform="translate(692 190) rotate(-7)">
+ <rect width="87" height="31" rx="3" fill="#d91f26"/>
+ <text x="43.5" y="22" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#fff">Lenovo</text>
+</g>
+<!-- right side vent panel -->
+<path d="M859 165L1001 237L1001 379L859 319Z" fill="#080f13" stroke="#526168" stroke-width="2"/>
+<path d="M876 188L985 244M876 204L985 260M876 220L985 276M876 236L985 292M876 252L985 308M876 268L985 324M876 284L985 340" stroke="#69777d" stroke-width="4" opacity=".55"/>
+<!-- feet -->
+<path d="M302 402L346 396L346 419L302 425Z" fill="#05090b"/><path d="M768 344L811 339L811 360L768 366Z" fill="#05090b"/><path d="M970 414L1010 405L1010 428L970 439Z" fill="#05090b"/>
+<!-- subtle identification -->
+<text x="600" y="465" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" letter-spacing="5" fill="#aebdc1">THINKCENTRE M920q TINY</text>
+<text x="600" y="615" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" letter-spacing="4" fill="#4b9fe8">THE OFFICE PAPERWEIGHT · PROMOTED</text>
+</svg>
