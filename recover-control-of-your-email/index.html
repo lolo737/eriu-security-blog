@@ -25,8 +25,27 @@ hr{border:0;border-top:1px solid var(--line);margin:40px 0}.outro{color:var(--so
 <h1 class="title">Recover Control of Your Email</h1><p class="deck">Outlook has stopped working. One hundred and five people are waiting. Somewhere under a desk, an unloved Lenovo ThinkCentre is about to get a second career.</p><div class="byline">Eriu Technology &nbsp;·&nbsp; 13 November 2026 &nbsp;·&nbsp; Practical infrastructure case study</div>
 <figure class="hero"><a href="poster.html"><img src="poster.svg" alt="Recover Control of Your Email briefing poster"></a><figcaption>The one-page briefing. Open it for the full-size poster.</figcaption></figure>
 <article>
-<span class="kicker">The office orphan</span>
-<p class="lead">It is Wednesday. You arrive at work, open Outlook and discover that your email is having one of its little episodes. Again.</p>
+<span class="kicker">Friday the 13th outage</span>
+<p class="lead">I get off the train and step onto the underground station platform. The double doors between the platform and the tunnel slide open. Arabic signage hangs above me. I move quickly through the station and out into the morning, heading for work in a glass-fronted office building. Dubai. I'm rather pleased not to be dealing with the November cold.</p>
+<p>I settle in, get organised and glance at the big incident board to my left.</p>
+<p><strong>Outlook is down. Again.</strong></p>
+<p>Except this time, Outlook is only the beginning. What started life as an email client has become part of a much larger platform: identity, calendars, collaboration, cloud storage, business applications and the connections that other services rely on. When a shared dependency fails, the consequences travel well beyond the inbox.</p>
+<p>We're calling this the <strong>Friday the 13th outage</strong>. Technically, the Microsoft disruption began on Thursday, 12 November, in the United States. By Friday morning, 13 November, it had spread across time zones and into the working day in Europe. The name stays.</p>
+<p>You can see the spread more clearly when every timestamp is put on one clock. The timeline below is in <strong>GMT (UTC)</strong>.</p>
+<table><thead><tr><th>GMT</th><th>WHAT HAPPENED</th></tr></thead><tbody>
+<tr><td>Thu 12 Nov, 16:17</td><td>Microsoft records the start of the Exchange Online incident. Users begin experiencing problems accessing mailboxes through multiple connection methods, initially reported in the Americas.</td></tr>
+<tr><td>Thu 12 Nov, about 18:00</td><td>Downdetector reports surge sharply, with nearly 130,000 US Outlook problem reports shortly after 18:00 GMT. Outlook, Teams and other Microsoft 365 services are affected.</td></tr>
+<tr><td>Thu 12 Nov, 17:52</td><td>Anthropic opens an incident for elevated errors affecting the Microsoft 365 connector. Mail, SharePoint, Teams chat and calendar requests may fail. This timestamp is earlier than the public Downdetector surge.</td></tr>
+<tr><td>Thu 12 Nov, 18:29</td><td>OpenAI reports elevated errors affecting its Microsoft 365 connector. New connections may fail and connected tools may not work as expected.</td></tr>
+<tr><td>Thu 12 Nov, 18:34</td><td>Anthropic identifies an upstream provider issue. Its Microsoft 365 connector is failing for most requests.</td></tr>
+<tr><td>Thu 12 Nov, 20:28</td><td>Anthropic confirms Claude for Outlook is also affected: mail and calendar actions may fail, and some users may be unable to open the add-in.</td></tr>
+<tr><td>Thu 12 Nov, 22:23</td><td>Anthropic explicitly attributes the connector problem to the Microsoft 365 service incident. Mail, calendar and search tools remain unreliable.</td></tr>
+<tr><td>Fri 13 Nov, overnight</td><td>Microsoft redirects traffic and restarts affected infrastructure. Some servers become unavailable again under load; recovery is uneven and the disruption continues across regions.</td></tr>
+<tr><td>Fri 13 Nov, morning</td><td>Europe wakes up to an outage that is still not fully resolved. Microsoft reports progress, but users continue to experience intermittent access problems and delayed messages.</td></tr>
+<tr><td>Fri 13 Nov, during the same period</td><td>Gemini also experienced an outage, but it attracted comparatively little attention. I have not found a reliable, timestamped public incident record that establishes its exact start and recovery times, or that links it to the Microsoft incident.</td></tr>
+</tbody></table>
+<p><strong>A note on the AI services:</strong> the documented OpenAI and Anthropic incidents concerned their Microsoft 365 connectors, not proof that ChatGPT or Claude's core models had gone completely offline. Claude's own status page listed its API and Claude Code as operational while Microsoft-dependent features were affected. Gemini belongs in the wider outage picture, but its timing and cause should not be conflated with Microsoft's incident.</p>
+<p>So this is not simply a story about an email client having a bad day. It is a story about how much of modern work now depends on a small number of interconnected platforms — and what happens when one of the foundations gives way.</p>
 <p>You check the network. You restart Outlook. You try the web version. Nothing. You would raise a support ticket, except the ticketing system is tied to the same email account that has just packed its bags and gone home.</p>
 <p>So you do what any sensible person does. You make a coffee and have a chat with the IT guy. He's frustrated too. He's checked what he can check, but the problem appears to sit somewhere beyond his bit of the fence. He can't fix a service he doesn't control.</p>
 <p>And that's the question. What happens when the service your entire company depends on stops working, and you have no practical control over it?</p>
