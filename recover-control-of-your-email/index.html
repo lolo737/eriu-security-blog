@@ -31,6 +31,25 @@ h1.title::after,article h2::after{color:#ff36c9;text-shadow:2px 0 #ff36c9,-2px 0
 
 
 
+
+/* Animated troubleshooting terminal */
+.trouble-terminal{margin:28px 0 12px;border:1px solid rgba(0,219,204,.42);border-radius:9px;overflow:hidden;background:#02090b;box-shadow:0 0 26px rgba(0,219,204,.10),inset 0 0 24px rgba(0,219,204,.035);font:13px/1.65 'JetBrains Mono',monospace}
+.trouble-terminal .term-bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:rgba(0,219,204,.09);border-bottom:1px solid rgba(0,219,204,.2);color:var(--soft);font-size:11px;letter-spacing:.08em}
+.trouble-terminal .term-dot{width:8px;height:8px;border-radius:50%;background:#f54447;box-shadow:16px 0 #ffb81a,32px 0 #40ea99;margin-right:30px}
+.trouble-terminal .term-screen{padding:16px 18px 18px;min-height:210px;color:#b9d5d7;overflow:hidden}
+.trouble-terminal .term-line{display:block;min-height:1.65em;white-space:pre-wrap;overflow-wrap:anywhere;opacity:0;transform:translateY(3px);animation:term-in .22s ease forwards}
+.trouble-terminal .term-line .prompt{color:var(--cy)}
+.trouble-terminal .term-line .cmd{color:#f1fbfb}
+.trouble-terminal .term-line.output{color:#8faeb2}
+.trouble-terminal .term-line.good{color:#40ea99}
+.trouble-terminal .term-line.warn{color:#ffb81a}
+.trouble-terminal .term-cursor{display:inline-block;width:7px;height:1em;vertical-align:-.15em;background:var(--cy);animation:term-blink 1s steps(2,start) infinite}
+@keyframes term-in{to{opacity:1;transform:translateY(0)}}
+@keyframes term-blink{to{visibility:hidden}}
+.trouble-caption{margin:0 0 28px;padding:0 2px;color:var(--mut);font:11px/1.8 'JetBrains Mono',monospace}
+.trouble-caption strong{color:var(--cy);font-weight:500}
+@media(prefers-reduced-motion:reduce){.trouble-terminal .term-line{animation:none;opacity:1;transform:none}.trouble-terminal .term-cursor{animation:none}}
+
 </style></head><body><div class="wrap">
 <header class="top"><div class="brand"><b>Eriu Technology</b> &nbsp;·&nbsp; Security Awareness</div><a class="toplink" href="../">&larr; All briefings</a></header>
 <h1 class="title">Recover Control of Your Email</h1><p class="deck">Outlook has stopped working. One hundred and five people are waiting. Somewhere under a desk, an unloved Lenovo ThinkCentre is about to get a second career.</p><div class="byline">Eriu Technology &nbsp;·&nbsp; 13 November 2026 &nbsp;·&nbsp; Practical infrastructure case study</div>
@@ -57,7 +76,26 @@ h1.title::after,article h2::after{color:#ff36c9;text-shadow:2px 0 #ff36c9,-2px 0
 </tbody></table>
 <p><strong>A note on the AI services:</strong> the documented OpenAI and Anthropic incidents concerned their Microsoft 365 connectors, not proof that ChatGPT or Claude's core models had gone completely offline. Claude's own status page listed its API and Claude Code as operational while Microsoft-dependent features were affected. Gemini belongs in the wider outage picture, but its timing and cause should not be conflated with Microsoft's incident.</p>
 <p>So this is not simply a story about an email client having a bad day. It is a story about how much of modern work now depends on a small number of interconnected platforms — and what happens when one of the foundations gives way.</p>
-<p>You check the network. You restart Outlook. You try the web version. Nothing. You would raise a support ticket, except the ticketing system is tied to the same email account that has just packed its bags and gone home.</p>
+
+<figure class="trouble-terminal" aria-label="Animated fictional Windows PowerShell troubleshooting session">
+  <div class="term-bar"><span class="term-dot" aria-hidden="true"></span>POWERSHELL — OUTLOOK DIAGNOSTICS</div>
+  <div class="term-screen" id="outlook-terminal" aria-live="off">
+    <span class="term-line"><span class="prompt">PS C:\\Users\\IT&gt; </span><span class="cmd">Start-Process outlook.exe -ArgumentList '/safe'</span></span>
+    <span class="term-line output">Outlook launched in Safe Mode… no mailbox connection.</span>
+    <span class="term-line"><span class="prompt">PS C:\\Users\\IT&gt; </span><span class="cmd">ping outlook.office365.com -n 4</span></span>
+    <span class="term-line output">Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)</span>
+    <span class="term-line"><span class="prompt">PS C:\\Users\\IT&gt; </span><span class="cmd">nslookup outlook.office365.com</span></span>
+    <span class="term-line good">DNS resolution: successful</span>
+    <span class="term-line"><span class="prompt">PS C:\\Users\\IT&gt; </span><span class="cmd">Test-NetConnection outlook.office365.com -Port 443</span></span>
+    <span class="term-line good">TCP 443: reachable</span>
+    <span class="term-line"><span class="prompt">PS C:\\Users\\IT&gt; </span><span class="cmd">curl.exe -I https://outlook.office.com</span></span>
+    <span class="term-line warn">HTTP response: service unavailable / request failed</span>
+    <span class="term-line warn">Local network looks healthy. The fault is upstream.</span>
+    <span class="term-line"><span class="prompt">PS C:\\Users\\IT&gt; </span><span class="term-cursor" aria-hidden="true"></span></span>
+  </div>
+</figure>
+<p class="trouble-caption"><strong>WHAT YOU'VE CHECKED:</strong> Outlook Safe Mode rules out some add-ins and profile-level problems. Ping checks basic reachability; DNS lookup checks name resolution; the TCP 443 test checks HTTPS connectivity; and the final request tests the Outlook web endpoint. The local network and DNS are responding, but the service still isn't. This is a staged illustration, not a live diagnostic — the displayed results are fictional.</p>
+<p>You have worked through the usual checks. Nothing changes. You would raise a support ticket, except the ticketing system is tied to the same email account that has just packed its bags and gone home.</p>
 <p>So you do what any sensible person does. You make a coffee and have a chat with the IT guy. He's frustrated too. He's checked what he can check, but the problem appears to sit somewhere beyond his bit of the fence. He can't fix a service he doesn't control.</p>
 <p>And that's the question. What happens when the service your entire company depends on stops working, and you have no practical control over it?</p>
 <p>For this exercise, let's call the company <strong>TelePerfection</strong>. It's fictional, but the problem is familiar enough: around 105 people, a few shared departmental addresses, some staff with more than one mailbox, and a business that expects email to be there when it needs it.</p>
@@ -168,4 +206,14 @@ document.querySelectorAll('h1.title, article h2').forEach(function(heading){
 });
 </script>
 <footer>Eriu Technology &nbsp;·&nbsp; eriu.tech &nbsp;·&nbsp; Security-awareness briefings<br>Awareness &amp; defence only &nbsp;·&nbsp; Lab build, not production guidance</footer>
-</div></body></html>
+</div>
+<script>
+(function(){
+  const terminal=document.getElementById('outlook-terminal');
+  if(!terminal || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const lines=Array.from(terminal.querySelectorAll('.term-line'));
+  lines.forEach((line,index)=>{line.style.animationDelay=(index*520)+'ms';});
+})();
+</script>
+
+</body></html>
