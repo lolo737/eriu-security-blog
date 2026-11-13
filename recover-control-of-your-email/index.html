@@ -95,24 +95,29 @@ h1.title::after,article h2::after{color:#ff36c9;text-shadow:2px 0 #ff36c9,-2px 0
 <tr><td>Can mail be delivered?</td><td>Use message trace and mail-flow diagnostics where authorised. Record timestamps and error messages.</td></tr>
 <tr><td>Name resolution or connectivity?</td><td>Check Domain Name System (DNS) records and network reachability before changing settings.</td></tr>
 </tbody></table>
-<figure class="trouble-terminal" aria-label="Animated fictional Windows PowerShell troubleshooting session">
-  <div class="term-bar"><span class="term-dot" aria-hidden="true"></span>POWERSHELL — OUTLOOK DIAGNOSTICS</div>
+<figure class="trouble-terminal" aria-label="Animated fictional macOS Terminal troubleshooting session">
+  <div class="term-bar"><span class="term-dot" aria-hidden="true"></span><span>TERMINAL — zsh — 80 × 24</span></div>
   <div class="term-screen" id="outlook-terminal" aria-live="off">
-    <span class="term-line"><span class="prompt">PS C:\\Users\\IT&gt; </span><span class="cmd">Start-Process outlook.exe -ArgumentList '/safe'</span></span>
-    <span class="term-line output">Outlook launched in Safe Mode… no mailbox connection.</span>
-    <span class="term-line"><span class="prompt">PS C:\\Users\\IT&gt; </span><span class="cmd">ping outlook.office365.com -n 4</span></span>
-    <span class="term-line output">Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)</span>
-    <span class="term-line"><span class="prompt">PS C:\\Users\\IT&gt; </span><span class="cmd">nslookup outlook.office365.com</span></span>
-    <span class="term-line good">DNS resolution: successful</span>
-    <span class="term-line"><span class="prompt">PS C:\\Users\\IT&gt; </span><span class="cmd">Test-NetConnection outlook.office365.com -Port 443</span></span>
-    <span class="term-line good">TCP 443: reachable</span>
-    <span class="term-line"><span class="prompt">PS C:\\Users\\IT&gt; </span><span class="cmd">curl.exe -I https://outlook.office.com</span></span>
-    <span class="term-line warn">HTTP response: service unavailable / request failed</span>
-    <span class="term-line warn">Local network looks healthy. The fault is upstream.</span>
-    <span class="term-line"><span class="prompt">PS C:\\Users\\IT&gt; </span><span class="term-cursor" aria-hidden="true"></span></span>
+    <span class="term-line"><span class="prompt">niall@macbook ~ % </span><span class="cmd">ifconfig en0</span></span>
+    <span class="term-line output">en0: flags=8863&lt;UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST&gt;</span>
+    <span class="term-line output">inet 192.168.1.42  netmask 0xffffff00  broadcast 192.168.1.255</span>
+    <span class="term-line good">Interface is up. Mac has a local network address.</span>
+    <span class="term-line"><span class="prompt">niall@macbook ~ % </span><span class="cmd">ping -c 4 outlook.office365.com</span></span>
+    <span class="term-line output">4 packets transmitted, 4 received, 0.0% packet loss</span>
+    <span class="term-line good">The host responds to network traffic.</span>
+    <span class="term-line"><span class="prompt">niall@macbook ~ % </span><span class="cmd">dig outlook.office365.com</span></span>
+    <span class="term-line output">;; status: NOERROR  |  ANSWER: address records returned</span>
+    <span class="term-line good">DNS is resolving the service name.</span>
+    <span class="term-line"><span class="prompt">niall@macbook ~ % </span><span class="cmd">nc -vz outlook.office365.com 443</span></span>
+    <span class="term-line good">Connection to outlook.office365.com port 443 [tcp/https] succeeded!</span>
+    <span class="term-line"><span class="prompt">niall@macbook ~ % </span><span class="cmd">curl -I --max-time 10 https://outlook.office.com</span></span>
+    <span class="term-line warn">HTTP/2 503</span>
+    <span class="term-line warn">Service temporarily unavailable — request rejected upstream.</span>
+    <span class="term-line output">Network: OK   DNS: OK   TCP/443: OK   Outlook service: NOT OK</span>
+    <span class="term-line"><span class="prompt">niall@macbook ~ % </span><span class="term-cursor" aria-hidden="true"></span></span>
   </div>
 </figure>
-<p class="trouble-caption"><strong>WHAT YOU'VE CHECKED:</strong> Outlook Safe Mode rules out some add-ins and profile-level problems. Ping checks basic reachability; DNS lookup checks name resolution; the TCP 443 test checks HTTPS connectivity; and the final request tests the Outlook web endpoint. The local network and DNS are responding, but the service still isn't. This is a staged illustration, not a live diagnostic — the displayed results are fictional.</p>
+<p class="trouble-caption"><strong>WHAT YOU'VE CHECKED:</strong> <code>ifconfig</code> shows the Mac's network interface and local IP address — the macOS equivalent of checking <code>ipconfig</code> on Windows. <code>ping</code> checks whether the host responds; <code>dig</code> checks DNS; <code>nc</code> tests whether the HTTPS port is reachable. Finally, <code>curl</code> gets an HTTP response from the service. In this staged example, the network path is open but Outlook returns a 503 Service Unavailable response. The request reaches the service; the service cannot fulfil it. These are illustrative results, not live diagnostics.</p>
 <p>It could be a Microsoft service incident. It could also be a tenant configuration problem, expired credentials, a DNS mistake, a network outage, a bad client update or a security control doing exactly what it was configured to do. We don't blame Microsoft just because Outlook is the messenger. That's how you end up fixing the wrong thing.</p>
 <div class="callout"><b>Don't change live mail routing in a panic</b><p>Keep evidence: exact errors, times, affected users, service-health notices and message-trace results. Don't change production DNS or redirect company mail to a home-built server as an improvised workaround.</p></div>
 <h2><span class="num">02</span>Who actually owns your email?</h2>
