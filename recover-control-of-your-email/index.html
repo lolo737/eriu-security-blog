@@ -20,14 +20,15 @@ hr{border:0;border-top:1px solid var(--line);margin:40px 0}.outro{color:var(--so
 @media(max-width:540px){body{font-size:17px}.callout,.warning{padding:17px}}
 
 /* ELECTRIC GLITCH — visual-only: heading boxes, spacing and document flow stay untouched */
-h1.title,article h2{position:relative;isolation:isolate;text-shadow:0 0 7px rgba(0,219,204,.42),0 0 22px rgba(0,219,204,.18);animation:heading-current 3.8s infinite steps(1,end)}
+h1.title,article h2,article h3.glitch-heading{position:relative;isolation:isolate;text-shadow:0 0 7px rgba(0,219,204,.42),0 0 22px rgba(0,219,204,.18);animation:heading-current 3.8s infinite steps(1,end)}
+article h3.glitch-heading{display:block;font:600 27px Oswald,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#eafcfd;margin:46px 0 16px;padding-top:10px}
 h1.title::before,article h2::before,article h3.glitch-heading::before,h1.title::after,article h2::after,article h3.glitch-heading::after{content:attr(data-glitch);position:absolute;inset:0;pointer-events:none;overflow:hidden;white-space:inherit}
 h1.title::before,article h2::before,article h3.glitch-heading::before{color:#00f6ff;text-shadow:2px 0 #00f6ff,-2px 0 #ff2bd6;clip-path:inset(0 0 68% 0);transform:translateX(-2px);opacity:.78;animation:glitch-slice-a 2.7s infinite steps(1,end)}
 h1.title::after,article h2::after,article h3.glitch-heading::after{color:#ff36c9;text-shadow:2px 0 #ff36c9,-2px 0 #00eaff;clip-path:inset(72% 0 0 0);transform:translateX(2px);opacity:.72;animation:glitch-slice-b 3.1s infinite steps(1,end)}
 @keyframes heading-current{0%,88%,91%,94%,100%{text-shadow:0 0 7px rgba(0,219,204,.42),0 0 22px rgba(0,219,204,.18)}89%{text-shadow:3px 0 #00f6ff,-3px 0 #ff2bd6,0 0 18px #00eaff}90%{text-shadow:-2px 0 #00f6ff,2px 0 #ff2bd6,0 0 25px #ff2bd6}92%{text-shadow:0 0 5px #00f6ff,0 0 30px #00f6ff,0 0 42px rgba(255,43,214,.55)}}
 @keyframes glitch-slice-a{0%,82%,86%,100%{clip-path:inset(0 0 68% 0);transform:translateX(-2px);opacity:.68}83%{clip-path:inset(18% 0 55% 0);transform:translateX(7px);opacity:1}84%{clip-path:inset(4% 0 76% 0);transform:translateX(-6px);opacity:.95}85%{clip-path:inset(35% 0 42% 0);transform:translateX(3px);opacity:.8}}
 @keyframes glitch-slice-b{0%,73%,77%,100%{clip-path:inset(72% 0 0 0);transform:translateX(2px);opacity:.62}74%{clip-path:inset(61% 0 22% 0);transform:translateX(-8px);opacity:1}75%{clip-path:inset(83% 0 5% 0);transform:translateX(6px);opacity:.9}76%{clip-path:inset(48% 0 38% 0);transform:translateX(-3px);opacity:.8}}
-@media(prefers-reduced-motion:reduce){h1.title,article h2,h1.title::before,article h2::before,h1.title::after,article h2::after,article h3.glitch-heading::before,article h3.glitch-heading::after{animation:none}}
+@media(prefers-reduced-motion:reduce){h1.title,article h2,article h3.glitch-heading,h1.title::before,article h2::before,h1.title::after,article h2::after,article h3.glitch-heading::before,article h3.glitch-heading::after{animation:none}}
 
 
 
