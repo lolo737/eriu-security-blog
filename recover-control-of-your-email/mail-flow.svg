@@ -1,10 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 680" role="img" aria-labelledby="t d">
-<title id="t">Simplified mail server architecture</title>
-<desc id="d">Mail clients, Postfix, internet mail servers and Dovecot sit at four points around a large oval. Crayon-like curved arrows with clear arrowheads run clockwise between them.</desc>
+<title id="t">Small mail-server lab flow</title>
+<desc id="d">Mail Clients on the west, Postfix to the north, Internet to the east and Dovecot to the south sit around a clockwise oval mail-flow line. Arrowheads point into each service box where the line passes behind it.</desc>
+<defs>
+  <filter id="crayon" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency=".025" numOctaves="2" seed="8" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.8" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</defs>
 <rect width="1100" height="680" rx="18" fill="#061418"/>
 <text x="550" y="52" font-family="Arial,sans-serif" font-size="25" fill="#00dbcc" letter-spacing="4" text-anchor="middle">A SMALL MAIL-SERVER LAB</text>
 
-<!-- Circular layout: each service occupies one point of the oval. -->
+<!-- One continuous oval, drawn behind the four service boxes. -->
+<path d="M245 310 C245 190 390 135 550 135 C710 135 855 190 855 310 C855 430 710 485 550 485 C390 485 245 430 245 310"
+      fill="none" stroke="#f33df2" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" filter="url(#crayon)"/>
+
+<!-- Service boxes at the four compass points. -->
 <g font-family="Arial,sans-serif" text-anchor="middle">
   <rect x="50" y="230" width="210" height="150" rx="16" fill="#102b31" stroke="#00dbcc" stroke-width="3"/>
   <text x="155" y="285" font-size="27" fill="#eafcfd" font-weight="bold">MAIL CLIENTS</text>
@@ -23,39 +33,16 @@
   <text x="555" y="512" font-size="19" fill="#aec3c7">IMAP access</text>
 </g>
 
-<!-- Four separate sweeping arcs make one unmistakable oval route. -->
-<g fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <!-- Clients to Postfix -->
-  <path d="M260 250 C302 145 365 116 445 150" stroke="#f33df2" stroke-width="13" opacity=".18"/>
-  <path d="M260 250 C302 145 365 116 445 150" stroke="#f33df2" stroke-width="7"/>
-  <path d="M263 253 C306 151 369 122 442 154" stroke="#ffd2ff" stroke-width="2" opacity=".65"/>
-
-  <!-- Postfix to Internet -->
-  <path d="M665 150 C745 116 808 145 840 250" stroke="#f33df2" stroke-width="13" opacity=".18"/>
-  <path d="M665 150 C745 116 808 145 840 250" stroke="#f33df2" stroke-width="7"/>
-  <path d="M668 154 C748 122 810 151 836 253" stroke="#ffd2ff" stroke-width="2" opacity=".65"/>
-
-  <!-- Internet to Dovecot -->
-  <path d="M840 360 C808 465 745 494 665 470" stroke="#f33df2" stroke-width="13" opacity=".18"/>
-  <path d="M840 360 C808 465 745 494 665 470" stroke="#f33df2" stroke-width="7"/>
-  <path d="M836 363 C805 462 742 490 668 466" stroke="#ffd2ff" stroke-width="2" opacity=".65"/>
-
-  <!-- Dovecot to Clients -->
-  <path d="M445 470 C365 494 302 465 260 360" stroke="#f33df2" stroke-width="13" opacity=".18"/>
-  <path d="M445 470 C365 494 302 465 260 360" stroke="#f33df2" stroke-width="7"/>
-  <path d="M442 466 C369 490 306 462 263 357" stroke="#ffd2ff" stroke-width="2" opacity=".65"/>
-</g>
-
-<!-- Filled, slightly irregular arrowheads: the points sit at the receiving end of each arc. -->
-<g stroke="#f33df2" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
-  <path d="M445 150 L414 132 L422 166 Z" fill="#f33df2"/>
-  <path d="M840 250 L812 228 L807 261 Z" fill="#f33df2"/>
-  <path d="M665 470 L696 486 L689 452 Z" fill="#f33df2"/>
-  <path d="M260 360 L287 382 L294 348 Z" fill="#f33df2"/>
-</g>
-<!-- Short wax-pencil flicks give the lines a hand-drawn edge. -->
-<g fill="none" stroke="#ffd2ff" stroke-width="2.5" stroke-linecap="round" opacity=".65">
-  <path d="M284 191 l-7 12 M305 161 l-3 9 M393 128 l8 4 M710 131 l8 -4 M812 184 l-1 9 M824 407 l7 5 M777 468 l-8 5 M697 482 l-5 -5 M284 408 l-7 -8"/>
+<!-- Direction markers sit at the points where the oval disappears behind each box. -->
+<g fill="#f33df2" stroke="#ffd2ff" stroke-width="1.4" stroke-linejoin="round">
+  <!-- Into Postfix from Mail Clients -->
+  <path d="M445 151 L418 137 L422 166 Z"/>
+  <!-- Into Internet from Postfix -->
+  <path d="M840 250 L826 222 L809 245 Z"/>
+  <!-- Into Dovecot from Internet -->
+  <path d="M665 469 L692 483 L688 454 Z"/>
+  <!-- Into Mail Clients from Dovecot -->
+  <path d="M260 360 L274 388 L291 365 Z"/>
 </g>
 
 <rect x="390" y="590" width="320" height="60" rx="10" fill="#0b2025" stroke="#426168"/>
