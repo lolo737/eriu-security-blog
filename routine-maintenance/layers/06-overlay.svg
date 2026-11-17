@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 1200 675" role="img" aria-label="TV overlay">
+<defs>
+<linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d4147"/><stop offset="1" stop-color="#062126"/></linearGradient>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#06122e"/><stop offset="1" stop-color="#0d3a52"/></linearGradient>
+<linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1a0c"/><stop offset="1" stop-color="#0d0804"/></linearGradient>
+<linearGradient id="beam" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0" stop-color="#fff0c8" stop-opacity=".30"/><stop offset="1" stop-color="#fff0c8" stop-opacity="0"/></linearGradient>
+<radialGradient id="vig" cx="50%" cy="50%" r="75%"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".6"/></radialGradient>
+<filter id="b2" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2"/></filter>
+<filter id="b6" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+<filter id="b12" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="12"/></filter>
+<pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1.4" fill="#000" opacity=".2"/></pattern>
+</defs>
+<g id="06-overlay">
+<rect width="1200" height="675" fill="url(#scan)"/>
+<rect width="1200" height="675" fill="url(#vig)"/>
+<path fill-rule="evenodd" fill="#02090b" d="M0 0H1200V675H0Z M68 22H1132A46 46 0 0 1 1178 68V607A46 46 0 0 1 1132 653H68A46 46 0 0 1 22 607V68A46 46 0 0 1 68 22Z"/>
+<rect x="22" y="22" width="1156" height="631" rx="46" fill="none" stroke="#00dbcc" stroke-opacity=".35" stroke-width="2"/>
+<circle cx="70" cy="62" r="7" fill="#f54447"><animate attributeName="opacity" values="1;.3;1" dur="1.6s" repeatCount="indefinite"/></circle>
+<text x="86" y="67" font-family="'JetBrains Mono',monospace" font-weight="700" font-size="15" letter-spacing="3" fill="#ffd4d5">LIVE</text>
+<rect x="944" y="556" width="218" height="58" rx="6" fill="#02090b" fill-opacity=".88" stroke="#ffb81a" stroke-width="2"/>
+<text x="956" y="582" font-family="Oswald,'Arial Narrow',Impact,sans-serif" font-weight="600" font-size="17" textLength="170" lengthAdjust="spacingAndGlyphs" fill="#ffb81a">THE LATE LATE SHOW</text>
+<text x="956" y="603" font-family="'JetBrains Mono',monospace" font-size="10" textLength="170" fill="#00dbcc">TONIGHT: ROUTINE MAINTENANCE</text>
+</g>
+</svg>

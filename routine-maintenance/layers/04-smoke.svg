@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 1200 675" role="img" aria-label="Smoke">
+<defs>
+<linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d4147"/><stop offset="1" stop-color="#062126"/></linearGradient>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#06122e"/><stop offset="1" stop-color="#0d3a52"/></linearGradient>
+<linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1a0c"/><stop offset="1" stop-color="#0d0804"/></linearGradient>
+<linearGradient id="beam" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0" stop-color="#fff0c8" stop-opacity=".30"/><stop offset="1" stop-color="#fff0c8" stop-opacity="0"/></linearGradient>
+<radialGradient id="vig" cx="50%" cy="50%" r="75%"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".6"/></radialGradient>
+<filter id="b2" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2"/></filter>
+<filter id="b6" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+<filter id="b12" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="12"/></filter>
+<pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1.4" fill="#000" opacity=".2"/></pattern>
+</defs>
+<g id="04-smoke">
+<g filter="url(#b12)" opacity=".7">
+<circle cx="440" cy="118" r="30" fill="#5b6c71"/><circle cx="510" cy="84" r="40" fill="#46565b"/><circle cx="578" cy="114" r="32" fill="#5b6c71"/><circle cx="490" cy="46" r="28" fill="#394a4f"/><circle cx="560" cy="40" r="22" fill="#394a4f"/>
+</g>
+<g fill="none" stroke="#9fb3b8" stroke-width="5" stroke-linecap="round" opacity=".5" filter="url(#b2)">
+<path d="M430,146 C415,124 445,106 428,80"/><path d="M510,142 C495,118 528,98 510,70"/><path d="M590,146 C576,122 608,104 590,78"/>
+</g>
+<g fill="none" stroke="#c9d8db" stroke-width="7" stroke-linecap="round" opacity=".6" filter="url(#b2)">
+<path d="M612,232 C594,206 632,188 612,156 C596,132 628,114 610,82"/><path d="M622,234 C642,208 612,190 636,158"/>
+</g>
+<g fill="#9fb3b8" filter="url(#b12)" opacity=".16"><ellipse cx="300" cy="300" rx="190" ry="26"/><ellipse cx="760" cy="250" rx="220" ry="22"/><ellipse cx="560" cy="360" rx="260" ry="20"/></g>
+</g>
+</svg>

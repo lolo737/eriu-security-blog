@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 1200 675" role="img" aria-label="Butterfly chair">
+<defs>
+<linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d4147"/><stop offset="1" stop-color="#062126"/></linearGradient>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#06122e"/><stop offset="1" stop-color="#0d3a52"/></linearGradient>
+<linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1a0c"/><stop offset="1" stop-color="#0d0804"/></linearGradient>
+<linearGradient id="beam" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0" stop-color="#fff0c8" stop-opacity=".30"/><stop offset="1" stop-color="#fff0c8" stop-opacity="0"/></linearGradient>
+<radialGradient id="vig" cx="50%" cy="50%" r="75%"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".6"/></radialGradient>
+<filter id="b2" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2"/></filter>
+<filter id="b6" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+<filter id="b12" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="12"/></filter>
+<pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1.4" fill="#000" opacity=".2"/></pattern>
+</defs>
+<g id="02-chair">
+<g fill="none" stroke="#0e1a1d" stroke-width="9" stroke-linecap="round">
+<path d="M300,246 C262,350 250,500 286,618"/><path d="M740,246 C778,350 790,500 754,618"/>
+<path d="M286,618 L754,618" stroke-width="7"/>
+<path d="M460,540 L420,614" stroke-width="6"/><path d="M580,540 L620,614" stroke-width="6"/>
+</g>
+<circle cx="286" cy="620" r="7" fill="#02090b"/><circle cx="754" cy="620" r="7" fill="#02090b"/>
+<path d="M292,236 C282,430 380,542 520,544 C660,542 758,430 748,236 C672,278 368,278 292,236 Z" fill="#c98a2b" stroke="#7a4f10" stroke-width="3"/>
+<path d="M322,266 C322,420 402,514 520,516 C638,514 718,420 718,266 C668,298 372,298 322,266 Z" fill="#a8701c"/>
+<path d="M308,252 C300,430 394,532 520,534 C646,532 740,430 732,252" fill="none" stroke="#fff2c9" stroke-width="2" stroke-dasharray="7 6" opacity=".55"/>
+</g>
+</svg>
