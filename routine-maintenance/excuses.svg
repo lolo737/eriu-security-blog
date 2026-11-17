@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 360" role="img" aria-label="Four cartoon servers in dressing gowns, each with the official explanation: Microsoft, a network upgrade; FAA, a communication issue; US banks, a software bug; NSA, routine maintenance">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#06262c"/><stop offset="1" stop-color="#02090b"/></linearGradient>
+<filter id="b2"><feGaussianBlur stdDeviation="1.6"/></filter>
+<symbol id="mini" viewBox="0 0 130 200">
+<g fill="none" stroke="#9fb3b8" stroke-width="4" stroke-linecap="round" opacity=".55" filter="url(#b2)"><path d="M40 12 C30 2 48 -6 38 -16"/><path d="M66 10 C56 0 74 -8 64 -18"/><path d="M92 12 C82 2 100 -6 90 -16"/></g>
+<rect x="22" y="10" width="86" height="50" rx="9" fill="#1a2b30" stroke="#00dbcc" stroke-width="2"/>
+<circle cx="45" cy="34" r="10" fill="#eafcfd"/><circle cx="85" cy="34" r="10" fill="#eafcfd"/>
+<circle cx="47" cy="38" r="4" fill="#02090b"/><circle cx="83" cy="38" r="4" fill="#02090b"/>
+<path d="M35 34 A10 10 0 0 1 55 34 Z" fill="#1a2b30" stroke="#00dbcc"/><path d="M75 34 A10 10 0 0 1 95 34 Z" fill="#1a2b30" stroke="#00dbcc"/>
+<circle cx="100" cy="18" r="3" fill="#f54447"/>
+<rect x="30" y="60" width="70" height="110" fill="#1a2b30" stroke="#00dbcc"/>
+<polygon points="14,62 52,60 64,120 64,172 6,172" fill="#8a2346"/><polygon points="116,62 78,60 66,120 66,172 124,172" fill="#8a2346"/>
+<polygon points="44,60 56,60 66,124 58,124" fill="#b0305a"/><polygon points="86,60 74,60 64,124 72,124" fill="#b0305a"/>
+<rect x="8" y="118" width="114" height="10" rx="4" fill="#5c1630"/><circle cx="65" cy="123" r="6" fill="#4a1126"/>
+<ellipse cx="42" cy="186" rx="22" ry="8" fill="#ffb81a" stroke="#b37a00"/><ellipse cx="88" cy="186" rx="22" ry="8" fill="#ffb81a" stroke="#b37a00"/>
+<path d="M62 52 L100 58" stroke="#6b4423" stroke-width="4" stroke-linecap="round"/><path d="M96 48 L108 47 L110 62 L98 64 Z" fill="#6b4423"/><circle cx="102" cy="47" r="3.5" fill="#ff8a1a"/>
+<g fill="none" stroke="#c9d8db" stroke-width="3" stroke-linecap="round" opacity=".6" filter="url(#b2)"><path d="M103 42 C96 28 112 22 104 8"/></g>
+</symbol>
+</defs>
+<rect width="1200" height="360" fill="url(#bg)"/>
+<g font-family="Oswald,'Arial Narrow',Impact,sans-serif">
+<g transform="translate(18,18)"><rect width="276" height="324" rx="14" fill="#061418" stroke="#00dbcc" stroke-opacity=".35"/>
+<use href="#mini" xlink:href="#mini" x="70" y="16" width="136" height="209"/>
+<text x="138" y="256" text-anchor="middle" font-size="22" font-weight="600" fill="#ffb81a" letter-spacing="2">MICROSOFT 365</text>
+<text x="138" y="282" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="14" fill="#eafcfd">"A network upgrade"</text>
+<text x="138" y="304" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="12" fill="#7f969b">12-13 NOV</text></g>
+<g transform="translate(318,18)"><rect width="276" height="324" rx="14" fill="#061418" stroke="#00dbcc" stroke-opacity=".35"/>
+<use href="#mini" xlink:href="#mini" x="70" y="16" width="136" height="209"/>
+<text x="138" y="256" text-anchor="middle" font-size="22" font-weight="600" fill="#ffb81a" letter-spacing="2">FAA</text>
+<text x="138" y="282" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="14" fill="#eafcfd">"A communication issue"</text>
+<text x="138" y="304" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="12" fill="#7f969b">13 NOV</text></g>
+<g transform="translate(618,18)"><rect width="276" height="324" rx="14" fill="#061418" stroke="#00dbcc" stroke-opacity=".35"/>
+<use href="#mini" xlink:href="#mini" x="70" y="16" width="136" height="209"/>
+<text x="138" y="256" text-anchor="middle" font-size="22" font-weight="600" fill="#ffb81a" letter-spacing="2">US BANKS</text>
+<text x="138" y="282" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="14" fill="#eafcfd">"A software bug"</text>
+<text x="138" y="304" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="12" fill="#7f969b">16 NOV</text></g>
+<g transform="translate(918,18)"><rect width="264" height="324" rx="14" fill="#061418" stroke="#f54447" stroke-opacity=".6"/>
+<use href="#mini" xlink:href="#mini" x="64" y="16" width="136" height="209"/>
+<text x="132" y="256" text-anchor="middle" font-size="22" font-weight="600" fill="#f54447" letter-spacing="2">NSA</text>
+<text x="132" y="282" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="14" fill="#eafcfd">"Routine maintenance"</text>
+<text x="132" y="304" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="12" fill="#7f969b">17 NOV</text></g>
+</g>
+</svg>

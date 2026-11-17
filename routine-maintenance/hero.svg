@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="A cartoon server in a burgundy dressing gown and slippers, smoking a pipe, with smoke rising from its vents, next to a sign reading Routine Maintenance">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#06262c"/><stop offset="1" stop-color="#02090b"/></linearGradient>
+<radialGradient id="glow" cx="50%" cy="45%" r="55%"><stop offset="0" stop-color="#00dbcc" stop-opacity=".22"/><stop offset="1" stop-color="#00dbcc" stop-opacity="0"/></radialGradient>
+<filter id="b2"><feGaussianBlur stdDeviation="2"/></filter>
+<filter id="b6"><feGaussianBlur stdDeviation="6"/></filter>
+<filter id="b12"><feGaussianBlur stdDeviation="12"/></filter>
+<pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1.4" fill="#000" opacity=".22"/></pattern>
+<pattern id="haz" width="30" height="26" patternUnits="userSpaceOnUse" patternTransform="skewX(-35)"><rect width="30" height="26" fill="#ffb81a"/><rect width="15" height="26" fill="#1a1100"/></pattern>
+</defs>
+<rect width="1200" height="675" fill="url(#bg)"/>
+<rect width="1200" height="675" fill="url(#glow)"/>
+<!-- background racks -->
+<g opacity=".55">
+<rect x="40" y="130" width="170" height="490" rx="10" fill="#0a1c20" stroke="#0d4a48"/>
+<rect x="990" y="90" width="170" height="530" rx="10" fill="#0a1c20" stroke="#0d4a48"/>
+<g fill="#40ea99"><circle cx="64" cy="170" r="4"/><circle cx="64" cy="215" r="4"/><circle cx="64" cy="305" r="4"/><circle cx="1014" cy="140" r="4"/><circle cx="1014" cy="260" r="4"/><circle cx="1014" cy="400" r="4"/></g>
+<g fill="#ffb81a"><circle cx="64" cy="260" r="4"/><circle cx="64" cy="350" r="4"/><circle cx="1014" cy="200" r="4"/><circle cx="1014" cy="350" r="4"/></g>
+<g fill="#f54447"><circle cx="64" cy="395" r="4"/><circle cx="1014" cy="305" r="4"/><circle cx="1014" cy="445" r="4"/></g>
+<g stroke="#0d4a48"><line x1="40" y1="190" x2="210" y2="190"/><line x1="40" y1="240" x2="210" y2="240"/><line x1="40" y1="285" x2="210" y2="285"/><line x1="40" y1="330" x2="210" y2="330"/><line x1="40" y1="375" x2="210" y2="375"/></g>
+</g>
+<!-- floor -->
+<line x1="0" y1="622" x2="1200" y2="622" stroke="#00dbcc" stroke-opacity=".25"/>
+<ellipse cx="600" cy="628" rx="270" ry="16" fill="#000" opacity=".55"/>
+<!-- smoke from head vents (dark) -->
+<g filter="url(#b12)" opacity=".75">
+<circle cx="540" cy="92" r="30" fill="#5b6c71"/><circle cx="610" cy="58" r="40" fill="#46565b"/><circle cx="672" cy="92" r="32" fill="#5b6c71"/><circle cx="590" cy="22" r="28" fill="#394a4f"/><circle cx="650" cy="18" r="22" fill="#394a4f"/>
+</g>
+<g fill="none" stroke="#9fb3b8" stroke-width="5" stroke-linecap="round" opacity=".5" filter="url(#b2)">
+<path d="M520 112 C505 90 535 72 518 48"/><path d="M600 108 C585 84 618 64 600 36"/><path d="M680 112 C666 88 698 70 680 44"/>
+</g>
+<!-- rack body (chest) -->
+<rect x="470" y="250" width="260" height="322" fill="#1a2b30" stroke="#00dbcc" stroke-width="2"/>
+<g fill="#223a41"><rect x="490" y="262" width="220" height="30"/><rect x="490" y="300" width="220" height="30"/><rect x="490" y="338" width="220" height="30"/><rect x="490" y="376" width="220" height="30"/></g>
+<g><circle cx="590" cy="277" r="4" fill="#f54447"/><circle cx="610" cy="277" r="4" fill="#ffb81a"/><circle cx="592" cy="315" r="4" fill="#ffb81a"/><circle cx="608" cy="315" r="4" fill="#f54447"/><circle cx="595" cy="353" r="4" fill="#f54447"/><circle cx="605" cy="353" r="4" fill="#ffb81a"/><circle cx="597" cy="391" r="4" fill="#f54447"/></g>
+<!-- head -->
+<rect x="470" y="110" width="260" height="146" rx="18" fill="#1a2b30" stroke="#00dbcc" stroke-width="2.5"/>
+<g fill="#02090b" stroke="#0d4a48"><rect x="492" y="120" width="40" height="7" rx="3"/><rect x="548" y="120" width="40" height="7" rx="3"/><rect x="612" y="120" width="40" height="7" rx="3"/><rect x="668" y="120" width="40" height="7" rx="3"/></g>
+<circle cx="706" cy="150" r="6" fill="#f54447"><animate attributeName="opacity" values="1;.25;1" dur="1.4s" repeatCount="indefinite"/></circle>
+<!-- eyes: tired, half-lidded -->
+<circle cx="545" cy="180" r="25" fill="#eafcfd"/><circle cx="655" cy="180" r="25" fill="#eafcfd"/>
+<circle cx="551" cy="190" r="9" fill="#02090b"/><circle cx="649" cy="190" r="9" fill="#02090b"/>
+<path d="M520 180 A25 25 0 0 1 570 180 Z" fill="#1a2b30" stroke="#00dbcc" stroke-width="2"/>
+<path d="M630 180 A25 25 0 0 1 680 180 Z" fill="#1a2b30" stroke="#00dbcc" stroke-width="2"/>
+<path d="M524 208 Q545 218 566 208" fill="none" stroke="#0a7d76" stroke-width="3"/><path d="M634 208 Q655 218 676 208" fill="none" stroke="#0a7d76" stroke-width="3"/>
+<path d="M515 150 L574 155" stroke="#aec3c7" stroke-width="4" stroke-linecap="round"/><path d="M626 155 L685 150" stroke="#aec3c7" stroke-width="4" stroke-linecap="round"/>
+<line x1="582" y1="228" x2="616" y2="230" stroke="#eafcfd" stroke-width="4" stroke-linecap="round"/>
+<!-- legs and slippers -->
+<rect x="520" y="570" width="52" height="30" fill="#1a2b30" stroke="#00dbcc"/><rect x="628" y="570" width="52" height="30" fill="#1a2b30" stroke="#00dbcc"/>
+<ellipse cx="546" cy="606" rx="52" ry="17" fill="#ffb81a" stroke="#b37a00" stroke-width="2"/><ellipse cx="654" cy="606" rx="52" ry="17" fill="#ffb81a" stroke="#b37a00" stroke-width="2"/>
+<!-- robe panels -->
+<polygon points="455,255 560,252 598,440 598,574 432,574" fill="#8a2346"/>
+<polygon points="745,255 640,252 602,440 602,574 768,574" fill="#8a2346"/>
+<polygon points="528,252 562,252 600,444 580,444" fill="#b0305a"/>
+<polygon points="672,252 638,252 600,444 620,444" fill="#b0305a"/>
+<g stroke="#5c1630" stroke-width="2" opacity=".6"><line x1="480" y1="300" x2="470" y2="560"/><line x1="520" y1="470" x2="512" y2="565"/><line x1="720" y1="300" x2="730" y2="560"/><line x1="680" y1="470" x2="688" y2="565"/></g>
+<!-- belt -->
+<rect x="432" y="432" width="336" height="26" rx="8" fill="#5c1630"/>
+<path d="M596 455 L576 524 L598 518 Z" fill="#4a1126"/><path d="M604 455 L626 528 L606 520 Z" fill="#4a1126"/>
+<circle cx="600" cy="445" r="16" fill="#4a1126" stroke="#8a2346" stroke-width="2"/>
+<!-- left arm + mug -->
+<path d="M470 285 C410 300 385 350 395 398" fill="none" stroke="#8a2346" stroke-width="58" stroke-linecap="round"/>
+<circle cx="395" cy="410" r="31" fill="#b0305a"/>
+<rect x="352" y="404" width="40" height="42" rx="7" fill="#eee1c4"/><path d="M392 414 q20 0 20 12 q0 12 -20 12" fill="none" stroke="#eee1c4" stroke-width="5"/>
+<text x="372" y="431" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="700" fill="#8a2346" text-anchor="middle">OK</text>
+<circle cx="398" cy="428" r="17" fill="#2a3f45" stroke="#00dbcc" stroke-width="2"/>
+<g fill="none" stroke="#c9d8db" stroke-width="4" stroke-linecap="round" opacity=".55" filter="url(#b2)"><path d="M362 398 C352 384 372 376 362 360"/><path d="M380 398 C370 382 392 374 382 356"/></g>
+<!-- pipe -->
+<path d="M612 230 L704 240" stroke="#6b4423" stroke-width="8" stroke-linecap="round"/>
+<path d="M698 216 L726 214 L730 246 L706 250 Z" fill="#6b4423" stroke="#4a2f17" stroke-width="2"/>
+<circle cx="713" cy="213" r="9" fill="#ff8a1a" filter="url(#b6)"/><circle cx="713" cy="214" r="4" fill="#ffd27a"/>
+<!-- right arm + hand on pipe -->
+<path d="M730 285 C805 292 815 250 770 238" fill="none" stroke="#8a2346" stroke-width="58" stroke-linecap="round"/>
+<circle cx="756" cy="236" r="31" fill="#b0305a"/><circle cx="740" cy="240" r="17" fill="#2a3f45" stroke="#00dbcc" stroke-width="2"/>
+<g fill="none" stroke="#c9d8db" stroke-width="7" stroke-linecap="round" opacity=".6" filter="url(#b2)">
+<path d="M713 200 C696 172 732 154 712 122 C696 98 728 80 710 48"/><path d="M722 202 C742 176 712 158 736 126"/>
+</g>
+<!-- sign -->
+<g transform="translate(850,200) rotate(3 150 75)">
+<line x1="150" y1="150" x2="150" y2="424" stroke="#7f969b" stroke-width="7"/><rect x="104" y="420" width="92" height="10" rx="4" fill="#4a5a5f"/>
+<rect x="0" y="0" width="300" height="150" rx="14" fill="#ffb81a" stroke="#fff2c9" stroke-width="3"/>
+<rect x="3" y="3" width="294" height="26" rx="10" fill="url(#haz)"/>
+<text x="150" y="82" font-family="Oswald,'Arial Narrow',Impact,sans-serif" font-weight="700" font-size="46" letter-spacing="2" fill="#1a1100" text-anchor="middle">ROUTINE</text>
+<text x="150" y="128" font-family="Oswald,'Arial Narrow',Impact,sans-serif" font-weight="700" font-size="38" textLength="250" lengthAdjust="spacingAndGlyphs" fill="#1a1100" text-anchor="middle">MAINTENANCE</text>
+<rect x="40" y="166" width="220" height="44" rx="8" fill="#f54447" stroke="#ffd4d5" stroke-width="2"/>
+<text x="150" y="195" font-family="'JetBrains Mono',monospace" font-weight="700" font-size="17" letter-spacing="2" fill="#fff" text-anchor="middle">BACK SOON(ISH)</text>
+</g>
+<text x="60" y="650" font-family="'JetBrains Mono',monospace" font-size="15" letter-spacing="4" fill="#00dbcc" opacity=".8">EVERYTHING IS FINE</text>
+<rect width="1200" height="675" fill="url(#scan)"/>
+<rect width="1200" height="675" fill="none" stroke="#00dbcc" stroke-opacity=".3" stroke-width="2"/>
+</svg>

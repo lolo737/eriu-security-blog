@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Routine Maintenance — Eriu Technology</title><meta name="description" content="Microsoft, the FAA, the banks and the NSA all fell over in one week. The cause first, then the detail: ordinary engineering failures, no attack shown, and what it means for your business.">
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cy:#00dbcc;--am:#ffb81a;--rd:#f54447;--gn:#40ea99;--ink:#d7e7ea;--soft:#aec3c7;--mut:#7f969b;--line:rgba(0,219,204,.18)}
+*{box-sizing:border-box;margin:0;padding:0}body{background:radial-gradient(90% 40% at 50% -5%,rgba(0,219,204,.10),transparent 60%),linear-gradient(180deg,#041216 0%,#02090b 100%);background-attachment:fixed;color:var(--ink);font:18px/1.72 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;padding:0 18px 80px}.wrap{max-width:720px;margin:auto}
+header.top{border-bottom:1px solid var(--line);padding:22px 0;margin-bottom:40px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}.brand,.toplink,.byline,.kicker,figcaption,footer,.mono{font-family:'JetBrains Mono',monospace}.brand{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--cy)}.brand b{color:var(--ink);font-weight:500}.toplink{font-size:12px;letter-spacing:.1em;color:var(--am);text-decoration:none;border:1px solid rgba(255,184,26,.5);padding:6px 12px;border-radius:6px}
+h1.title{font:700 clamp(40px,8vw,64px)/1.02 Oswald,sans-serif;letter-spacing:.005em;color:#eafcfd;text-transform:uppercase;margin-bottom:14px}.deck{font-size:21px;color:var(--soft);line-height:1.5;max-width:620px}.byline{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-top:22px}
+figure.hero{margin:38px 0 8px}figure.hero a{display:block;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 0 50px rgba(0,219,204,.10)}figure.hero img{display:block;width:100%;height:auto}figcaption{font-size:12px;color:var(--mut);margin-top:10px;text-align:center;letter-spacing:.06em}
+article{margin-top:44px}article h2{font:600 27px Oswald,sans-serif;text-transform:uppercase;letter-spacing:.04em;color:#eafcfd;margin:46px 0 16px;padding-top:10px}article h2 .num{color:var(--cy);margin-right:10px}article p{margin:0 0 20px}article p.lead{font-size:20px}article strong{color:#fff}article a{color:var(--cy);text-decoration-color:rgba(0,219,204,.4)}article a:hover{color:#fff}
+.kicker{display:inline-block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--cy);border:1px solid var(--line);border-radius:5px;padding:4px 10px;margin-bottom:14px}
+ul{list-style:none;margin:0 0 22px;display:flex;flex-direction:column;gap:11px}ul li{display:flex;gap:12px}ul li:before{content:"▸";flex:none;color:var(--am);font-weight:700}ul.danger li:before{color:var(--rd)}ul.defend li:before{color:var(--gn)}
+ol.steps{list-style:none;counter-reset:s;margin:0 0 22px;display:flex;flex-direction:column;gap:12px}ol.steps li{counter-increment:s;display:flex;gap:16px;align-items:baseline}ol.steps li:before{content:counter(s);font:700 26px Oswald;color:var(--cy);flex:none;width:30px}
+.callout{border:2px solid var(--am);background:rgba(255,184,26,.07);border-radius:12px;padding:20px 24px;margin:0 0 26px}.callout b{display:block;font:700 22px Oswald;letter-spacing:.05em;text-transform:uppercase;color:#ffe4a6;margin-bottom:8px}.callout p{margin:0;color:#eee1c4;font-size:17px}
+.warning{border:2px solid var(--rd);background:rgba(245,68,71,.10);border-radius:12px;padding:20px 24px;margin:0 0 26px}.warning b{display:block;font:700 22px Oswald;text-transform:uppercase;color:#ffd4d5;margin-bottom:8px}.warning p{margin:0;color:#f3d9da;font-size:17px}
+figure.diagram{margin:28px 0 32px}figure.diagram img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:12px;background:#061418}figure.diagram figcaption{text-align:left;line-height:1.6}
+table{width:100%;border-collapse:collapse;margin:0 0 24px;font-size:15px}th,td{text-align:left;vertical-align:top;padding:11px 10px;border-bottom:1px solid var(--line)}th{font:600 14px Oswald;text-transform:uppercase;color:var(--cy);letter-spacing:.06em}td:first-child{color:#fff;font-weight:600}
+hr{border:0;border-top:1px solid var(--line);margin:40px 0}.outro{color:var(--soft);font-size:16.5px;font-style:italic}footer{margin-top:54px;padding-top:22px;border-top:1px solid var(--line);font-size:11.5px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase;line-height:1.8}
+@media(max-width:540px){body{font-size:17px}.callout,.warning{padding:17px}}
+
+/* ELECTRIC GLITCH — visual-only: heading boxes, spacing and document flow stay untouched */
+h1.title,article h2,article h3.glitch-heading{position:relative;isolation:isolate;text-shadow:0 0 7px rgba(0,219,204,.42),0 0 22px rgba(0,219,204,.18);animation:heading-current 3.8s infinite steps(1,end)}
+article h3.glitch-heading{display:block;font:600 27px Oswald,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#eafcfd;margin:46px 0 16px;padding-top:10px}
+h1.title::before,article h2::before,article h3.glitch-heading::before,h1.title::after,article h2::after,article h3.glitch-heading::after{content:attr(data-glitch);position:absolute;inset:0;pointer-events:none;overflow:hidden;white-space:inherit}
+h1.title::before,article h2::before,article h3.glitch-heading::before{color:#00f6ff;text-shadow:2px 0 #00f6ff,-2px 0 #ff2bd6;clip-path:inset(0 0 68% 0);transform:translateX(-2px);opacity:.78;animation:glitch-slice-a 2.7s infinite steps(1,end)}
+h1.title::after,article h2::after,article h3.glitch-heading::after{color:#ff36c9;text-shadow:2px 0 #ff36c9,-2px 0 #00eaff;clip-path:inset(72% 0 0 0);transform:translateX(2px);opacity:.72;animation:glitch-slice-b 3.1s infinite steps(1,end)}
+@keyframes heading-current{0%,88%,91%,94%,100%{text-shadow:0 0 7px rgba(0,219,204,.42),0 0 22px rgba(0,219,204,.18)}89%{text-shadow:3px 0 #00f6ff,-3px 0 #ff2bd6,0 0 18px #00eaff}90%{text-shadow:-2px 0 #00f6ff,2px 0 #ff2bd6,0 0 25px #ff2bd6}92%{text-shadow:0 0 5px #00f6ff,0 0 30px #00f6ff,0 0 42px rgba(255,43,214,.55)}}
+@keyframes glitch-slice-a{0%,82%,86%,100%{clip-path:inset(0 0 68% 0);transform:translateX(-2px);opacity:.68}83%{clip-path:inset(18% 0 55% 0);transform:translateX(7px);opacity:1}84%{clip-path:inset(4% 0 76% 0);transform:translateX(-6px);opacity:.95}85%{clip-path:inset(35% 0 42% 0);transform:translateX(3px);opacity:.8}}
+@keyframes glitch-slice-b{0%,73%,77%,100%{clip-path:inset(72% 0 0 0);transform:translateX(2px);opacity:.62}74%{clip-path:inset(61% 0 22% 0);transform:translateX(-8px);opacity:1}75%{clip-path:inset(83% 0 5% 0);transform:translateX(6px);opacity:.9}76%{clip-path:inset(48% 0 38% 0);transform:translateX(-3px);opacity:.8}}
+@media(prefers-reduced-motion:reduce){h1.title,article h2,article h3.glitch-heading,h1.title::before,article h2::before,h1.title::after,article h2::after,article h3.glitch-heading::before,article h3.glitch-heading::after{animation:none}}
+
+
+
+
+/* Animated troubleshooting terminal */
+.trouble-terminal{margin:28px 0 12px;border:1px solid rgba(0,219,204,.42);border-radius:9px;overflow:hidden;background:#02090b;box-shadow:0 0 26px rgba(0,219,204,.10),inset 0 0 24px rgba(0,219,204,.035);font:13px/1.65 'JetBrains Mono',monospace}
+.trouble-terminal .term-bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:rgba(0,219,204,.09);border-bottom:1px solid rgba(0,219,204,.2);color:var(--soft);font-size:11px;letter-spacing:.08em}
+.trouble-terminal .term-dot{width:8px;height:8px;border-radius:50%;background:#f54447;box-shadow:16px 0 #ffb81a,32px 0 #40ea99;margin-right:30px}
+.trouble-terminal .term-screen{padding:16px 18px 18px;min-height:210px;color:#b9d5d7;overflow:hidden}
+.trouble-terminal .term-line{display:block;min-height:1.65em;white-space:pre-wrap;overflow-wrap:anywhere;opacity:0;transform:translateY(3px);animation:term-in .22s ease both}
+.trouble-terminal .term-line .prompt{color:var(--cy)}
+.trouble-terminal .term-line .cmd{color:#f1fbfb}
+.trouble-terminal .term-line.output{color:#8faeb2}
+.trouble-terminal .term-line.good{color:#40ea99}
+.trouble-terminal .term-line.warn{color:#ffb81a}
+.trouble-terminal .term-cursor{display:inline-block;width:7px;height:1em;vertical-align:-.15em;background:var(--cy);animation:term-blink 1s steps(2,start) infinite}
+@keyframes term-in{to{opacity:1;transform:translateY(0)}}
+@keyframes term-blink{to{visibility:hidden}}
+.trouble-caption{margin:0 0 28px;padding:0 2px;color:var(--mut);font:11px/1.8 'JetBrains Mono',monospace}
+.trouble-caption strong{color:var(--cy);font-weight:500}
+@media(prefers-reduced-motion:reduce){.trouble-terminal .term-line{animation:none;opacity:1;transform:none}.trouble-terminal .term-cursor{animation:none}}
+
+
+.pill{display:inline-block;font:600 11px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;padding:3px 8px;border-radius:5px;margin-right:8px;vertical-align:1px}
+.pill.k{color:#02150f;background:var(--gn)}.pill.u{color:#2a1700;background:var(--am)}.pill.o{color:#fff;background:#8a2346}
+</style></head><body><div class="wrap">
+<header class="top"><div class="brand"><b>Eriu Technology</b> &nbsp;·&nbsp; Security Awareness</div><a class="toplink" href="../">&larr; All briefings</a></header>
+<h1 class="title">Routine Maintenance</h1>
+<p class="deck">Microsoft, the FAA, the banks and the NSA all fell over in the one week. Nobody has shown an attack. Here is the cause first, and the detail after.</p>
+<div class="byline">Eriu Technology &nbsp;·&nbsp; 17 November 2026 &nbsp;·&nbsp; Week-in-review briefing</div>
+<figure class="hero"><a href="hero.svg"><img src="hero.svg" alt="A cartoon server in a burgundy dressing gown and slippers, smoking a pipe, next to a sign reading Routine Maintenance, Back soon(ish)"></a><figcaption>Everything is fine. A server in a dressing gown, enjoying the smoke.</figcaption></figure>
+<article>
+<span class="kicker">The cause, first</span>
+<div class="callout"><b>The cause</b><p>Ordinary engineering failures. A software defect that sat unnoticed for months. A telecom fault that flooded an air traffic network. A bug in a bank's on-premise hardware. A maintenance window that went sideways. <strong>No cyberattack has been shown for any of them.</strong></p></div>
+<p class="lead">That is the short version. The longer one is worth having, because the week looked like a plot and read like a spreadsheet of excuses.</p>
+<p>On Friday I wrote up the Microsoft outage and what it takes to run your own email: <a href="../recover-control-of-your-email/">Recover Control of Your Email</a>. By Tuesday the same week, the people whose whole job is reading other people's messages could not reach their own. Here is the week in order, with the stated cause up front each time.</p>
+
+<h2><span class="num">01</span>The week at a glance</h2>
+<table><thead><tr><th>When</th><th>What</th><th>Stated cause</th><th>Attack?</th></tr></thead><tbody>
+<tr><td>Tue 10 Nov</td><td>Outlook zero-day patched</td><td>An exploited spoofing flaw in Outlook</td><td>Exploited in the wild, but it caused no outage</td></tr>
+<tr><td>Thu 12 &ndash; Sat 14 Nov</td><td>Microsoft 365 outage</td><td>A months-old software defect, extra load, lost capacity</td><td>No, per Microsoft</td></tr>
+<tr><td>Fri 13 Nov, 20:54 &ndash; 01:15 GMT</td><td>FAA nationwide ground stop</td><td>A telecom fault flooded the network</td><td>None found; Transportation Secretary says not a foreign actor</td></tr>
+<tr><td>Mon 16 Nov</td><td>JPMorgan Chase, then other banks</td><td>A software bug in on-premise hardware</td><td>No evidence, per Chase</td></tr>
+<tr><td>Tue 17 Nov</td><td>NSA classified network (NSANet)</td><td>&ldquo;Temporary degradation during scheduled routine maintenance&rdquo;</td><td>None so far, per officials</td></tr>
+</tbody></table>
+<figure class="diagram"><img src="excuses.svg" alt="Four cartoon servers in dressing gowns with the official excuses: a network upgrade, a communication issue, a software bug, routine maintenance"><figcaption>Four organisations, four official explanations, one very relaxed server.</figcaption></figure>
+
+<h2><span class="num">02</span>The Outlook zero-day (not an outage)</h2>
+<p><strong>Cause: a flaw that attackers were already using.</strong> Microsoft's Patch Tuesday on 10 November fixed 1,094 vulnerabilities. One of them, <strong>CVE-2026-124194</strong>, is an Outlook spoofing flaw rated moderate (CVSS 6.5) that Microsoft confirms is exploited. A malicious Office file can make Outlook reach out to an attacker, which can leak the user's NTLMv2 password hash.</p>
+<p>The detail that catches people out: the fix comes through <strong>Office's own updates</strong>, so installing the Windows cumulative update does not necessarily close it. A critical Windows DHCP Server flaw (CVE-2026-88243, CVSS 9.8) was patched the same day. At the time of reporting it was not listed as exploited and had no public proof of concept.</p>
+<p>Neither of these caused any outage that followed. They are a separate story that happened to land the same week. Patch both.</p>
+
+<h2><span class="num">03</span>Microsoft 365: a day and a half</h2>
+<p><strong>Cause: a latent defect.</strong> A Microsoft executive explained on Monday 16 November that a software defect, unnoticed on its servers for months, left them overwhelmed and unresponsive under certain load. The defect came from a Windows fix prepared for Microsoft 365 networking. Extra Teams traffic and lost server capacity piled on top.</p>
+<p>The outage hit Outlook, Teams, Copilot and SharePoint in more than 70 countries. By Microsoft's own timestamps it ran from about 16:17 GMT on Thursday 12 November to early Saturday morning, so roughly a day and a half. Sources range from 24 to 36 hours depending on how you count. Microsoft said it was <em>&ldquo;not related to cyber or AI/agents&rdquo;</em>, paused deployments and config changes while it reviewed, and promised a full post-incident report.</p>
+
+<h2><span class="num">04</span>The FAA: 4 hours 21 minutes</h2>
+<p><strong>Cause: legacy equipment buckling under a flood of traffic.</strong> The FAA says its legacy equipment became unstable when data flooded its FTI network at a rate of 1,000 connection attempts every 4 to 5 seconds. That disrupted aircraft communications and radar feeds. Officials said they traced the telecom problem to its origin, took that location offline, and the system recovered.</p>
+<p>The ground stop ran from 20:54 GMT (3:54 pm EST) to 01:15 GMT (8:15 pm EST). Communications problems affected all of the en-route centres. The Transportation Secretary said &ldquo;it wasn&rsquo;t a foreign actor&rdquo;.</p>
+<p>The money followed the same day. Congress approved $12.5 billion for air traffic control upgrades in July 2025. Late on the Friday, the administration raised its funding request to $50 billion, up from $30.1 billion earlier that day. The FAA has still not said what started the flood.</p>
+
+<h2><span class="num">05</span>The banks: Monday morning</h2>
+<p><strong>Cause: a software bug in on-premise hardware.</strong> That was Chase's explanation. It said there was no evidence of a cyber cause, that customers still had access to their accounts and funds, and that where it was party to a transaction with other banks, those banks may have been affected, but this was not a systemic issue.</p>
+<p>Downdetector logged nearly 5,000 Chase reports and 800-plus for Wells Fargo, with Bank of America and U.S. Bank also affected. Chase was back to normal by Monday evening.</p>
+
+<h2><span class="num">06</span>The NSA: Tuesday</h2>
+<p><strong>Cause given: scheduled routine maintenance.</strong> The agency&rsquo;s classified internal network, NSANet, went offline. Staff arrivals were staggered at Fort Meade, and officials told reporters there was no evidence of a cyberattack so far. Backup systems were reported to be keeping urgent intelligence flowing to the President. NSANet is the internal classified messaging network, so strictly it is not email, but it is the same job.</p>
+<p>A bipartisan group of lawmakers is pushing for briefings. One senator counted &ldquo;five major outages in less than a week&rdquo;.</p>
+
+<h2><span class="num">07</span>What we know, what we don&rsquo;t, and what is opinion</h2>
+<ul>
+<li><span><span class="pill k">Known</span>Four different organisations gave four different technical explanations, and officials say there is no sign of a coordinated attack.</span></li>
+<li><span><span class="pill u">Unknown</span>What started the flood on the FAA network. Whether any of the outages are connected. What Microsoft&rsquo;s final report says. What actually went wrong at the NSA beyond one sentence.</span></li>
+<li><span><span class="pill o">Opinion</span>Ageing kit, big promises, big contracts and bigger asks: I would like to see where the money goes. I have no internal knowledge, and nothing in the reporting proves anything improper.</span></li>
+</ul>
+
+<h2><span class="num">08</span>What it means for your business</h2>
+<ul class="defend">
+<li><span><strong>Patch Office this week, not just Windows.</strong> The exploited Outlook flaw is fixed through Office updates.</span></li>
+<li><span><strong>Have a plan B for email.</strong> A shared inbox is a single point of failure. <a href="../recover-control-of-your-email/">Recover Control of Your Email</a> shows what a fallback looks like.</span></li>
+<li><span><strong>Write the outage plan on paper.</strong> If email and Teams are both down, who phones whom, and on which number?</span></li>
+<li><span><strong>Expect phishing in the gap.</strong> &ldquo;Your mailbox is suspended, click to verify&rdquo; arrives the moment a service wobbles. Check the provider&rsquo;s status page, not the email.</span></li>
+<li><span><strong>Do not reset passwords or change DNS in a panic.</strong> Find out whether it is you or them first.</span></li>
+<li><span><strong>List what you depend on.</strong> Five services that would stop your business if they stopped. Know who to ring for each.</span></li>
+</ul>
+<div class="callout"><b>Take control of your email</b><p>If Outlook going down made your stomach drop, read the practical follow-up: <a href="../recover-control-of-your-email/">Recover Control of Your Email</a>. It walks through diagnosing the outage first, then building a controlled lab for running your own mail.</p></div>
+<hr>
+<p class="outro">Hanlon&rsquo;s razor says never blame malice for what incompetence explains. Fair enough. But incompetence at this scale, in one week, across this many critical systems, is still a story.</p>
+<hr>
+<p class="mono" style="font-size:12px;line-height:1.9;color:var(--mut)">SOURCES<br>
+<a href="https://www.cbsnews.com/news/nsa-network-down-classified-fort-meade/">CBS News: NSA classified network goes down</a><br>
+<a href="https://www.nbcnews.com/politics/national-security/classified-nsa-network-went-no-indication-was-attack-sources-say-rcna609859">NBC News: no indication it was an attack</a><br>
+<a href="https://www.faa.gov/newsroom/faa-statement-nationwide-ground-stop">FAA: Nationwide ground stop, Q&amp;A</a><br>
+<a href="https://en.wikipedia.org/wiki/2026_US_air_traffic_control_outage">Wikipedia: 2026 FAA nationwide ground stop</a><br>
+<a href="https://www.aljazeera.com/news/2026/11/16/thousands-report-difficulties-accessing-accounts-online-at-major-us-banks">Al Jazeera: US bank outages</a><br>
+<a href="https://abcnews.com/US/outlook-outage-cause-microsoft-reason-teams-down/story?id=138174626">ABC News: Microsoft identifies causes of the Outlook outage</a><br>
+<a href="https://www.mensjournal.com/news/microsoft-outlook-outage-cause-explained">Men&rsquo;s Journal: Microsoft explains the outage</a><br>
+<a href="https://windowsreport.com/?p=1515375">Windows Report: November Patch Tuesday and the Outlook zero-day</a><br>
+<a href="https://www.cycognito.com/blog/?p=3111">CyCognito: Windows DHCP Server CVE-2026-88243</a><br>
+<a href="https://thefinancialexpress.com.bd/america/trump-official-seeks-50-billion-for-air-traffic-control-after-outage">Reuters via Financial Express: $50 billion request</a><br>
+Figures as reported on 17 November 2026. Causes are the organisations&rsquo; own preliminary statements.</p>
+</article>
+<footer>Eriu Technology &nbsp;·&nbsp; eriu.tech &nbsp;·&nbsp; Security-awareness briefings<br>Awareness &amp; defence only &nbsp;·&nbsp; Illustrations are original cartoons</footer>
+</div></body></html>
