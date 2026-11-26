@@ -5,8 +5,15 @@
 <figure class="dia"><img src="diagram-vm-container.svg" alt="A virtual machine carries its own guest OS; containers share the host kernel" loading="lazy"><figcaption>Same hardware, different promise. VMs isolate. Containers economise.</figcaption></figure>
 <p>Last, the bit that trips people up. Citrix, AVD and Horizon are not hypervisors. They're the delivery layer between the user and a VM (or a shared server) running on a hypervisor. The user sees a screen; the files stay on the server.</p>
 <figure class="dia"><img src="diagram-delivery.svg" alt="Citrix, AVD and Horizon deliver desktops and apps from VMs on a hypervisor to the user's device" loading="lazy"><figcaption>Three flavours: one published app, one VM per user (VDI), or a shared server OS (RDS).</figcaption></figure>
+<h2>Level up: giving a VM more</h2>
+<p>This is the question that matters most in practice. A VM can't ask the server for more by itself. The RAM, CPUs and disk it sees are a slice the hypervisor hands out, so you change the slice <strong>at the hypervisor</strong>, not inside the guest.</p>
+<figure class="dia"><img src="diagram-resources.svg" alt="How to give a virtual machine more RAM, CPU or disk by editing its settings on the hypervisor" loading="lazy"><figcaption>Snapshot, power off, edit settings, power on. Disk needs one extra step inside the guest.</figcaption></figure>
+<p>Where you click depends on the platform. In <strong>VMware</strong> it's right-click the VM, then <em>Edit Settings</em>. In <strong>Hyper-V</strong> it's the VM's <em>Settings</em>, under <em>Memory</em> and <em>Processor</em>. <strong>Proxmox</strong> has a <em>Hardware</em> tab, and <strong>VirtualBox</strong> has <em>Settings</em> then <em>System</em>. Some setups allow hot-add of CPU and RAM while the VM runs, but don't count on it.</p>
+<p>Disk has a second half. Growing the virtual disk in the hypervisor does nothing until you extend the partition inside the guest: Disk Management on Windows, <code>growpart</code> and <code>resize2fs</code> on Linux. And more isn't always better. If every VM is given more than it needs, the host runs short and they all slow down.</p>
+<p>Still muddled? Ask the question on the left. The answer on the right is the kind you're looking at.</p>
+<figure class="dia"><img src="diagram-which-kind.svg" alt="Quick guide to telling Type 1, Type 2, containers and delivery layers apart" loading="lazy"><figcaption>Hypervisors and containers split a machine. Citrix and AVD only deliver the screen.</figcaption></figure>
 <style>
 figure.dia{margin:22px 0 30px}
-figure.dia img{display:block;width:100%;height:auto;border-radius:16px;box-shadow:0 0 40px rgba(0,219,204,.10)}
+figure.dia img{display:block;width:100%;height:auto;border-radius:16px;box-shadow:0 0 44px rgba(255,61,154,.22)}
 figure.dia figcaption{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mut);margin-top:10px;text-align:center;letter-spacing:.04em}
 </style>
