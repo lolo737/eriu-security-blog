@@ -1,6 +1,9 @@
 <h2>The one-page cheat sheet</h2>
-<p>Print it, stick it inside the lid, and let the muscle memory build. Two tricks worth more than any command: press <code>Tab</code> to finish a file name for you, and press the <code>&uarr;</code> key to bring back the last command.</p>
+<p>Print it, stick it inside the lid, and let the muscle memory build. Two tricks worth more than any command: press <code>Tab</code> to finish a file name for you, and press the <code>&uarr;</code> key to bring back the last command. The amber rows are the ones that rescue you when the internet goes down; there's a whole post on that, <a href="../command-not-found/">Command Not Found</a>.</p>
 <table class="cs"><thead><tr><th>Command</th><th>What it does</th></tr></thead><tbody>
+<tr class="star"><td>ip a</td><td><strong>Internet not working? Start here.</strong> Shows your IP address. A 169.254.x.x address means you never got a real one.</td></tr>
+<tr class="star"><td>ip route</td><td>Look for the <code>default via</code> line. That's your way out.</td></tr>
+<tr class="star"><td>ping -c 4 8.8.8.8</td><td>Can you reach the internet by number? The <code>-c 4</code> stops it after four.</td></tr>
 <tr><td>pwd</td><td>Where am I?</td></tr>
 <tr><td>ls</td><td>What's in here?</td></tr>
 <tr><td>cd Documents</td><td>Go into a folder. <code>cd ..</code> goes back up.</td></tr>
@@ -25,6 +28,7 @@ table.cs th{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spaci
 table.cs td{background:rgba(255,184,26,.06);padding:10px 14px;font-size:16px;line-height:1.4;vertical-align:middle}
 table.cs td:first-child{font-family:'JetBrains Mono',monospace;font-size:14px;color:#e6f1f3;white-space:nowrap;border-radius:10px 0 0 10px;border-left:3px solid var(--cy);width:38%}
 table.cs td:last-child{border-radius:0 10px 10px 0}
+table.cs tr.star td{background:rgba(255,184,26,.14)}table.cs tr.star td:first-child{border-left-color:var(--am);color:#ffe4a6}
 table.cs tr.care td{background:rgba(245,68,71,.12)}table.cs tr.care td:first-child{border-left-color:var(--rd)}
 @media(max-width:560px){table.cs td:first-child{white-space:normal;width:44%}}
 figure.wz{margin:30px auto 28px;max-width:300px;text-align:center}
