@@ -85,16 +85,21 @@ ARTICLE_CSS = """
   article strong{color:#fff}
   .kicker{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--cy);border:1px solid var(--line);border-radius:5px;padding:4px 10px;margin-bottom:14px}
   ul{list-style:none;margin:0 0 22px;display:flex;flex-direction:column;gap:11px}
-  ul li{display:flex;gap:12px;color:var(--ink)}
-  ul li::before{content:"\\25B8";flex:none;color:var(--am);font-weight:700}
+  ul li{display:block;position:relative;padding-left:24px;color:var(--ink)}
+  ul li::before{content:"\\25B8";position:absolute;left:0;top:0;color:var(--am);font-weight:700}
   ul.danger li::before{color:var(--rd)}ul.defend li::before{color:var(--gn)}
-  ol.steps{list-style:none;counter-reset:s;margin:0 0 22px;display:flex;flex-direction:column;gap:12px}
-  ol.steps li{counter-increment:s;display:flex;gap:16px;align-items:baseline}
-  ol.steps li::before{content:counter(s);font-family:'Oswald',sans-serif;font-weight:700;font-size:26px;color:var(--cy);flex:none;width:30px}
+  body{overflow-x:clip}
+  ol.steps{list-style:none;counter-reset:s;margin:26px 0 22px;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;width:min(1180px,calc(100vw - 48px));position:relative;left:50%;transform:translateX(-50%)}
+  ol.steps li{counter-increment:s;display:block;position:relative;padding:20px 20px 22px;border:1px solid rgba(0,219,204,.35);border-radius:14px;background:linear-gradient(180deg,rgba(0,219,204,.10),rgba(0,219,204,.03));font-size:16px;line-height:1.55}
+  ol.steps li::before{content:counter(s);display:block;font-family:'Oswald',sans-serif;font-weight:700;font-size:44px;line-height:1;color:var(--cy);margin-bottom:10px;text-shadow:0 0 18px rgba(0,219,204,.45)}
+  ol.steps li .lead{display:block;font-family:'Oswald',sans-serif;font-weight:600;font-size:21px;letter-spacing:.03em;text-transform:uppercase;color:#eafcfd;margin-bottom:8px}
+  ol.steps li .rest{color:var(--soft)}
+  @media(max-width:1020px){ol.steps{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){ol.steps{grid-template-columns:1fr}}
   .callout{border:2px solid var(--rd);background:rgba(245,68,71,.10);border-radius:12px;padding:20px 24px;margin:0 0 26px}
   .callout b{display:block;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:22px;color:#ffd4d5;margin-bottom:8px}
   .callout p{margin:0;color:#f3d9da;font-size:17px}
-  code{font-family:'JetBrains Mono',monospace;font-size:.84em;color:var(--cy);background:rgba(0,219,204,.09);border:1px solid var(--line);border-radius:5px;padding:1px 6px}
+  code{white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:.84em;color:var(--cy);background:rgba(0,219,204,.09);border:1px solid var(--line);border-radius:5px;padding:1px 6px}
   hr{border:0;border-top:1px solid var(--line);margin:40px 0}
   .outro{color:var(--soft);font-size:16.5px;font-style:italic}
   footer{margin-top:54px;padding-top:22px;border-top:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase;line-height:1.8}
@@ -127,7 +132,11 @@ def poster_html(p):
 
 def article_html(p):
     intro = "".join('<p class="lead">%s</p>' % to_html(p["intro"][0]) if i==0 else '<p>%s</p>' % to_html(x) for i,x in enumerate(p["intro"]))
-    steps = "".join('<li>%s</li>' % to_html(s) for s in p["steps"])
+    def step_li(s):
+        m = re.match(r'\*\*(.+?)\*\*\s*(.*)$', s, re.S)
+        if m: return '<li><span class="lead">%s</span><span class="rest">%s</span></li>' % (to_html(m.group(1).rstrip('.')), to_html(m.group(2)))
+        return '<li><span class="rest">%s</span></li>' % to_html(s)
+    steps = "".join(step_li(s) for s in p["steps"])
     ex = "".join('<li><strong>%s</strong> — %s</li>' % (to_html(l), to_html(c)) for l,c in p["examples"])
     danger = "".join('<li>%s</li>' % to_html(x) for x in p["danger"])
     defend = "".join('<li>%s</li>' % to_html(x) for x in p["defend"])

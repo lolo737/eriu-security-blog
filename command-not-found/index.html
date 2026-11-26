@@ -27,16 +27,21 @@
   article strong{color:#fff}
   .kicker{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--cy);border:1px solid var(--line);border-radius:5px;padding:4px 10px;margin-bottom:14px}
   ul{list-style:none;margin:0 0 22px;display:flex;flex-direction:column;gap:11px}
-  ul li{display:flex;gap:12px;color:var(--ink)}
-  ul li::before{content:"\25B8";flex:none;color:var(--am);font-weight:700}
+  ul li{display:block;position:relative;padding-left:24px;color:var(--ink)}
+  ul li::before{content:"\25B8";position:absolute;left:0;top:0;color:var(--am);font-weight:700}
   ul.danger li::before{color:var(--rd)}ul.defend li::before{color:var(--gn)}
-  ol.steps{list-style:none;counter-reset:s;margin:0 0 22px;display:flex;flex-direction:column;gap:12px}
-  ol.steps li{counter-increment:s;display:flex;gap:16px;align-items:baseline}
-  ol.steps li::before{content:counter(s);font-family:'Oswald',sans-serif;font-weight:700;font-size:26px;color:var(--cy);flex:none;width:30px}
+  body{overflow-x:clip}
+  ol.steps{list-style:none;counter-reset:s;margin:26px 0 22px;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;width:min(1180px,calc(100vw - 48px));position:relative;left:50%;transform:translateX(-50%)}
+  ol.steps li{counter-increment:s;display:block;position:relative;padding:20px 20px 22px;border:1px solid rgba(0,219,204,.35);border-radius:14px;background:linear-gradient(180deg,rgba(0,219,204,.10),rgba(0,219,204,.03));font-size:16px;line-height:1.55}
+  ol.steps li::before{content:counter(s);display:block;font-family:'Oswald',sans-serif;font-weight:700;font-size:44px;line-height:1;color:var(--cy);margin-bottom:10px;text-shadow:0 0 18px rgba(0,219,204,.45)}
+  ol.steps li .lead{display:block;font-family:'Oswald',sans-serif;font-weight:600;font-size:21px;letter-spacing:.03em;text-transform:uppercase;color:#eafcfd;margin-bottom:8px}
+  ol.steps li .rest{color:var(--soft)}
+  @media(max-width:1020px){ol.steps{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){ol.steps{grid-template-columns:1fr}}
   .callout{border:2px solid var(--rd);background:rgba(245,68,71,.10);border-radius:12px;padding:20px 24px;margin:0 0 26px}
   .callout b{display:block;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:22px;color:#ffd4d5;margin-bottom:8px}
   .callout p{margin:0;color:#f3d9da;font-size:17px}
-  code{font-family:'JetBrains Mono',monospace;font-size:.84em;color:var(--cy);background:rgba(0,219,204,.09);border:1px solid var(--line);border-radius:5px;padding:1px 6px}
+  code{white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:.84em;color:var(--cy);background:rgba(0,219,204,.09);border:1px solid var(--line);border-radius:5px;padding:1px 6px}
   hr{border:0;border-top:1px solid var(--line);margin:40px 0}
   .outro{color:var(--soft);font-size:16.5px;font-style:italic}
   footer{margin-top:54px;padding-top:22px;border-top:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase;line-height:1.8}
@@ -48,7 +53,7 @@
 <span class="kicker">Muscle memory, meet Linux</span>
 <p class="lead">The interview question was simple enough. A user's Ubuntu laptop can't open any websites, and <code>apt update</code> fails too. The Wi-Fi says it's connected. A colleague on the same network is grand. You've a terminal in front of you — walk me through it.</p><p>My fingers went straight for <code>ipconfig</code>, with total confidence. Linux looked back at me and said <em>command not found</em>. Not an error I'd earned, exactly. Just the wrong dialect for the room I was standing in.</p><p>That's when it landed that the command was never the point. The commands change from one system to the next. The questions don't — and the questions are the bit worth learning.</p>
 <h2>What it actually is</h2><p>Troubleshooting a 'no internet' fault isn't a memory test of commands. It's asking the same few questions in the same order, starting at the bottom and working up, until one of them gets a bad answer. That answer is your fault. Windows, Linux or Mac, only the spelling changes.</p>
-<h2><span class="num">01</span>How it works</h2><ol class="steps"><li><strong>Does it have an address?</strong> Windows <code>ipconfig</code>, Linux <code>ip a</code>. Look for a sensible IP, not 169.254.x.x.</li><li><strong>Does it know the way out?</strong> Windows shows the gateway in <code>ipconfig</code>; Linux uses <code>ip route</code> and a <code>default via</code> line. Then ping the gateway.</li><li><strong>Can it reach the internet by number?</strong> <code>ping 8.8.8.8</code>. If that works, the connection is fine.</li><li><strong>Can it turn a name into a number?</strong> <code>nslookup</code> or <code>resolvectl query</code>. Number works, name fails: it's DNS.</li></ol><p>→ The first step that fails tells you which layer is broken. Everything after it is noise.</p>
+<h2><span class="num">01</span>How it works</h2><ol class="steps"><li><span class="lead">Does it have an address?</span><span class="rest">Windows <code>ipconfig</code>, Linux <code>ip a</code>. Look for a sensible IP, not 169.254.x.x.</span></li><li><span class="lead">Does it know the way out?</span><span class="rest">Windows shows the gateway in <code>ipconfig</code>; Linux uses <code>ip route</code> and a <code>default via</code> line. Then ping the gateway.</span></li><li><span class="lead">Can it reach the internet by number?</span><span class="rest"><code>ping 8.8.8.8</code>. If that works, the connection is fine.</span></li><li><span class="lead">Can it turn a name into a number?</span><span class="rest"><code>nslookup</code> or <code>resolvectl query</code>. Number works, name fails: it's DNS.</span></li></ol><p>→ The first step that fails tells you which layer is broken. Everything after it is noise.</p>
 <h2>Side by side</h2>
 <p>Same question, two dialects. Watch the Windows habit meet a Linux box. <span style="color:var(--mut);font-size:.85em">(Output simplified for the page.)</span></p>
 <div class="termwrap" id="termwrap">
