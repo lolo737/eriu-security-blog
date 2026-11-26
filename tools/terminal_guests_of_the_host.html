@@ -1,0 +1,12 @@
+<h2>Picture it</h2>
+<p>First, the one that decides the interview. A hypervisor is the software that carves one machine into several. <strong>Type 1</strong> sits directly on the hardware, which is why it's what you find in server rooms. <strong>Type 2</strong> is an ordinary app on top of an ordinary operating system, which is why it's what you find on a laptop.</p>
+<figure class="dia"><img src="diagram-hypervisors.svg" alt="Type 1 hypervisors run directly on the hardware; Type 2 run as an app on a host operating system" loading="lazy"><figcaption>Count the layers between the hardware and the VM. Type 1 has one. Type 2 has two.</figcaption></figure>
+<p>Next, VMs against containers. A VM carries a whole operating system of its own, which makes it heavy and well isolated. A container shares the host's kernel and carries only the app, which makes it light and quick to start.</p>
+<figure class="dia"><img src="diagram-vm-container.svg" alt="A virtual machine carries its own guest OS; containers share the host kernel" loading="lazy"><figcaption>Same hardware, different promise. VMs isolate. Containers economise.</figcaption></figure>
+<p>Last, the bit that trips people up. Citrix, AVD and Horizon are not hypervisors. They're the delivery layer between the user and a VM (or a shared server) running on a hypervisor. The user sees a screen; the files stay on the server.</p>
+<figure class="dia"><img src="diagram-delivery.svg" alt="Citrix, AVD and Horizon deliver desktops and apps from VMs on a hypervisor to the user's device" loading="lazy"><figcaption>Three flavours: one published app, one VM per user (VDI), or a shared server OS (RDS).</figcaption></figure>
+<style>
+figure.dia{margin:22px 0 30px}
+figure.dia img{display:block;width:100%;height:auto;border-radius:16px;box-shadow:0 0 40px rgba(0,219,204,.10)}
+figure.dia figcaption{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mut);margin-top:10px;text-align:center;letter-spacing:.04em}
+</style>

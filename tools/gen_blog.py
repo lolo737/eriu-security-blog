@@ -226,6 +226,11 @@ for p in POSTS:
         m2 = '<div class="callout">'
         assert m2 in art
         art = art.replace(m2, open(af).read() + m2, 1)
+    bf = os.path.join(os.path.dirname(os.path.abspath(__file__)), "bottom_%s.html" % p["slug"].replace("-","_"))
+    if os.path.exists(bf):
+        m3 = '<hr><p class="outro">'
+        assert m3 in art
+        art = art.replace(m3, open(bf).read() + m3, 1)
     open(os.path.join(d,"index.html"),"w").write(art)
     open(os.path.join(d,"poster.html"),"w").write(poster)
     open(os.path.join(d,"%s.md"%p["slug"]),"w").write(md(p))
