@@ -31,12 +31,12 @@ Troubleshooting a 'no internet' fault isn't a memory test of commands. It's aski
 
 ## Same question, different spelling
 
-The Windows habits that need translating on a Linux box:
+The Windows habits that need translating on a Linux box, with the card below to carry them:
 
-- **IP address** — Windows: ipconfig. Linux: ip a. Read the inet line.
-- **Gateway** — Windows: in ipconfig. Linux: ip route, look for default via.
-- **Ping** — Windows stops after four. Linux carries on forever. Use ping -c 4.
-- **Missing tool** — ifconfig or nslookup not installed? Use ip and resolvectl.
+- **IP & gateway** — Windows: ipconfig. Linux: ip a, then ip route.
+- **Ping** — Windows stops after four. Linux carries on. Use ping -c 4.
+- **Trace** — Windows: tracert. Linux: traceroute or tracepath.
+- **DNS** — Windows: nslookup, ipconfig /flushdns. Linux: resolvectl.
 
 ## ⚠ Colleague fine? Then it's this machine
 
@@ -44,7 +44,7 @@ If the same network works for someone else, the network is innocent. Stop poking
 
 ## Why it's dangerous
 
-- **Random fixes hide the fault.** A reboot that 'worked' teaches you nothing and the problem comes back.
+- **Reboot is not an option.** On a live machine you can't, and when you can, it wipes the evidence and the fault comes back.
 - **'Connected' isn't 'online'.** Wi-Fi joined with a 169.254 address means the radio's fine and the machine got no real IP.
 - **Browser and apt failing together** points below the apps: DNS, the route, a proxy or the clock.
 - **Changing three things at once** means you never learn which one fixed it.

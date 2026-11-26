@@ -183,6 +183,11 @@ for p in POSTS:
         marker = "<h2>" + to_html(p["sec3_label"]) + "</h2>"
         assert marker in art
         art = art.replace(marker, open(ef).read() + marker, 1)
+    af = os.path.join(os.path.dirname(os.path.abspath(__file__)), "after_%s.html" % p["slug"].replace("-","_"))
+    if os.path.exists(af):
+        m2 = '<div class="callout">'
+        assert m2 in art
+        art = art.replace(m2, open(af).read() + m2, 1)
     open(os.path.join(d,"index.html"),"w").write(art)
     open(os.path.join(d,"%s.md"%p["slug"]),"w").write(md(p))
     print("built", p["slug"])

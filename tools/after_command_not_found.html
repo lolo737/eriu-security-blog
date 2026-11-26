@@ -1,0 +1,64 @@
+<h2>Reboot is not an option</h2>
+<p>Here's the rule that makes this a real exercise: <strong>no rebooting.</strong> The user is mid-task, so you have to find the fault live. In real life it's the better habit anyway, because a restart wipes the evidence: the cache, the lease, the route. Nothing left to read, and the fault comes back on Tuesday.</p>
+<h2>Trace, check, flush, renew</h2>
+<p>Once the address and gateway look right, these four jobs cover most of what's left. The red line is a hop that stays quiet, and the trace carries on regardless, so that's not a fault.</p>
+<div class="termwrap" id="termwrap2">
+ <div class="term ps"><div class="bar"><i></i><i></i><i></i><span>Windows PowerShell</span></div><pre class="scr" id="t2-ps"></pre></div>
+ <div class="term ub"><div class="bar"><i></i><i></i><i></i><span>niall@ubuntu: ~</span></div><pre class="scr" id="t2-ub"></pre></div>
+</div>
+<button class="replay" id="t2-replay" type="button">&#8635; Replay</button>
+<script>
+(function(){
+ var PS=[["c","PS C:\> ","tracert -d 8.8.8.8"],["o","  1   <1 ms   192.168.1.1","ok"],["o","  2    9 ms   10.20.0.1"],["o","  3     *      Request timed out.","e"],["o","  4   14 ms   203.0.113.9"],["o","  5   14 ms   8.8.8.8","ok"],["o","Trace complete."],["c","PS C:\> ","nslookup ubuntu.com"],["o","Name:    ubuntu.com"],["o","Address: 203.0.113.50","ok"],["c","PS C:\> ","ipconfig /flushdns"],["o","Successfully flushed the DNS cache.","ok"],["c","PS C:\> ",""]];
+ var UB=[["c","niall@ubuntu:~$ ","traceroute -n 8.8.8.8"],["o"," 1  192.168.1.1  0.9 ms","ok"],["o"," 2  10.20.0.1  8.7 ms"],["o"," 3  * * *","e"],["o"," 4  203.0.113.9  13.9 ms"],["o"," 5  8.8.8.8  14.2 ms","ok"],["c","niall@ubuntu:~$ ","resolvectl query ubuntu.com"],["o","ubuntu.com: 203.0.113.50","ok"],["c","niall@ubuntu:~$ ","resolvectl flush-caches"],["o","(no output means it worked)"],["c","niall@ubuntu:~$ ",""]];
+ var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+ var run=0;
+ function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+ function sleep(ms){return new Promise(function(r){setTimeout(r,ms)})}
+ function full(el,seq){var h='';seq.forEach(function(l){h+=l[0]=='c'?'<span class="p">'+esc(l[1])+'</span>'+esc(l[2])+'\n':(l[2]?'<span class="'+l[2]+'">'+esc(l[1])+'</span>':esc(l[1]))+'\n'});el.innerHTML=h.replace(/\n$/,'')+'<span class="cur"></span>'}
+ async function play(el,seq,id,startDelay){
+  var h='';el.innerHTML='<span class="cur"></span>';await sleep(startDelay);
+  for(var i=0;i<seq.length;i++){
+   if(id!==run)return;var l=seq[i];
+   if(l[0]=='c'){h+='<span class="p">'+esc(l[1])+'</span>';
+    for(var j=0;j<l[2].length;j++){if(id!==run)return;h+=esc(l[2][j]);el.innerHTML=h+'<span class="cur"></span>';await sleep(70+Math.random()*60)}
+    if(i<seq.length-1){h+='\n';el.innerHTML=h+'<span class="cur"></span>';await sleep(450)}}
+   else{h+=(l[2]?'<span class="'+l[2]+'">'+esc(l[1])+'</span>':esc(l[1]))+'\n';el.innerHTML=h+'<span class="cur"></span>';await sleep(l[1]?260:120)}
+  }
+ }
+ function start(){run++;var id=run;play(document.getElementById('t2-ps'),PS,id,300);play(document.getElementById('t2-ub'),UB,id,900)}
+ var a=document.getElementById('t2-ps'),b=document.getElementById('t2-ub');
+ if(reduce){full(a,PS);full(b,UB)}else{
+  full(a,[PS[0]]);full(b,[UB[0]]);
+  if('IntersectionObserver' in window){var seen=false,io=new IntersectionObserver(function(en){if(en[0].isIntersecting&&!seen){seen=true;start();io.disconnect()}},{threshold:.35});io.observe(document.getElementById('termwrap2'))}else start();
+ }
+ document.getElementById('t2-replay').addEventListener('click',function(){if(reduce){full(a,PS);full(b,UB)}else start()});
+})();
+</script>
+<h2>Same method, other faults</h2>
+<p>It isn't only networks. Work from the bottom, change one thing at a time, keep the user informed.</p>
+<p><strong>New starter can't log in on day one</strong></p>
+<ul>
+<li><strong>The account:</strong> enabled, not locked out, not expired, and not set to "must change password at next logon". That last one is normal for a new account and catches people out.</li>
+<li><strong>What they typed:</strong> the exact error, caps lock, keyboard layout, and the username format (DOMAIN\user or the UPN).</li>
+<li><strong>The machine:</strong> is it domain-joined and can it reach a domain controller? A first logon can't use cached credentials. Check the clock too, because Kerberos fails when time is out by more than about five minutes.</li>
+<li><strong>Timing:</strong> a new account may not have replicated to the domain controller this PC is using yet, or synced to the cloud directory.</li>
+<li>Don't reset blindly. Verify who they are, then reset with change-at-next-logon.</li>
+</ul>
+<p><strong>A laptop showing 169.254.x.x</strong></p>
+<ul>
+<li>That's the machine giving itself an address because DHCP never answered. DHCP is four steps: Discover, Offer, Request, Acknowledge.</li>
+<li>Do other devices on the same network get addresses? If yes, suspect this device: the cable, Wi-Fi or switch port. If nobody does, suspect the DHCP server or scope: out of free leases, service down, wrong VLAN.</li>
+<li>On the laptop, release and renew (Windows: <code>ipconfig /release</code> then <code>/renew</code>; Linux: reconnect or <code>nmcli device reapply</code>). Then check the scope on the server.</li>
+</ul>
+<h2>The wallet card</h2>
+<p>All of this fits on a credit-card-sized reminder: the Linux ladder with the Windows equivalents on the front, ping and virtualisation on the back. Print it, cut it on the corner marks, keep it handy.</p>
+<div class="cards"><img src="wallet-card-front.png" alt="Wallet card front: Linux no sites ladder with Windows equivalents"><img src="wallet-card-back.png" alt="Wallet card back: ping ladder and virtualisation"></div>
+<p><a class="dl" href="wallet-card.pdf" download>&#11015; Download the printable card (PDF, A4, crop marks)</a></p>
+<style>
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+.cards img{width:100%;height:auto;border-radius:8px;border:1px solid var(--line);box-shadow:0 0 30px rgba(0,0,0,.4)}
+.dl{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--am);text-decoration:none;border:1px solid rgba(255,184,26,.5);border-radius:6px;padding:9px 14px}
+.dl:hover{background:rgba(255,184,26,.1)}
+@media(max-width:560px){.cards{grid-template-columns:1fr}}
+</style>
