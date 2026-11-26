@@ -7,10 +7,12 @@ def to_html(s):
     s = html.escape(s, quote=False)
     s = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', s)
     s = re.sub(r'\*(.+?)\*', r'<em>\1</em>', s)
+    s = re.sub(r'`(.+?)`', r'<code>\1</code>', s)
     return s
 def to_plain(s):
     s = re.sub(r'\*\*(.+?)\*\*', r'\1', s)
     s = re.sub(r'\*(.+?)\*', r'\1', s)
+    s = re.sub(r'`(.+?)`', r'\1', s)
     return html.escape(s, quote=False)
 
 POSTER_CSS = """
@@ -92,6 +94,7 @@ ARTICLE_CSS = """
   .callout{border:2px solid var(--rd);background:rgba(245,68,71,.10);border-radius:12px;padding:20px 24px;margin:0 0 26px}
   .callout b{display:block;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:22px;color:#ffd4d5;margin-bottom:8px}
   .callout p{margin:0;color:#f3d9da;font-size:17px}
+  code{font-family:'JetBrains Mono',monospace;font-size:.84em;color:var(--cy);background:rgba(0,219,204,.09);border:1px solid var(--line);border-radius:5px;padding:1px 6px}
   hr{border:0;border-top:1px solid var(--line);margin:40px 0}
   .outro{color:var(--soft);font-size:16.5px;font-style:italic}
   footer{margin-top:54px;padding-top:22px;border-top:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase;line-height:1.8}
@@ -129,9 +132,9 @@ def article_html(p):
     danger = "".join('<li>%s</li>' % to_html(x) for x in p["danger"])
     defend = "".join('<li>%s</li>' % to_html(x) for x in p["defend"])
     return """<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>%s — Eriu Technology</title><meta name="description" content="%s">%s<style>%s</style></head><body><div class="wrap">
+<title>%s — Eriu Technology</title><meta name="description" content="%s">%s<style>%s</style><script src="../glitch.js" defer></script></head><body><div class="wrap">
 <header class="top"><div class="brand"><b>Eriu Technology</b> &nbsp;·&nbsp; Security Awareness</div><a class="toplink" href="../">&larr; All briefings</a></header>
-<h1 class="title">%s</h1><p class="deck">%s</p><div class="byline">Eriu Technology &nbsp;·&nbsp; 31 October 2026</div>
+<h1 class="title">%s</h1><p class="deck">%s</p><div class="byline">Eriu Technology &nbsp;·&nbsp; %s</div>
 <figure class="hero"><a href="poster.html"><img src="%s.png" alt="%s poster"></a><figcaption>The one-page briefing. Click for the full-size poster.</figcaption></figure>
 <article>
 <span class="kicker">%s</span>
@@ -147,13 +150,13 @@ def article_html(p):
 <footer>Eriu Technology &nbsp;·&nbsp; eriu.tech &nbsp;·&nbsp; Security-awareness briefings<br>Awareness &amp; defence only &nbsp;·&nbsp; No build instructions</footer>
 </div></body></html>""" % (
         to_html(p["title"]), to_html(p["subtitle"]), FONTS, ARTICLE_CSS,
-        to_html(p["title"]), to_html(p["subtitle"]), p["slug"], to_html(p["title"]),
+        to_html(p["title"]), to_html(p["subtitle"]), p.get("long_date","31 October 2026"), p["slug"], to_html(p["title"]),
         to_html(p["intro_kicker"]), intro, to_html(p["what"]), steps, to_html(p["outcome"]),
         to_html(p["sec3_label"]), to_html(p["sec3_intro"]), ex, to_html(p["alert_title"]), to_html(p["alert_body"]),
         danger, defend, to_html(p["outro"]))
 
 def md(p):
-    fm = "---\ntitle: \"%s\"\ndescription: %s\nauthor: Eriu Technology\ndate: 2026-10-31\ntags: [security-awareness, smb-security]\n---\n\n" % (p["title"], p["subtitle"])
+    fm = "---\ntitle: \"%s\"\ndescription: %s\nauthor: Eriu Technology\ndate: %s\ntags: [security-awareness, smb-security]\n---\n\n" % (p["title"], p["subtitle"], p.get("iso_date","2026-10-31"))
     out = fm + "![%s poster](./%s.png)\n\n" % (p["title"], p["slug"])
     out += "## %s\n\n" % p["intro_kicker"]
     out += "\n\n".join(p["intro"]) + "\n\n"
@@ -166,12 +169,21 @@ def md(p):
     out += "---\n\n*%s*\n" % p["outro"]
     return out
 
-exec(open("/home/claude/blog_content.py").read())
+import sys
+exec(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),"blog_content.py")).read())
+ONLY=set(sys.argv[1:])
 
 for p in POSTS:
+    if ONLY and p["slug"] not in ONLY: continue
     d = os.path.join(OUT, p["slug"]); os.makedirs(d, exist_ok=True)
     open(os.path.join(d,"poster.html"),"w").write(poster_html(p))
-    open(os.path.join(d,"index.html"),"w").write(article_html(p))
+    art = article_html(p)
+    ef = os.path.join(os.path.dirname(os.path.abspath(__file__)), "terminal_%s.html" % p["slug"].replace("-","_"))
+    if os.path.exists(ef):
+        marker = "<h2>" + to_html(p["sec3_label"]) + "</h2>"
+        assert marker in art
+        art = art.replace(marker, open(ef).read() + marker, 1)
+    open(os.path.join(d,"index.html"),"w").write(art)
     open(os.path.join(d,"%s.md"%p["slug"]),"w").write(md(p))
     print("built", p["slug"])
 

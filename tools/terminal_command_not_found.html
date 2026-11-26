@@ -1,0 +1,52 @@
+<h2>Side by side</h2>
+<p>Same question, two dialects. Watch the Windows habit meet a Linux box. <span style="color:var(--mut);font-size:.85em">(Output simplified for the page.)</span></p>
+<div class="termwrap" id="termwrap">
+ <div class="term ps"><div class="bar"><i></i><i></i><i></i><span>Windows PowerShell</span></div><pre class="scr" id="t-ps"></pre></div>
+ <div class="term ub"><div class="bar"><i></i><i></i><i></i><span>niall@ubuntu: ~</span></div><pre class="scr" id="t-ub"></pre></div>
+</div>
+<button class="replay" id="t-replay" type="button">&#8635; Replay</button>
+<style>
+.termwrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0 10px}
+.term{border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 0 40px rgba(0,0,0,.45)}
+.term .bar{display:flex;align-items:center;gap:6px;padding:8px 11px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#dfe9ec}
+.term .bar i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28);display:inline-block}
+.term .bar span{margin-left:8px;letter-spacing:.04em}
+.term.ps .bar{background:#0b3a78}.term.ub .bar{background:#4a1b3b}.term.ub .bar i:first-child{background:#e95420}
+.scr{margin:0;height:318px;overflow:hidden;padding:12px 13px;font-family:'JetBrains Mono',monospace;font-size:11.2px;line-height:1.55;white-space:pre;color:#e6edf0}
+.term.ps .scr{background:#012456}.term.ub .scr{background:#2c0a22}
+.scr .p{color:#ffe08a}.term.ub .scr .p{color:#8ae234}.scr .e{color:#ff7b7b}.scr .ok{color:#7be8b4}
+.scr .cur{display:inline-block;width:.55em;height:1em;background:#e6edf0;vertical-align:-2px;animation:tblink 1s steps(1) infinite}
+@keyframes tblink{50%{opacity:0}}
+.replay{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--cy);background:transparent;border:1px solid var(--line);border-radius:6px;padding:7px 14px;cursor:pointer;margin-bottom:6px}
+.replay:hover{border-color:rgba(0,219,204,.5)}
+@media(max-width:720px){.termwrap{grid-template-columns:1fr}.scr{height:290px}}
+@media (prefers-reduced-motion:reduce){.scr .cur{animation:none}}
+</style>
+<script>
+(function(){
+ var PS=[["c","PS C:\\> ","ipconfig"],["o",""],["o","Windows IP Configuration"],["o",""],["o","Wireless LAN adapter Wi-Fi:"],["o","   IPv4 Address. . : 192.168.1.45","ok"],["o","   Default Gateway : 192.168.1.1","ok"],["o",""],["c","PS C:\\> ","ping 8.8.8.8"],["o","Reply from 8.8.8.8: time=14ms"],["o","Reply from 8.8.8.8: time=13ms"],["o","Reply from 8.8.8.8: time=15ms"],["o","Reply from 8.8.8.8: time=14ms"],["o","Sent 4, lost 0. Stops by itself.","ok"],["c","PS C:\\> ",""]];
+ var UB=[["c","niall@ubuntu:~$ ","ipconfig"],["o","ipconfig: command not found","e"],["o",""],["c","niall@ubuntu:~$ ","ip a"],["o","2: wlp2s0: state UP"],["o","    inet 192.168.1.45/24","ok"],["c","niall@ubuntu:~$ ","ip route"],["o","default via 192.168.1.1 dev wlp2s0","ok"],["c","niall@ubuntu:~$ ","ping -c 4 8.8.8.8"],["o","64 bytes from 8.8.8.8: time=14 ms"],["o","64 bytes from 8.8.8.8: time=13 ms"],["o","64 bytes from 8.8.8.8: time=15 ms"],["o","64 bytes from 8.8.8.8: time=14 ms"],["o","4 sent, 0% loss. (-c 4 stops it)","ok"],["c","niall@ubuntu:~$ ",""]];
+ var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+ var run=0;
+ function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+ function sleep(ms){return new Promise(function(r){setTimeout(r,ms)})}
+ function full(el,seq){var h='';seq.forEach(function(l){h+=l[0]=='c'?'<span class="p">'+esc(l[1])+'</span>'+esc(l[2])+'\n':(l[2]?'<span class="'+l[2]+'">'+esc(l[1])+'</span>':esc(l[1]))+'\n'});el.innerHTML=h.replace(/\n$/,'')+'<span class="cur"></span>'}
+ async function play(el,seq,id,startDelay){
+  var h='';el.innerHTML='<span class="cur"></span>';await sleep(startDelay);
+  for(var i=0;i<seq.length;i++){
+   if(id!==run)return;var l=seq[i];
+   if(l[0]=='c'){h+='<span class="p">'+esc(l[1])+'</span>';
+    for(var j=0;j<l[2].length;j++){if(id!==run)return;h+=esc(l[2][j]);el.innerHTML=h+'<span class="cur"></span>';await sleep(70+Math.random()*60)}
+    if(i<seq.length-1){h+='\n';el.innerHTML=h+'<span class="cur"></span>';await sleep(450)}}
+   else{h+=(l[2]?'<span class="'+l[2]+'">'+esc(l[1])+'</span>':esc(l[1]))+'\n';el.innerHTML=h+'<span class="cur"></span>';await sleep(l[1]?260:120)}
+  }
+ }
+ function start(){run++;var id=run;play(document.getElementById('t-ps'),PS,id,300);play(document.getElementById('t-ub'),UB,id,900)}
+ var a=document.getElementById('t-ps'),b=document.getElementById('t-ub');
+ if(reduce){full(a,PS);full(b,UB)}else{
+  full(a,[PS[0]]);full(b,[UB[0]]);
+  if('IntersectionObserver' in window){var seen=false,io=new IntersectionObserver(function(en){if(en[0].isIntersecting&&!seen){seen=true;start();io.disconnect()}},{threshold:.35});io.observe(document.getElementById('termwrap'))}else start();
+ }
+ document.getElementById('t-replay').addEventListener('click',function(){if(reduce){full(a,PS);full(b,UB)}else start()});
+})();
+</script>
