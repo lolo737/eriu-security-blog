@@ -44,6 +44,14 @@ POSTER_CSS = """
   .e{background:rgba(255,184,26,.08);border-radius:10px;padding:14px 13px 15px}
   .e b{display:block;font-family:'Oswald','Arial Narrow',Impact,sans-serif;font-weight:700;letter-spacing:.03em;font-size:15px;color:#ffe4a6;text-transform:uppercase;margin-bottom:6px}
   .e span{font-size:13px;line-height:1.3;color:var(--ink)}
+  table.pb{width:100%;border-collapse:separate;border-spacing:0 7px;margin-top:12px}
+  table.pb th{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;text-align:left;padding:2px 14px 4px;color:var(--am)}
+  table.pb th.w{color:#7db4ff}table.pb th.l{color:#ff9a6b}
+  table.pb td{background:rgba(255,184,26,.07);padding:11px 14px;font-size:14px;line-height:1.35;vertical-align:middle}
+  table.pb td:first-child{font-family:'Oswald','Arial Narrow',Impact,sans-serif;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#ffe4a6;font-size:15px;border-radius:10px 0 0 10px;width:21%}
+  table.pb td:last-child{border-radius:0 10px 10px 0}
+  table.pb td.m{font-family:'JetBrains Mono',monospace;font-size:13px;color:#e6f1f3}
+  table.pb td.w{border-left:3px solid #7db4ff}table.pb td.l{border-left:3px solid #ff9a6b}
   .alert{border:2px solid var(--rd);background:rgba(245,68,71,.12);border-radius:14px;padding:20px 24px;display:flex;gap:18px;align-items:flex-start}
   .alert .bang{font-family:'Oswald','Arial Narrow',Impact,sans-serif;font-weight:700;font-size:40px;color:var(--rd);line-height:.9;flex:none}
   .alert .atxt b{display:block;font-family:'Oswald','Arial Narrow',Impact,sans-serif;font-weight:700;letter-spacing:.06em;font-size:21px;color:#ffd4d5;text-transform:uppercase;margin-bottom:5px}
@@ -99,6 +107,15 @@ ARTICLE_CSS = """
   .callout{border:2px solid var(--rd);background:rgba(245,68,71,.10);border-radius:12px;padding:20px 24px;margin:0 0 26px}
   .callout b{display:block;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:22px;color:#ffd4d5;margin-bottom:8px}
   .callout p{margin:0;color:#f3d9da;font-size:17px}
+  table.pb{width:min(1000px,calc(100vw - 48px));position:relative;left:50%;transform:translateX(-50%);border-collapse:separate;border-spacing:0 8px;margin:14px 0 26px}
+  table.pb th{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;text-align:left;padding:2px 16px 4px;color:var(--am)}
+  table.pb th.w{color:#7db4ff}table.pb th.l{color:#ff9a6b}
+  table.pb td{background:rgba(255,184,26,.06);padding:13px 16px;font-size:16px;line-height:1.4;vertical-align:middle}
+  table.pb td:first-child{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#ffe4a6;font-size:17px;border-radius:10px 0 0 10px;width:22%}
+  table.pb td:last-child{border-radius:0 10px 10px 0}
+  table.pb td.m{font-family:'JetBrains Mono',monospace;font-size:14.5px;color:#e6f1f3}
+  table.pb td.w{border-left:3px solid #7db4ff}table.pb td.l{border-left:3px solid #ff9a6b}
+  @media(max-width:620px){table.pb,table.pb tbody,table.pb tr,table.pb td{display:block;width:100%}table.pb thead{display:none}table.pb tr{margin-bottom:12px}table.pb td{border-radius:0!important}table.pb td:first-child{border-radius:10px 10px 0 0!important;width:100%}table.pb td:last-child{border-radius:0 0 10px 10px!important}table.pb td.w::before{content:"Windows  ";color:#7db4ff;font-size:11px;letter-spacing:.15em;text-transform:uppercase}table.pb td.l::before{content:"Linux  ";color:#ff9a6b;font-size:11px;letter-spacing:.15em;text-transform:uppercase}}
   code{white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:.84em;color:var(--cy);background:rgba(0,219,204,.09);border:1px solid var(--line);border-radius:5px;padding:1px 6px}
   hr{border:0;border-top:1px solid var(--line);margin:40px 0}
   .outro{color:var(--soft);font-size:16.5px;font-style:italic}
@@ -106,6 +123,11 @@ ARTICLE_CSS = """
 """
 
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">'
+
+
+def pb_table(p, esc=html.escape):
+    rows = "".join('<tr><td>%s</td><td class="m w">%s</td><td class="m l">%s</td></tr>' % (esc(j,quote=False), esc(w,quote=False), esc(l,quote=False)) for j,w,l in p["phrasebook"])
+    return '<table class="pb"><thead><tr><th></th><th class="w">Windows</th><th class="l">Linux</th></tr></thead><tbody>%s</tbody></table>' % rows
 
 def poster_html(p):
     steps = "".join('<div class="step"><div class="n">%d</div><div class="t">%s</div></div>' % (i+1, to_plain(s)) for i,s in enumerate(p["steps"]))
@@ -185,8 +207,15 @@ ONLY=set(sys.argv[1:])
 for p in POSTS:
     if ONLY and p["slug"] not in ONLY: continue
     d = os.path.join(OUT, p["slug"]); os.makedirs(d, exist_ok=True)
-    open(os.path.join(d,"poster.html"),"w").write(poster_html(p))
+    pass
     art = article_html(p)
+    poster = poster_html(p)
+    if p.get("phrasebook"):
+        tbl = pb_table(p)
+        poster, n1 = re.subn(r'<div class="ex">(?:<div class="e">.*?</div>)+</div>', lambda m: tbl, poster, count=1, flags=re.S)
+        lab = re.escape(to_html(p["sec3_label"]))
+        art, n2 = re.subn(r'(<h2>%s</h2><p>.*?</p>)<ul>.*?</ul>' % lab, lambda m: m.group(1)+tbl, art, count=1, flags=re.S)
+        assert n1 == 1 and n2 == 1, (n1, n2)
     ef = os.path.join(os.path.dirname(os.path.abspath(__file__)), "terminal_%s.html" % p["slug"].replace("-","_"))
     if os.path.exists(ef):
         marker = "<h2>" + to_html(p["sec3_label"]) + "</h2>"
@@ -198,6 +227,7 @@ for p in POSTS:
         assert m2 in art
         art = art.replace(m2, open(af).read() + m2, 1)
     open(os.path.join(d,"index.html"),"w").write(art)
+    open(os.path.join(d,"poster.html"),"w").write(poster)
     open(os.path.join(d,"%s.md"%p["slug"]),"w").write(md(p))
     print("built", p["slug"])
 

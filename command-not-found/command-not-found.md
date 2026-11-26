@@ -31,7 +31,7 @@ Troubleshooting a 'no internet' fault isn't a memory test of commands. It's aski
 
 ## Same question, different spelling
 
-The Windows habits that need translating on a Linux box, with the card below to carry them:
+Every Windows habit, next to its Linux spelling:
 
 - **IP & gateway** — Windows: ipconfig. Linux: ip a, then ip route.
 - **Ping** — Windows stops after four. Linux carries on. Use ping -c 4.

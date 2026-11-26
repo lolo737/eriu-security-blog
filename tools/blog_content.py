@@ -513,12 +513,20 @@ POSTS = [
    "**Can it turn a name into a number?** `nslookup` or `resolvectl query`. Number works, name fails: it's DNS."],
  "outcome":"→ The first step that fails tells you which layer is broken. Everything after it is noise.",
  "sec3_label":"Same question, different spelling",
- "sec3_intro":"The Windows habits that need translating on a Linux box, with the card below to carry them:",
+ "sec3_intro":"Every Windows habit, next to its Linux spelling:",
  "examples":[
    ("IP & gateway","Windows: ipconfig. Linux: ip a, then ip route."),
    ("Ping","Windows stops after four. Linux carries on. Use ping -c 4."),
    ("Trace","Windows: tracert. Linux: traceroute or tracepath."),
    ("DNS","Windows: nslookup, ipconfig /flushdns. Linux: resolvectl.")],
+ "phrasebook":[
+   ("IP address","ipconfig","ip a"),
+   ("Gateway","ipconfig (Default Gateway line)","ip route (look for default via)"),
+   ("Ping","ping 8.8.8.8 (stops after 4)","ping -c 4 8.8.8.8"),
+   ("Trace the path","tracert 8.8.8.8","traceroute 8.8.8.8 (or tracepath)"),
+   ("Check a name","nslookup ubuntu.com","resolvectl query ubuntu.com"),
+   ("Flush DNS","ipconfig /flushdns","resolvectl flush-caches"),
+   ("Renew the lease","ipconfig /release, then /renew","reconnect, or nmcli device reapply")],
  "alert_title":"Colleague fine? Then it's this machine",
  "alert_body":"If the same network works for someone else, the network is innocent. Stop poking the router and look at the device: its address, its route, its DNS, a stray proxy, a clock that's wrong enough to break HTTPS. Comparing it with a working machine is faster than guessing.",
  "danger":[

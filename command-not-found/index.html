@@ -41,6 +41,15 @@
   .callout{border:2px solid var(--rd);background:rgba(245,68,71,.10);border-radius:12px;padding:20px 24px;margin:0 0 26px}
   .callout b{display:block;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:22px;color:#ffd4d5;margin-bottom:8px}
   .callout p{margin:0;color:#f3d9da;font-size:17px}
+  table.pb{width:min(1000px,calc(100vw - 48px));position:relative;left:50%;transform:translateX(-50%);border-collapse:separate;border-spacing:0 8px;margin:14px 0 26px}
+  table.pb th{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;text-align:left;padding:2px 16px 4px;color:var(--am)}
+  table.pb th.w{color:#7db4ff}table.pb th.l{color:#ff9a6b}
+  table.pb td{background:rgba(255,184,26,.06);padding:13px 16px;font-size:16px;line-height:1.4;vertical-align:middle}
+  table.pb td:first-child{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#ffe4a6;font-size:17px;border-radius:10px 0 0 10px;width:22%}
+  table.pb td:last-child{border-radius:0 10px 10px 0}
+  table.pb td.m{font-family:'JetBrains Mono',monospace;font-size:14.5px;color:#e6f1f3}
+  table.pb td.w{border-left:3px solid #7db4ff}table.pb td.l{border-left:3px solid #ff9a6b}
+  @media(max-width:620px){table.pb,table.pb tbody,table.pb tr,table.pb td{display:block;width:100%}table.pb thead{display:none}table.pb tr{margin-bottom:12px}table.pb td{border-radius:0!important}table.pb td:first-child{border-radius:10px 10px 0 0!important;width:100%}table.pb td:last-child{border-radius:0 0 10px 10px!important}table.pb td.w::before{content:"Windows  ";color:#7db4ff;font-size:11px;letter-spacing:.15em;text-transform:uppercase}table.pb td.l::before{content:"Linux  ";color:#ff9a6b;font-size:11px;letter-spacing:.15em;text-transform:uppercase}}
   code{white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:.84em;color:var(--cy);background:rgba(0,219,204,.09);border:1px solid var(--line);border-radius:5px;padding:1px 6px}
   hr{border:0;border-top:1px solid var(--line);margin:40px 0}
   .outro{color:var(--soft);font-size:16.5px;font-style:italic}
@@ -106,7 +115,7 @@
  document.getElementById('t-replay').addEventListener('click',function(){if(reduce){full(a,PS);full(b,UB)}else start()});
 })();
 </script>
-<h2>Same question, different spelling</h2><p>The Windows habits that need translating on a Linux box, with the card below to carry them:</p><ul><li><strong>IP &amp; gateway</strong> — Windows: ipconfig. Linux: ip a, then ip route.</li><li><strong>Ping</strong> — Windows stops after four. Linux carries on. Use ping -c 4.</li><li><strong>Trace</strong> — Windows: tracert. Linux: traceroute or tracepath.</li><li><strong>DNS</strong> — Windows: nslookup, ipconfig /flushdns. Linux: resolvectl.</li></ul>
+<h2>Same question, different spelling</h2><p>Every Windows habit, next to its Linux spelling:</p><table class="pb"><thead><tr><th></th><th class="w">Windows</th><th class="l">Linux</th></tr></thead><tbody><tr><td>IP address</td><td class="m w">ipconfig</td><td class="m l">ip a</td></tr><tr><td>Gateway</td><td class="m w">ipconfig (Default Gateway line)</td><td class="m l">ip route (look for default via)</td></tr><tr><td>Ping</td><td class="m w">ping 8.8.8.8 (stops after 4)</td><td class="m l">ping -c 4 8.8.8.8</td></tr><tr><td>Trace the path</td><td class="m w">tracert 8.8.8.8</td><td class="m l">traceroute 8.8.8.8 (or tracepath)</td></tr><tr><td>Check a name</td><td class="m w">nslookup ubuntu.com</td><td class="m l">resolvectl query ubuntu.com</td></tr><tr><td>Flush DNS</td><td class="m w">ipconfig /flushdns</td><td class="m l">resolvectl flush-caches</td></tr><tr><td>Renew the lease</td><td class="m w">ipconfig /release, then /renew</td><td class="m l">reconnect, or nmcli device reapply</td></tr></tbody></table>
 <h2>Reboot is not an option</h2>
 <p>Here's the rule that makes this a real exercise: <strong>no rebooting.</strong> The user is mid-task, so you have to find the fault live. In real life it's the better habit anyway, because a restart wipes the evidence: the cache, the lease, the route. Nothing left to read, and the fault comes back on Tuesday.</p>
 <h2>Trace, check, flush, renew</h2>
