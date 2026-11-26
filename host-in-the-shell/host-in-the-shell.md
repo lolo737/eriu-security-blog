@@ -1,20 +1,20 @@
 ---
-title: "Guests of the Host"
+title: "Host in the Shell"
 description: Hypervisors, VMs, containers, Citrix and AVD: what runs on what, in plain English, with pictures.
 author: Eriu Technology
 date: 2026-11-26
 tags: [security-awareness, smb-security]
 ---
 
-![Guests of the Host poster](./guests-of-the-host.png)
+![Host in the Shell poster](./host-in-the-shell.png)
 
-## A question that costs jobs
+## Earlier this week
 
-There's a question that has quietly ended interviews for better candidates than me: *what's the difference between a Type 1 and a Type 2 hypervisor?*
+Earlier this week I was asked about virtualisation, and I wasn't too sure about the different kinds. I could have bluffed it. I'd rather learn it properly.
 
-I've been caught out by it more than once. I knew the words. Hyper-V, VMware, Citrix and AVD were all on my CV. What I couldn't do was say which one sits on which, and a CV full of nouns with no layers between them is just a list.
+The one I've used most is **Citrix**. In a government institution that means the app lives on a server, and you reach it through a window on your computer. Simple as.
 
-So I drew it. Boxes, arrows, rounded corners. Once you can see the layers, nobody can muddle you. Here's the drawing.
+Citrix is only one layer of the story, though. The rest, and what sits on what, is explained below.
 
 ## What it actually is
 

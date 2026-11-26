@@ -1,6 +1,6 @@
-# Diagrams for the "Guests of the Host" briefing (house palette, dark panels, rounded boxes).
+# Diagrams for the "Host in the Shell" briefing (house palette, dark panels, rounded boxes).
 import os
-D=os.path.join(os.path.dirname(os.path.abspath(__file__)),"..","guests-of-the-host")
+D=os.path.join(os.path.dirname(os.path.abspath(__file__)),"..","host-in-the-shell")
 CY,AM,RD,GN,LAV,INK="#00dbcc","#ffb81a","#f54447","#40ea99","#b8a9e8","#d7e7ea"
 F='font-family="Inter,Helvetica,Arial,sans-serif"'
 def box(x,y,w,h,fill,text,tc="#02141a",fs=17,weight=700,stroke="none",rx=14):

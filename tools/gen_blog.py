@@ -232,6 +232,8 @@ for p in POSTS:
         assert m3 in art
         art = art.replace(m3, open(bf).read() + m3, 1)
     open(os.path.join(d,"index.html"),"w").write(art)
+    cp = os.path.join(os.path.dirname(os.path.abspath(__file__)), "poster_%s.html" % p["slug"].replace("-","_"))
+    if os.path.exists(cp): poster = open(cp).read()
     open(os.path.join(d,"poster.html"),"w").write(poster)
     open(os.path.join(d,"%s.md"%p["slug"]),"w").write(md(p))
     print("built", p["slug"])
