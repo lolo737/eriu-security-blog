@@ -243,6 +243,8 @@ for p in POSTS:
     if p.get("poster_img"):
         poster = poster.replace('<div class="hero">', '<div class="hero"><img class="wz" src="%s" alt="">' % p["poster_img"], 1)
         poster = poster.replace('</style>', '.wz{display:block;width:118px;height:118px;border-radius:50%;object-fit:cover;margin:0 auto 18px;border:2px solid rgba(0,219,204,.7);box-shadow:0 0 34px rgba(0,219,204,.35)}</style>', 1)
+    if p.get("house_poster"):
+        open(os.path.join(d,"poster-house.html"),"w").write(poster.replace("-3px 0 rgba(245,68,71,.85),3px 0 rgba(0,219,204,.85),0 0 34px rgba(0,219,204,.5)","0 0 28px rgba(0,219,204,.35)"))
     open(os.path.join(d,"poster.html"),"w").write(poster)
     open(os.path.join(d,"%s.md"%p["slug"]),"w").write(md(p))
     print("built", p["slug"])

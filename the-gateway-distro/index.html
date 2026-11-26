@@ -63,7 +63,7 @@
 <p class="lead">Ubuntu is the gateway drug. Somebody you love has an old laptop that's barely clinging on, and you can't bring yourself to bin it. So you swap the hard drive for an SSD, put Ubuntu on it, and ten minutes later it boots faster than the day it was bought. You're in. You are now the family IT department, unpaid.</p><p>There's a prettier cousin too, elementary OS, which is Linux wearing a Mac costume. I couldn't remember its name for a good five minutes and kept calling it 'the pretty one'. Underneath, it speaks exactly the same dialect.</p><p>Then one day the friendly icons run out and somebody says <em>just open a terminal</em>. Good news: you need about a dozen commands, and I've animated the lot. The catch, and the reason this is on a security blog, is that every one of them runs with <em>your</em> authority. Learn the commands, and learn which ones to treat with respect.</p>
 <h2>What it actually is</h2><p>Ubuntu is a free, friendly, well-patched operating system, and the terminal is just a way of giving it instructions in writing. Day to day you'll update it, move around its folders, look inside files, install and remove software, and check it's healthy. None of that is hard. The security part is knowing that a terminal does exactly what it's told, as whoever told it.</p>
 <h2><span class="num">01</span>How it works</h2><ol class="steps"><li><span class="lead">Update first</span><span class="rest"><code>sudo apt update</code>, then <code>sudo apt upgrade</code>. Patches are the cheapest defence you'll ever buy.</span></li><li><span class="lead">Look before you act</span><span class="rest"><code>pwd</code> tells you where you are, <code>ls</code> shows what's here. Most disasters start in the wrong folder.</span></li><li><span class="lead">Ask nicely</span><span class="rest"><code>sudo</code> borrows admin power for one command. Read the whole line before you press Enter.</span></li><li><span class="lead">Lock the door</span><span class="rest"><code>sudo ufw enable</code> turns the firewall on. Ubuntu ships with it off.</span></li></ol><p>→ Four habits cover most of an ordinary day, and most of the risk.</p>
-<h2>Six scenes you'll see every week</h2>
+<h2>Eight scenes you'll see every week</h2>
 <p>Each one is a real job from a normal week with an old laptop and a new SSD. They play as they scroll into view, and there's a replay under each. <span style="color:var(--mut);font-size:.85em">(Output simplified for the page.)</span></p>
 <div class="gtgrid" id="gtgrid"></div>
 <figure class="pit"><img src="wifi-postit.png" alt="A curled pink Post-it note held on with tape, reading wifi, with an old password crossed out and a new one written beneath"><figcaption>Exhibit A, from scene 3: the wifi password, as kept in the wild. The tape is doing all the work. (The password has since been changed. Obviously.)</figcaption></figure>
@@ -91,7 +91,7 @@ figure.pit figcaption{font-family:'JetBrains Mono',monospace;font-size:12px;colo
 </style>
 <script>
 (function(){
- var SCENES=[{"n": 1, "t": "Keep it patched", "d": [["c", "niall@ubuntu:~$ ", "sudo apt update"], ["o", "[sudo] password for niall:"], ["o", "Hit:1 ie.archive.ubuntu.com noble"], ["o", "Get:2 security.ubuntu.com noble-security"], ["o", "Fetched 1,204 kB in 2s"], ["o", "14 packages can be upgraded.", "ok"], ["c", "niall@ubuntu:~$ ", "sudo apt upgrade"], ["o", "The following will be upgraded:"], ["o", "  firefox libssl3t64 linux-image-generic"], ["o", "14 upgraded, 0 newly installed.", "ok"], ["o", "*** System restart required ***", "w"], ["c", "niall@ubuntu:~$ ", ""]]}, {"n": 2, "t": "Find your feet", "d": [["c", "niall@ubuntu:~$ ", "pwd"], ["o", "/home/niall", "ok"], ["c", "niall@ubuntu:~$ ", "ls"], ["o", "Desktop  Documents  Downloads  Music"], ["c", "niall@ubuntu:~$ ", "cd Documents"], ["c", "niall@ubuntu:~/Documents$ ", "mkdir invoices"], ["c", "niall@ubuntu:~/Documents$ ", "ls"], ["o", "invoices  letter.odt"], ["c", "niall@ubuntu:~/Documents$ ", "cp letter.odt invoices/"], ["o", "(no output means it worked)", "ok"], ["c", "niall@ubuntu:~/Documents$ ", "mv letter.odt old-letter.odt"], ["c", "niall@ubuntu:~/Documents$ ", ""]]}, {"n": 3, "t": "Look inside", "d": [["c", "niall@ubuntu:~$ ", "cat notes.txt"], ["o", "wifi password: on the fridge"], ["o", "buy milk"], ["o", "ring Mam"], ["c", "niall@ubuntu:~$ ", "grep -i wifi notes.txt"], ["o", "wifi password: on the fridge", "ok"], ["c", "niall@ubuntu:~$ ", "wc -l notes.txt"], ["o", "3 notes.txt"], ["c", "niall@ubuntu:~$ ", "find ~ -name \"*.pdf\""], ["o", "/home/niall/Documents/march.pdf", "ok"], ["o", "/home/niall/Downloads/manual.pdf", "ok"], ["c", "niall@ubuntu:~$ ", ""]]}, {"n": 4, "t": "Install and remove", "d": [["c", "niall@ubuntu:~$ ", "sudo apt install htop"], ["o", "The following NEW packages will be"], ["o", "installed:"], ["o", "  htop"], ["o", "0 upgraded, 1 newly installed.", "ok"], ["o", "Setting up htop ..."], ["c", "niall@ubuntu:~$ ", "sudo apt remove htop"], ["o", "Removing htop ...", "ok"], ["c", "niall@ubuntu:~$ ", "apt search vlc | head -3"], ["o", "vlc/noble  media player", "ok"], ["c", "niall@ubuntu:~$ ", ""]]}, {"n": 5, "t": "Is it healthy?", "d": [["c", "niall@ubuntu:~$ ", "df -h"], ["o", "Filesystem  Size Used Avail Use%"], ["o", "/dev/sda2    233G  41G  180G  19%", "ok"], ["c", "niall@ubuntu:~$ ", "free -h"], ["o", "       total   used   free"], ["o", "Mem:   7.7Gi  2.1Gi  3.9Gi", "ok"], ["o", "Swap:  2.0Gi     0B  2.0Gi"], ["c", "niall@ubuntu:~$ ", "uptime"], ["o", " up 3 days, load average: 0.21", "ok"], ["c", "niall@ubuntu:~$ ", ""]]}, {"n": 6, "t": "Lock the door", "d": [["c", "niall@ubuntu:~$ ", "sudo ufw status"], ["o", "Status: inactive", "e"], ["c", "niall@ubuntu:~$ ", "sudo ufw enable"], ["o", "Firewall is active and enabled", "ok"], ["o", "on system startup", "ok"], ["c", "niall@ubuntu:~$ ", "sudo ufw status"], ["o", "Status: active", "ok"], ["c", "niall@ubuntu:~$ ", ""]]}];
+ var SCENES=[{"n": 1, "t": "Keep it patched", "d": [["c", "niall@ubuntu:~$ ", "sudo apt update"], ["o", "[sudo] password for niall:"], ["o", "Hit:1 ie.archive.ubuntu.com noble"], ["o", "Get:2 security.ubuntu.com noble-security"], ["o", "Fetched 1,204 kB in 2s"], ["o", "14 packages can be upgraded.", "ok"], ["c", "niall@ubuntu:~$ ", "sudo apt upgrade"], ["o", "The following will be upgraded:"], ["o", "  firefox libssl3t64 linux-image-generic"], ["o", "14 upgraded, 0 newly installed.", "ok"], ["o", "*** System restart required ***", "w"], ["c", "niall@ubuntu:~$ ", ""]]}, {"n": 2, "t": "Find your feet", "d": [["c", "niall@ubuntu:~$ ", "pwd"], ["o", "/home/niall", "ok"], ["c", "niall@ubuntu:~$ ", "ls"], ["o", "Desktop  Documents  Downloads  Music"], ["c", "niall@ubuntu:~$ ", "cd Documents"], ["c", "niall@ubuntu:~/Documents$ ", "mkdir invoices"], ["c", "niall@ubuntu:~/Documents$ ", "ls"], ["o", "invoices  letter.odt"], ["c", "niall@ubuntu:~/Documents$ ", "cp letter.odt invoices/"], ["o", "(no output means it worked)", "ok"], ["c", "niall@ubuntu:~/Documents$ ", "mv letter.odt old-letter.odt"], ["c", "niall@ubuntu:~/Documents$ ", ""]]}, {"n": 3, "t": "Look inside", "d": [["c", "niall@ubuntu:~$ ", "cat notes.txt"], ["o", "wifi password: on the fridge"], ["o", "buy milk"], ["o", "ring Mam"], ["c", "niall@ubuntu:~$ ", "grep -i wifi notes.txt"], ["o", "wifi password: on the fridge", "ok"], ["c", "niall@ubuntu:~$ ", "wc -l notes.txt"], ["o", "3 notes.txt"], ["c", "niall@ubuntu:~$ ", "find ~ -name \"*.pdf\""], ["o", "/home/niall/Documents/march.pdf", "ok"], ["o", "/home/niall/Downloads/manual.pdf", "ok"], ["c", "niall@ubuntu:~$ ", ""]]}, {"n": 4, "t": "Install and remove", "d": [["c", "niall@ubuntu:~$ ", "sudo apt install htop"], ["o", "The following NEW packages will be"], ["o", "installed:"], ["o", "  htop"], ["o", "0 upgraded, 1 newly installed.", "ok"], ["o", "Setting up htop ..."], ["c", "niall@ubuntu:~$ ", "sudo apt remove htop"], ["o", "Removing htop ...", "ok"], ["c", "niall@ubuntu:~$ ", "apt search vlc | head -3"], ["o", "vlc/noble  media player", "ok"], ["c", "niall@ubuntu:~$ ", ""]]}, {"n": 5, "t": "Is it healthy?", "d": [["c", "niall@ubuntu:~$ ", "df -h"], ["o", "Filesystem  Size Used Avail Use%"], ["o", "/dev/sda2    233G  41G  180G  19%", "ok"], ["c", "niall@ubuntu:~$ ", "free -h"], ["o", "       total   used   free"], ["o", "Mem:   7.7Gi  2.1Gi  3.9Gi", "ok"], ["o", "Swap:  2.0Gi     0B  2.0Gi"], ["c", "niall@ubuntu:~$ ", "uptime"], ["o", " up 3 days, load average: 0.21", "ok"], ["c", "niall@ubuntu:~$ ", ""]]}, {"n": 6, "t": "Lock the door", "d": [["c", "niall@ubuntu:~$ ", "sudo ufw status"], ["o", "Status: inactive", "e"], ["c", "niall@ubuntu:~$ ", "sudo ufw enable"], ["o", "Firewall is active and enabled", "ok"], ["o", "on system startup", "ok"], ["c", "niall@ubuntu:~$ ", "sudo ufw status"], ["o", "Status: active", "ok"], ["c", "niall@ubuntu:~$ ", ""]]}, {"n": 7, "t": "Who can see it?", "d": [["c", "niall@ubuntu:~$ ", "ls -l notes.txt"], ["o", "-rw-r--r-- 1 niall niall 52 notes.txt"], ["o", "(everyone on the machine can read it)", "w"], ["c", "niall@ubuntu:~$ ", "chmod 600 notes.txt"], ["c", "niall@ubuntu:~$ ", "ls -l notes.txt"], ["o", "-rw------- 1 niall niall 52 notes.txt", "ok"], ["o", "(now only you can)", "ok"], ["c", "niall@ubuntu:~$ ", ""]]}, {"n": 8, "t": "Ask the manual", "d": [["c", "niall@ubuntu:~$ ", "man ls"], ["o", "LS(1)           User Commands"], ["o", "NAME", "ok"], ["o", "       ls - list directory contents"], ["o", "(press q to leave)", "w"], ["c", "niall@ubuntu:~$ ", "ls --help | head -3"], ["o", "Usage: ls [OPTION]... [FILE]..."], ["o", "List information about the FILEs.", "ok"], ["c", "niall@ubuntu:~$ ", ""]]}];
  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
  function sleep(ms){return new Promise(function(r){setTimeout(r,ms)})}
@@ -134,7 +134,7 @@ figure.pit figcaption{font-family:'JetBrains Mono',monospace;font-size:12px;colo
 <tr><td>grep word file</td><td>Find a word in a file.</td></tr>
 <tr><td>sudo apt update</td><td>Refresh the list of available updates.</td></tr>
 <tr><td>sudo apt upgrade</td><td>Install them.</td></tr>
-<tr><td>df -h &nbsp;/&nbsp; free -h</td><td>Disk space, then memory.</td></tr>
+<tr><td>chmod 600 file</td><td>Make a file private to you.</td></tr>\n<tr><td>man ls</td><td>The manual for any command. <code>q</code> quits.</td></tr>\n<tr><td>df -h &nbsp;/&nbsp; free -h</td><td>Disk space, then memory.</td></tr>
 <tr><td>sudo ufw status</td><td>Is the firewall on?</td></tr>
 <tr class="care"><td>rm file</td><td><strong>Deletes for good.</strong> No Trash, no undo. Read twice.</td></tr>
 </tbody></table>
@@ -159,4 +159,40 @@ article a{color:var(--cy)}
 <hr><p class="outro">An Eriu Technology briefing. Awareness and defence only. The terminal is a very good servant and a very literal one.</p>
 </article>
 <footer>Eriu Technology &nbsp;·&nbsp; eriu.tech &nbsp;·&nbsp; Security-awareness briefings<br>Awareness &amp; defence only &nbsp;·&nbsp; No build instructions</footer>
-</div></body></html>
+</div><style>
+.bankbtn{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--cy);background:transparent;border:1px solid rgba(0,219,204,.5);padding:6px 12px;border-radius:6px;cursor:pointer;margin-right:10px}
+.bankbtn:hover{background:rgba(0,219,204,.1)}
+.bankbtn[aria-pressed="true"]{background:rgba(0,219,204,.16);color:#eafcfd}
+header.top .right{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+html.bank .gl{animation:none!important;text-shadow:none!important}
+html.bank .gl::before,html.bank .gl::after{display:none!important}
+html.bank *{animation:none!important;text-shadow:none!important}
+html.bank figure.dia img,html.bank figure.hero a{box-shadow:none!important}
+html.bank figure.hero a{box-shadow:none}
+</style>
+<script>
+(function(){
+  var root=document.documentElement, KEY="eriu-view";
+  function apply(on){
+    root.classList.toggle("bank",on);
+    var b=document.getElementById("bankbtn"); if(b){b.setAttribute("aria-pressed",on?"true":"false");b.textContent=on?"Bank view: on":"Bank view: off";}
+    var hi=document.querySelector("figure.hero img"); if(hi) hi.setAttribute("src",on?"the-gateway-distro-house.png":"the-gateway-distro.png");
+    var ha=document.querySelector("figure.hero a"); if(ha) ha.setAttribute("href",on?"poster-house.html":"poster.html");
+    document.querySelectorAll(".gl").forEach(function(g){g.style.animation=on?"none":"";});
+    try{localStorage.setItem(KEY,on?"bank":"neon");}catch(e){}
+  }
+  function init(){
+    var top=document.querySelector("header.top"), link=top&&top.querySelector(".toplink"); if(!top||!link) return;
+    var wrap=document.createElement("div"); wrap.className="right"; top.insertBefore(wrap,link);
+    var btn=document.createElement("button"); btn.id="bankbtn"; btn.type="button"; btn.className="bankbtn"; btn.setAttribute("aria-pressed","false"); btn.title="Bank view is the calm, no-glitch house style. Switch it off for the neon and glitch version.";
+    btn.addEventListener("click",function(){apply(!root.classList.contains("bank"));});
+    wrap.appendChild(btn); wrap.appendChild(link);
+    var on=true; try{on=localStorage.getItem(KEY)!=="neon";}catch(e){}
+    if(/[?&#]view=neon|#neon/.test(location.href)) on=false;
+    if(/[?&#]view=bank|#bank/.test(location.href)) on=true;
+    apply(on);
+  }
+  if(document.querySelector("header.top")) init(); else document.addEventListener("DOMContentLoaded",init);
+})();
+</script>
+</body></html>

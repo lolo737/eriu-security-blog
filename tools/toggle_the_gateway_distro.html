@@ -1,0 +1,36 @@
+<style>
+.bankbtn{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--cy);background:transparent;border:1px solid rgba(0,219,204,.5);padding:6px 12px;border-radius:6px;cursor:pointer;margin-right:10px}
+.bankbtn:hover{background:rgba(0,219,204,.1)}
+.bankbtn[aria-pressed="true"]{background:rgba(0,219,204,.16);color:#eafcfd}
+header.top .right{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+html.bank .gl{animation:none!important;text-shadow:none!important}
+html.bank .gl::before,html.bank .gl::after{display:none!important}
+html.bank *{animation:none!important;text-shadow:none!important}
+html.bank figure.dia img,html.bank figure.hero a{box-shadow:none!important}
+html.bank figure.hero a{box-shadow:none}
+</style>
+<script>
+(function(){
+  var root=document.documentElement, KEY="eriu-view";
+  function apply(on){
+    root.classList.toggle("bank",on);
+    var b=document.getElementById("bankbtn"); if(b){b.setAttribute("aria-pressed",on?"true":"false");b.textContent=on?"Bank view: on":"Bank view: off";}
+    var hi=document.querySelector("figure.hero img"); if(hi) hi.setAttribute("src",on?"the-gateway-distro-house.png":"the-gateway-distro.png");
+    var ha=document.querySelector("figure.hero a"); if(ha) ha.setAttribute("href",on?"poster-house.html":"poster.html");
+    document.querySelectorAll(".gl").forEach(function(g){g.style.animation=on?"none":"";});
+    try{localStorage.setItem(KEY,on?"bank":"neon");}catch(e){}
+  }
+  function init(){
+    var top=document.querySelector("header.top"), link=top&&top.querySelector(".toplink"); if(!top||!link) return;
+    var wrap=document.createElement("div"); wrap.className="right"; top.insertBefore(wrap,link);
+    var btn=document.createElement("button"); btn.id="bankbtn"; btn.type="button"; btn.className="bankbtn"; btn.setAttribute("aria-pressed","false"); btn.title="Bank view is the calm, no-glitch house style. Switch it off for the neon and glitch version.";
+    btn.addEventListener("click",function(){apply(!root.classList.contains("bank"));});
+    wrap.appendChild(btn); wrap.appendChild(link);
+    var on=true; try{on=localStorage.getItem(KEY)!=="neon";}catch(e){}
+    if(/[?&#]view=neon|#neon/.test(location.href)) on=false;
+    if(/[?&#]view=bank|#bank/.test(location.href)) on=true;
+    apply(on);
+  }
+  if(document.querySelector("header.top")) init(); else document.addEventListener("DOMContentLoaded",init);
+})();
+</script>

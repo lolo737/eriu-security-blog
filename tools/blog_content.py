@@ -589,6 +589,7 @@ POSTS = [
 {
  "slug":"the-gateway-distro",
  "poster_img":"../wurzel-and-the-night-shift/wurzel-photo.jpg",
+ "house_poster":True,
  "title":"The Gateway Distro",
  "ptitle":"THE GATEWAY<br>DISTRO",
  "tagline":"Ubuntu is where it starts. Sudo is where it gets serious.",
