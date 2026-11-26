@@ -107,4 +107,43 @@ figure.dia figcaption{font-family:'JetBrains Mono',monospace;font-size:12px;colo
 <hr><p class="outro">An Eriu Technology briefing. Awareness and defence only. Draw the layers and you won't muddle them again.</p>
 </article>
 <footer>Eriu Technology &nbsp;·&nbsp; eriu.tech &nbsp;·&nbsp; Security-awareness briefings<br>Awareness &amp; defence only &nbsp;·&nbsp; No build instructions</footer>
-</div></body></html>
+</div><style>
+.bankbtn{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--cy);background:transparent;border:1px solid rgba(0,219,204,.5);padding:6px 12px;border-radius:6px;cursor:pointer;margin-right:10px}
+.bankbtn:hover{background:rgba(0,219,204,.1)}
+.bankbtn[aria-pressed="true"]{background:rgba(0,219,204,.16);color:#eafcfd}
+header.top .right{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+html.bank .gl{animation:none!important;text-shadow:none!important}
+html.bank .gl::before,html.bank .gl::after{display:none!important}
+html.bank *{animation:none!important;text-shadow:none!important}
+html.bank figure.dia img,html.bank figure.hero a{box-shadow:none!important}
+html.bank figure.hero a{box-shadow:none}
+</style>
+<script>
+(function(){
+  var root=document.documentElement, KEY="eriu-view";
+  var swaps=[["figure.hero img","host-in-the-shell.png","host-in-the-shell-house.png"],
+    ["figure.hero a","poster.html","poster-house.html"]];
+  var dias=["hypervisors","vm-container","delivery","resources","which-kind"];
+  function apply(on){
+    root.classList.toggle("bank",on);
+    var b=document.getElementById("bankbtn"); if(b){b.setAttribute("aria-pressed",on?"true":"false");b.textContent=on?"Bank view: on":"Bank view: off";}
+    var hi=document.querySelector("figure.hero img"); if(hi) hi.setAttribute("src",on?"host-in-the-shell-house.png":"host-in-the-shell.png");
+    var ha=document.querySelector("figure.hero a"); if(ha) ha.setAttribute("href",on?"poster-house.html":"poster.html");
+    dias.forEach(function(d){var im=document.querySelector('figure.dia img[src^="diagram-'+d+'"]'); if(im) im.setAttribute("src","diagram-"+d+(on?"-house":"")+".svg");});
+    document.querySelectorAll(".gl").forEach(function(g){g.style.animation=on?"none":"";});
+    try{localStorage.setItem(KEY,on?"bank":"neon");}catch(e){}
+  }
+  function init(){
+    var top=document.querySelector("header.top"), link=top&&top.querySelector(".toplink"); if(!top||!link) return;
+    var wrap=document.createElement("div"); wrap.className="right"; top.insertBefore(wrap,link);
+    var btn=document.createElement("button"); btn.id="bankbtn"; btn.type="button"; btn.className="bankbtn"; btn.setAttribute("aria-pressed","false"); btn.title="Calm, no-glitch house style, suitable for showing to a bank or client";
+    btn.addEventListener("click",function(){apply(!root.classList.contains("bank"));});
+    wrap.appendChild(btn); wrap.appendChild(link);
+    var on=false; try{on=localStorage.getItem(KEY)==="bank";}catch(e){}
+    if(/[?&#]view=bank|#bank/.test(location.href)) on=true;
+    apply(on);
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else init();
+})();
+</script>
+</body></html>
