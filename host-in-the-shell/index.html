@@ -136,14 +136,15 @@ html.bank figure.hero a{box-shadow:none}
   function init(){
     var top=document.querySelector("header.top"), link=top&&top.querySelector(".toplink"); if(!top||!link) return;
     var wrap=document.createElement("div"); wrap.className="right"; top.insertBefore(wrap,link);
-    var btn=document.createElement("button"); btn.id="bankbtn"; btn.type="button"; btn.className="bankbtn"; btn.setAttribute("aria-pressed","false"); btn.title="Calm, no-glitch house style, suitable for showing to a bank or client";
+    var btn=document.createElement("button"); btn.id="bankbtn"; btn.type="button"; btn.className="bankbtn"; btn.setAttribute("aria-pressed","false"); btn.title="Bank view is the calm, no-glitch house style. Switch it off for the neon and glitch version.";
     btn.addEventListener("click",function(){apply(!root.classList.contains("bank"));});
     wrap.appendChild(btn); wrap.appendChild(link);
-    var on=false; try{on=localStorage.getItem(KEY)==="bank";}catch(e){}
+    var on=true; try{on=localStorage.getItem(KEY)!=="neon";}catch(e){}
+    if(/[?&#]view=neon|#neon/.test(location.href)) on=false;
     if(/[?&#]view=bank|#bank/.test(location.href)) on=true;
     apply(on);
   }
-  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else init();
+  if(document.querySelector("header.top")) init(); else document.addEventListener("DOMContentLoaded",init);
 })();
 </script>
 </body></html>
