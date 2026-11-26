@@ -590,6 +590,7 @@ POSTS = [
  "slug":"the-gateway-distro",
  "poster_img":"../wurzel-and-the-night-shift/wurzel-photo.jpg",
  "house_poster":True,
+ "sec3_code":[("Update",["sudo apt update","sudo apt upgrade"],"Every week."),("Look around",["pwd","ls","cd Documents"],"Know where you are before you delete."),("Install",["sudo apt install htop"],"From Ubuntu's own repositories first."),("Check health",["df -h","free -h","sudo ufw status"],"Disk, memory, firewall.")],
  "title":"The Gateway Distro",
  "ptitle":"THE GATEWAY<br>DISTRO",
  "tagline":"Ubuntu is where it starts. Sudo is where it gets serious.",
