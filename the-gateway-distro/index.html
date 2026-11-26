@@ -1,0 +1,158 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Gateway Distro — Eriu Technology</title><meta name="description" content="The everyday Ubuntu commands, animated, and the handful of habits that keep a Linux laptop safe."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><style>
+  :root{--cy:#00dbcc;--am:#ffb81a;--rd:#f54447;--gn:#40ea99;--ink:#d7e7ea;--soft:#aec3c7;--mut:#7f969b;--line:rgba(0,219,204,.18);}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:radial-gradient(90% 40% at 50% -5%, rgba(0,219,204,.10), transparent 60%),linear-gradient(180deg,#041216 0%,#02090b 100%);background-attachment:fixed;color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.72;font-size:18px;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:720px;margin:0 auto}
+  header.top{border-bottom:1px solid var(--line);padding:22px 0;margin-bottom:40px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .brand{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--cy)}
+  .brand b{color:var(--ink);font-weight:500}
+  .brand a{color:var(--cy);text-decoration:none}
+  .toplink{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--am);text-decoration:none;border:1px solid rgba(255,184,26,.5);padding:6px 12px;border-radius:6px}
+  .toplink:hover{background:rgba(255,184,26,.1)}
+  h1.title{font-family:'Oswald',sans-serif;font-weight:700;line-height:1.02;font-size:clamp(40px,8vw,64px);letter-spacing:.005em;color:#eafcfd;text-transform:uppercase;margin-bottom:14px}
+  .deck{font-size:21px;color:var(--soft);line-height:1.5;max-width:620px}
+  .byline{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-top:22px}
+  figure.hero{margin:40px 0 8px}
+  figure.hero a{display:block;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 0 50px rgba(0,219,204,.10)}
+  figure.hero img{display:block;width:100%;height:auto}
+  figure.hero figcaption{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mut);margin-top:10px;text-align:center;letter-spacing:.06em}
+  figure.hero a:hover{border-color:rgba(0,219,204,.45)}
+  article{margin-top:46px}
+  article h2{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:27px;color:#eafcfd;margin:46px 0 16px;padding-top:10px}
+  article h2 .num{color:var(--cy);margin-right:10px}
+  article p{margin:0 0 20px;color:var(--ink)}
+  article p.lead{font-size:20px}
+  article em{color:#eef7f8;font-style:italic}
+  article strong{color:#fff}
+  .kicker{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--cy);border:1px solid var(--line);border-radius:5px;padding:4px 10px;margin-bottom:14px}
+  ul{list-style:none;margin:0 0 22px;display:flex;flex-direction:column;gap:11px}
+  ul li{display:block;position:relative;padding-left:24px;color:var(--ink)}
+  ul li::before{content:"\25B8";position:absolute;left:0;top:0;color:var(--am);font-weight:700}
+  ul.danger li::before{color:var(--rd)}ul.defend li::before{color:var(--gn)}
+  body{overflow-x:clip}
+  ol.steps{list-style:none;counter-reset:s;margin:26px 0 22px;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;width:min(1180px,calc(100vw - 48px));position:relative;left:50%;transform:translateX(-50%)}
+  ol.steps li{counter-increment:s;display:block;position:relative;padding:20px 20px 22px;border:1px solid rgba(0,219,204,.35);border-radius:14px;background:linear-gradient(180deg,rgba(0,219,204,.10),rgba(0,219,204,.03));font-size:16px;line-height:1.55}
+  ol.steps li::before{content:counter(s);display:block;font-family:'Oswald',sans-serif;font-weight:700;font-size:44px;line-height:1;color:var(--cy);margin-bottom:10px;text-shadow:0 0 18px rgba(0,219,204,.45)}
+  ol.steps li .lead{display:block;font-family:'Oswald',sans-serif;font-weight:600;font-size:21px;letter-spacing:.03em;text-transform:uppercase;color:#eafcfd;margin-bottom:8px}
+  ol.steps li .rest{color:var(--soft)}
+  @media(max-width:1020px){ol.steps{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){ol.steps{grid-template-columns:1fr}}
+  .callout{border:2px solid var(--rd);background:rgba(245,68,71,.10);border-radius:12px;padding:20px 24px;margin:0 0 26px}
+  .callout b{display:block;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:22px;color:#ffd4d5;margin-bottom:8px}
+  .callout p{margin:0;color:#f3d9da;font-size:17px}
+  table.pb{width:min(1000px,calc(100vw - 48px));position:relative;left:50%;transform:translateX(-50%);border-collapse:separate;border-spacing:0 8px;margin:14px 0 26px}
+  table.pb th{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;text-align:left;padding:2px 16px 4px;color:var(--am)}
+  table.pb th.w{color:#7db4ff}table.pb th.l{color:#ff9a6b}
+  table.pb td{background:rgba(255,184,26,.06);padding:13px 16px;font-size:16px;line-height:1.4;vertical-align:middle}
+  table.pb td:first-child{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#ffe4a6;font-size:17px;border-radius:10px 0 0 10px;width:22%}
+  table.pb td:last-child{border-radius:0 10px 10px 0}
+  table.pb td.m{font-family:'JetBrains Mono',monospace;font-size:14.5px;color:#e6f1f3}
+  table.pb td.w{border-left:3px solid #7db4ff}table.pb td.l{border-left:3px solid #ff9a6b}
+  @media(max-width:620px){table.pb,table.pb tbody,table.pb tr,table.pb td{display:block;width:100%}table.pb thead{display:none}table.pb tr{margin-bottom:12px}table.pb td{border-radius:0!important}table.pb td:first-child{border-radius:10px 10px 0 0!important;width:100%}table.pb td:last-child{border-radius:0 0 10px 10px!important}table.pb td.w::before{content:"Windows  ";color:#7db4ff;font-size:11px;letter-spacing:.15em;text-transform:uppercase}table.pb td.l::before{content:"Linux  ";color:#ff9a6b;font-size:11px;letter-spacing:.15em;text-transform:uppercase}}
+  code{white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:.84em;color:var(--cy);background:rgba(0,219,204,.09);border:1px solid var(--line);border-radius:5px;padding:1px 6px}
+  hr{border:0;border-top:1px solid var(--line);margin:40px 0}
+  .outro{color:var(--soft);font-size:16.5px;font-style:italic}
+  footer{margin-top:54px;padding-top:22px;border-top:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase;line-height:1.8}
+</style><script src="../glitch.js" defer></script></head><body><div class="wrap">
+<header class="top"><div class="brand"><b>Eriu Technology</b> &nbsp;·&nbsp; Security Awareness</div><a class="toplink" href="../">&larr; All briefings</a></header>
+<h1 class="title">The Gateway Distro</h1><p class="deck">The everyday Ubuntu commands, animated, and the handful of habits that keep a Linux laptop safe.</p><div class="byline">Eriu Technology &nbsp;·&nbsp; 26 November 2026</div>
+<figure class="hero"><a href="poster.html"><img src="the-gateway-distro.png" alt="The Gateway Distro poster"></a><figcaption>The one-page briefing. Click for the full-size poster.</figcaption></figure>
+<article>
+<span class="kicker">The gateway drug</span>
+<p class="lead">Ubuntu is the gateway drug. Somebody you love has an old laptop that's barely clinging on, and you can't bring yourself to bin it. So you swap the hard drive for an SSD, put Ubuntu on it, and ten minutes later it boots faster than the day it was bought. You're in. You are now the family IT department, unpaid.</p><p>There's a prettier cousin too, elementary OS, which is Linux wearing a Mac costume. I couldn't remember its name for a good five minutes and kept calling it 'the pretty one'. Underneath, it speaks exactly the same dialect.</p><p>Then one day the friendly icons run out and somebody says <em>just open a terminal</em>. Good news: you need about a dozen commands, and I've animated the lot. The catch, and the reason this is on a security blog, is that every one of them runs with <em>your</em> authority. Learn the commands, and learn which ones to treat with respect.</p>
+<h2>What it actually is</h2><p>Ubuntu is a free, friendly, well-patched operating system, and the terminal is just a way of giving it instructions in writing. Day to day you'll update it, move around its folders, look inside files, install and remove software, and check it's healthy. None of that is hard. The security part is knowing that a terminal does exactly what it's told, as whoever told it.</p>
+<h2><span class="num">01</span>How it works</h2><ol class="steps"><li><span class="lead">Update first</span><span class="rest"><code>sudo apt update</code>, then <code>sudo apt upgrade</code>. Patches are the cheapest defence you'll ever buy.</span></li><li><span class="lead">Look before you act</span><span class="rest"><code>pwd</code> tells you where you are, <code>ls</code> shows what's here. Most disasters start in the wrong folder.</span></li><li><span class="lead">Ask nicely</span><span class="rest"><code>sudo</code> borrows admin power for one command. Read the whole line before you press Enter.</span></li><li><span class="lead">Lock the door</span><span class="rest"><code>sudo ufw enable</code> turns the firewall on. Ubuntu ships with it off.</span></li></ol><p>→ Four habits cover most of an ordinary day, and most of the risk.</p>
+<h2>Six scenes you'll see every week</h2>
+<p>Each one is a real job from a normal week with an old laptop and a new SSD. They play as they scroll into view, and there's a replay under each. <span style="color:var(--mut);font-size:.85em">(Output simplified for the page.)</span></p>
+<div class="gtgrid" id="gtgrid"></div>
+<style>
+.gtgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:22px 0 28px}
+.gtcard{min-width:0}
+.gtcap{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--am);margin-bottom:8px}
+.gtcap b{color:var(--cy);margin-right:8px}
+.gtterm{border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 0 40px rgba(0,0,0,.45)}
+.gtbar{display:flex;align-items:center;gap:6px;padding:8px 11px;background:#4a1b3b;font-family:'JetBrains Mono',monospace;font-size:11px;color:#dfe9ec}
+.gtbar i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28);display:inline-block}
+.gtbar i:first-child{background:#e95420}
+.gtbar span{margin-left:8px;letter-spacing:.04em}
+.gtscr{margin:0;height:272px;overflow:hidden;padding:12px 13px;background:#2c0a22;font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.55;white-space:pre;color:#e6edf0}
+.gtscr .p{color:#8ae234}.gtscr .e{color:#ff7b7b}.gtscr .ok{color:#7be8b4}.gtscr .w{color:#ffd166}
+.gtscr .cur{display:inline-block;width:.55em;height:1em;background:#e6edf0;vertical-align:-2px;animation:gtblink 1s steps(1) infinite}
+@keyframes gtblink{50%{opacity:0}}
+.gtrep{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cy);background:transparent;border:1px solid var(--line);border-radius:6px;padding:6px 12px;cursor:pointer;margin-top:8px}
+.gtrep:hover{border-color:rgba(0,219,204,.5)}
+@media(max-width:720px){.gtgrid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.gtscr .cur{animation:none}}
+</style>
+<script>
+(function(){
+ var SCENES=[{"n": 1, "t": "Keep it patched", "d": [["c", "niall@ubuntu:~$ ", "sudo apt update"], ["o", "[sudo] password for niall:"], ["o", "Hit:1 ie.archive.ubuntu.com noble"], ["o", "Get:2 security.ubuntu.com noble-security"], ["o", "Fetched 1,204 kB in 2s"], ["o", "14 packages can be upgraded.", "ok"], ["c", "niall@ubuntu:~$ ", "sudo apt upgrade"], ["o", "The following will be upgraded:"], ["o", "  firefox libssl3t64 linux-image-generic"], ["o", "14 upgraded, 0 newly installed.", "ok"], ["o", "*** System restart required ***", "w"], ["c", "niall@ubuntu:~$ ", ""]]}, {"n": 2, "t": "Find your feet", "d": [["c", "niall@ubuntu:~$ ", "pwd"], ["o", "/home/niall", "ok"], ["c", "niall@ubuntu:~$ ", "ls"], ["o", "Desktop  Documents  Downloads  Music"], ["c", "niall@ubuntu:~$ ", "cd Documents"], ["c", "niall@ubuntu:~/Documents$ ", "mkdir invoices"], ["c", "niall@ubuntu:~/Documents$ ", "ls"], ["o", "invoices  letter.odt"], ["c", "niall@ubuntu:~/Documents$ ", "cp letter.odt invoices/"], ["o", "(no output means it worked)", "ok"], ["c", "niall@ubuntu:~/Documents$ ", "mv letter.odt old-letter.odt"], ["c", "niall@ubuntu:~/Documents$ ", ""]]}, {"n": 3, "t": "Look inside", "d": [["c", "niall@ubuntu:~$ ", "cat notes.txt"], ["o", "wifi password: on the fridge"], ["o", "buy milk"], ["o", "ring Mam"], ["c", "niall@ubuntu:~$ ", "grep -i wifi notes.txt"], ["o", "wifi password: on the fridge", "ok"], ["c", "niall@ubuntu:~$ ", "wc -l notes.txt"], ["o", "3 notes.txt"], ["c", "niall@ubuntu:~$ ", "find ~ -name \"*.pdf\""], ["o", "/home/niall/Documents/march.pdf", "ok"], ["o", "/home/niall/Downloads/manual.pdf", "ok"], ["c", "niall@ubuntu:~$ ", ""]]}, {"n": 4, "t": "Install and remove", "d": [["c", "niall@ubuntu:~$ ", "sudo apt install htop"], ["o", "The following NEW packages will be"], ["o", "installed:"], ["o", "  htop"], ["o", "0 upgraded, 1 newly installed.", "ok"], ["o", "Setting up htop ..."], ["c", "niall@ubuntu:~$ ", "sudo apt remove htop"], ["o", "Removing htop ...", "ok"], ["c", "niall@ubuntu:~$ ", "apt search vlc | head -3"], ["o", "vlc/noble  media player", "ok"], ["c", "niall@ubuntu:~$ ", ""]]}, {"n": 5, "t": "Is it healthy?", "d": [["c", "niall@ubuntu:~$ ", "df -h"], ["o", "Filesystem  Size Used Avail Use%"], ["o", "/dev/sda2    233G  41G  180G  19%", "ok"], ["c", "niall@ubuntu:~$ ", "free -h"], ["o", "       total   used   free"], ["o", "Mem:   7.7Gi  2.1Gi  3.9Gi", "ok"], ["o", "Swap:  2.0Gi     0B  2.0Gi"], ["c", "niall@ubuntu:~$ ", "uptime"], ["o", " up 3 days, load average: 0.21", "ok"], ["c", "niall@ubuntu:~$ ", ""]]}, {"n": 6, "t": "Lock the door", "d": [["c", "niall@ubuntu:~$ ", "sudo ufw status"], ["o", "Status: inactive", "e"], ["c", "niall@ubuntu:~$ ", "sudo ufw enable"], ["o", "Firewall is active and enabled", "ok"], ["o", "on system startup", "ok"], ["c", "niall@ubuntu:~$ ", "sudo ufw status"], ["o", "Status: active", "ok"], ["c", "niall@ubuntu:~$ ", ""]]}];
+ var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+ function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+ function sleep(ms){return new Promise(function(r){setTimeout(r,ms)})}
+ function line(l){return l[0]=='c'?'<span class="p">'+esc(l[1])+'</span>'+esc(l[2]):(l[2]?'<span class="'+l[2]+'">'+esc(l[1])+'</span>':esc(l[1]))}
+ function full(el,seq){el.innerHTML=seq.map(line).join('\n')+'<span class="cur"></span>'}
+ var grid=document.getElementById('gtgrid');
+ SCENES.forEach(function(sc){
+  var card=document.createElement('div');card.className='gtcard';
+  card.innerHTML='<div class="gtcap"><b>'+sc.n+'</b>'+esc(sc.t)+'</div><div class="gtterm"><div class="gtbar"><i></i><i></i><i></i><span>niall@ubuntu: ~</span></div><pre class="gtscr"></pre></div><button class="gtrep" type="button">&#8635; Replay</button>';
+  grid.appendChild(card);
+  var el=card.querySelector('pre'),btn=card.querySelector('button'),run=0;
+  async function play(){
+   var id=++run,h='';el.innerHTML='<span class="cur"></span>';await sleep(350);
+   for(var i=0;i<sc.d.length;i++){
+    if(id!==run)return;var l=sc.d[i];
+    if(l[0]=='c'){h+='<span class="p">'+esc(l[1])+'</span>';
+     for(var j=0;j<l[2].length;j++){if(id!==run)return;h+=esc(l[2][j]);el.innerHTML=h+'<span class="cur"></span>';await sleep(55+Math.random()*50)}
+     if(i<sc.d.length-1){h+='\n';el.innerHTML=h+'<span class="cur"></span>';await sleep(380)}}
+    else{h+=line(l)+'\n';el.innerHTML=h+'<span class="cur"></span>';await sleep(220)}
+   }
+  }
+  if(reduce){full(el,sc.d);btn.style.display='none';return}
+  full(el,[sc.d[0]]);
+  btn.addEventListener('click',play);
+  if('IntersectionObserver' in window){var seen=false,io=new IntersectionObserver(function(en){if(en[0].isIntersecting&&!seen){seen=true;play();io.disconnect()}},{threshold:.4});io.observe(card)}else play();
+ });
+})();
+</script>
+<h2>Four to keep in your head</h2><p>If you remember nothing else from the animations, remember these:</p><ul><li><strong>Update</strong> — sudo apt update, then sudo apt upgrade, every week.</li><li><strong>Look around</strong> — pwd, ls and cd. Know where you are before you delete.</li><li><strong>Install</strong> — sudo apt install, from Ubuntu's own repositories first.</li><li><strong>Check health</strong> — df -h for disk, free -h for memory, sudo ufw status.</li></ul>
+<h2>The one-page cheat sheet</h2>
+<p>Print it, stick it inside the lid, and let the muscle memory build. Two tricks worth more than any command: press <code>Tab</code> to finish a file name for you, and press the <code>&uarr;</code> key to bring back the last command.</p>
+<table class="cs"><thead><tr><th>Command</th><th>What it does</th></tr></thead><tbody>
+<tr><td>pwd</td><td>Where am I?</td></tr>
+<tr><td>ls</td><td>What's in here?</td></tr>
+<tr><td>cd Documents</td><td>Go into a folder. <code>cd ..</code> goes back up.</td></tr>
+<tr><td>mkdir name</td><td>Make a new folder.</td></tr>
+<tr><td>cp a b</td><td>Copy a file.</td></tr>
+<tr><td>mv a b</td><td>Move it, or rename it.</td></tr>
+<tr><td>cat file</td><td>Show what's inside a file.</td></tr>
+<tr><td>grep word file</td><td>Find a word in a file.</td></tr>
+<tr><td>sudo apt update</td><td>Refresh the list of available updates.</td></tr>
+<tr><td>sudo apt upgrade</td><td>Install them.</td></tr>
+<tr><td>df -h &nbsp;/&nbsp; free -h</td><td>Disk space, then memory.</td></tr>
+<tr><td>sudo ufw status</td><td>Is the firewall on?</td></tr>
+<tr class="care"><td>rm file</td><td><strong>Deletes for good.</strong> No Trash, no undo. Read twice.</td></tr>
+</tbody></table>
+<figure class="wz"><img src="../wurzel-and-the-night-shift/wurzel-photo.jpg" alt="Wurzel, a vintage tin toy robot with a spring for hair and a grille for a mouth"><figcaption>Wurzel, supervising. If a command makes his grille mouth go tight, read it again.</figcaption></figure>
+<p>And if you'd like the Mac look without the Mac price, have a go at <a href="https://elementary.io/" target="_blank" rel="noopener noreferrer">elementary OS</a>. Different wallpaper, same terminal, same commands, same rules.</p>
+<style>
+table.cs{width:100%;border-collapse:separate;border-spacing:0 6px;margin:14px 0 26px}
+table.cs th{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;text-align:left;padding:2px 14px 4px;color:var(--am)}
+table.cs td{background:rgba(255,184,26,.06);padding:10px 14px;font-size:16px;line-height:1.4;vertical-align:middle}
+table.cs td:first-child{font-family:'JetBrains Mono',monospace;font-size:14px;color:#e6f1f3;white-space:nowrap;border-radius:10px 0 0 10px;border-left:3px solid var(--cy);width:38%}
+table.cs td:last-child{border-radius:0 10px 10px 0}
+table.cs tr.care td{background:rgba(245,68,71,.12)}table.cs tr.care td:first-child{border-left-color:var(--rd)}
+@media(max-width:560px){table.cs td:first-child{white-space:normal;width:44%}}
+figure.wz{margin:30px auto 28px;max-width:300px;text-align:center}
+figure.wz img{display:block;width:100%;height:auto;border-radius:50%;border:2px solid rgba(0,219,204,.45);box-shadow:0 0 40px rgba(0,219,204,.18)}
+figure.wz figcaption{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mut);margin-top:12px;letter-spacing:.04em;line-height:1.5}
+article a{color:var(--cy)}
+</style>
+<div class="callout"><b>Never paste what you haven't read</b><p>A command from a forum reply or a video comment runs with your authority, and with sudo in front it runs as the boss of the machine. Read it, work out what every part does, and if you can't, don't run it. Be warier still of anything that pipes a download straight into a shell.</p></div>
+<h2><span class="num">02</span>Why it's dangerous</h2><ul class="danger"><li><strong>Sudo is the master key.</strong> One careless line with sudo in front can change or wipe almost anything, and it won't ask twice.</li><li><strong>Pasted commands run as you.</strong> The terminal can't tell a helpful tip from a hostile one. It just does it.</li><li><strong>Old Ubuntu is a known target.</strong> Each LTS release gets five years of free security updates. After that, the holes stay open.</li><li><strong>rm has no bin.</strong> Delete from the terminal and it's gone. There's no Trash to rescue you.</li></ul>
+<h2><span class="num">03</span>How you stop it</h2><ul class="defend"><li><strong>Update weekly,</strong> and move off a release before its support runs out.</li><li><strong>Read before you run.</strong> Know what every word and flag does, especially after sudo.</li><li><strong>Use a normal account</strong> and let sudo ask when it's genuinely needed. Don't live as root.</li><li><strong>Turn the firewall on:</strong> <code>sudo ufw enable</code>, then check it with <code>sudo ufw status</code>.</li><li><strong>Encrypt the disk when you install,</strong> keep a backup, and wipe the old drive before it leaves your hands.</li></ul>
+<hr><p class="outro">An Eriu Technology briefing. Awareness and defence only. The terminal is a very good servant and a very literal one.</p>
+</article>
+<footer>Eriu Technology &nbsp;·&nbsp; eriu.tech &nbsp;·&nbsp; Security-awareness briefings<br>Awareness &amp; defence only &nbsp;·&nbsp; No build instructions</footer>
+</div></body></html>
