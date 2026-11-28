@@ -192,11 +192,15 @@ def md(p):
     out += "## %s\n\n" % p["intro_kicker"]
     out += "\n\n".join(p["intro"]) + "\n\n"
     out += "## What it actually is\n\n%s\n\n" % p["what"]
+    if p.get("casefile"):
+        out += "## %s\n\n%s\n\n" % (p.get("casefile_label","The case files"), p.get("casefile_intro","")) + "\n\n".join("**%s.** %s" % (a,t) for a,t in p["casefile"]) + "\n\n"
     out += "## How it works\n\n" + "\n".join("%d. %s" % (i+1,s) for i,s in enumerate(p["steps"])) + "\n\n%s\n\n" % p["outcome"]
     out += "## %s\n\n%s\n\n" % (p["sec3_label"], p["sec3_intro"]) + "\n".join("- **%s** — %s" % (l,c) for l,c in p["examples"]) + "\n\n"
     out += "## ⚠ %s\n\n%s\n\n" % (p["alert_title"], p["alert_body"])
     out += "## Why it's dangerous\n\n" + "\n".join("- %s" % x for x in p["danger"]) + "\n\n"
     out += "## How you stop it\n\n" + "\n".join("- %s" % x for x in p["defend"]) + "\n\n"
+    if p.get("sources"):
+        out += "## Sources\n\n" + "\n".join("- [%s](%s)" % (t,u) for t,u in p["sources"]) + "\n\n"
     out += "---\n\n*%s*\n" % p["outro"]
     return out
 
@@ -209,6 +213,17 @@ for p in POSTS:
     d = os.path.join(OUT, p["slug"]); os.makedirs(d, exist_ok=True)
     pass
     art = article_html(p)
+    if p.get("casefile"):
+        cf = '<h2>' + to_html(p.get("casefile_label","The case files")) + '</h2><p>' + to_html(p.get("casefile_intro","")) + '</p><div class="cases">' + "".join('<div class="case"><h3>%s</h3><p>%s</p></div>' % (to_html(a), to_html(t)) for a,t in p["casefile"]) + '</div>'
+        cfcss = '<style>.cases{margin:8px 0 30px}.case{border-left:3px solid var(--cy,#00dbcc);padding:2px 0 2px 18px;margin:0 0 22px}.case h3{font-family:Oswald,sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:19px;color:#eafcfd;margin:0 0 6px}.case p{margin:0;font-size:17px}.srcs{font-size:14px;color:#8aa0a6;line-height:1.7}.srcs a{color:#00dbcc}</style>'
+        mk = '<h2><span class="num">01</span>How it works</h2>'
+        assert mk in art
+        art = art.replace(mk, cfcss + cf + mk, 1)
+    if p.get("sources"):
+        sr = '<h2>Sources</h2><ul class="srcs">' + "".join('<li><a href="%s">%s</a></li>' % (u, to_html(t)) for t,u in p["sources"]) + '</ul>'
+        mk = '<hr><p class="outro">'
+        assert mk in art
+        art = art.replace(mk, sr + mk, 1)
     poster = poster_html(p)
     if p.get("phrasebook"):
         tbl = pb_table(p)

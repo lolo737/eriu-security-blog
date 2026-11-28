@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import html
-exec(open("/home/claude/blog_content.py").read())
+exec(open("/home/claude/eriu-security-blog/tools/blog_content.py").read())
 
 def esc(s): return html.escape(s, quote=False)
 

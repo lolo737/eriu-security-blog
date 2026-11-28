@@ -1,5 +1,5 @@
 const { chromium } = require('playwright');
-const slugs = ["wire-and-deceit","the-phish-and-chips","held-to-ransom","keys-to-the-kingdom",
+const slugs = process.argv.length>2 ? process.argv.slice(2) : ["wire-and-deceit","the-phish-and-chips","held-to-ransom","keys-to-the-kingdom",
   "the-voice-on-the-phone","the-leaving-do","cloudy-with-a-chance-of-breach","shadow-it",
   "patch-or-perish","the-lost-laptop","the-smart-office","gdpr-for-the-terrified"];
 (async () => {
