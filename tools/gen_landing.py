@@ -16,6 +16,10 @@ cards = [
 for p in POSTS:
     cards.append(("./%s/"%p["slug"], "./%s/%s.png"%(p["slug"],p["slug"]), p["title"], p["tagline"], p["subtitle"]))
 
+# Pinned order: newest briefing first, with "Command Not Found" directly underneath it.
+_pin = ["./you-couldnt-make-it-up-if-you-tried/", "./command-not-found/"]
+cards = [c for k in _pin for c in cards if c[0] == k] + [c for c in cards if c[0] not in _pin]
+
 card_html = ""
 for href,thumb,title,sub,hook in cards:
     card_html += ('<a class="card" href="%s"><div class="thumb"><img src="%s" alt="%s poster" loading="lazy"></div>'
