@@ -200,7 +200,7 @@ def md(p):
     out += "## Why it's dangerous\n\n" + "\n".join("- %s" % x for x in p["danger"]) + "\n\n"
     out += "## How you stop it\n\n" + "\n".join("- %s" % x for x in p["defend"]) + "\n\n"
     if p.get("sources"):
-        out += "## Sources\n\n" + "\n".join("- [%s](%s)" % (t,u) for t,u in p["sources"]) + "\n\n"
+        out += "## Sources\n\n" + "\n".join(("- [%s](%s)" % (t,u)) if u else ("- %s" % t) for t,u in p["sources"]) + "\n\n"
     out += "---\n\n*%s*\n" % p["outro"]
     return out
 
@@ -220,7 +220,7 @@ for p in POSTS:
         assert mk in art
         art = art.replace(mk, cfcss + cf + mk, 1)
     if p.get("sources"):
-        sr = '<h2>Sources</h2><ul class="srcs">' + "".join('<li><a href="%s">%s</a></li>' % (u, to_html(t)) for t,u in p["sources"]) + '</ul>'
+        sr = '<h2>Sources</h2><ul class="srcs">' + "".join(('<li><a href="%s">%s</a></li>' % (u, to_html(t))) if u else ('<li>%s</li>' % to_html(t)) for t,u in p["sources"]) + '</ul>'
         mk = '<hr><p class="outro">'
         assert mk in art
         art = art.replace(mk, sr + mk, 1)
