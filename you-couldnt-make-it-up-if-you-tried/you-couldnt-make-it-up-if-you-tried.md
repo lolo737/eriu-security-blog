@@ -1,12 +1,12 @@
 ---
-title: "The Big Wobble"
+title: "You couldn't make it up if you tried."
 description: What actually happened to the CIA, FBI, NSA, FinCEN and friends in November 2026, what caused each one, and what it means for your office.
 author: Eriu Technology
 date: 2026-11-28
 tags: [security-awareness, smb-security]
 ---
 
-![The Big Wobble poster](./the-big-wobble.png)
+![You couldn't make it up if you tried. poster](./you-couldnt-make-it-up-if-you-tried.png)
 
 ## One bad week, lined up
 
@@ -24,11 +24,11 @@ There isn't one big attack here. There's a cluster: some confirmed intrusions, s
 
 The Open-Source Intelligence System isn't an agency in its own right. It's the shared system at the heart of the CIA story, so it gets its own entry. Everything here is sourced from news reports; where something is unconfirmed, it says so.
 
-**1. US Air Force.** Reuters reported on 27 November that hackers got into Cloud One, the Air Force's flagship cloud platform. The intrusion was reportedly found within the past month during an upgrade, and it disrupted application migrations and software updates. One source told Reuters the attackers used an unidentified software vulnerability, which means a flaw nobody had fixed (or perhaps even named). Who did it, and what they saw, hasn't been made public. Sensitive operational and logistics information could have been exposed.
+**1. US Air Force.** Reuters reported on 27 November, citing three people familiar with the matter (five sources in all, every one anonymous), that hackers had breached Cloud One, the Air Force's flagship cloud platform. It was found within the past month or so during work to upgrade the system. The fallout paused efforts to move back-office applications onto it, blocked updates to apps already running (so staff couldn't apply fixes just as a new batch of serious software vulnerabilities was disclosed), and left some users with their administrator rights revoked. One source said the intruders exploited a software vulnerability to reach the platform's control plane, which they likened to a universal remote. Reuters couldn't identify the vulnerability, the hackers, the full scope, or whether anything was stolen. The Air Force said it doesn't comment on the security of specific networks, and investigators have reportedly called in Cyber Command to assess the damage.
 
-**2. Central Intelligence Agency.** On 24 November the New York Times reported that attackers had broken into an unclassified CIA system used to analyse public and commercially available information. No classified systems were affected, and a source said the matter has been resolved. A person familiar with the case said an AI-driven hacking framework called ARTEX was believed to have been used. Nobody has said who was behind it or how they got in, and the CIA declined to comment.
+**2. Central Intelligence Agency.** On 24 November the New York Times reported that attackers had broken into an unclassified CIA system used to analyse public and commercially available information. Nextgov, citing a person familiar with the matter, says classified systems were not affected and the matter has been resolved. A person familiar with the case said an AI-driven hacking framework called ARTEX was believed to have been used. Nobody has said who was behind it or how they got in, and the CIA declined to comment.
 
-**3. Federal Bureau of Investigation.** CNN reported around 20 November that the FBI was investigating an apparent breach of the National Crime Information Center, the database police across the US use to check warrants, missing persons, stolen vehicles and firearms. It was the second reported FBI incident in two months. The first, in September, hit a jobs portal and was claimed by a group called ShinyHunters, who said they'd taken staff data. For the NCIC, the FBI is still working out how the intruders got in and what, if anything, was taken. A retired agent warned that altered records could put officers at risk at traffic stops, but that is a concern, not something reported to have happened.
+**3. Federal Bureau of Investigation.** CNN reported around 20 November, citing two people briefed on it, that the FBI was investigating an apparent breach of the National Crime Information Center, the database police across the US use to check warrants and background checks. It's the second such FBI breach in recent months. In September a group called ShinyHunters hit an FBI jobs website and went after employee personal data. Nextgov says Donald Trump and other officials have since acknowledged the NCIC hack. How the intruders got in, and what they took, hasn't been made public. A former FBI cybercrime investigator told CNN his worry isn't only access: it's whether hackers could compromise the accuracy of the records officers rely on. That is a concern, not something reported to have happened.
 
 **4. Office of the Director of National Intelligence.** ODNI shares the CIA's open-source system and was named alongside it. An ODNI official said there were no disruptions to critical capabilities or classified systems. The cause is the same as the CIA case: unknown entry route, suspected AI tooling, no confirmed culprit.
 
@@ -40,7 +40,7 @@ The Open-Source Intelligence System isn't an agency in its own right. It's the s
 
 **8. Treasury: FinCEN.** The Financial Crimes Enforcement Network announced on 24 November that someone had gained unauthorised access to 'a limited subset' of its systems. It took some systems offline as a precaution, kept its Bank Secrecy Act filing portal running, and extended deadlines for affected filers. Investigators currently see no evidence that the main suspicious-activity reports database or the company-ownership database were breached. FinCEN hasn't said how the intruder got in, and no group has claimed it.
 
-**9. National Security Agency.** This one wasn't a hack. On 17 November the NSA's internal classified network went down, staff were told to come in at staggered times, and the agency said it was 'temporary degradation during scheduled routine maintenance'. The Director of National Intelligence, Jay Clayton, said it came from patching software after a PHP vulnerability was found the month before, and that some systems didn't come back up as expected. Officials said there was no evidence of a cyberattack. The NSA stayed operational throughout, but the episode is still a good example of how a fix can break things.
+**9. National Security Agency.** This one wasn't a hack. On 17 November the NSA's internal classified network went down, staff were told to come in at staggered times, and the agency said it was 'temporary degradation during scheduled routine maintenance'. The Director of National Intelligence, Jay Clayton, said it came from patching software after a PHP vulnerability was found the month before, and that some systems didn't come back up as expected. Officials said there was no evidence of a cyberattack. Nextgov reports it resumed normal operations on Friday 20 November after a three-day disruption. The NSA stayed operational throughout, but it's still a good example of how a fix can break things.
 
 ## How it works
 
@@ -81,6 +81,7 @@ Apply security updates quickly, because attackers' tools get faster every month.
 
 ## Sources
 
+- [Reuters: Hackers breach US Air Force flagship Cloud One computing platform](https://www.reuters.com/world/hackers-breach-us-air-force-flagship-cloud-one-computing-platform-2026-11-27/)
 - [BleepingComputer: US Air Force cloud platform reportedly hacked](https://www.bleepingcomputer.com/news/security/us-air-force-cloud-platform-reportedly-hacked-in-latest-federal-breach/)
 - [Nextgov: CIA, ODNI unclassified intelligence system hacked](https://www.nextgov.com/cybersecurity/2026/11/cia-odni-unclassified-intelligence-system-hacked/417438/)
 - [Gizmodo: U.S. spying agencies reportedly hacked](https://gizmodo.com/u-s-spying-agencies-reportedly-hacked-2000845088)
